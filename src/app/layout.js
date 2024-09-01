@@ -1,47 +1,19 @@
 import localFont from "next/font/local";
-// import { Montserrat } from "next/font/google";
-import Link from "next/link";
 
-// These styles apply to every route in the application
-import "./global.css";
-import styles from "./rootStyle.module.css";
+import "./globals.css";
 
 const myFont = localFont({ src: "./NeueMontreal-Light.otf" });
 
-// const montserrat = Montserrat({
-//   subsets: ["latin"],
-//   weight: ["400"],
-// });
+export const metadata = {
+  title: "Ivan Inozemtsev | UX/UI Designer Portfolio - Creating Visual Solutions that Inspire the World",
+  description: "Welcome to the portfolio of Ivan Inozemtsev, a UX/UI designer and Illustrator focused on creating visually appealing and user-friendly digital products.",
+}
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={myFont.className}>
       <head />
-      <body>
-        <header>
-          <h1>
-            <Link className={styles.homeLink} href={"/home"}>
-              GLOBOMANTICS
-            </Link>
-          </h1>
-          <h3>
-            <Link className={styles.menuBarLinks} href="/blog">
-              Blog
-            </Link>
-          </h3>
-          <h3>
-            <Link className={styles.menuBarLinks} href="/settings">
-              Settings
-            </Link>
-          </h3>
-          <h3>
-            <Link className={styles.menuBarLinks} href="/conference">
-              Conference
-            </Link>
-          </h3>
-        </header>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
