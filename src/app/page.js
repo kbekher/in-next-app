@@ -1,15 +1,14 @@
-"use client";
-import Header from "../components/header";
+'use client';
 
-import Spline from "@splinetool/react-spline";
+import HeroSection from '../components/HeroSection/HeroSection';
 
 export default function Home() {
   return (
-    <div>
-      <Header />
+    <div className=''>
+      <HeroSection />
 
-      <div className="h-[100vh] flex justify-start items-start">
-        <Spline scene="https://prod.spline.design/liDjqaY-i3BfRC2o/scene.splinecode" />
+      <div className='h-[1400px] w-full'>
+        hello 
       </div>
     </div>
   );

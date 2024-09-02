@@ -1,0 +1,95 @@
+/* @import '../../styles/utils';
+
+.switch-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin: auto;
+
+  & .switch-outer {
+    @extend %button-nav;
+    padding: 0;
+    position: relative;
+    width: 94px;
+
+    &:hover {
+      background-color: $color-black-opacity;
+    }
+
+    @include onDesktop {
+      width: 104px;
+    }
+
+    @include onLargeScreen {
+      width: 150px;
+    }
+
+    & input[type="checkbox"] {
+      opacity: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      position: absolute;
+    }
+
+    & .button-toggle {
+      position: absolute;
+      top: 0;
+      border-radius: $border-radius-btn;
+      opacity: $opacity;
+
+      width: 51px;
+      height: 46px;
+
+      background-color: $color-black-opacity-hover;
+
+      -webkit-transition: left 0.3s ease-in;
+      -o-transition: left 0.3s ease-in;
+      transition: left 0.3s ease-in;
+
+      &--left {
+        left: 0;
+      }
+
+      &--right {
+        right: 0;
+      }
+
+      @include onDesktop {
+        width: 57px;
+        height: 39px;
+      }
+
+      @include onLargeScreen {
+        width: 81px;
+        height: 61px;
+      }
+    }
+
+    & .button-lang {
+      height: 100%;
+      width: 50%;
+      text-transform: uppercase;
+      font-size: 14px;
+      cursor: pointer;
+      position: relative;
+      border-radius: $border-radius-btn;
+
+      &--en {
+        left: 2px;
+      }
+
+      &--de {
+        right: 2px;
+      }
+
+      @include onLargeScreen{
+        font-size: 20px;
+      }
+    }
+  }
+} */

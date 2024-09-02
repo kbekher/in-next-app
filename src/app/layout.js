@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={myFont.className}>
       <head />
-      <body>{children}</body>
+      <body  className="w-full h-full">{children}</body>
     </html>
   );
 }
