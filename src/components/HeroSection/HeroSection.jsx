@@ -1,12 +1,24 @@
 'use client';
 
 import Spline from '@splinetool/react-spline';
+import { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import Header from '../Header/Header';
+import Navbar from '../Navbar/Navbar';
+import SayHello from '../SayHello/SayHello';
 
 const HeroSection = () => {
-  const isDesktop = useMediaQuery({ minWidth: 768 });
+  // Local state to track whether it's a desktop
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // Only run the media query on the client side
+  const isDesktopQuery = useMediaQuery({ minWidth: 768 });
+
+  useEffect(() => {
+    // Set the state after the component mounts
+    setIsDesktop(isDesktopQuery);
+  }, [isDesktopQuery]);
 
   return (
     <div className='relative h-[100vh] w-full flex flex-col pt-[60px] px-5 pb-[36px] md:pt-10 md:px-20 md:pb-[70px]'>
@@ -24,12 +36,25 @@ const HeroSection = () => {
           Creating Visual Solutions that Inspire the World
         </h1>
 
-        <div className='max-w-max ml-auto'>
-        {/* <div> */}
-        {/* {!isDesktop && <Navbar />} */}
+        <div className='flex flex-wrap gap-3 md:block w-full md:max-w-max fixed bottom-9 left-[50%] -translate-x-1/2 md:static box-border'>
 
-          Language Toggle
+          {!isDesktop && (
+            <>
+              <div className='md:hidden basis-full'>
+                <Navbar />
+              </div>
+
+              <div className='md:hidden flex-grow flex justify-end'>
+                <SayHello />
+              </div>
+            </>
+            )}
+
+          <div className='flex-grow'>
+            Language Toggle
+          </div>
         </div>
+
       </div>
     </div>
   );

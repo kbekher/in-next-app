@@ -6,6 +6,9 @@ module.exports = {
       zIndex: {
         '-1': '-1',
       },
+      translate: {
+        '-1/2': '-50%',
+      },
     },
   },
   plugins: [],

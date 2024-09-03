@@ -1,0 +1,126 @@
+// @import '../../styles/utils';
+
+// .Hello {
+//   background-color: $color-gray-dark;
+//   position: fixed;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 100;
+//   overflow: hidden;
+
+//   &.animate__fadeIn,
+//   &.animate__fadeOut {
+//     visibility: visible;
+//   }
+
+//   &__content {
+//     height: 100%;
+//     box-sizing: border-box;
+//     padding-top: 42px;
+//     display: flex;
+//     flex-direction: column;
+
+//     @include onDesktop {
+//       padding-top: 48px;
+//       position: relative;
+//     }
+
+//     @include onLargeScreen {
+//       padding-top: 88px;
+//     }
+//   }
+
+//   &__closeBtn {
+//     align-self: flex-end;
+//     cursor: pointer;
+
+//     & path,
+//     & rect {
+//       transition: $transition;
+//     }
+
+//     &:hover,
+//     &:active {
+//       path,
+//       rect {
+//         stroke: rgba(255, 255, 255, 0.5);
+//       }
+//     }
+
+//     &:disabled {
+//       path,
+//       rect {
+//         stroke: $color-gray-light;
+//       }
+//     }
+    
+//     & svg {
+//       @include onLargeScreen {
+//         @include square(60px);
+//       }
+//     }
+//   }
+
+//   &__textContent {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-self: center;
+//     text-align: center;
+
+//     position: absolute;
+//     top: 50%;
+//     transform: translateY(-50%);
+//   }
+
+//   &__text {
+//     font-size: 20px;
+//     line-height: 34px;
+//     margin-bottom: 10px;
+
+//     @include onDesktop {
+//       font-size: 20px;
+//       margin-bottom: 4px;
+//     }
+
+//     @include onLargeScreen {
+//       font-size: 32px;
+//     }
+//   }
+
+//   &__email {
+//     font-size: 24px;
+//     font-family: 500;
+//     position: relative;
+
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       bottom: -2px;
+//       left: 0;
+//       width: 100%;
+//       height: 2px;
+//       background-color: $color-white;
+//       transition: $transition;
+//     }
+
+//     @include onDesktop {
+//       font-size: 80px;
+//       text-decoration: none;
+
+//       &::after {
+//         width: 0;
+//       }
+
+//       &:hover::after {
+//         width: 100%;
+//       }
+//     }
+
+//     @include onLargeScreen {
+//       // font-size: 98px;
+//     }
+//   }
+
+// }
