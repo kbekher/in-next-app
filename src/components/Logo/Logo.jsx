@@ -24,6 +24,7 @@ const Logo = ({ width, height, isClickable = false }) => {
         placeholder='blur'
         width={width}
         height={height}
+        draggable="false"
         style={{
           objectFit: "contain",
           objectPosition: "center",

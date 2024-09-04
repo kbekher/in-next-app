@@ -4,9 +4,6 @@ import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 // import { useTranslation } from 'react-i18next';
 
-// import './Hello.scss';
-// import { LayerContext } from '../../LayerContext';
-
 function MyModal({ isOpen, closeModal }) {
   return (
     <Dialog open={isOpen} onClose={closeModal} className="relative z-50">
@@ -39,10 +36,7 @@ const SayHello = () => {
   // const { t } = useTranslation();
   const [isLayerOpen, setIsLayerOpen] = useState(false);
 
-  // Function to toggle overlay visibility
-  const toggleOverlay = () => {
-    setIsLayerOpen(!isLayerOpen);
-  };
+  const toggleOverlay = () => { setIsLayerOpen(!isLayerOpen) };
 
   return (
     <div>
@@ -54,9 +48,7 @@ const SayHello = () => {
         {/* {t("contact")} */} Say Hello
       </button>
 
-      {/* Modal Component */}
       <MyModal isOpen={isLayerOpen} closeModal={toggleOverlay} />
-
     </div>
   );
 };
