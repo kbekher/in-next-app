@@ -15,7 +15,7 @@ const Logo = ({ width, height, isClickable = false }) => {
 
   return (
     <div
-      className='max-w-max cursor-pointer'
+      className='w-[110px]'
       onClick={isClickable ? handleLogoClick : undefined}
     >
       <Image
@@ -27,6 +27,7 @@ const Logo = ({ width, height, isClickable = false }) => {
         style={{
           objectFit: "contain",
           objectPosition: "center",
+          cursor: isClickable ? "pointer" : "auto",
         }}
       />
     </div>
