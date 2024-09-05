@@ -30,10 +30,6 @@ const Homepage = () => {
       <main className={myFont.className}>
         <div className='w-full h-full'>
           <HeroSection />
-        
-          <div className='h-[1400px] w-full'>
-            Other content
-          </div>
         </div>
       </main>
     </>
