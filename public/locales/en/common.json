@@ -1,0 +1,49 @@
+{
+  "h1": "Creating Visual Solutions that Inspire the World",
+  "nav": {
+    "about": "About me",
+    "portfolio": "Portfolio",
+    "connect": "Connect"
+  },
+  "hello": {
+    "btn": "Say hello",
+    "p": "Don't be shy!"
+  },
+  "hero": {
+    "titleP1": "Unlocking Creativity Through",
+    "titleP2": "and",
+    "intro": "Hi! My name is Ivan. I'm a UX/UI designer, graphic designer, and illustrator. I love creating beautiful and user-friendly designs. Let's create something amazing together!"
+  },
+  "buttons": {
+    "behance": "View on Behance",
+    "website": "View Website",
+    "join": "Join"
+  },
+  "projects": {
+    "project1": {
+      "title": "Reflecting Style: Web Design for Ace and Tate",
+      "description": "Designed with the latest trends in design and user interface in mind, our web design transforms Ace and Tate's online presence into a source of inspiration and comfort for visitors."
+    },
+    "project2": {
+      "title": "Xtrafit: Effective Design for Optimal Workout Experience",
+      "description": "Designed a new look for the Xtrafit gym app to make it easier to use, with a modern and easy-to-understand layout. Added colorful images and made it simple to find workouts and other gym services, making it more enjoyable for users."
+    },
+    "project3": {
+      "title": "Illustrations bringing ideas to life",
+      "description": "Illustrations embody unique visuals. I create illustrations that depict the essence of your idea or product."
+    }
+  },
+  "bio": {
+    "title": "About me",
+    "p1": "Hi there! I'm Ivan, a UX/UI designer, graphic designer, and illustrator. I create unique, user-friendly interfaces that make brands and products stand out.",
+    "p2": "Starting as a graphic designer, I crafted logos and corporate identities. Now, I focus on intuitive UX/UI designs and express my creativity through illustration.",
+    "p3": "My goal is to inspire my clients and users with every design."
+  },
+  "footer": {
+    "title": "Stay informed, subscribe",
+    "description": "Receive our latest updates and exclusive offers.",
+    "placeholder": "Enter your email...",
+    "successToast": "Thanks for subscribing!",
+    "errorToast": "Something went wrong. Please try again."
+  }
+}

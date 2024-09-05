@@ -1,0 +1,49 @@
+{
+  "h1": "Kreative visuelle Lösungen, die die Welt inspirieren",
+  "nav": {
+    "about": "Über mich",
+    "portfolio": "Portfolio",
+    "connect": "Verbinden"
+  },
+  "hello": {
+    "btn": "Sag hallo",
+    "p": "Sei nicht schüchtern!"
+  },
+  "hero": {
+    "titleP1": "Kreativität freisetzen durch",
+    "titleP2": "und",
+    "intro": "Hallo! Mein Name ist Ivan. Ich bin UX/UI-Designer, Grafikdesigner und Illustrator. Ich liebe es, schöne und benutzerfreundliche Designs zu erstellen. Lassen Sie uns gemeinsam etwas Großartiges schaffen!"
+  },
+  "buttons": {
+    "behance": "Ansehen auf Behance",
+    "website": "Webseite anzeigen",
+    "join": "Join"
+  },
+  "projects": {
+    "project1": {
+      "title": "Reflektierender Stil: Webdesign für Ace and Tate",
+      "description": "Mit den neuesten Trends im Design und der Benutzeroberfläche im Blick, verwandelt unser Webdesign die Online-Präsenz von Ace and Tate in eine Inspirationsquelle und einen Ort des Komforts für Besucher."
+    },
+    "project2": {
+      "title": "Xtrafit: Effektives Design für ein optimales Trainingserlebnis",
+      "description": "Ich habe einen neuen Look für die Xtrafit Gym-App entworfen, um sie benutzerfreundlicher zu gestalten, mit einem modernen und leicht verständlichen Layout. Wir haben farbenfrohe Bilder hinzugefügt und es einfach gemacht, Workouts und andere Fitnessstudio-Dienstleistungen zu finden, was die Nutzung für die Benutzer angenehmer macht."
+    },
+    "project3": {
+      "title": "Illustrationen, die Ideen zum Leben erwecken",
+      "description": "Illustrationen verkörpern einzigartige visuelle Darstellungen. Ich erstelle Illustrationen, die die Essenz Ihrer Idee oder Ihres Produkts abbilden."
+    }
+  },
+  "bio": {
+    "title": "Über mich",
+    "p1": "Hallo! Ich bin Ivan, UX/UI-Designer, Grafikdesigner und Illustrator. Ich gestalte einzigartige, benutzerfreundliche Interfaces, die Marken und Produkte hervorheben.",
+    "p2": "Als Grafikdesigner entwarf ich Logos und Corporate Identities. Jetzt konzentriere ich mich auf intuitive UX/UI-Designs und kreative Illustrationen.",
+    "p3": "Mein Ziel ist es, mit jedem Design zu inspirieren."
+  },
+  "footer": {
+    "title": "Bleib informiert, abonniere jetzt",
+    "description": "Erhalte meine neuesten Updates und exklusiven Angebote.",
+    "placeholder": "Gib deine E-Mail ein...",
+    "successToast": "Danke fürs Abonnieren!",
+    "errorToast": "Hat nicht geklappt, versuch's nochmal!"
+  }
+}

@@ -1,14 +1,17 @@
 'use client';
 
-import Spline from '@splinetool/react-spline';
 import { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'next-i18next'
+import Spline from '@splinetool/react-spline';
 
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import SayHello from '../SayHello/SayHello';
 
 const HeroSection = () => {
+  const { t } = useTranslation('common');
+
   // Local state to track whether it's a desktop
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -33,7 +36,7 @@ const HeroSection = () => {
       {/* Hero Content */}
       <div className='flex flex-col md:flex-row md:items-end justify-between flex-1'>
         <h1 className='md:max-w-[490px] text-4xl md:text-5xl font-bold select-none'>
-          Creating Visual Solutions that Inspire the World
+        {t('h1')}
         </h1>
 
         <div className='flex flex-wrap gap-3 md:block w-full md:max-w-max fixed bottom-9 left-[50%] -translate-x-1/2 md:static box-border'>

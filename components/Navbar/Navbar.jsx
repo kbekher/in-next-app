@@ -1,23 +1,20 @@
-import React from "react";
+import Link from "next/link";
+import { useTranslation } from 'next-i18next'
 
 const Navbar = () => {
+  const { t } = useTranslation('common');
+
   return (
     <nav>
       <ul className='flex justify-center gap-3 '>
         <li className="btn w-[110px] flex justify-center">
-          <a href='#about'>
-            About me
-          </a>
+        <Link href="#about">{t('nav.about')}</Link>
         </li>
         <li className="btn w-[110px] flex justify-center">
-          <a href='#work'>
-            Portfolio
-          </a>
+          <Link href="#work">{t('nav.portfolio')}</Link>
         </li>
         <li className="btn w-[110px] flex justify-center">
-          <a href='#connect'>
-            Connect
-          </a>
+          <Link href="#connect">{t('nav.connect')}</Link>
         </li>
       </ul>
     </nav>

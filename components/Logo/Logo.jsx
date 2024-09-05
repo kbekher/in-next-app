@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import logoPic from "../../images/logo.png";
 
@@ -14,8 +15,9 @@ const Logo = ({ width, height, isClickable = false }) => {
   };
 
   return (
-    <div
-      className='w-[110px]'
+    <Link
+      href='/'
+      className='w-[110px] cursor-auto'
       onClick={isClickable ? handleLogoClick : undefined}
     >
       <Image
@@ -24,14 +26,14 @@ const Logo = ({ width, height, isClickable = false }) => {
         placeholder='blur'
         width={width}
         height={height}
-        draggable="false"
+        draggable='false'
         style={{
           objectFit: "contain",
           objectPosition: "center",
           cursor: isClickable ? "pointer" : "auto",
         }}
       />
-    </div>
+    </Link>
   );
 };
 
