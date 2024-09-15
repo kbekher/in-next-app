@@ -22,7 +22,6 @@ const Homepage = () => {
   );
 };
 
-
 // or getServerSideProps: GetServerSideProps<Props> = async ({ locale })
 export const getStaticProps = async ({
   locale,

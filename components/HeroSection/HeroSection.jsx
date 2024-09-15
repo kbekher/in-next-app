@@ -14,17 +14,17 @@ import LangToggle from "../LangToggle/LangToggle";
 const HeroSection = () => {
   const { t } = useTranslation("common");
 
-  const [isLoading, setIsLoading] = useState(true);
   const [isDesktop, setIsDesktop] = useState(false);
   const isDesktopQuery = useMediaQuery({ minWidth: 768 });
 
   //TODO: make dinamic for Mobile & Desktop
   const splineSrc = "https://prod.spline.design/liDjqaY-i3BfRC2o/scene.splinecode";
 
+  // const [isLoading, setIsLoading] = useState(true);
   // Handle scene load event
-  const handleSceneLoaded = () => {
-    setIsLoading(false);
-  };
+  // const handleSceneLoaded = () => {
+  //   setIsLoading(false);
+  // };
 
   useEffect(() => {
     // Set the state after the component mounts
@@ -34,19 +34,23 @@ const HeroSection = () => {
   return (
     <div className='relative h-[100vh] w-full flex flex-col pt-[60px] px-5 pb-[36px] md:pt-10 md:px-20 md:pb-[70px]'>
 
+    {/* Preload Spline Object */}
     <Script src={splineSrc} strategy="beforeInteractive" />
-
+{/* 
       {isLoading && (
         <div className='absolute inset-0 flex justify-center items-center'>
             <div class='p-3 animate-spin drop-shadow-2xl bg-gradient-to-bl from-pink-400 via-purple-400 to-indigo-600 md:w-78 md:h-78 h-48 w-48 aspect-square rounded-full'>
             <div class='rounded-full h-full w-full bg-[#252525]'></div>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Background Spline Object */}
       <div className='absolute inset-0 z-[-1]'>
-        <Spline scene={splineSrc} onLoad={handleSceneLoaded} />
+        <Spline 
+          scene={splineSrc} 
+          // onLoad={handleSceneLoaded} 
+        />
       </div>
 
       {/* Header */}
