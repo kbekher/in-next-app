@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import logoPic from "../../images/logo.png";
+import logoPic from "./logo.svg";
 
 const Logo = ({ width, height, isClickable = false }) => {
   const handleLogoClick = () => {
@@ -23,7 +23,6 @@ const Logo = ({ width, height, isClickable = false }) => {
       <Image
         src={logoPic}
         alt="Ivan Inozemtsev's Logo"
-        placeholder='blur'
         width={width}
         height={height}
         draggable='false'
