@@ -36,7 +36,7 @@ const HeroSection = () => {
         <div className='absolute inset-0 flex justify-center items-center'>
             <div class='p-3 animate-spin drop-shadow-2xl bg-gradient-to-bl from-pink-400 via-purple-400 to-indigo-600 md:w-78 md:h-78 h-48 w-48 aspect-square rounded-full'>
           {/* <div class='p-3 animate-spin drop-shadow-2xl bg-[linear-gradient(90deg,#F43640_0%,#A633AC_25%,#B207BA_50%,#933CD4_74%,#4481C1_100%,#1BA2B1_100%,#0FB0B4_100%)] md:w-78 md:h-78 h-48 w-48 aspect-square rounded-full'> */}
-            <div class='rounded-full h-full w-full bg-slate-100 bg-[#252525] background-blur-md'></div>
+            <div class='rounded-full h-full w-full bg-slate-100 bg-[var(--background)] backdrop-blur-md'></div>
           </div>
         </div>
       )}
