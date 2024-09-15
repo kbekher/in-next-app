@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useTranslation } from "next-i18next";
+import Script from 'next/script';
 import Spline from "@splinetool/react-spline";
 
 import Header from "../Header/Header";
@@ -32,11 +33,13 @@ const HeroSection = () => {
 
   return (
     <div className='relative h-[100vh] w-full flex flex-col pt-[60px] px-5 pb-[36px] md:pt-10 md:px-20 md:pb-[70px]'>
+
+    <Script src={splineSrc} strategy="beforeInteractive" />
+
       {isLoading && (
         <div className='absolute inset-0 flex justify-center items-center'>
             <div class='p-3 animate-spin drop-shadow-2xl bg-gradient-to-bl from-pink-400 via-purple-400 to-indigo-600 md:w-78 md:h-78 h-48 w-48 aspect-square rounded-full'>
-          {/* <div class='p-3 animate-spin drop-shadow-2xl bg-[linear-gradient(90deg,#F43640_0%,#A633AC_25%,#B207BA_50%,#933CD4_74%,#4481C1_100%,#1BA2B1_100%,#0FB0B4_100%)] md:w-78 md:h-78 h-48 w-48 aspect-square rounded-full'> */}
-            <div class='rounded-full h-full w-full bg-slate-100 bg-[var(--background)] backdrop-blur-md'></div>
+            <div class='rounded-full h-full w-full bg-[#252525]'></div>
           </div>
         </div>
       )}

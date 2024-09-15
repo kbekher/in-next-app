@@ -12,6 +12,7 @@ const MyApp = ({ Component, pageProps }) => (
         name='description'
         content='Welcome to the portfolio of Ivan Inozemtsev, a UX/UI designer and Illustrator focused on creating visually appealing and user-friendly digital products.'
       />
+      <link rel="preload" href="../images/logo.png" as="image" />
     </Head>
 
     <Component {...pageProps} />
