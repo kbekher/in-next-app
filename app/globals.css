@@ -10,6 +10,16 @@
 html {
   color: var(--color-white);
   background-color: var(--background);
+  height: -webkit-fill-available;
+}
+
+body {
+  overflow-x: hidden;
+  padding-top: env(safe-area-inset-top);
+  min-height: 100vh;
+  /* This ensures the content starts below the status bar */
+  min-height: -webkit-fill-available;
+  /* mobile viewport bug fix */
 }
 
 @layer utilities {
@@ -24,7 +34,7 @@ html {
 
 @layer components {
   .btn {
-    @apply text-sm text-white rounded-[53px] box-border uppercase transition cursor-pointer bg-opacity-20 bg-black py-2 px-5;
+    @apply text-[12px] md:text-sm text-white rounded-[53px] box-border uppercase transition cursor-pointer bg-opacity-20 bg-black py-3 md:py-2 px-3 md:px-5;
   }
 
   .btn:disabled {

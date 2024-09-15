@@ -14,14 +14,14 @@ const SayHello = () => {
     <div>
       <button
         type='button'
-        className='btn min-w-[110px] flex justify-center'
+        className='btn w-[96px] px-0 text-center'
         onClick={toggleOverlay} 
       >
         {t("hello.btn")}
       </button>
     
       <Dialog open={isLayerOpen} onClose={toggleOverlay} className="relative z-50">
-        <div className="fixed inset-0 bg-black fade-in" aria-hidden="true" />
+        <div className="fixed inset-0 bg-[var(--background)] fade-in" aria-hidden="true" />
         <Dialog.Panel className="w-[100vw] h-[100vh] fixed inset-0 flex flex-col items-center justify-center">
           <Dialog.Title className="text-xl md:text-2xl">{t("hello.p")}</Dialog.Title>
 

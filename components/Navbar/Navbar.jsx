@@ -6,14 +6,14 @@ const Navbar = () => {
 
   return (
     <nav>
-      <ul className='flex justify-center gap-3 '>
-        <li className="btn w-[110px] flex justify-center">
+      <ul className='flex justify-center gap-3 flex-wrap'>
+        <li className="btn w-[96px] md:w-[110px] flex justify-center">
         <Link href="#about">{t('nav.about')}</Link>
         </li>
-        <li className="btn w-[110px] flex justify-center">
+        <li className="btn w-[96px] md:w-[110px] flex justify-center">
           <Link href="#work">{t('nav.portfolio')}</Link>
         </li>
-        <li className="btn w-[110px] flex justify-center">
+        <li className="btn w-[96px] md:w-[110px] flex justify-center">
           <Link href="#connect">{t('nav.connect')}</Link>
         </li>
       </ul>

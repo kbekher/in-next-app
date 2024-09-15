@@ -1,43 +1,43 @@
-// import React from 'react'
-// import { useTranslation } from 'react-i18next';
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
-// // import { LANGUAGES } from "../../constants/constants";
+const LangToggle = () => {
+  const router = useRouter(); 
+  const [checked, setChecked] = useState(false); 
 
-// import './LanguageToggle.scss';
+  // Update checkbox state when the locale changes
+  useEffect(() => {
+    setChecked(router.locale === 'de');
+  }, [router.locale]);
 
-// const LanguageToggle = () => {
-//   const { i18n } = useTranslation();
+  const onToggleLanguageClick = () => {
+    const newLocale = checked ? 'en' : 'de'; // Switch locale based on the current state
+    const { pathname, asPath, query } = router;
+    router.push({ pathname, query }, asPath, { locale: newLocale });
+  };
 
-//   const onChangeLang = (event) => {
-//     const langCode = event.target.value;
-//     i18n.changeLanguage(langCode);
-//   };
+  return (
+      <label 
+        class='btn block w-[96px] cursor-pointer relative hover:bg-opacity-20'
+        onClick={onToggleLanguageClick} // Handle the toggle click
+      >
+        <span class='absolute top-1/2 -translate-y-1/2 left-[1.4em] md:left-[1em]'>EN</span>
+        <span class='absolute top-1/2 -translate-y-1/2 right-[1.4em] md:right-[1em] '>DE</span>
+        <input 
+          class='peer h-[1em] w-[1em] opacity-0' 
+          id='' 
+          name='' 
+          type='checkbox'
+          checked={checked} // Sync checkbox with locale
+          onChange={() => setChecked(!checked)} // Sync checkbox state with click
+        />
+        <span class="absolute left-0 top-1/2 flex h-full w-[50%] -translate-y-1/2 items-center justify-center rounded-full bg-[rgb(26,26,26, 0.5)] shadow-[inset_4px_4px_4px_0px_rgba(64,64,64,0.25),inset_-4px_-4px_4px_0px_rgba(16,16,16,0.3)] duration-300 peer-checked:left-[50%]">
+          <span class='relative h-full w-full rounded-full'>
+            <span class='absolute inset-[0.1em] rounded-full'></span>
+          </span>
+        </span>
+      </label>
+  );
+};
 
-//   return (
-//     <div className="LanguageToggle" >
-//       <label className="switch-button" htmlFor="switch">
-//         <div className="switch-outer">
-//           <input id="switch" type="checkbox" />
-
-//           <span className={`button-toggle button-toggle${i18n.language === 'en' ? "--left" : "--right"}`}></span>
-
-//           {LANGUAGES.map(({ code }) => (
-//             <button
-//               key={code}
-//               type="button"
-//               className={`button-lang button-lang--${code}`}
-//               value={code}
-//               onClick={onChangeLang}
-//             >
-//               {code}
-//             </button>
-//           ))}
-
-//         </div>
-//       </label>
-
-//     </div>
-//   );
-// }
-
-// export default LanguageToggle;
+export default LangToggle;

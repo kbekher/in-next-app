@@ -8,6 +8,7 @@ import Spline from '@splinetool/react-spline';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import SayHello from '../SayHello/SayHello';
+import LangToggle from '../LangToggle/LangToggle';
 
 const HeroSection = () => {
   const { t } = useTranslation('common');
@@ -39,7 +40,7 @@ const HeroSection = () => {
         {t('h1')}
         </h1>
 
-        <div className='flex flex-wrap gap-3 md:block w-full md:max-w-max fixed bottom-9 left-[50%] -translate-x-1/2 md:static box-border'>
+        <div className='flex flex-wrap gap-3 md:block left-1/2 -translate-x-1/2 w-full md:left-auto md:-translate-x-0 w-full md:max-w-max fixed bottom-9 md:static box-border'>
 
           {!isDesktop && (
             <>
@@ -54,7 +55,7 @@ const HeroSection = () => {
             )}
 
           <div className='flex-grow'>
-            Language Toggle
+            <LangToggle />
           </div>
         </div>
 
