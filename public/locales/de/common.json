@@ -10,9 +10,8 @@
     "p": "Sei nicht schüchtern!"
   },
   "hero": {
-    "titleP1": "Kreativität freisetzen durch",
-    "titleP2": "und",
-    "intro": "Hallo! Mein Name ist Ivan. Ich bin UX/UI-Designer, Grafikdesigner und Illustrator. Ich liebe es, schöne und benutzerfreundliche Designs zu erstellen. Lassen Sie uns gemeinsam etwas Großartiges schaffen!"
+    "title": "Kreativität freisetzen durch Design und Illustration",
+    "p": "Hallo! Mein Name ist Ivan. Ich bin UX/UI-Designer, Grafikdesigner und Illustrator. Ich liebe es, schöne und benutzerfreundliche Designs zu erstellen. Lassen Sie uns gemeinsam etwas Großartiges schaffen!"
   },
   "buttons": {
     "behance": "Ansehen auf Behance",
@@ -35,9 +34,7 @@
   },
   "bio": {
     "title": "Über mich",
-    "p1": "Hallo! Ich bin Ivan, UX/UI-Designer, Grafikdesigner und Illustrator. Ich gestalte einzigartige, benutzerfreundliche Interfaces, die Marken und Produkte hervorheben.",
-    "p2": "Als Grafikdesigner entwarf ich Logos und Corporate Identities. Jetzt konzentriere ich mich auf intuitive UX/UI-Designs und kreative Illustrationen.",
-    "p3": "Mein Ziel ist es, mit jedem Design zu inspirieren."
+    "p": "Hallo! Ich bin Ivan, UX/UI-Designer, Grafikdesigner und Illustrator. Ich gestalte einzigartige, benutzerfreundliche Interfaces, die Marken und Produkte hervorheben. \n\n Als Grafikdesigner entwarf ich Logos und Corporate Identities. Jetzt konzentriere ich mich auf intuitive UX/UI-Designs und kreative Illustrationen. \n\n Mein Ziel ist es, mit jedem Design zu inspirieren."
   },
   "footer": {
     "title": "Bleib informiert, abonniere jetzt",

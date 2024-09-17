@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import logoPic from "./logo.svg";
+import logoPic from "../../images/logo.svg";
 
 const Logo = ({ width, height, isClickable = false }) => {
   const handleLogoClick = () => {
