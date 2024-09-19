@@ -1,4 +1,27 @@
-export const MEDIA_LINKS = [
+"use client";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGoogle,
+  faBehance,
+  faInstagram,
+  faLinkedinIn,
+  faThreads,
+  faDribbble,
+} from "@fortawesome/free-brands-svg-icons";
+
+
+// Map your icon names to the actual FontAwesome icon objects
+const iconMap = {
+  google: faGoogle,
+  behance: faBehance,
+  instagram: faInstagram,
+  linkedin: faLinkedinIn,
+  threads: faThreads,
+  dribbble: faDribbble,
+};
+
+const MEDIA_LINKS = [
   {
     name: "google",
     href: "mailto:inozemtsevco@gmail.com",
@@ -12,7 +35,7 @@ export const MEDIA_LINKS = [
     href: "https://www.instagram.com/inozemtsevco/",
   },
   {
-    name: "linkedin-in",
+    name: "linkedin",
     href: "https://www.linkedin.com/in/inozemtsevco/",
   },
   {
@@ -27,7 +50,7 @@ export const MEDIA_LINKS = [
 
 const ContactLinks = () => {
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className='flex flex-wrap gap-4'>
       {MEDIA_LINKS.map(({ name, href }) => (
         <a
           key={name}
@@ -35,9 +58,9 @@ const ContactLinks = () => {
           target='_blank'
           rel='noreferrer'
           title={`Ivan's ${name}`}
-          className='w-[38px] h-[38px]'
+          className='w-[38px] h-[38px] flex justify-center items-center rounded-[50%] bg-[var(--color-gray-dark)] text-[var(--background)] hover:text-[var(---color-white)] transition'
         >
-          <i className={`fa-brands fa-${name}`}></i>
+          <FontAwesomeIcon icon={iconMap[name]} />
         </a>
       ))}
     </div>

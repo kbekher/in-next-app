@@ -12,7 +12,6 @@ const MyApp = ({ Component, pageProps }) => (
         name='description'
         content='Welcome to the portfolio of Ivan Inozemtsev, a UX/UI designer and Illustrator focused on creating visually appealing and user-friendly digital products.'
       />
-    <script src="https://kit.fontawesome.com/7d1855c1a8.js" crossorigin="anonymous"></script>
     </Head>
 
     <Component {...pageProps} />

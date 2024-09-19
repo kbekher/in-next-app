@@ -9,10 +9,6 @@
     "btn": "Say hello",
     "p": "Don't be shy!"
   },
-  "hero": {
-    "title": "Unlocking Creativity Through Design and Illustration",
-    "p": "Hi! My name is Ivan. I'm a UX/UI designer, graphic designer, and illustrator. I love creating beautiful and user-friendly designs. Let's create something amazing together!"
-  },
   "buttons": {
     "behance": "View on Behance",
     "website": "View Website",
@@ -32,9 +28,11 @@
       "description": "Illustrations embody unique visuals. I create illustrations that depict the essence of your idea or product."
     }
   },
-  "bio": {
+  "about": {
     "title": "About me",
-    "p": "Hi there! I'm Ivan, a UX/UI designer, graphic designer, and illustrator. I create unique, user-friendly interfaces that make brands and products stand out. \n\n Starting as a graphic designer, I crafted logos and corporate identities. Now, I focus on intuitive UX/UI designs and express my creativity through illustration. \n\n My goal is to inspire my clients and users with every design."
+    "p1": "Hi there! I'm Ivan, a UX/UI designer, graphic designer, and illustrator with extensive experience in creating unique and effective visual solutions. I specialize in making brands and products stand out by designing user-friendly interfaces that are both intuitive and eye-catching.",
+    "p2": "I started my career in graphic design, crafting attractive logos and corporate identities for various companies. Over time, I shifted my focus to UX/UI design, where I design interfaces that are not only easy to use but also visually appealing. I'm also passionate about illustration, which allows me to express my creativity and inspiration through visual art.",
+    "p3": "My goal is to not just complete projects, but to inspire my clients and users alike with each design I create."
   },
   "footer": {
     "title": "Stay informed, subscribe",

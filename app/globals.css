@@ -5,6 +5,8 @@
 :root {
   --background: #252525;
   --color-white: #fff;
+  --color-gray: #d9d9d9;
+  --color-gray-dark: #525252;
   --transition: all 300ms ease-in-out;
 }
 html {
@@ -39,10 +41,6 @@ body {
 }
 
 @layer components {
-  .hero-image {
-    object-fit: contain;
-  }
-
   .bg-gradient-to-r {
     background-image: linear-gradient(
       90deg,
@@ -109,11 +107,5 @@ body {
 
   .fade-in {
     animation: fadeIn 0.5s ease-out;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-image {
-    object-fit: cover;
   }
 }

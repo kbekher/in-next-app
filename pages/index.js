@@ -1,10 +1,8 @@
 'use client';
 
 import HeaderSection from '../components/HeaderSection/HeaderSection';
-// import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import localFont from 'next/font/local';
-// import i18nextConfig from '../next-i18next.config';
 
 import '../app/globals.css';
 import HeroSection from '@/components/HeroSection/HeroSection';
@@ -18,11 +16,9 @@ const Homepage = () => {
         <div className='w-full h-full'>
           <HeaderSection />
 
-          <HeroSection name="hero" hasLinks={true} />
-
+          {/* <HeroSection name="hero" hasLinks={true} /> */}
 
           <HeroSection name="bio" />
-
         </div>
       </main>
     </>

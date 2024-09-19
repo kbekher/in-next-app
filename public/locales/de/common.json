@@ -9,10 +9,6 @@
     "btn": "Sag hallo",
     "p": "Sei nicht schüchtern!"
   },
-  "hero": {
-    "title": "Kreativität freisetzen durch Design und Illustration",
-    "p": "Hallo! Mein Name ist Ivan. Ich bin UX/UI-Designer, Grafikdesigner und Illustrator. Ich liebe es, schöne und benutzerfreundliche Designs zu erstellen. Lassen Sie uns gemeinsam etwas Großartiges schaffen!"
-  },
   "buttons": {
     "behance": "Ansehen auf Behance",
     "website": "Webseite anzeigen",
@@ -32,9 +28,11 @@
       "description": "Illustrationen verkörpern einzigartige visuelle Darstellungen. Ich erstelle Illustrationen, die die Essenz Ihrer Idee oder Ihres Produkts abbilden."
     }
   },
-  "bio": {
+  "about": {
     "title": "Über mich",
-    "p": "Hallo! Ich bin Ivan, UX/UI-Designer, Grafikdesigner und Illustrator. Ich gestalte einzigartige, benutzerfreundliche Interfaces, die Marken und Produkte hervorheben. \n\n Als Grafikdesigner entwarf ich Logos und Corporate Identities. Jetzt konzentriere ich mich auf intuitive UX/UI-Designs und kreative Illustrationen. \n\n Mein Ziel ist es, mit jedem Design zu inspirieren."
+    "p1": "Hallo! Ich bin Ivan, ein UX/UI-Designer, Grafikdesigner und Illustrator mit umfassender Erfahrung in der Erstellung einzigartiger und effektiver visueller Lösungen. Ich bin darauf spezialisiert, Marken und Produkte hervorzuheben, indem ich benutzerfreundliche Oberflächen entwerfe, die sowohl intuitiv als auch auffällig sind.",
+    "p2": "Ich begann meine Karriere im Grafikdesign und entwarf attraktive Logos und Corporate Identities für verschiedene Unternehmen. Im Laufe der Zeit verlagerte sich mein Schwerpunkt auf UX/UI-Design, wo ich Oberflächen entwerfe, die nicht nur einfach zu verwenden, sondern auch optisch ansprechend sind. Ich illustriere auch leidenschaftlich gern, was es mir ermöglicht, meine Kreativität und Inspiration durch visuelle Kunst auszudrücken.",
+    "p3": "Mein Ziel ist es nicht nur, Projekte abzuschließen, sondern meine Kunden und Benutzer mit jedem Design, das ich erstelle, gleichermaßen zu inspirieren."
   },
   "footer": {
     "title": "Bleib informiert, abonniere jetzt",
