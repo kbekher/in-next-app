@@ -35,7 +35,7 @@ const SayHello = () => {
           </Dialog.Description>
 
           <button type="button" className="absolute right-10 md:right-[88px] top-10 md:top-[54px]" onClick={toggleOverlay}>
-            <svg width="38" height="38" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="36" height="36" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M20.3369 20.5576L40.299 38.7377" stroke="#FFFFFE" strokeLinecap="round" />
               <path d="M21.2305 39.6254L39.4106 19.6633" stroke="#FFFFFE" strokeLinecap="round" />
               <rect x="0.5" y="0.5" width="60" height="60" rx="30" stroke="#FFFFFE" />
