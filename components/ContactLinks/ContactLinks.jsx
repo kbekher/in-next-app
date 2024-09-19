@@ -50,7 +50,7 @@ const MEDIA_LINKS = [
 
 const ContactLinks = () => {
   return (
-    <div className='flex flex-wrap gap-4'>
+    <div className='flex flex-wrap gap-4 justify-center lg:justify-start'>
       {MEDIA_LINKS.map(({ name, href }) => (
         <a
           key={name}
