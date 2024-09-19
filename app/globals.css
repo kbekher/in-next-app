@@ -24,6 +24,17 @@ body {
   /* mobile viewport bug fix */
 }
 
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('./NeueMontreal-Bold.otf');
+  font-weight: 500;
+}
+
+h1, h2, h3 {
+  font-family: 'NeueMontreal';
+  font-weight: 500;
+}
+
 /* TODO: fixed position to HeroSection + */
 /* main {
   padding-top: 100vh;

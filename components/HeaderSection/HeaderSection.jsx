@@ -43,7 +43,7 @@ const HeaderSection = () => {
 
       {/* Hero Content */}
       <div className='flex flex-col md:flex-row md:items-end justify-between flex-1'>
-        <h1 className='md:max-w-[490px] text-4xl md:text-5xl font-extrabold select-none'>
+        <h1 className='md:max-w-[490px] text-4xl md:text-5xl select-none'>
           {t("h1")}
         </h1>
 

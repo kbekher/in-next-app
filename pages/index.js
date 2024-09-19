@@ -1,11 +1,11 @@
 'use client';
 
-import HeaderSection from '../components/HeaderSection/HeaderSection';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import localFont from 'next/font/local';
 
-import '../app/globals.css';
+import HeaderSection from '../components/HeaderSection/HeaderSection';
 import HeroSection from '@/components/HeroSection/HeroSection';
+import '../app/globals.css';
 
 const myFont = localFont({ src: '../app/NeueMontreal-Light.otf' });
 

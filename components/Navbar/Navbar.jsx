@@ -14,7 +14,7 @@ const Navbar = () => {
           <Link href="#work">{t('nav.portfolio')}</Link>
         </li>
         <li className="btn w-[96px] md:w-[110px] flex justify-center">
-          <Link href="#connect">{t('nav.connect')}</Link>
+          <Link href="#connect">{t('nav.skill')}</Link>
         </li>
       </ul>
     </nav>
