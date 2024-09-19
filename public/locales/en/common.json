@@ -36,7 +36,7 @@
   },
   "footer": {
     "title": "Stay informed, subscribe",
-    "description": "Receive our latest updates and exclusive offers.",
+    "description": "Receive latest updates and exclusive offers.",
     "placeholder": "Enter your email...",
     "successToast": "Thanks for subscribing!",
     "errorToast": "Something went wrong. Please try again."

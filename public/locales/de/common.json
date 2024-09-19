@@ -36,7 +36,7 @@
   },
   "footer": {
     "title": "Bleib informiert, abonniere jetzt",
-    "description": "Erhalte meine neuesten Updates und exklusiven Angebote.",
+    "description": "Erhalte neuesten Updates und exklusiven Angebote.",
     "placeholder": "Gib deine E-Mail ein...",
     "successToast": "Danke fürs Abonnieren!",
     "errorToast": "Hat nicht geklappt, versuch's nochmal!"

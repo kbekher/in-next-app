@@ -3,24 +3,30 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import localFont from 'next/font/local';
 
-import HeaderSection from '../components/HeaderSection/HeaderSection';
-import HeroSection from '@/components/HeroSection/HeroSection';
 import '../app/globals.css';
 
-const myFont = localFont({ src: '../app/NeueMontreal-Light.otf' });
+import HeaderSection from '../components/HeaderSection/HeaderSection';
+import HeroSection from '@/components/HeroSection/HeroSection';
+import Footer from '@/components/Footer/Footer';
+
+const myFont = localFont({ src: '../app/PPNeueMontreal-Thin.otf' });
 
 const Homepage = () => {
+
+  
   return (
     <>
-      <main className={`${myFont.className} min-w-[320px]`}>
+      <div className={`${myFont.className} min-w-[320px]`}>
         <div className='w-full h-full'>
           <HeaderSection />
 
-          {/* <HeroSection name="hero" hasLinks={true} /> */}
+          <main>
+            <HeroSection name="bio" />
+          </main>
 
-          <HeroSection name="bio" />
+          <Footer />
         </div>
-      </main>
+      </div>
     </>
   );
 };

@@ -6,7 +6,7 @@ const HeroSection = () => {
   const { t } = useTranslation("common");
 
   return (
-    <div className='h-[100vh] w-full flex flex-col lg:flex-row justify-between itmes-center px-5 lg:px-[80px]'>
+    <div className='max-w-[1680px] m-auto h-full lg:h-[100vh] w-full flex flex-col lg:flex-row justify-between itmes-center px-5 lg:px-[80px]'>
       {/* Text Section */}
       <div className='lg:w-1/2 flex flex-col justify-center pt-[100px] lg:pr-20 lg:pt-0 text-center lg:text-left  pb-5 lg:pb-0'>
         <h2 className='text-[36px] lg:text-[48px] leading-tight mb-4'>
@@ -22,7 +22,7 @@ const HeroSection = () => {
 
       {/* Image Section */}
       <div className='lg:w-1/2 h-[100%] flex items-center'>
-        <div className="w-[100%] overflow-hidden bg-[var(--color-gray)] rounded-[100px] pt-20 flex justify-center">
+        <div className="w-[100%] max-w-[600px] m-auto lg:max-w-[800px] overflow-hidden bg-[var(--color-gray)] rounded-[40px] lg:rounded-[100px] pt-20 flex justify-center">
           <Image
             src={`https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/hero.png`}
             alt='Ivan Inozemtsev'

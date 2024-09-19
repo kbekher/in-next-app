@@ -5,7 +5,7 @@ import SayHello from "../SayHello/SayHello";
 const HeaderDesktop = () => {
   return (
     <header className='flex w-full justify-between items-center'>
-      <Logo width={50} height={64} isClickable />
+      <Logo isClickable />
       <Navbar />
       <SayHello />
     </header>

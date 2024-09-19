@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from 'next-i18next';
 
 const Navbar = () => {
   const { t } = useTranslation('common');
@@ -14,7 +14,7 @@ const Navbar = () => {
           <Link href="#work">{t('nav.portfolio')}</Link>
         </li>
         <li className="btn w-[96px] md:w-[110px] flex justify-center">
-          <Link href="#connect">{t('nav.skill')}</Link>
+          <Link href="#skill">{t('nav.skill')}</Link>
         </li>
       </ul>
     </nav>
