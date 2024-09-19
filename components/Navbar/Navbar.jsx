@@ -7,13 +7,13 @@ const Navbar = () => {
   return (
     <nav>
       <ul className='flex justify-center gap-3 flex-wrap'>
-        <li className="btn w-[96px] md:w-[110px] flex justify-center">
+        <li className="btn w-[96px] md:w-auto md:min-w-[110px] flex justify-center">
         <Link href="#about">{t('nav.about')}</Link>
         </li>
-        <li className="btn w-[96px] md:w-[110px] flex justify-center">
+        <li className="btn w-[96px] md:w-auto md:min-w-[110px] flex justify-center">
           <Link href="#work">{t('nav.portfolio')}</Link>
         </li>
-        <li className="btn w-[96px] md:w-[110px] flex justify-center">
+        <li className="btn w-[96px] md:w-auto md:min-w-[110px] flex justify-center">
           <Link href="#skill">{t('nav.skill')}</Link>
         </li>
       </ul>
