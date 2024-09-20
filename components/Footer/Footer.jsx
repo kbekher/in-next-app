@@ -1,6 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import Logo from '../Logo/Logo';
 import ContactLinks from '../ContactLinks/ContactLinks';
+import ContactForm from '../ContactForm/ContactForm';
 
 const Footer = () => {
   const { t } = useTranslation('common');
@@ -17,8 +18,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className='flex flex-col gap-8'>
-        {/* <ContactForm /> */}
+      <div className='flex flex-col  items-center md:items-end'>
+        <ContactForm />
         <ContactLinks />
       </div>
     </div>
