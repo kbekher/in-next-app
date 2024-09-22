@@ -28,6 +28,33 @@
       "description": "Illustrations embody unique visuals. I create illustrations that depict the essence of your idea or product."
     }
   },
+  "skills": {
+    "title": "Skills that I use to create digital products",
+    "systems": {
+      "title": "Design Systems",
+      "p": "Creating scalable, cohesive components that ensure consistent and efficient design across platforms and projects."
+    },
+    "graphic": {
+      "title": "Graphic Design",
+      "p": "Developing scalable, cohesive visual elements that maintain a consistent and polished brand identity across various platforms and projects."
+    },
+    "ux": {
+      "title": "UX Design",
+      "p": "Creating user experiences through research, user testing, and innovative design solutions."
+    },
+    "prototyping": {
+      "title": "Prototyping",
+      "p": "Building interactive prototypes to test ideas, gather feedback, and refine designs before final implementation."
+    },
+    "illustration": {
+      "title": "Illustration",
+      "p": "Creative illustrations that enhance storytelling, add visual interest, and align with brand identity."
+    },
+    "ui": {
+      "title": "UI Design",
+      "p": "Designing visually appealing and intuitive interfaces that provide seamless interaction and elevate user engagement."
+    }
+  },
   "about": {
     "title": "About me",
     "p1": "Hi there! I'm Ivan, a UX/UI designer, graphic designer, and illustrator with extensive experience in creating unique and effective visual solutions. I specialize in making brands and products stand out by designing user-friendly interfaces that are both intuitive and eye-catching.",

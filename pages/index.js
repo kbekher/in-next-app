@@ -6,6 +6,7 @@ import localFont from 'next/font/local';
 import '../app/globals.css';
 
 import Hero from '../components/Hero/Hero';
+import Skills from '@/components/Skills/Skills';
 import About from '@/components/About/About';
 import Footer from '@/components/Footer/Footer';
 
@@ -21,6 +22,7 @@ const Homepage = () => {
           <Hero />
 
           <main>
+            <Skills />
             <About />
           </main>
 

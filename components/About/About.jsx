@@ -8,10 +8,10 @@ const About = () => {
 
   return (
     <section className="max-w-[1680px] m-auto h-full pt-[230px]">
-      <div className='h-full w-full flex flex-col lg:flex-row justify-between itmes-center px-5 lg:px-[80px] mb-[84px]'>
+      <div className='h-full w-full flex flex-col lg:flex-row justify-between itmes-center px-5 md:px-[80px] mb-[84px]'>
         {/* Text Section */}
         <div className='lg:w-1/2 flex flex-col justify-center pt-[100px] lg:pr-20 lg:pt-0 text-center lg:text-left  pb-5 lg:pb-0'>
-          <h2 className='text-[36px] lg:text-[48px] leading-tight mb-4'>
+          <h2 className='text-[36px] md:text-[48px] leading-tight mb-4'>
             {t("about.title")}
           </h2>
 
