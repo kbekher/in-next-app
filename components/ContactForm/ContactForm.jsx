@@ -59,14 +59,14 @@ const ContactForm = () => {
         <div className=' relative flex rounded-[53px]'>
           <input
             required
-            className=' w-full md:w-[316px] peer bg-[var(--color-gray-dark)] outline-none py-2 px-4 text-[var(--background)] sm rounded-[53px] border-none focus:shadow-md'
+            className=' w-full md:w-[316px] peer bg-[var(--color-gray-dark)] outline-none py-2 px-4 text-[var(--color-white)] sm rounded-[53px] border-none focus:shadow-md'
             id='address'
             type='text'
             onChange={handleInputChange}
             onKeyDown={handleEnterKey}
             value={email}
             placeholder=" "
-            autocomplete="off"
+            autoComplete="off"
           />
           <label
             className='absolute top-1/2 translate-y-[-50%] bg-transparent left-4 px-2 text-sm peer-focus:top-0 peer-focus:left-3 font-light peer-focus:text-sm peer-focus:text-[var(--color-white)] peer-valid:left-3 peer-valid:text-sm peer-valid:text-[var(--color-white)] peer-valid:top-0 duration-150'

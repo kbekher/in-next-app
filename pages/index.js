@@ -5,8 +5,8 @@ import localFont from 'next/font/local';
 
 import '../app/globals.css';
 
-import HeaderSection from '../components/HeaderSection/HeaderSection';
-import HeroSection from '@/components/HeroSection/HeroSection';
+import Hero from '../components/Hero/Hero';
+import About from '@/components/About/About';
 import Footer from '@/components/Footer/Footer';
 
 const myFont = localFont({ src: '../app/PPNeueMontreal-Thin.otf' });
@@ -18,10 +18,10 @@ const Homepage = () => {
     <>
       <div className={`${myFont.className} min-w-[320px]`}>
         <div className='w-full h-full'>
-          <HeaderSection />
+          <Hero />
 
           <main>
-            <HeroSection name="bio" />
+            <About />
           </main>
 
           <Footer />

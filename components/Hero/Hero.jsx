@@ -11,7 +11,7 @@ import Navbar from "../Navbar/Navbar";
 import SayHello from "../SayHello/SayHello";
 import LangToggle from "../LangToggle/LangToggle";
 
-const HeaderSection = () => {
+const Hero = () => {
   const { t } = useTranslation("common");
 
   const [isDesktop, setIsDesktop] = useState(false);
@@ -25,7 +25,7 @@ const HeaderSection = () => {
   }, [isDesktopQuery]);
 
   return (
-    <div className='relative h-[100vh] w-full flex flex-col pt-[60px] px-5 pb-[36px] md:pt-10 md:px-20 md:pb-[70px]'>
+    <section className='relative h-[100vh] w-full flex flex-col pt-[60px] px-5 pb-[36px] md:pt-10 md:px-20 md:pb-[70px]'>
 
     {/* Preload Spline Object */}
     <Script src={splineSrc} strategy="beforeInteractive" />
@@ -66,8 +66,8 @@ const HeaderSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default HeaderSection;
+export default Hero;

@@ -7,7 +7,7 @@ const Footer = () => {
   const { t } = useTranslation('common');
 
   return (
-    <div className='max-w-[1680px] m-auto px-5 pt-[100px] pb-[260px] md:pb-[168px] lg:px-[80px] flex flex-col md:flex-row justify-between relative'>
+    <footer className='max-w-[1680px] m-auto px-5 pt-[100px] pb-[260px] md:pb-[168px] lg:px-[80px] flex flex-col md:flex-row justify-between relative'>
 
       <div className='text-center md:text-left'>
         <h3 className='text-[40px] leading-[52px] md:text-[16px] md:leading-[36px]'>{t('footer.title')}</h3>
@@ -22,7 +22,7 @@ const Footer = () => {
         <ContactForm />
         <ContactLinks />
       </div>
-    </div>
+    </footer>
   )
 }
 
