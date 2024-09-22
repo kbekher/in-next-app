@@ -17,6 +17,18 @@ const nextConfig = {
         port: '',
         pathname: '/bio.png',
       },
+      {
+        protocol: 'https',
+        hostname: 'inozemtsev-portfolio.s3.eu-central-1.amazonaws.com',
+        port: '',
+        pathname: '/reviewer1.jpg',
+      },
+      {
+        protocol: 'https',
+        hostname: 'inozemtsev-portfolio.s3.eu-central-1.amazonaws.com',
+        port: '',
+        pathname: '/reviewer2.jpg',
+      },
     ],
   },
 }

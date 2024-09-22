@@ -8,6 +8,7 @@ import '../app/globals.css';
 import Hero from '../components/Hero/Hero';
 import Skills from '@/components/Skills/Skills';
 import About from '@/components/About/About';
+import Testimonials from '@/components/Testimonials/Testimonials';
 import Footer from '@/components/Footer/Footer';
 
 const myFont = localFont({ src: '../app/PPNeueMontreal-Thin.otf' });
@@ -24,6 +25,7 @@ const Homepage = () => {
           <main>
             <Skills />
             <About />
+            <Testimonials />
           </main>
 
           <Footer />

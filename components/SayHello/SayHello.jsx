@@ -21,7 +21,7 @@ const SayHello = () => {
       </button>
     
       <Dialog open={isLayerOpen} onClose={toggleOverlay} className="relative z-50">
-        <div className="fixed inset-0 bg-[var(--background)] fade-in" aria-hidden="true" />
+        <div className="fixed inset-0 bg-[var(--background)] fade-in z-49" aria-hidden="true" />
         <Dialog.Panel className="w-[100vw] h-[100vh] fixed inset-0 flex flex-col items-center justify-center">
           <Dialog.Title className="text-xl md:text-2xl">{t("hello.p")}</Dialog.Title>
 

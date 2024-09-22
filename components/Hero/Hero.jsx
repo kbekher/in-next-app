@@ -47,10 +47,9 @@ const Hero = () => {
           {t("h1")}
         </h1>
 
-        <div className='flex flex-wrap gap-3 md:block left-1/2 -translate-x-1/2 w-full md:left-auto md:-translate-x-0 w-full md:max-w-max fixed bottom-9 md:static box-border'>
+        <div className='flex flex-wrap gap-3 md:block left-1/2 -translate-x-1/2 w-full md:left-auto md:-translate-x-0 w-full md:max-w-max fixed bottom-9 md:static box-border z-[48] md:z-auto'>
           {!isDesktop && (
             <>
-              {/* TODO: why don't work over footer on mobile z-[100] md:z-[0] */}
               <div className='md:hidden basis-full'>
                 <Navbar />
               </div>

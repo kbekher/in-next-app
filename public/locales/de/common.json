@@ -28,21 +28,15 @@
       "description": "Illustrationen verkörpern einzigartige visuelle Darstellungen. Ich erstelle Illustrationen, die die Essenz Ihrer Idee oder Ihres Produkts abbilden."
     }
   },
-  "about": {
-    "title": "Über mich",
-    "p1": "Hallo! Ich bin Ivan, ein UX/UI-Designer, Grafikdesigner und Illustrator mit umfassender Erfahrung in der Erstellung einzigartiger und effektiver visueller Lösungen. Ich bin darauf spezialisiert, Marken und Produkte hervorzuheben, indem ich benutzerfreundliche Oberflächen entwerfe, die sowohl intuitiv als auch auffällig sind.",
-    "p2": "Ich begann meine Karriere im Grafikdesign und entwarf attraktive Logos und Corporate Identities für verschiedene Unternehmen. Im Laufe der Zeit verlagerte sich mein Schwerpunkt auf UX/UI-Design, wo ich Oberflächen entwerfe, die nicht nur einfach zu verwenden, sondern auch optisch ansprechend sind. Ich illustriere auch leidenschaftlich gern, was es mir ermöglicht, meine Kreativität und Inspiration durch visuelle Kunst auszudrücken.",
-    "p3": "Mein Ziel ist es nicht nur, Projekte abzuschließen, sondern meine Kunden und Benutzer mit jedem Design, das ich erstelle, gleichermaßen zu inspirieren."
-  },
   "skills": {
     "title": "Fähigkeiten, die ich zur Erstellung digitaler Produkte nutze",
     "systems": {
       "title": "Designsysteme",
-      "p": "Erstellen Sie skalierbare, zusammenhängende Komponenten, die ein konsistentes und effizientes Design über Plattformen und Projekte hinweg gewährleisten."
+      "p": "Erstellen Sie skalierbare, zusammenhängende Komponenten, die ein konsistentes und effizientes Design."
     },
     "graphic": {
       "title": "Grafikdesign",
-      "p": "Entwicklung skalierbarer, zusammenhängender visueller Elemente, die über verschiedene Plattformen und Projekte hinweg eine konsistente und ausgefeilte Markenidentität gewährleisten."
+      "p": "Entwicklung skalierbarer, zusammenhängender visueller Elemente, die über verschiedene Plattformen und Projekte."
     },
     "ux": {
       "title": "UX Design",
@@ -50,15 +44,32 @@
     },
     "prototyping": {
       "title": "Prototyping",
-      "p": "Erstellen interaktiver Prototypen, um Ideen zu testen, Feedback zu sammeln und Designs vor der endgültigen Implementierung zu verfeinern."
+      "p": "Erstellen interaktiver Prototypen, um Ideen zu testen, Feedback zu sammeln."
     },
     "illustration": {
       "title": "Illustration",
-      "p": "Kreative Illustrationen, die das Geschichtenerzählen verbessern, visuelles Interesse wecken und mit der Markenidentität übereinstimmen."
+      "p": "Kreative Illustrationen, die das Geschichtenerzählen verbessern."
     },
     "ui": {
       "title": "UI Design",
-      "p": "Entwerfen optisch ansprechender und intuitiver Benutzeroberflächen, die eine nahtlose Interaktion ermöglichen und das Engagement der Benutzer erhöhen."
+      "p": "Entwerfen optisch ansprechender und intuitiver Benutzeroberflächen."
+    }
+  },
+  "about": {
+    "title": "Über mich",
+    "p1": "Hallo! Ich bin Ivan, ein UX/UI-Designer, Grafikdesigner und Illustrator mit umfassender Erfahrung in der Erstellung einzigartiger und effektiver visueller Lösungen. Ich bin darauf spezialisiert, Marken und Produkte hervorzuheben, indem ich benutzerfreundliche Oberflächen entwerfe, die sowohl intuitiv als auch auffällig sind.",
+    "p2": "Ich begann meine Karriere im Grafikdesign und entwarf attraktive Logos und Corporate Identities für verschiedene Unternehmen. Im Laufe der Zeit verlagerte sich mein Schwerpunkt auf UX/UI-Design, wo ich Oberflächen entwerfe, die nicht nur einfach zu verwenden, sondern auch optisch ansprechend sind. Ich illustriere auch leidenschaftlich gern, was es mir ermöglicht, meine Kreativität und Inspiration durch visuelle Kunst auszudrücken.",
+    "p3": "Mein Ziel ist es nicht nur, Projekte abzuschließen, sondern meine Kunden und Benutzer mit jedem Design, das ich erstelle, gleichermaßen zu inspirieren."
+  },
+  "testimonials": {
+    "title": "Hören Sie, was meine Kollegen über mich sagen",
+    "review1": {
+      "name": "- Krisitna B. - Front-End Entwickler",
+      "p": "Ich arbeite wirklich gern mit Menschen, die lernbegierig und lehrfreudig sind, und Ivan passt wirklich zu dieser Beschreibung. Er ist begeistert von seinen Tools und nutzt gerne neue Funktionen und Updates, sobald sie verfügbar sind – was seine bereits gute Arbeit noch weiter verbessert. Unsere gemeinsame Zeit hat nur gezeigt, wie Design und Entwicklung zusammenarbeiten können und sollten und wie das dem Produkt und, als Ziel, dem Kundenerlebnis zugute kommen kann. Ich freue mich darauf, immer mehr mit Ivan zusammenzuarbeiten!"
+    },
+    "review2": {
+      "name": "-Tetiana V. - UX / UI Designerin",
+      "p": "Ich arbeite wirklich gern mit Menschen, die lernbegierig und lehrfreudig sind, und Ivan passt wirklich zu dieser Beschreibung. Er ist begeistert von seinen Tools und nutzt gerne neue Funktionen und Updates, sobald sie verfügbar sind – was seine bereits gute Arbeit noch weiter verbessert. Unsere gemeinsame Zeit hat nur gezeigt, wie Design und Entwicklung zusammenarbeiten können und sollten und wie das dem Produkt und, als Ziel, dem Kundenerlebnis zugute kommen kann. Ich freue mich darauf, immer mehr mit Ivan zusammenzuarbeiten!"
     }
   },
   "footer": {

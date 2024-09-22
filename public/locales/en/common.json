@@ -61,6 +61,17 @@
     "p2": "I started my career in graphic design, crafting attractive logos and corporate identities for various companies. Over time, I shifted my focus to UX/UI design, where I design interfaces that are not only easy to use but also visually appealing. I'm also passionate about illustration, which allows me to express my creativity and inspiration through visual art.",
     "p3": "My goal is to not just complete projects, but to inspire my clients and users alike with each design I create."
   },
+  "testimonials": {
+    "title": "Hear it about me from my co-workers",
+    "review1": {
+      "name": "- Krisitna B. - Front-End Developer",
+      "p": "I really enjoy working with people eager to learn and teach, and Ivan truly fit this description. He enthusiastic with her tools and is happy to use new features and updates as soon as they are available — which improves the already good work he does. Our time together has only shown how design and development can and should work together, and how that can benefit the product and, as a goal, the customer experience. I look forward to working more and more with Ivan!"
+    },
+    "review2": {
+      "name": "-Tetiana V. - UX / UI Designer",
+      "p": "I really enjoy working with people eager to learn and teach, and Ivam truly fit this description. He enthusiastic with her tools and is happy to use new features and updates as soon as they are available — which improves the already good work he does. Our time together has only shown how design and development can and should work together, and how that can benefit the product and, as a goal, the customer experience. I look forward to working more and more with Ivam!"
+    }
+  },
   "footer": {
     "title": "Stay informed, subscribe",
     "description": "Receive latest updates and exclusive offers.",
