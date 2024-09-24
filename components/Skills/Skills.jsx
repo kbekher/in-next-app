@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
@@ -21,6 +21,25 @@ const SKILLS = [
   { name: "ui", icon: ui },
 ];
 
+const SkillTile = ({ skill }) => {
+  const { t } = useTranslation("common");
+
+  return (
+    <div className='bg-[var(--color-bg-tile)] rounded-[22px]'>
+      <div className='flex flex-col lg:flex-row items-center lg:items-start gap-4 w-full h-full p-[24px] pt-[30px]'>
+        <div className='max-w-[88px] max-h-[88px] md:max-w-[78px] md:max-h-[78px] flex justify-center items-center bg-[var(--color-gray)] p-3 rounded-[22px] overflow-hidden aspect-square'>
+          <Image src={skill.icon} alt={skill.name} width={64} height={64} />
+        </div>
+
+        <div className='md:flex flex-col flex-1 overflow-hidden p-0 md:gap-[8px] items-center lg:items-start text-center lg:text-start justify-start text-[14px]'>
+          <h4>{t(`skills.${skill.name}.title`)}</h4>
+          <p className='hidden md:flex'>{t(`skills.${skill.name}.p`)}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Skills = () => {
   const { t } = useTranslation("common");
 
@@ -31,28 +50,9 @@ const Skills = () => {
           {t("skills.title")}
         </h2>
 
-        <div className='grid grid-cols-3 grid-rows-2 gap-[12px] auto-rows-min h-[382px] justify-center overflow-hidden p-0 relative w-full'>
+        <div className='grid grid-cols-2 md:grid-cols-3 gap-[24px] md:gap-[20px] auto-rows-min min-w-[164px] min-h-[164px] md:min-h-[170px] justify-center overflow-hidden w-full'>
           {SKILLS.map((skill) => (
-            <div
-              key={skill.name}
-              className='bg-[var(--color-bg-tile)] rounded-[43px]'
-            >
-              <div className='flex items-start gap-4 w-full h-full p-[24px] pt-[30px]'>
-                <div className='w-[78px] h-[78px] flex justify-center items-center bg-[var(--color-gray)] rounded-[22px] overflow-hidden aspect-square'>
-                  <Image
-                    src={skill.icon}
-                    alt={skill}
-                    width={64}
-                    height={64}
-                  />
-                </div>
-
-                <div className="relative flex flex-col flex-1 overflow-hidden p-0 gap-[8px] h-min w-[1px] items-start justify-start">
-                  <h4>{t(`skills.${skill.name}.title`)}</h4>
-                  <p>{t(`skills.${skill.name}.p`)}</p>
-                </div>
-              </div>
-            </div>
+            <SkillTile key={skill.name} skill={skill} />
           ))}
         </div>
       </div>
