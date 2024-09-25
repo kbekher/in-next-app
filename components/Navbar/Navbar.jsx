@@ -1,21 +1,21 @@
 import Link from "next/link";
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from "next-i18next";
+import { navLinks } from "@/constants";
 
 const Navbar = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
 
   return (
     <nav>
       <ul className='flex justify-center gap-3 flex-wrap'>
-        <li className="btn w-[96px] md:w-auto md:min-w-[110px] flex justify-center">
-        <Link href="#about">{t('nav.about')}</Link>
-        </li>
-        <li className="btn w-[96px] md:w-auto md:min-w-[110px] flex justify-center">
-          <Link href="#work">{t('nav.portfolio')}</Link>
-        </li>
-        <li className="btn w-[96px] md:w-auto md:min-w-[110px] flex justify-center">
-          <Link href="#skill">{t('nav.skill')}</Link>
-        </li>
+        {navLinks.map((navLink) => (
+          <li
+            className='btn w-[96px] md:w-auto md:min-w-[110px] flex justify-center'
+            key={navLink.id}
+          >
+            <Link href={`#${navLink.id}`}>{t(`nav.${navLink.id}`)}</Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

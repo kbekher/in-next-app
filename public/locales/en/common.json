@@ -2,8 +2,8 @@
   "h1": "Creating Visual Solutions that Inspire the World",
   "nav": {
     "about": "About me",
-    "portfolio": "Portfolio",
-    "skill": "Skills"
+    "work": "Portfolio",
+    "skills": "Skills"
   },
   "hello": {
     "btn": "Say hello",
@@ -15,18 +15,26 @@
     "join": "Join"
   },
   "projects": {
-    "project1": {
+    "ace-and-tate": {
       "title": "Reflecting Style: Web Design for Ace and Tate",
-      "description": "Designed with the latest trends in design and user interface in mind, our web design transforms Ace and Tate's online presence into a source of inspiration and comfort for visitors."
+      "p": "Designed with the latest trends in design and user interface in mind, our web design transforms Ace and Tate's online presence into a source of inspiration and comfort for visitors."
     },
-    "project2": {
-      "title": "Xtrafit: Effective Design for Optimal Workout Experience",
-      "description": "Designed a new look for the Xtrafit gym app to make it easier to use, with a modern and easy-to-understand layout. Added colorful images and made it simple to find workouts and other gym services, making it more enjoyable for users."
+    "xtrafit": {
+      "title": "Xtrafit: Feel extra. Feel good.",
+      "p": "Designed a new look for the Xtrafit gym app to make it easier to use, with a modern and easy-to-understand layout. Added colorful images and made it simple to find workouts and other gym services, making it more enjoyable for users."
     },
-    "project3": {
-      "title": "Illustrations bringing ideas to life",
-      "description": "Illustrations embody unique visuals. I create illustrations that depict the essence of your idea or product."
+    "flowtech": {
+      "title": "Flowtech Brand Identity",
+      "p": "I developed the brand identity for Flowtech. In this project, I created the logo, packaging design, landing page, and Instagram page. My goal is to design a visual style that highlights the modern, elegant, and functional aspects of Flowtech products."
+    },
+    "paysera": {
+      "title": "Paysera new corporate identity",
+      "p": "I created a new brand identity for Paysera, redesigning the logo, business cards, and bank card. Additionally, I revamped the banking app, banners, and landing page to reflect a fresh, cohesive look."
     }
+  },
+  "illustration": {
+    "title": "Illustrations bringing ideas to life",
+    "p": "Illustrations embody unique visuals. I create illustrations that depict the essence of your idea or product."
   },
   "skills": {
     "title": "Skills that I use to create digital products",

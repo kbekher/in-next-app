@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import ContactLinks from "../ContactLinks/ContactLinks";
-import Devider from "../Devider/Devider";
+import Divider from "../Divider/Divider";
 
 const About = () => {
   const { t } = useTranslation("common");
@@ -36,7 +36,7 @@ const About = () => {
           </div>
           </div> 
       </div>
-      <Devider />
+      <Divider />
     </section>
   );
 };

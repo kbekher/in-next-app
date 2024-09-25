@@ -1,4 +1,4 @@
-const Devider = () => {
+const Divider = () => {
   return (
     <div className='flex items-center justify-center flex-col'>
       <div className='h-[140px] w-[1px] bg-[#b1b1b1]'></div>
@@ -7,4 +7,4 @@ const Devider = () => {
   );
 };
 
-export default Devider;
+export default Divider;

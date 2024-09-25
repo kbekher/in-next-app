@@ -1,25 +1,8 @@
-'use client';
-
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 
-import systems from "/images/systems.svg";
-import graphic from "/images/graphic.svg";
-import ux from "/images/ux.svg";
-import prototyping from "/images/prototyping.svg";
-import illustration from "/images/illustration.svg";
-import ui from "/images/ui.svg";
-
-import Devider from "../Devider/Devider";
-
-const SKILLS = [
-  { name: "systems", icon: systems },
-  { name: "graphic", icon: graphic },
-  { name: "ux", icon: ux },
-  { name: "prototyping", icon: prototyping },
-  { name: "illustration", icon: illustration },
-  { name: "ui", icon: ui },
-];
+import { skills } from "@/constants";
+import Divider from "../Divider/Divider";
 
 const SkillTile = ({ skill, t }) => (
     <div className='bg-[var(--color-bg-tile)] rounded-[22px]'>
@@ -47,12 +30,12 @@ const Skills = () => {
         </h2>
 
         <div className='grid grid-cols-2 md:grid-cols-3 gap-[24px] md:gap-[20px] auto-rows-min min-w-[164px] min-h-[164px] md:min-h-[170px] justify-center overflow-hidden w-full'>
-          {SKILLS.map((skill) => (
+          {skills.map((skill) => (
             <SkillTile key={skill.name} skill={skill} t={t} />
           ))}
         </div>
       </div>
-      <Devider />
+      <Divider />
     </section>
   );
 };

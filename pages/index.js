@@ -6,6 +6,7 @@ import localFont from 'next/font/local';
 import '../app/globals.css';
 
 import Hero from '../components/Hero/Hero';
+import Project from '@/components/Project/Project';
 import Skills from '@/components/Skills/Skills';
 import About from '@/components/About/About';
 import Testimonials from '@/components/Testimonials/Testimonials';
@@ -23,6 +24,11 @@ const Homepage = () => {
           <Hero />
 
           <main>
+            <Project type="ux" name="ace-and-tate" />
+            <Project type="ux" name="xtrafit" />
+            <Project type="brand" name="flowtech" />
+            <Project type="brand" name="paysera" />
+
             <Skills />
             <About />
             <Testimonials />

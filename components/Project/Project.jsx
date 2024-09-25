@@ -1,0 +1,96 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { useMediaQuery } from "react-responsive";
+import Link from "next/link";
+import { useTranslation } from "next-i18next";
+import { projects } from "@/constants";
+
+const ProjectGallery = ({ name }) => {
+  // Placeholder for the image gallery implementation
+  return <div>Image Gallery for {name}</div>;
+};
+
+const Project = ({ type, name }) => {
+  const { t } = useTranslation("common");
+  const project = projects.find(project => project.name === name);
+  const { assetsUrls, behanceUrl } = project;
+  const videoRef = useRef(null);
+
+  const isDesktop = useMediaQuery({ minWidth: 768 });
+  const videoSrc = isDesktop ? assetsUrls[0] : assetsUrls[1];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const videoElement = videoRef.current;
+      if (!videoElement) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            videoElement.play(); // Play the video when in view
+          } else {
+            videoElement.pause(); // Pause the video when out of view
+          }
+        });
+      });
+
+      if (videoElement) {
+        observer.observe(videoElement);
+      }
+
+      return () => {
+        if (videoElement) observer.unobserve(videoElement);
+      };
+    };
+
+    handleScroll();
+  }, []);
+
+  return (
+    <section className='max-w-[1680px] m-auto h-full pt-[160px]'>
+      <div className='px-5 md:px-[200px] mb-[120px]'>
+        <h2 className='m-auto text-[36px] md:text-[48px] leading-tight mb-[54px] text-center'>
+          {t(`projects.${name}.title`)}
+        </h2>
+
+        <div className='m-auto'>
+          {type === "ux" && videoSrc ? (
+            <video
+              ref={videoRef}
+              src={`https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/${videoSrc}`}
+              className="w-full h-auto"
+              muted
+              playsInline
+              loop={false} // Play only once
+            />
+          ) : (
+            <ProjectGallery name={name} />
+          )}
+        </div>
+
+        <Link
+          href={behanceUrl}
+          target="_blank"
+          className='flex justify-center gap-2 items-center mx-auto shadow-xl text-lg text-[var(--background)] bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[var(--color-gray-dark)] hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group'
+        >
+          {t(`buttons.behance`)}
+          <svg
+            className='w-8 h-8 justify-end group-hover:rotate-90 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45'
+            viewBox='0 0 16 19'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              d='M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z'
+              className='fill-gray-800 group-hover:fill-gray-800'
+            />
+          </svg>
+        </Link>
+
+        <p className='text-center'>{t(`projects.${name}.p`)}</p>
+      </div>
+    </section>
+  );
+};
+
+export default Project;

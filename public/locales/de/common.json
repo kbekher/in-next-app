@@ -2,8 +2,8 @@
   "h1": "Kreative visuelle Lösungen, die die Welt inspirieren",
   "nav": {
     "about": "Über mich",
-    "portfolio": "Portfolio",
-    "skill": "Skills"
+    "work": "Portfolio",
+    "skills": "Skills"
   },
   "hello": {
     "btn": "Sag hallo",
@@ -15,18 +15,26 @@
     "join": "Join"
   },
   "projects": {
-    "project1": {
+    "ace-and-tate": {
       "title": "Reflektierender Stil: Webdesign für Ace and Tate",
-      "description": "Mit den neuesten Trends im Design und der Benutzeroberfläche im Blick, verwandelt unser Webdesign die Online-Präsenz von Ace and Tate in eine Inspirationsquelle und einen Ort des Komforts für Besucher."
+      "p": "Mit den neuesten Trends im Design und der Benutzeroberfläche im Blick, verwandelt unser Webdesign die Online-Präsenz von Ace and Tate in eine Inspirationsquelle und einen Ort des Komforts für Besucher."
     },
-    "project2": {
-      "title": "Xtrafit: Effektives Design für ein optimales Trainingserlebnis",
-      "description": "Ich habe einen neuen Look für die Xtrafit Gym-App entworfen, um sie benutzerfreundlicher zu gestalten, mit einem modernen und leicht verständlichen Layout. Wir haben farbenfrohe Bilder hinzugefügt und es einfach gemacht, Workouts und andere Fitnessstudio-Dienstleistungen zu finden, was die Nutzung für die Benutzer angenehmer macht."
+    "xtrafit": {
+      "title": "Xtrafit: Fühlen Sie sich besonders. Fühlen Sie sich gut.",
+      "p": "Ich habe einen neuen Look für die Xtrafit Gym-App entworfen, um sie benutzerfreundlicher zu gestalten, mit einem modernen und leicht verständlichen Layout. Wir haben farbenfrohe Bilder hinzugefügt und es einfach gemacht, Workouts und andere Fitnessstudio-Dienstleistungen zu finden, was die Nutzung für die Benutzer angenehmer macht."
     },
-    "project3": {
-      "title": "Illustrationen, die Ideen zum Leben erwecken",
-      "description": "Illustrationen verkörpern einzigartige visuelle Darstellungen. Ich erstelle Illustrationen, die die Essenz Ihrer Idee oder Ihres Produkts abbilden."
+    "flowtech": {
+      "title": "Flowtech Markenidentität",
+      "p": "Ich habe die Markenidentität für Flowtech entwickelt. In diesem Projekt habe ich das Logo, das Verpackungsdesign, die Landingpage und die Instagram-Seite erstellt. Mein Ziel ist es, einen visuellen Stil zu entwerfen, der die modernen, eleganten und funktionalen Aspekte der Flowtech-Produkte hervorhebt."
+    },
+    "paysera": {
+      "title": "Payseras neue Corporate Identity",
+      "p": "Ich habe eine neue Markenidentität für Paysera geschaffen und das Logo, die Visitenkarten und die Bankkarte neu gestaltet. Darüber hinaus habe ich die Banking-App, Banner und die Landingpage überarbeitet, um ein frisches, einheitliches Erscheinungsbild zu erzielen."
     }
+  },
+  "illustration": {
+    "title": "Illustrationen erwecken Ideen zum Leben",
+    "p": "Illustrationen verkörpern einzigartige visuelle Elemente. Ich erstelle Illustrationen, die die Essenz Ihrer Idee oder Ihres Produkts darstellen."
   },
   "skills": {
     "title": "Fähigkeiten, die ich zur Erstellung digitaler Produkte nutze",
