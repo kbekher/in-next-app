@@ -1,7 +1,7 @@
 'use client';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import localFont from 'next/font/local';
+import { Roboto } from 'next/font/google'
 
 import '../app/globals.css';
 
@@ -12,14 +12,17 @@ import About from '@/components/About/About';
 import Testimonials from '@/components/Testimonials/Testimonials';
 import Footer from '@/components/Footer/Footer';
 
-const myFont = localFont({ src: '../app/PPNeueMontreal-Thin.otf' });
+const roboto = Roboto({
+  weight: ['300', '400', '700'],
+  subsets: ['latin'], 
+});
 
 const Homepage = () => {
 
   
   return (
     <>
-      <div className={`${myFont.className} min-w-[320px]`}>
+      <div className={`${roboto.className} min-w-[320px]`}>
         <div className='w-full h-full'>
           <Hero />
 

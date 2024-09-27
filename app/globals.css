@@ -23,23 +23,18 @@ body {
   /* This ensures the content starts below the status bar */
   min-height: -webkit-fill-available;
   /* mobile viewport bug fix */
+  font-weight: 300;
 }
 
-@font-face {
-  font-family: 'NeueMontreal';
-  src: url('./PPNeueMontreal-Medium.otf');
-  font-weight: 500;
-}
-
-h1, h2, h3, button.form-btn {
-  font-family: 'NeueMontreal';
-  font-weight: 500;
-}
 
 /* TODO: fixed position to HeroSection + */
 /* main {
   padding-top: 100vh;
 } */
+
+h1, h2, h3 {
+  font-weight: 500;
+}
 
 
 @layer utilities {
