@@ -4,11 +4,11 @@ import SayHello from "../SayHello/SayHello";
 
 const HeaderDesktop = () => {
   return (
-    <header className='flex w-full justify-between items-center'>
+    <div className='flex w-full justify-between items-center'>
       <Logo isClickable />
       <Navbar />
       <SayHello />
-    </header>
+    </div>
   );
 };
 

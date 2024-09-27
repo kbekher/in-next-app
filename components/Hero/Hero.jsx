@@ -25,7 +25,7 @@ const Hero = () => {
   }, [isDesktopQuery]);
 
   return (
-    <section className='relative h-[100vh] w-full flex flex-col pt-[60px] px-5 pb-[36px] md:pt-10 md:px-20 md:pb-[70px]'>
+    <header className='relative h-[100vh] w-full flex flex-col pt-[60px] px-5 pb-[36px] md:pt-10 md:px-20 md:pb-[70px]'>
 
     {/* Preload Spline Object */}
     <Script src={splineSrc} strategy="beforeInteractive" />
@@ -65,7 +65,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
+    </header>
   );
 };
 

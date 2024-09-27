@@ -2,9 +2,9 @@ import Logo from "../Logo/Logo";
 
 const HeaderMobile = () => {
   return (
-    <header>
+    <div>
       <Logo />
-    </header>
+    </div>
   );
 };
 
