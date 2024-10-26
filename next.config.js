@@ -29,6 +29,42 @@ const nextConfig = {
         port: '',
         pathname: '/reviewer2.jpg',
       },
+      {
+        protocol: 'https',
+        hostname: 'inozemtsev-portfolio.s3.eu-central-1.amazonaws.com',
+        port: '',
+        pathname: '/fl1.jpg',
+      },
+      {
+        protocol: 'https',
+        hostname: 'inozemtsev-portfolio.s3.eu-central-1.amazonaws.com',
+        port: '',
+        pathname: '/fl2.jpg',
+      },
+      {
+        protocol: 'https',
+        hostname: 'inozemtsev-portfolio.s3.eu-central-1.amazonaws.com',
+        port: '',
+        pathname: '/fl3.jpg',
+      },
+      {
+        protocol: 'https',
+        hostname: 'inozemtsev-portfolio.s3.eu-central-1.amazonaws.com',
+        port: '',
+        pathname: '/fl4.jpg',
+      },
+      {
+        protocol: 'https',
+        hostname: 'inozemtsev-portfolio.s3.eu-central-1.amazonaws.com',
+        port: '',
+        pathname: '/fl5.jpg',
+      },
+      {
+        protocol: 'https',
+        hostname: 'inozemtsev-portfolio.s3.eu-central-1.amazonaws.com',
+        port: '',
+        pathname: '/fl6.jpg',
+      },
     ],
   },
 }

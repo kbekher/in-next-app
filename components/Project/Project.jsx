@@ -2,14 +2,43 @@
 
 import { useEffect, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { projects } from "@/constants";
 import Divider from "../Divider/Divider";
 
 const ProjectGallery = ({ name }) => {
-  // Placeholder for the image gallery implementation
-  return <div>Image Gallery for {name}</div>;
+  return name === 'flowtech' ? (
+    <div>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="col-span-2">
+          <Image width={700} height={193} className="h-[193px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl4.jpg" alt="" />
+        </div>
+
+        <div className="grid gap-2 row-span-3">
+          <div>
+            <Image width={700} height={274} className="h-[274px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl3.jpg" alt="" />
+          </div>
+          <div className="row-span-2">
+            <Image width={700} height={219} className="h-[219px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl1.jpg" alt="" />
+          </div>
+        </div>
+
+        <div className="grid gap-2 row-span-2">
+          <div>
+            <Image width={700} height={150} className="h-[147px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl6.jpg" alt="" />
+          </div>
+          <div>
+            <Image width={700} height={150} className="h-[137px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl5.jpg" alt="" />
+          </div>
+        </div>
+
+        <div className="row-start-2 row-end-3 col-start-2 col-end-3">
+          <Image width={700} height={300} className="h-[300px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl2.jpg" alt="" />
+        </div>
+      </div>
+    </div>) : <div>{name}</div>;
 };
 
 
@@ -25,32 +54,32 @@ const Project = ({ type, name }) => {
   useEffect(() => {
     const videoElement = videoRef.current;
     if (!videoElement) return;
-  
-    let hasPlayed = false; 
-  
+
+    let hasPlayed = false;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && !hasPlayed) {
           videoElement.play(); // Play the video when in view for the first time
-          hasPlayed = true; 
-          observer.disconnect(); 
+          hasPlayed = true;
+          observer.disconnect();
         }
       });
     }, {
       threshold: 0.5 // Adjust threshold to trigger based on how much of the element is visible
     });
-  
+
     if (videoElement) {
       observer.observe(videoElement);
     }
-  
+
     return () => {
       if (observer && videoElement) {
         observer.disconnect();
       }
     };
   }, []);
-  
+
 
   return (
     <section className='max-w-[1300px] m-auto h-full pt-[130px] md:pt-[220px]'>
