@@ -97,7 +97,7 @@ const Project = ({ type, name }) => {
             // <ProjectVideo src={videoSrc} />
             <video
               ref={videoRef}
-              src={`https://inozemtsev-portfolio.s3.-1.amazonaws.com/${videoSrc}`}
+              src={`https://d3bxg96r07nwt6.cloudfront.net/${videoSrc}`}
               className="w-full h-auto"
               muted
               playsInline
