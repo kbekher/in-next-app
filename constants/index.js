@@ -44,7 +44,7 @@ const projects = [
   },
   { 
     name: "flowtech", 
-    assetsUrls: [], 
+    assetsUrls: ["fl1", "fl2", "fl3", "fl4", "fl5", "fl6"], 
     behanceUrl: "https://www.behance.net/gallery/203295061/Flowtech-Brand-Identity" 
   },
   { 

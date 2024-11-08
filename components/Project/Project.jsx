@@ -8,34 +8,38 @@ import { useTranslation } from "next-i18next";
 import { projects } from "@/constants";
 import Divider from "../Divider/Divider";
 
-const ProjectGallery = ({ name }) => {
+const ProjectGallery = ({ name, assets }) => {
+  const domain = 'https://d3bxg96r07nwt6.cloudfront.net/';
+  
+  const imgClass = 'max-w-full rounded-lg object-cover';
+
   return name === 'flowtech' ? (
     <div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         <div className="col-span-2">
-          <Image width={700} height={193} className="h-[193px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl4.jpg" alt="" />
+          <Image width={700} height={193} className={`h-[193px] ${imgClass}`} src={`${domain}${assets[3]}.jpg`} alt="" />
         </div>
 
         <div className="grid gap-2 row-span-3">
           <div>
-            <Image width={700} height={274} className="h-[274px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl3.jpg" alt="" />
+            <Image width={700} height={274} className={`h-[274px] ${imgClass}`} src={`${domain}${assets[2]}.jpg`}  alt="" />
           </div>
           <div className="row-span-2">
-            <Image width={700} height={219} className="h-[219px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl1.jpg" alt="" />
+            <Image width={700} height={219} className={`h-[219px] ${imgClass}`} src={`${domain}${assets[0]}.jpg`}  alt="" />
           </div>
         </div>
 
         <div className="grid gap-2 row-span-2">
           <div>
-            <Image width={700} height={150} className="h-[147px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl6.jpg" alt="" />
+            <Image width={700} height={150} className={`h-[147px] ${imgClass}`} src={`${domain}${assets[5]}.jpg`}  alt="" />
           </div>
           <div>
-            <Image width={700} height={150} className="h-[137px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl5.jpg" alt="" />
+            <Image width={700} height={150} className={`h-[137px] ${imgClass}`} src={`${domain}${assets[4]}.jpg`}  alt="" />
           </div>
         </div>
 
         <div className="row-start-2 row-end-3 col-start-2 col-end-3">
-          <Image width={700} height={300} className="h-[300px] max-w-full rounded-lg object-cover" src="https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/fl2.jpg" alt="" />
+          <Image width={700} height={300} className={`h-[300px] ${imgClass}`} src={`${domain}${assets[1]}.jpg`}  alt="" />
         </div>
       </div>
     </div>) : <div>{name}</div>;
@@ -57,7 +61,7 @@ const Project = ({ type, name }) => {
 
     let hasPlayed = false;
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => { //TODO: try to avoid observer
       entries.forEach((entry) => {
         if (entry.isIntersecting && !hasPlayed) {
           videoElement.play(); // Play the video when in view for the first time
@@ -93,14 +97,14 @@ const Project = ({ type, name }) => {
             // <ProjectVideo src={videoSrc} />
             <video
               ref={videoRef}
-              src={`https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/${videoSrc}`}
+              src={`https://inozemtsev-portfolio.s3.-1.amazonaws.com/${videoSrc}`}
               className="w-full h-auto"
               muted
               playsInline
               loop={false} // Play only once
             />
           ) : (
-            <ProjectGallery name={name} />
+            <ProjectGallery name={name} assets={project.assetsUrls} />
           )}
         </div>
 

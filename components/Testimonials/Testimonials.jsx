@@ -8,7 +8,7 @@ const ReviewCard = ({ review, t }) => (
     <div className='flex flex-col items-center gap-4 w-full h-full p-[40px] pt-[30px]'>
       <div className='w-[100px] h-[100px] bg-[var(--color-gray)] rounded-full overflow-hidden aspect-square'>
         <Image
-          src={`https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/${review.imgUrl}`}
+          src={`https://d3bxg96r07nwt6.cloudfront.net/${review.imgUrl}`}
           alt={t(`testimonials.review${review.id}.name`)}
           width={100}
           height={100}

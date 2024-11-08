@@ -26,7 +26,7 @@ const About = () => {
         <div className='lg:w-1/2 h-[100%] flex items-center'>
           <div className="w-[100%] max-w-[600px] m-auto lg:max-w-[800px] overflow-hidden bg-[var(--color-gray)] rounded-[40px] lg:rounded-[100px] pt-20 flex justify-center">
             <Image
-              src={`https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/hero.png`}
+              src="https://d3bxg96r07nwt6.cloudfront.net/hero.png"
               alt='Ivan Inozemtsev'
               width={700}
               height={778}

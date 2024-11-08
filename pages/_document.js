@@ -18,7 +18,7 @@ class MyDocument extends Document {
           <link
             data-react-helmet='true'
             rel='icon'
-            href='https://inozemtsev-portfolio.s3.eu-central-1.amazonaws.com/logo.png'
+            href='https://d3bxg96r07nwt6.cloudfront.net/logo.png'
           />
         </Head>
         <body>
