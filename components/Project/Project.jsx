@@ -62,7 +62,7 @@ const ProjectGallery = ({ name, assets }) => {
         <Image width={700} height={150} className={`${imgClassPa} `} src={`${domain}${assets[5]}.jpg`} alt="" />
       </div>
 
-      <div className="row-start-2 col-start-3 col-span-2 row-span-2 border-[var(--background)] border-[1em] rounded-3xl border-b-0 border-r-0">
+      <div className="row-start-2 col-start-3 col-span-2 row-span-2">
         <Image width={700} height={300} className={`${imgClassPa}`} src={`${domain}${assets[3]}.jpg`} alt="" />
       </div>
     </div>
