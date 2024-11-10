@@ -15,31 +15,31 @@ const ProjectGallery = ({ name, assets }) => {
 
   return name === 'flowtech' ? (
     <div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <div className="col-span-2">
-          <Image width={700} height={193} className={`h-[193px] ${imgClass}`} src={`${domain}${assets[3]}.jpg`} alt="" />
+      <div className="grid grid-cols-3 gap-2 md:gap-4">
+        <div className="col-span-2 row-span-2 md:row-span-1">
+          <Image width={700} height={193} className={`h-[100%] md:h-[193px] ${imgClass} `} src={`${domain}${assets[3]}.jpg`} alt="" />
         </div>
 
-        <div className="grid gap-2 row-span-3">
+        <div className="md:grid md:gap-2 md:row-span-3">
           <div>
-            <Image width={700} height={274} className={`h-[274px] ${imgClass}`} src={`${domain}${assets[2]}.jpg`}  alt="" />
+            <Image width={700} height={274} className={`h-[274px] ${imgClass} hidden md:block`} src={`${domain}${assets[2]}.jpg`} alt="" />
           </div>
           <div className="row-span-2">
-            <Image width={700} height={219} className={`h-[219px] ${imgClass}`} src={`${domain}${assets[0]}.jpg`}  alt="" />
+            <Image width={700} height={219} className={`h-[112px] md:h-[219px] ${imgClass}`} src={`${domain}${assets[0]}.jpg`} alt="" />
           </div>
         </div>
 
-        <div className="grid gap-2 row-span-2">
+        <div className="hidden md:grid gap-2 row-span-2">
           <div>
-            <Image width={700} height={150} className={`h-[147px] ${imgClass}`} src={`${domain}${assets[5]}.jpg`}  alt="" />
+            <Image width={700} height={150} className={`h-[137px] ${imgClass}`} src={`${domain}${assets[5]}.jpg`} alt="" />
           </div>
           <div>
-            <Image width={700} height={150} className={`h-[137px] ${imgClass}`} src={`${domain}${assets[4]}.jpg`}  alt="" />
+            <Image width={700} height={150} className={`h-[137px] ${imgClass} `} src={`${domain}${assets[4]}.jpg`} alt="" />
           </div>
         </div>
 
-        <div className="row-start-2 row-end-3 col-start-2 col-end-3">
-          <Image width={700} height={300} className={`h-[300px] ${imgClass}`} src={`${domain}${assets[1]}.jpg`}  alt="" />
+        <div className="md:row-start-2 md:row-end-3 md:col-start-2 md:col-end-3">
+          <Image width={700} height={300} className={`h-[112px] md:h-[300px] ${imgClass}`} src={`${domain}${assets[1]}.jpg`}  alt="" />
         </div>
       </div>
     </div>) : <div>{name}</div>;
