@@ -20,7 +20,7 @@ module.exports = {
       },
       translate: {
         '-1/2': '-50%',
-      },
+      }
     },
   },
   plugins: [],

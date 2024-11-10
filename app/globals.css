@@ -61,10 +61,10 @@ h1, h2, h3 {
     );
     background-size: 400% 100%;
   }
-  .bg-clip-text {
+  /* .bg-clip-text {
     background-clip: text;
     -webkit-background-clip: text;
-  }
+  } */
 
   .animate-gradient-animation {
     animation: gradient-animation ease-in-out infinite;
