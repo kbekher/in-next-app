@@ -102,6 +102,20 @@ h1, h2, h3 {
     width: 100%;
   }
 
+  .project-video { 
+    position: relative;
+
+    &::after {
+      content: "";
+      background-color: var(--background);
+      position: absolute;
+      right: -216px;
+      bottom: -116px;
+      width: 250px;
+      height: 200px;
+    }
+  }
+
   /* Animations */
   @keyframes fadeIn {
     from {

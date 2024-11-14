@@ -34,22 +34,22 @@ const reviews = [
 const projects = [
   { 
     name: "ace-and-tate",
-    assetsUrls: ["ace_tate.mp4", "ace_tate_mobile.mp4"], 
+    assetsUrls: ["ace_and_tate.mov", "ace_and_tate.mov"], 
     behanceUrl: "https://www.behance.net/gallery/199572029/Ace-Tate-UXUI-Design" 
   },
   { 
     name: "xtrafit", 
-    assetsUrls: ["xtrafit.mp4", "xtrafit_mobile.mp4"], 
+    assetsUrls: ["xtrafit.mov", "xtrafit_mobile.mov"], 
     behanceUrl: "https://www.behance.net/gallery/200658231/Xtrafit-Gym-Mobile-App-Design" 
   },
   { 
     name: "flowtech", 
-    assetsUrls: ["fl1", "fl2", "fl3", "fl4", "fl5", "fl6"], 
+    assetsUrls: ["fl1.jpg", "fl2.jpg", "fl3.jpg", "fl4.jpg", "fl5.jpg", "fl6.jpg"], 
     behanceUrl: "https://www.behance.net/gallery/203295061/Flowtech-Brand-Identity" 
   },
   { 
     name: "paysera", 
-    assetsUrls: ["pa1", "pa2", "pa3", "pa4", "pa5", "pa6"], 
+    assetsUrls: ["pa1.jpg", "pa2.jpg", "pa3.jpg", "pa4.jpg", "pa5.jpg", "pa6.jpg"], 
     behanceUrl: "https://www.behance.net/gallery/204500631/Paysera-Bank-brand-identity" 
   },
 ]
