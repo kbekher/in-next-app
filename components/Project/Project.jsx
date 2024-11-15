@@ -12,15 +12,15 @@ const ProjectGallery = ({ name, assets }) => {
   const domain = 'https://d3bxg96r07nwt6.cloudfront.net/';
 
   const imgClassFl = 'max-w-full rounded-lg object-cover';
-  const imgClassPa = 'h-[100%] max-w-full rounded-3xl object-cover';
+  const imgClassPa = 'h-[100%] max-w-full rounded-3xl';
 
   return name === 'flowtech' ? (
-    <div className="grid grid-cols-3 gap-2 md:gap-4">
+    <div className="grid grid-cols-3 gap-3 md:gap-6">
       <div className="col-span-2 row-span-2 md:row-span-1">
         <Image width={700} height={193} className={`h-[100%] md:h-[193px] ${imgClassFl}`} src={`${domain}${assets[3]}`} alt="" />
       </div>
 
-      <div className="md:grid md:gap-2 md:row-span-3">
+      <div className="md:grid md:gap-3 md:row-span-3">
         <div>
           <Image width={700} height={274} className={`h-[274px] ${imgClassFl} hidden md:block`} src={`${domain}${assets[2]}`} alt="" />
         </div>
@@ -29,7 +29,7 @@ const ProjectGallery = ({ name, assets }) => {
         </div>
       </div>
 
-      <div className="hidden md:grid gap-2 row-span-2">
+      <div className="hidden md:grid row-span-2">
         <div>
           <Image width={700} height={150} className={`h-[137px] ${imgClassFl}`} src={`${domain}${assets[5]}`} alt="" />
         </div>
@@ -42,28 +42,28 @@ const ProjectGallery = ({ name, assets }) => {
         <Image width={700} height={300} className={`h-[112px] md:h-[300px] ${imgClassFl}`} src={`${domain}${assets[1]}`} alt="" />
       </div>
     </div>
-  ) : (
-    <div className="grid grid-cols-6 grid-rows-4 gap-2 md:gap-4">
-      <div className="col-start-1 col-span-3 row-start-1 row-span-2">
-        <Image width={700} height={193} className={`${imgClassPa}`} src={`${domain}${assets[1]}`} alt="" />
+  ) : (                                                                                                                      //TODO: possibly update this
+    <div className="grid grid-cols-2 md:grid-cols-8 grid-rows-4 md:grid-rows-3 gap-3 md:gap-6 max-h-[240px] md:max-h-[416px] max-w-[740px] m-auto">
+      <div className="col-start-1 row-start-1 md:col-span-4">
+        <Image width={700} height={193} className={`${imgClassPa} object-cover`} src={`${domain}${assets[1]}`} alt="" />
       </div>
 
-      <div className="col-span-3 row-span-1">
-        <Image width={700} height={274} className={`${imgClassPa}`} src={`${domain}${assets[0]}`} alt="" />
+      <div className="col-start-1 row-start-3 row-span-2 md:col-span-4 md:row-span-1">
+        <Image width={700} height={274} className={`${imgClassPa} object-cover`} src={`${domain}${assets[0]}`} alt="" />
       </div>
-      <div className="col-start-5 col-span-2 row-span-3">
-        <Image width={700} height={219} className={`${imgClassPa}`} src={`${domain}${assets[2]}`} alt="" />
-      </div>
-
-      <div className="col-span-2">
-        <Image width={700} height={150} className={`${imgClassPa}`} src={`${domain}${assets[4]}`} alt="" />
-      </div>
-      <div className="col-span-4">
-        <Image width={700} height={150} className={`${imgClassPa} `} src={`${domain}${assets[5]}`} alt="" />
+      <div className="col-start-2 row-start-1 row-span-3 md:col-start-6 md:col-span-3 md:row-span-2">
+        <Image width={700} height={219} className={`${imgClassPa} object-cover`} src={`${domain}${assets[2]}`} alt="" />
       </div>
 
-      <div className="row-start-2 col-start-3 col-span-2 row-span-2">
-        <Image width={700} height={300} className={`${imgClassPa}`} src={`${domain}${assets[3]}`} alt="" />
+      <div className="col-start-1 row-start-2 md:col-span-3">
+        <Image width={700} height={150} className={`${imgClassPa} object-cover`} src={`${domain}${assets[4]}`} alt="" />
+      </div>
+      <div className="hidden md:grid col-span-5">
+        <Image width={700} height={150} className={`${imgClassPa} object-cover`} src={`${domain}${assets[5]}`} alt="" />
+      </div>
+
+      <div className="col-start-2 md:row-start-2 md:col-start-4 md:col-span-2">
+        <Image width={700} height={300} className={`${imgClassPa} object-contain bg-white md:bg-none md:object-cover`} src={`${domain}${assets[3]}`} alt="" />
       </div>
     </div>
   );
@@ -111,23 +111,24 @@ const Project = ({ type, name }) => {
 
   return (
     <section className='max-w-[1300px] m-auto h-full pt-[130px] md:pt-[220px]'>
-      <div className='px-5 md:px-[200px] mb-[120px]'>
+      <div className='px-5 md:px-[80px] lg:px-[200px] mb-[120px]'>
         <h2 className='m-auto text-[36px] md:text-[48px] leading-tight mb-6 md:mb-8 text-center'>
           {t(`projects.${name}.title`)}
         </h2>
 
         <div className='mx-auto mb-6 md:mb-8 project-video overflow-hidden'> //TODO: on mobile remove place on the sides
           {type === "ux" && videoSrc ? (
-            // <ProjectVideo src={videoSrc} />
-            <video
-              ref={videoRef}
-              src={`https://d3bxg96r07nwt6.cloudfront.net/${videoSrc}`}
-              className="w-full h-auto transform scale-[1.5]"
-              muted
-              playsInline
-              loop={false} // Play only once
-            />
-          ) : (
+            <div className="project-video">
+              <video
+                ref={videoRef}
+                src={`https://d3bxg96r07nwt6.cloudfront.net/${videoSrc}`}
+                className="w-full h-auto transform scale-[1.5]"
+                muted
+                playsInline
+                loop={false} // Play only once
+              />
+            </div>
+          ) : ( 
             <ProjectGallery name={name} assets={project.assetsUrls} />
           )}
         </div>

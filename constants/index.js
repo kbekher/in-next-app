@@ -49,7 +49,7 @@ const projects = [
   },
   { 
     name: "paysera", 
-    assetsUrls: ["pa1.jpg", "pa2.jpg", "pa3.jpg", "pa4.jpg", "pa5.jpg", "pa6.jpg"], 
+    assetsUrls: ["pa1.jpg", "paa2.jpg", "pa3.jpg", "pa4.jpg", "pa5.jpg", "pa6.jpg"], 
     behanceUrl: "https://www.behance.net/gallery/204500631/Paysera-Bank-brand-identity" 
   },
   { 

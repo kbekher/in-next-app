@@ -22,7 +22,7 @@ const Homepage = () => {
   
   return (
     <>
-      <div className={`${roboto.className} min-w-[320px]`}>
+      <div className={`${roboto.className} min-w-[320px] overflow-hidden`}>
         <div className='w-full h-full'>
           <Hero />
 
