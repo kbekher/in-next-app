@@ -123,7 +123,7 @@ const ProjectGallery = ({ name, assets }) => {
       </div>
 
       <div className="col-start-2 md:row-start-2 md:col-start-4 md:col-span-2">
-        {renderImage(assets[3], 700, 300, `object-contain bg-white md:bg-none md:object-cover ${imgClassPa}`)}
+        {renderImage(assets[3], 700, 300, `h-[100%] max-w-full rounded-3xl object-contain bg-white md:bg-none md:object-cover`)}
       </div>
     </div>
   );
