@@ -32,6 +32,8 @@ const Homepage = () => {
             <Project type="brand" name="flowtech" />
             <Project type="brand" name="paysera" />
 
+            // TODO: Illustration project
+
             <Skills />
             <About />
             <Testimonials />

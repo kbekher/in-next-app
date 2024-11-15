@@ -77,8 +77,8 @@ const Project = ({ type, name }) => {
   const videoRef = useRef(null);
 
   const isDesktop = useMediaQuery({ minWidth: 768 });
-  const videoSrc = isDesktop ? assetsUrls[0] : assetsUrls[1];
-
+  const videoSrc = isDesktop ? assetsUrls[0] : assetsUrls[1]; // TODO: why doesn't work right
+ 
   useEffect(() => {
     const videoElement = videoRef.current;
     if (!videoElement) return;
@@ -116,7 +116,7 @@ const Project = ({ type, name }) => {
           {t(`projects.${name}.title`)}
         </h2>
 
-        <div className='mx-auto mb-6 md:mb-8 project-video'>
+        <div className='mx-auto mb-6 md:mb-8 project-video overflow-hidden'> //TODO: on mobile remove place on the sides
           {type === "ux" && videoSrc ? (
             // <ProjectVideo src={videoSrc} />
             <video

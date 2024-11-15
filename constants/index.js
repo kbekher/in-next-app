@@ -52,6 +52,11 @@ const projects = [
     assetsUrls: ["pa1.jpg", "pa2.jpg", "pa3.jpg", "pa4.jpg", "pa5.jpg", "pa6.jpg"], 
     behanceUrl: "https://www.behance.net/gallery/204500631/Paysera-Bank-brand-identity" 
   },
+  { 
+    name: "illustration", 
+    assetsUrls: ["fatboy.jpg", "christmas.jpg", "grinch.jpg", "people.jpg", "books.jpg",], 
+    behanceUrl: "https://www.behance.net/gallery/188116553/Illustrative-World-of-Fatboy"
+  },
 ]
 
 
