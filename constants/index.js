@@ -34,12 +34,12 @@ const reviews = [
 const projects = [
   { 
     name: "ace-and-tate",
-    assetsUrls: ["ace_and_tate.mov", "ace_and_tate.mov"], 
+    assetsUrls: ["ace_and_tate.mov"], 
     behanceUrl: "https://www.behance.net/gallery/199572029/Ace-Tate-UXUI-Design" 
   },
   { 
     name: "xtrafit", 
-    assetsUrls: ["xtrafit.mov", "xtrafit_mobile.mov"], 
+    assetsUrls: ["xtrafit_mobile.mov", "xtrafit.mov"], 
     behanceUrl: "https://www.behance.net/gallery/200658231/Xtrafit-Gym-Mobile-App-Design" 
   },
   { 

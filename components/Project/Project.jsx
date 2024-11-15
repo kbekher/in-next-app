@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,62 +8,122 @@ import { useTranslation } from "next-i18next";
 import { projects } from "@/constants";
 import Divider from "../Divider/Divider";
 
+const ProjectVideo = ({ name, assets }) => {
+  const videoRef = useRef(null);
+
+  const isDesktop = useMediaQuery({ minWidth: 768 });
+  const [videoSrc, setVideoSrc] = useState(assets[0]);
+
+  useEffect(() => {
+    // Update video source whenever isDesktop or name changes
+    const updatedSrc = isDesktop && name === "xtrafit" ? assets[1] : assets[0];
+    setVideoSrc(updatedSrc);
+
+    // Reset and load the video with the new source
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      videoElement.currentTime = 0;
+      videoElement.load();
+    }
+  }, [isDesktop, name, assets]); // Dependencies ensure updates
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    let hasPlayed = false;
+
+    const handleScroll = () => {
+      const videoRect = videoElement.getBoundingClientRect();
+      const midpoint = videoRect.top + videoRect.height / 2;
+      const isMidpointVisible =
+        midpoint >= window.innerHeight / 1.5 - 10 && midpoint <= window.innerHeight / 1.5 + 10; // TODO: here you can change when to trigger animation
+
+      if (window.scrollY === 0) {
+        hasPlayed = false; // Reset if scrolled to the top
+      }
+
+      // Play video only when scrolling down from the top and midpoint is visible
+      if (!hasPlayed && window.scrollY > 0 && isMidpointVisible) {
+        videoElement.currentTime = 0; // Reset video
+        videoElement.play();
+        hasPlayed = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isDesktop]); 
+
+  return (
+    <div className="project-video">
+      <video
+        ref={videoRef}
+        src={`https://d3bxg96r07nwt6.cloudfront.net/${videoSrc}`}
+        className="w-full h-auto transform scale-[1.5]"
+        muted
+        playsInline
+        loop={false} // Play only once
+      />
+    </div>
+  )
+}
+
 const ProjectGallery = ({ name, assets }) => {
   const domain = 'https://d3bxg96r07nwt6.cloudfront.net/';
 
   const imgClassFl = 'max-w-full rounded-lg object-cover';
-  const imgClassPa = 'h-[100%] max-w-full rounded-3xl';
+  const imgClassPa = 'h-[100%] max-w-full rounded-3xl object-cover';
+
+  const renderImage = (src, width, height, extraClasses = '') => (
+    <Image width={width} height={height} className={`${extraClasses}`} src={`${domain}${src}`} alt="" />
+  );
 
   return name === 'flowtech' ? (
     <div className="grid grid-cols-3 gap-3 md:gap-6">
       <div className="col-span-2 row-span-2 md:row-span-1">
-        <Image width={700} height={193} className={`h-[100%] md:h-[193px] ${imgClassFl}`} src={`${domain}${assets[3]}`} alt="" />
+        {renderImage(assets[3], 700, 193, `h-[100%] md:h-[193px] ${imgClassFl}`)}
       </div>
 
       <div className="md:grid md:gap-3 md:row-span-3">
-        <div>
-          <Image width={700} height={274} className={`h-[274px] ${imgClassFl} hidden md:block`} src={`${domain}${assets[2]}`} alt="" />
-        </div>
-        <div className="row-span-2">
-          <Image width={700} height={219} className={`h-[112px] md:h-[219px] ${imgClassFl}`} src={`${domain}${assets[0]}`} alt="" />
-        </div>
+        {renderImage(assets[2], 700, 274, `h-[274px] ${imgClassFl} hidden md:block`)}
+        {renderImage(assets[0], 700, 219, `h-[112px] md:h-[219px] ${imgClassFl}`)}
       </div>
 
       <div className="hidden md:grid row-span-2">
-        <div>
-          <Image width={700} height={150} className={`h-[137px] ${imgClassFl}`} src={`${domain}${assets[5]}`} alt="" />
-        </div>
-        <div>
-          <Image width={700} height={150} className={`h-[137px] ${imgClassFl} `} src={`${domain}${assets[4]}`} alt="" />
-        </div>
+        {renderImage(assets[5], 700, 150, `h-[137px] ${imgClassFl}`)}
+        {renderImage(assets[4], 700, 150, `h-[137px] ${imgClassFl}`)}
       </div>
 
       <div className="md:row-start-2 md:row-end-3 md:col-start-2 md:col-end-3">
-        <Image width={700} height={300} className={`h-[112px] md:h-[300px] ${imgClassFl}`} src={`${domain}${assets[1]}`} alt="" />
+        {renderImage(assets[1], 700, 300, `h-[112px] md:h-[300px] ${imgClassFl}`)}
       </div>
     </div>
   ) : (                                                                                                                      //TODO: possibly update this
     <div className="grid grid-cols-2 md:grid-cols-8 grid-rows-4 md:grid-rows-3 gap-3 md:gap-6 max-h-[240px] md:max-h-[416px] max-w-[740px] m-auto">
       <div className="col-start-1 row-start-1 md:col-span-4">
-        <Image width={700} height={193} className={`${imgClassPa} object-cover`} src={`${domain}${assets[1]}`} alt="" />
+        {renderImage(assets[1], 700, 193, imgClassPa)}
       </div>
 
       <div className="col-start-1 row-start-3 row-span-2 md:col-span-4 md:row-span-1">
-        <Image width={700} height={274} className={`${imgClassPa} object-cover`} src={`${domain}${assets[0]}`} alt="" />
+        {renderImage(assets[0], 700, 274, imgClassPa)}
       </div>
       <div className="col-start-2 row-start-1 row-span-3 md:col-start-6 md:col-span-3 md:row-span-2">
-        <Image width={700} height={219} className={`${imgClassPa} object-cover`} src={`${domain}${assets[2]}`} alt="" />
+        {renderImage(assets[2], 700, 219, imgClassPa)}
       </div>
 
       <div className="col-start-1 row-start-2 md:col-span-3">
-        <Image width={700} height={150} className={`${imgClassPa} object-cover`} src={`${domain}${assets[4]}`} alt="" />
+        {renderImage(assets[4], 700, 150, imgClassPa)}
       </div>
       <div className="hidden md:grid col-span-5">
-        <Image width={700} height={150} className={`${imgClassPa} object-cover`} src={`${domain}${assets[5]}`} alt="" />
+        {renderImage(assets[5], 700, 150, imgClassPa)}
       </div>
 
       <div className="col-start-2 md:row-start-2 md:col-start-4 md:col-span-2">
-        <Image width={700} height={300} className={`${imgClassPa} object-contain bg-white md:bg-none md:object-cover`} src={`${domain}${assets[3]}`} alt="" />
+        {renderImage(assets[3], 700, 300, `object-contain bg-white md:bg-none md:object-cover ${imgClassPa}`)}
       </div>
     </div>
   );
@@ -74,39 +134,6 @@ const Project = ({ type, name }) => {
   const { t } = useTranslation("common");
   const project = projects.find(project => project.name === name);
   const { assetsUrls, behanceUrl } = project;
-  const videoRef = useRef(null);
-
-  const isDesktop = useMediaQuery({ minWidth: 768 });
-  const videoSrc = isDesktop ? assetsUrls[0] : assetsUrls[1]; // TODO: why doesn't work right
- 
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    if (!videoElement) return;
-
-    let hasPlayed = false;
-
-    const observer = new IntersectionObserver((entries) => { //TODO: try to avoid observer
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !hasPlayed) {
-          videoElement.play(); // Play the video when in view for the first time
-          hasPlayed = true;
-          observer.disconnect();
-        }
-      });
-    }, {
-      threshold: 0.5 // Adjust threshold to trigger based on how much of the element is visible
-    });
-
-    if (videoElement) {
-      observer.observe(videoElement);
-    }
-
-    return () => {
-      if (observer && videoElement) {
-        observer.disconnect();
-      }
-    };
-  }, []);
 
 
   return (
@@ -116,20 +143,11 @@ const Project = ({ type, name }) => {
           {t(`projects.${name}.title`)}
         </h2>
 
-        <div className='mx-auto mb-6 md:mb-8 project-video overflow-hidden'> //TODO: on mobile remove place on the sides
-          {type === "ux" && videoSrc ? (
-            <div className="project-video">
-              <video
-                ref={videoRef}
-                src={`https://d3bxg96r07nwt6.cloudfront.net/${videoSrc}`}
-                className="w-full h-auto transform scale-[1.5]"
-                muted
-                playsInline
-                loop={false} // Play only once
-              />
-            </div>
-          ) : ( 
-            <ProjectGallery name={name} assets={project.assetsUrls} />
+        <div className='mx-auto mb-6 md:mb-8'>
+          {type === "ux" ? (
+            <ProjectVideo name={name} assets={assetsUrls} />
+          ) : (
+            <ProjectGallery name={name} assets={assetsUrls} />
           )}
         </div>
 
