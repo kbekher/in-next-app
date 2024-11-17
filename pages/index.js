@@ -27,11 +27,14 @@ const Homepage = () => {
           <Hero />
 
           <main>
-            <Project type="ux" name="ace-and-tate"  />
-            <Project type="ux" name="xtrafit" />
-            <Project type="brand" name="flowtech" />
-            <Project type="brand" name="paysera" />
-            <Illustrations />
+            <div id="work">
+              <Project type="ux" name="ace-and-tate" />
+              <Project type="ux" name="xtrafit" />
+              <Project type="brand" name="flowtech" />
+              <Project type="brand" name="paysera" />
+              <Illustrations />
+            </div>
+
             <Skills />
             <About />
             <Testimonials />

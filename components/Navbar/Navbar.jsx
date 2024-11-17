@@ -7,10 +7,10 @@ const Navbar = () => {
 
   return (
     <nav>
-      <ul className='flex justify-center gap-3 flex-wrap'>
+      <ul className='flex justify-center gap-3 md:gap-8 flex-wrap'>
         {navLinks.map((navLink) => (
           <li
-            className='btn w-[96px] md:w-auto md:min-w-[110px] flex justify-center'
+            className='btn'
             key={navLink.id}
           >
             <Link href={`#${navLink.id}`}>{t(`nav.${navLink.id}`)}</Link>

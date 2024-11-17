@@ -14,7 +14,7 @@ const SayHello = () => {
     <div>
       <button
         type='button'
-        className='btn w-[96px] md:w-auto md:min-w-[110px] px-0 text-center'
+        className='btn'
         onClick={toggleOverlay} 
       >
         {t("hello.btn")}

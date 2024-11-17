@@ -23,7 +23,7 @@ const Skills = () => {
   const { t } = useTranslation("common");
 
   return (
-    <section className='max-w-[1680px] m-auto h-full pt-[160px]'>
+    <section className='max-w-[1680px] m-auto h-full pt-[160px]' id="skills">
       <div className='px-5 md:px-[80px] mb-[64px]'>
         <h2 className='max-w-[740px] m-auto text-[36px] md:text-[48px] leading-tight mb-[24px] md:mb-[54px] text-center'>
           {t("skills.title")}
