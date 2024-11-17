@@ -1,150 +1,153 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useMediaQuery } from "react-responsive";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
 import { DOMAIN, projects } from "@/constants";
 import Divider from "../Divider/Divider";
 
-const ProjectVideo = ({ name, assets }) => {
-  const videoRef = useRef(null);
-
-  const isDesktop = useMediaQuery({ minWidth: 768 });
-  const [videoSrc, setVideoSrc] = useState(assets[0]);
+const useIsDesktop = () => {
+  const [isDesktop, setIsDesktop] = useState(false); // Initialize without referencing `window`
 
   useEffect(() => {
-    // Update video source whenever isDesktop or name changes
-    const updatedSrc = isDesktop && name === "xtrafit" ? assets[1] : assets[0];
-    setVideoSrc(updatedSrc);
+    const handleResize = () => setIsDesktop(window.innerWidth >= 768);
 
-    // Reset and load the video with the new source
+    // Set the initial value on mount
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return isDesktop;
+};
+
+const ProjectVideo = ({ name, assets }) => {
+  const videoRef = useRef(null);
+  const isDesktop = useIsDesktop();
+
+  // Avoid SSR issues by defaulting to `assets[0]` before hydration
+  const videoSrc = useMemo(
+    () => (isDesktop && name === "xtrafit" ? assets[1] : assets[0]),
+    [isDesktop, name, assets]
+  );
+
+  const handleScroll = useCallback(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    const videoRect = videoElement.getBoundingClientRect();
+    const midpoint = videoRect.top + videoRect.height / 2;
+
+    const isMidpointVisible =
+      midpoint >= window.innerHeight / 2 - 60 &&
+      midpoint <= window.innerHeight / 2 + 60;
+
+    const isInViewport =
+      videoRect.top < window.innerHeight && videoRect.bottom > 0;
+
+    if (isInViewport || isMidpointVisible) {
+      // Ensure video starts if it's visible
+      if (videoElement.paused || videoElement.currentTime === 0) {
+        videoElement.currentTime = 0;
+        videoElement.play();
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     const videoElement = videoRef.current;
     if (videoElement) {
       videoElement.currentTime = 0;
       videoElement.load();
     }
-  }, [isDesktop, name, assets]); // Dependencies ensure updates
-
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    if (!videoElement) return;
-
-    let hasPlayed = false;
-
-    const handleScroll = () => {
-      const videoRect = videoElement.getBoundingClientRect();
-      const midpoint = videoRect.top + videoRect.height / 2;
-      const isMidpointVisible =
-        midpoint >= window.innerHeight / 1.5 - 10 && midpoint <= window.innerHeight / 1.5 + 10; // TODO: here you can change when to trigger animation
-
-      if (window.scrollY === 0) {
-        hasPlayed = false; // Reset if scrolled to the top
-      }
-
-      // Play video only when scrolling down from the top and midpoint is visible
-      if (!hasPlayed && window.scrollY > 0 && isMidpointVisible) {
-        videoElement.currentTime = 0; // Reset video
-        videoElement.play();
-        hasPlayed = true;
-      }
-    };
 
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isDesktop]);
+  }, [videoSrc, handleScroll]);
 
   return (
     <div className="project-video">
       <video
         ref={videoRef}
         src={`${DOMAIN}${videoSrc}`}
-        className="w-full h-auto transform scale-[1.5]"
+        className="w-full h-auto scale-[1.5]"
         muted
         playsInline
-        loop={false} // Play only once
+        loop={false}
       />
-    </div>
-  )
-}
-
-const ProjectGallery = ({ name, assets }) => {
-  const imgClassFl = 'w-full h-full rounded-[var(--border-radius)] object-cover';
-  const imgClassPa = 'h-[100%] max-w-full rounded-[var(--border-radius)] object-cover';
-
-  const renderImage = (src, extraClasses = '') => (
-    <Image width={200} height={200} className={`${extraClasses}`} src={`${DOMAIN}${src}`} alt="" />
-  );
-
-  return name === 'flowtech' ? (
-    <div className="max-h-[218px] md:max-h-[366px] grid grid-cols-3 md:grid-cols-8 grid-rows-2 md:grid-rows-6 gap-3 md:gap-4">
-
-      <div className="h-auto col-start-1 row-start-1 col-span-2 md:col-span-5 row-span-2">
-        {renderImage(assets[3], imgClassFl)}
-      </div>
-
-      <div className="hidden md:block h-auto col-span-3 row-span-3">
-        {renderImage(assets[2], imgClassFl )}
-      </div>
-
-      <div className="h-auto col-start-3 md:col-start-6 row-start-1 col-span-1 md:col-span-3 row-span-1 md:row-span-3">
-        {renderImage(assets[0], imgClassFl)}
-      </div>
-
-      <div className="hidden md:block h-auto col-start-1 col-span-3 row-start-3 row-span-2">
-        {renderImage(assets[5], `w-full h-full rounded-[var(--border-radius)] object-contain bg-[#373A39]`)}
-      </div>
-
-      <div className="hidden md:block h-auto col-start-1 col-span-3 row-start-5 row-span-2">
-        {renderImage(assets[4], `w-full h-full rounded-[var(--border-radius)] object-contain bg-[#D9D9D9]`)}
-      </div>
-
-      <div className="h-auto col-start-3 md:col-start-4 col-span-1 md:col-span-2 row-start-2 md:row-start-3 row-span-1 md:row-span-4">
-        {renderImage(assets[1], imgClassFl)}
-      </div>
-      
-    </div>
-  ) : (                                                                                                                      //TODO: possibly update this
-    <div className="grid grid-cols-2 md:grid-cols-8 grid-rows-4 md:grid-rows-3 gap-3 md:gap-6 max-h-[240px] md:max-h-[416px] max-w-[740px] m-auto">
-      <div className="col-start-1 row-start-1 md:col-span-4">
-        {renderImage(assets[1], 700, 193, imgClassPa)}
-      </div>
-
-      <div className="col-start-1 row-start-3 row-span-2 md:col-span-4 md:row-span-1">
-        {renderImage(assets[0], 700, 274, imgClassPa)}
-      </div>
-      <div className="col-start-2 row-start-1 row-span-3 md:col-start-6 md:col-span-3 md:row-span-2">
-        {renderImage(assets[2], 700, 219, imgClassPa)}
-      </div>
-
-      <div className="col-start-1 row-start-2 md:col-span-3">
-        {renderImage(assets[4], 700, 150, imgClassPa)}
-      </div>
-      <div className="hidden md:grid col-span-5">
-        {renderImage(assets[5], 700, 150, imgClassPa)}
-      </div>
-
-      <div className="col-start-2 md:row-start-2 md:col-start-4 md:col-span-2">
-        {renderImage(assets[3], 700, 300, `h-[100%] max-w-full rounded-3xl object-contain bg-white md:bg-none md:object-cover`)}
-      </div>
     </div>
   );
 };
 
+const ProjectGallery = ({ name, assets }) => {
+  const imgClass = 'w-full h-full rounded-[var(--border-radius)]';
+
+  const gridConfig = useMemo(
+    () => ({
+      flowtech: {
+        container: 'max-h-[218px] md:max-h-[366px] grid grid-cols-3 md:grid-cols-8 grid-rows-2 md:grid-rows-6 gap-3 md:gap-4',
+        items: [
+          { src: assets[3], wrapperClass: 'col-start-1 row-start-1 col-span-2 md:col-span-5 row-span-2' },
+          { src: assets[2], wrapperClass: 'hidden md:block col-span-3 row-span-3' },
+          { src: assets[0], wrapperClass: 'col-start-3 md:col-start-6 row-start-1 col-span-1 md:col-span-3 row-span-1 md:row-span-3' },
+          { src: assets[5], wrapperClass: 'hidden md:block col-start-1 col-span-3 row-start-3 row-span-2', extraClass: 'object-contain bg-[#373A39]' },
+          { src: assets[4], wrapperClass: 'hidden md:block col-start-1 col-span-3 row-start-5 row-span-2', extraClass: ' object-contain bg-[#D9D9D9]' },
+          { src: assets[1], wrapperClass: 'col-start-3 md:col-start-4 col-span-1 md:col-span-2 row-start-2 md:row-start-3 row-span-1 md:row-span-4' },
+        ],
+      },
+      paysera: {
+        container: 'max-h-[274px] md:max-h-[416px] grid grid-cols-2 md:grid-cols-8 grid-rows-4 md:[grid-template-rows:1fr_169px_1fr] gap-3 md:gap-4',
+        items: [
+          { src: assets[1], wrapperClass: 'col-start-1 row-start-1 md:col-span-4' },
+          { src: assets[0], wrapperClass: 'row-start-3 md:row-start-1 md:col-span-4 row-span-2 md:row-span-1' },
+          { src: assets[2], wrapperClass: 'md:col-start-6 md:col-span-3 row-span-3 md:row-span-2' },
+          { src: assets[4], wrapperClass: 'col-start-1 row-start-2 md:col-span-3', extraClass: ' object-contain bg-black' },
+          { src: assets[5], wrapperClass: 'hidden md:block col-span-5', extraClass: 'object-contain bg-white' },
+          { src: assets[3], wrapperClass: 'md:row-start-2 md:col-start-4 md:col-span-2', extraClass: 'object-contain bg-white' },
+        ],
+      },
+    }),
+    [assets]
+  );
+
+  const { container, items } = gridConfig[name] || {};
+
+  return (
+    <div className={container}>
+      {items.map(({ src, wrapperClass, extraClass }) => (
+        <div key={src} className={`h-auto ${wrapperClass}`}>
+          <Image
+            width={200}
+            height={200}
+            className={`${imgClass} ${extraClass || 'object-cover'}`}
+            src={`${DOMAIN}${src}`}
+            alt=""
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const Project = ({ type, name }) => {
   const { t } = useTranslation("common");
   const project = projects.find(project => project.name === name);
-  const { assetsUrls, behanceUrl } = project;
 
+  if (!project) return null;
+
+  const { assetsUrls, behanceUrl } = project;
 
   return (
     <section className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] m-auto h-full pt-[130px] md:pt-[220px]'>
       <div className="col-start-3 col-span-8">
+
         <div className='px-5 md:px-0 mb-[120px]'>
           <h2 className='m-auto text-[36px] md:text-[48px] leading-tight mb-6 md:mb-8 text-center'>
             {t(`projects.${name}.title`)}
@@ -180,6 +183,7 @@ const Project = ({ type, name }) => {
         </div>
 
         <Divider />
+        
       </div>
     </section>
   );
