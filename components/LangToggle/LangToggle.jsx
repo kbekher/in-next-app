@@ -14,18 +14,14 @@ const LangToggle = () => {
     const newLocale = checked ? 'en' : 'de'; // Switch locale based on the current state
     const { pathname, asPath, query } = router;
 
-    // Extract the hash from asPath (if present)
+    // Remove the hash from asPath (if present)
     const hashIndex = asPath.indexOf('#');
-    const hash = hashIndex !== -1 ? asPath.substring(hashIndex) : '';
     const basePath = hashIndex !== -1 ? asPath.substring(0, hashIndex) : asPath;
 
-    // Construct the URL with the new locale
-    const newUrl = `/${newLocale}${basePath.replace(`/${newLocale}`, '')}${hash}`;
+    // Construct the new URL with the updated locale
+    const newUrl = `/${newLocale}${basePath.replace(`/${router.locale}`, '')}`;
 
-    // Navigate to the new locale with the hash
     router.push({ pathname, query }, newUrl, { locale: newLocale });
-
-    // router.push({ pathname, query }, asPath, { locale: newLocale });
   };
 
   return (
