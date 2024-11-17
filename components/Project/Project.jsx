@@ -76,36 +76,37 @@ const ProjectGallery = ({ name, assets }) => {
   const imgClassFl = 'w-full h-full rounded-[var(--border-radius)] object-cover';
   const imgClassPa = 'h-[100%] max-w-full rounded-[var(--border-radius)] object-cover';
 
-  const renderImage = (src, width, height, extraClasses = '') => (
-    <Image width={width} height={height} className={`${extraClasses}`} src={`${DOMAIN}${src}`} alt="" />
+  const renderImage = (src, extraClasses = '') => (
+    <Image width={200} height={200} className={`${extraClasses}`} src={`${DOMAIN}${src}`} alt="" />
   );
 
   return name === 'flowtech' ? (
-    <div className="max-h-[366px] grid grid-cols-8 grid-rows-6 gap-3 md:gap-4">
+    <div className="max-h-[218px] md:max-h-[366px] grid grid-cols-3 md:grid-cols-8 grid-rows-2 md:grid-rows-6 gap-3 md:gap-4">
 
-      <div className="h-auto col-start-1 row-start-1 col-span-5 row-span-2">
-        {renderImage(assets[3], 700, 193, imgClassFl)}
+      <div className="h-auto col-start-1 row-start-1 col-span-2 md:col-span-5 row-span-2">
+        {renderImage(assets[3], imgClassFl)}
       </div>
 
-      <div className="h-auto col-span-3 row-span-3">
-        {renderImage(assets[2], 700, 274, `${imgClassFl} hidden md:block`)}
+      <div className="hidden md:block h-auto col-span-3 row-span-3">
+        {renderImage(assets[2], imgClassFl )}
       </div>
 
-      <div className="h-auto col-start-6 col-span-3 row-span-3">
-        {renderImage(assets[0], 700, 219, imgClassFl)}
+      <div className="h-auto col-start-3 md:col-start-6 row-start-1 col-span-1 md:col-span-3 row-span-1 md:row-span-3">
+        {renderImage(assets[0], imgClassFl)}
       </div>
 
-      <div className="h-auto col-start-1 col-span-3 row-start-3 row-span-2">
-        {renderImage(assets[5], 700, 150, `w-full h-full rounded-[var(--border-radius)] object-contain bg-[#373A39]`)}
+      <div className="hidden md:block h-auto col-start-1 col-span-3 row-start-3 row-span-2">
+        {renderImage(assets[5], `w-full h-full rounded-[var(--border-radius)] object-contain bg-[#373A39]`)}
       </div>
 
-      <div className="h-auto col-start-1 col-span-3 row-start-5 row-span-2">
-        {renderImage(assets[4], 700, 150,`w-full h-full rounded-[var(--border-radius)] object-contain bg-[#D9D9D9]`)}
+      <div className="hidden md:block h-auto col-start-1 col-span-3 row-start-5 row-span-2">
+        {renderImage(assets[4], `w-full h-full rounded-[var(--border-radius)] object-contain bg-[#D9D9D9]`)}
       </div>
 
-      <div className="h-auto col-start-4 col-span-2 row-start-3 row-span-4">
-        {renderImage(assets[1], 700, 300, imgClassFl)}
+      <div className="h-auto col-start-3 md:col-start-4 col-span-1 md:col-span-2 row-start-2 md:row-start-3 row-span-1 md:row-span-4">
+        {renderImage(assets[1], imgClassFl)}
       </div>
+      
     </div>
   ) : (                                                                                                                      //TODO: possibly update this
     <div className="grid grid-cols-2 md:grid-cols-8 grid-rows-4 md:grid-rows-3 gap-3 md:gap-6 max-h-[240px] md:max-h-[416px] max-w-[740px] m-auto">
