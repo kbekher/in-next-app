@@ -1,33 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import { useEffect, useRef, useCallback, useMemo } from "react";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import Link from "next/link";
 import { DOMAIN, projects } from "@/constants";
 import Divider from "../Divider/Divider";
-
-const useIsDesktop = () => {
-  const [isDesktop, setIsDesktop] = useState(false); // Initialize without referencing `window`
-
-  useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth >= 768);
-
-    // Set the initial value on mount
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  return isDesktop;
-};
+import { useMediaQuery } from "react-responsive";
 
 const ProjectVideo = ({ name, assets }) => {
   const videoRef = useRef(null);
-  const isDesktop = useIsDesktop();
+  const isDesktop = useMediaQuery({ minWidth: 768 });
 
   // Avoid SSR issues by defaulting to `assets[0]` before hydration
   const videoSrc = useMemo(
@@ -183,7 +166,7 @@ const Project = ({ type, name }) => {
         </div>
 
         <Divider />
-        
+
       </div>
     </section>
   );
