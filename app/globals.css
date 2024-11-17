@@ -9,6 +9,7 @@
   --color-gray-dark: #525252;
   --color-bg-tile: #1d1c1c;
   --transition: all 300ms ease-in-out;
+  --border-radius: 30px;
 }
 
 * {
