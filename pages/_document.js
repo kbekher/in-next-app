@@ -5,6 +5,7 @@ import Document, {
   NextScript,
 } from 'next/document';
 import i18nextConfig from '../next-i18next.config';
+import { DOMAIN } from "@/constants";
 
 class MyDocument extends Document {
   render() {
@@ -18,7 +19,7 @@ class MyDocument extends Document {
           <link
             data-react-helmet='true'
             rel='icon'
-            href='https://d3bxg96r07nwt6.cloudfront.net/logo.png'
+            href={`${DOMAIN}logo.png`}
           />
         </Head>
         <body>

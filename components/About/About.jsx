@@ -2,6 +2,7 @@ import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import ContactLinks from "../ContactLinks/ContactLinks";
 import Divider from "../Divider/Divider";
+import { DOMAIN } from "@/constants";
 
 const About = () => {
   const { t } = useTranslation("common");
@@ -26,7 +27,7 @@ const About = () => {
         <div className='lg:w-1/2 h-[100%] flex items-center'>
           <div className="w-[100%] max-w-[600px] m-auto lg:max-w-[800px] overflow-hidden bg-[var(--color-gray)] rounded-[40px] lg:rounded-[100px] pt-20 flex justify-center">
             <Image
-              src="https://d3bxg96r07nwt6.cloudfront.net/hero.png"
+              src={`${DOMAIN}hero.png`}
               alt='Ivan Inozemtsev'
               width={700}
               height={778}

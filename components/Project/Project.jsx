@@ -5,7 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
-import { projects } from "@/constants";
+import { DOMAIN, projects } from "@/constants";
 import Divider from "../Divider/Divider";
 
 const ProjectVideo = ({ name, assets }) => {
@@ -62,7 +62,7 @@ const ProjectVideo = ({ name, assets }) => {
     <div className="project-video">
       <video
         ref={videoRef}
-        src={`https://d3bxg96r07nwt6.cloudfront.net/${videoSrc}`}
+        src={`${DOMAIN}${videoSrc}`}
         className="w-full h-auto transform scale-[1.5]"
         muted
         playsInline
@@ -73,13 +73,11 @@ const ProjectVideo = ({ name, assets }) => {
 }
 
 const ProjectGallery = ({ name, assets }) => {
-  const domain = 'https://d3bxg96r07nwt6.cloudfront.net/';
-
   const imgClassFl = 'max-w-full rounded-lg object-cover';
   const imgClassPa = 'h-[100%] max-w-full rounded-3xl object-cover';
 
   const renderImage = (src, width, height, extraClasses = '') => (
-    <Image width={width} height={height} className={`${extraClasses}`} src={`${domain}${src}`} alt="" />
+    <Image width={width} height={height} className={`${extraClasses}`} src={`${DOMAIN}${src}`} alt="" />
   );
 
   return name === 'flowtech' ? (

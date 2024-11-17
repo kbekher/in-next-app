@@ -1,14 +1,14 @@
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 
-import { reviews } from "@/constants";
+import { DOMAIN, reviews } from "@/constants";
 
 const ReviewCard = ({ review, t }) => (
   <div className='bg-[var(--color-bg-tile)] rounded-[43px]'>
     <div className='flex flex-col items-center gap-4 w-full h-full p-[40px] pt-[30px]'>
       <div className='w-[100px] h-[100px] bg-[var(--color-gray)] rounded-full overflow-hidden aspect-square'>
         <Image
-          src={`https://d3bxg96r07nwt6.cloudfront.net/${review.imgUrl}`}
+          src={`${DOMAIN}${review.imgUrl}`}
           alt={t(`testimonials.review${review.id}.name`)}
           width={100}
           height={100}
