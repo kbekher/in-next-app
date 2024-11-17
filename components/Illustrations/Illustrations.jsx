@@ -32,9 +32,20 @@ const IllustrationImage = ({ name, behanceUrl, size = 200 }) => {
   ) : imageElement;
 };
 
+const IllustrationTitle = () => {
+  const { t } = useTranslation("common");
+
+  return (
+    <div className='max-w-[540px] m-auto'>
+      <h2 className='text-[36px] md:text-[48px] leading-tight mb-6 md:mb-8 text-center'>
+        {t('illustrations.title')}
+      </h2>
+      <p className='text-center text-[16px] md:text-[14px]'>{t('illustrations.p')}</p>
+    </div>
+  )
+}
 
 const Illustrations = () => {
-  const { t } = useTranslation("common");
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
@@ -52,12 +63,7 @@ const Illustrations = () => {
               ))}
             </div>
 
-            <div className='max-w-[540px] m-auto'>
-              <h2 className='text-[36px] md:text-[48px] leading-tight mb-6 md:mb-8 text-center'>
-                {t('illustrations.title')}
-              </h2>
-              <p className='text-center text-[16px] md:text-[14px]'>{t('illustrations.p')}</p>
-            </div>
+            <IllustrationTitle />
 
             <div className='flex justify-between gap-2 max-h-[180px]'>
               {illustrations.slice(2, 4).map(item => (
@@ -74,12 +80,7 @@ const Illustrations = () => {
               <IllustrationImage key={item.name} {...item} />
             ))}
 
-            <div className='max-w-[540px] m-auto'>
-              <h2 className='text-[36px] md:text-[48px] leading-tight mb-6 md:mb-8 text-center'>
-                {t('illustrations.title')}
-              </h2>
-              <p className='text-center text-[16px] md:text-[14px]'>{t('illustrations.p')}</p>
-            </div>
+            <IllustrationTitle />
           </div>
         )}
 
