@@ -39,12 +39,10 @@ const Hero = () => {
 
       {isLoading && (
         <div className="absolute inset-0 z-[9999] bg-black bg-opacity-50 flex justify-center items-center">
-              <Preloader />
+          <Preloader />
         </div>
       )}
 
-
-      {/* Background Spline Object */}
       <div className='absolute inset-0 z-[-1]'>
         <Spline
           scene={splineSrc}
@@ -52,17 +50,15 @@ const Hero = () => {
         />
       </div>
 
-      {/* Header */}
       <Header />
 
-      {/* Hero Content */}
       <div className='flex flex-col md:flex-row md:items-end justify-between flex-1'>
-
         <h1 className='md:max-w-[490px] text-4xl md:text-5xl select-none'>
           {t("h1")}
         </h1>
 
         <div className='flex flex-wrap gap-3 md:block left-1/2 -translate-x-1/2 w-full md:left-auto md:-translate-x-0 w-full md:max-w-max fixed bottom-9 md:static box-border z-[48] md:z-auto'>
+          
           {isMobile && (
             <>
               <div className='md:hidden basis-full'>
@@ -79,9 +75,7 @@ const Hero = () => {
             <LangToggle />
           </div>
         </div>
-
       </div>
-
     </header>
   );
 };
