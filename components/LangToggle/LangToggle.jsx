@@ -3,11 +3,13 @@ import { useRouter } from "next/router";
 
 const LangToggle = () => {
   const router = useRouter();
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(null); // Start with null to avoid mismatched UI
 
-  // Update checkbox state when the locale changes
   useEffect(() => {
-    setChecked(router.locale === 'de');
+    // Update the checkbox state when the locale becomes available
+    if (router.locale) {
+      setChecked(router.locale === 'de');
+    }
   }, [router.locale]);
 
   const onToggleLanguageClick = () => {
@@ -23,6 +25,11 @@ const LangToggle = () => {
 
     router.push({ pathname, query }, newUrl, { locale: newLocale });
   };
+
+  // Don't render the component until the locale is available
+  if (checked === null) {
+    return null; 
+  }
 
   return (
     <label
