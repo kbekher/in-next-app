@@ -12,6 +12,7 @@
     "@emailjs/browser": "^4.4.1",
     "@headlessui/react": "^2.1.5",
     "@splinetool/react-spline": "^4.0.0",
+    "@splinetool/runtime": "^1.9.46",
     "i18next": "^23.14.0",
     "next": "^14.2.8",
     "next-i18next": "^15.3.1",

@@ -19,7 +19,7 @@ class MyDocument extends Document {
           <link
             data-react-helmet='true'
             rel='icon'
-            href={`${DOMAIN}logo.png`}
+            href={`${DOMAIN}logo-new.png`}
           />
         </Head>
         <body>

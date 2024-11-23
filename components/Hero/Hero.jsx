@@ -12,20 +12,21 @@ import SayHello from "../SayHello/SayHello";
 import LangToggle from "../LangToggle/LangToggle";
 import Preloader from "../Preloader/Preloader";
 
+
 const Hero = () => {
   const { t } = useTranslation("common");
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const [isMobile, setIsMobile] = useState(false);
-  const isMobilepQuery = useMediaQuery({ maxWidth: 768 });
+  const [isDesktop, setIsDesktop] = useState(false);
+  const isDesktopQuery = useMediaQuery({ minWidth: 768 });
 
-  // https://prod.spline.design/liDjqaY-i3BfRC2o/scene.splinecode
-  const splineSrc = "https://prod.spline.design/xDqJelryf2jxk8Gz/scene.splinecode";
+  const splineSrc = "https://prod.spline.design/liDjqaY-i3BfRC2o/scene.splinecode";
+  // const splineSrc = "https://prod.spline.design/xDqJelryf2jxk8Gz/scene.splinecode";
 
   useEffect(() => {
-    setIsMobile(isMobilepQuery);
-  }, [isMobilepQuery]);
+    setIsDesktop(isDesktopQuery);
+  }, [isDesktopQuery]);
 
   const handleSceneLoaded = () => {
     setIsLoading(false); // Hide the preloader once the scene is loaded
@@ -59,7 +60,7 @@ const Hero = () => {
 
         <div className='flex flex-wrap gap-3 md:block left-1/2 -translate-x-1/2 w-full md:left-auto md:-translate-x-0 w-full md:max-w-max fixed bottom-9 md:static box-border z-[48] md:z-auto'>
           
-          {isMobile && (
+          {!isDesktop && (
             <>
               <div className='md:hidden basis-full'>
                 <Navbar />

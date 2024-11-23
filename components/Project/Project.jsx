@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useCallback, useMemo } from "react";
+import {useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,13 +10,18 @@ import { useMediaQuery } from "react-responsive";
 
 const ProjectVideo = ({ name, assets }) => {
   const videoRef = useRef(null);
-  const isDesktop = useMediaQuery({ minWidth: 768 });
+  const [isHydrated, setIsHydrated] = useState(false);
+  const isDesktop = useMediaQuery({ minWidth: 768 }, undefined, () => {
+    // Update after hydration
+    setIsHydrated(true);
+  });
 
-  // Avoid SSR issues by defaulting to `assets[0]` before hydration
-  const videoSrc = useMemo(
-    () => (isDesktop && name === "xtrafit" ? assets[1] : assets[0]),
-    [isDesktop, name, assets]
-  );
+  // Ensure a consistent `videoSrc` during SSR
+  const videoSrc = useMemo(() => {
+    // Always use the mobile asset during SSR
+    if (!isHydrated) return assets[0];
+    return isDesktop && name === "xtrafit" ? assets[1] : assets[0];
+  }, [isHydrated, isDesktop, name, assets]);
 
   const handleScroll = useCallback(() => {
     const videoElement = videoRef.current;
@@ -33,7 +38,6 @@ const ProjectVideo = ({ name, assets }) => {
       videoRect.top < window.innerHeight && videoRect.bottom > 0;
 
     if (isInViewport || isMidpointVisible) {
-      // Ensure video starts if it's visible
       if (videoElement.paused || videoElement.currentTime === 0) {
         videoElement.currentTime = 0;
         videoElement.play();
@@ -68,6 +72,7 @@ const ProjectVideo = ({ name, assets }) => {
     </div>
   );
 };
+
 
 const ProjectGallery = ({ name, assets }) => {
   const imgClass = 'w-full h-full rounded-[var(--border-radius)]';

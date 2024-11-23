@@ -1,19 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
+import { DOMAIN } from "@/constants";
 
-const logoImg = (width, height) => (
-  <svg
+const LogoImg = (width, height) => (
+  <Image
+    src={`${DOMAIN}logo-new.png`}
+    alt='Ivan Inozemtsev logo'
     width={width}
     height={height}
-    viewBox='0 0 50 64'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-  >
-    <path
-      d='M2.86094 3.84H28.1409V4.4H21.7409V59.36H28.1409V60H2.86094V59.36H9.26094V4.4H2.86094V3.84Z'
-      fill='white'
-    />
-    <circle cx='42.5' cy='52.5' r='7.5' fill='white' />
-  </svg>
+    draggable='false'
+  />
 );
 
 const Logo = ({ isClickable = false }) => {
@@ -34,10 +30,10 @@ const Logo = ({ isClickable = false }) => {
           className='w-[110px] cursor-pointer'
           onClick={handleLogoClick}
         >
-          {logoImg(50, 64)}
+          {LogoImg(30, 57)}
         </Link>
       ) : (
-        logoImg(30, 38)
+        LogoImg(30, 57)
       )}
     </>
   );
