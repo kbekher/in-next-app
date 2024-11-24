@@ -16,9 +16,9 @@ const About = () => {
             {t("about.title")}
           </h2>
 
-          <p className='text-sm md:text-base mb-6'>{t("about.p1")}</p>
-          <p className='text-sm md:text-base mb-6'>{t("about.p2")}</p>
-          <p className='text-sm md:text-base mb-6'>{t("about.p3")}</p>
+          <p className='text-sm md:text-base mb-6 text-justify'>{t("about.p1")}</p>
+          <p className='text-sm md:text-base mb-6 text-justify'>{t("about.p2")}</p>
+          <p className='text-sm md:text-base mb-6 text-justify'>{t("about.p3")}</p>
 
           <ContactLinks />
         </div>

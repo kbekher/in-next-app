@@ -5,13 +5,13 @@ import { skills } from "@/constants";
 import Divider from "../Divider/Divider";
 
 const SkillTile = ({ skill, t }) => (
-    <div className='bg-[var(--color-bg-tile)] rounded-[22px]'>
-      <div className='flex flex-col lg:flex-row items-center lg:items-start gap-4 w-full h-full p-[24px] pt-[30px]'>
-        <div className='max-w-[88px] max-h-[88px] md:max-w-[78px] md:max-h-[78px] flex justify-center items-center bg-[var(--color-gray)] p-3 rounded-[22px] overflow-hidden aspect-square'>
-          <Image src={skill.icon} alt={skill.name} width={64} height={64} />
+    <div className='bg-[var(--color-bg-tile)] rounded-[43px] md:col-span-4'>
+      <div className='flex flex-col lg:flex-row items-center lg:items-start gap-4 w-full h-full px-6 py-8'>
+        <div className='flex justify-center items-center bg-[var(--color-gray)] p-2 rounded-[22px] overflow-hidden aspect-square'>
+          <Image src={skill.icon} alt={skill.name} width={62} height={62} />
         </div>
 
-        <div className='md:flex flex-col flex-1 overflow-hidden p-0 md:gap-[8px] items-center lg:items-start text-center lg:text-start justify-start text-[14px]'>
+        <div className='md:flex flex-col flex-1 gap-2 items-center justify-start lg:items-start text-center lg:text-start overflow-hidden p-0 text-[14px]'>
           <h4>{t(`skills.${skill.name}.title`)}</h4>
           <p className='hidden md:flex'>{t(`skills.${skill.name}.p`)}</p>
         </div>
@@ -25,11 +25,11 @@ const Skills = () => {
   return (
     <section className='max-w-1680 mx-auto h-full pt-[160px]' id="skills">
       <div className='px-5 md:px-[80px] mb-[64px]'>
-        <h2 className='max-w-[740px] mx-auto section-title mb-[24px] md:mb-[54px] text-center'>
+        <h2 className='max-w-[740px] mx-auto section-title mb-4 md:mb-12 text-center'>
           {t("skills.title")}
         </h2>
 
-        <div className='grid grid-cols-2 md:grid-cols-3 gap-[24px] md:gap-[20px] auto-rows-min min-w-[164px] min-h-[164px] md:min-h-[170px] justify-center overflow-hidden w-full'>
+        <div className='grid grid-cols-2 md:grid-cols-12 gap-4 md:gap-6 auto-rows-min w-full'>
           {skills.map((skill) => (
             <SkillTile key={skill.name} skill={skill} t={t} />
           ))}

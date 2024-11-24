@@ -5,7 +5,7 @@ import { DOMAIN, reviews } from "@/constants";
 
 const ReviewCard = ({ review, t }) => (
   <div className='bg-[var(--color-bg-tile)] rounded-[70px] md:col-span-6'>
-    <div className='flex flex-col items-center w-full h-full p-8 md:p-[40px] pt-4 md:pt-8 pb-[40px]'>
+    <div className='flex flex-col items-center w-full h-full p-8 md:p-[40px] pt-4 md:pt-8 pb-[40px] text-justify'>
       <div className='w-[100px] h-[100px] bg-[var(--color-gray)] rounded-full overflow-hidden aspect-square'>
         <Image
           src={`${DOMAIN}${review.imgUrl}`}
