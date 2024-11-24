@@ -33,7 +33,7 @@ const Logo = ({ isClickable = false }) => {
           {LogoImg(30, 57)}
         </Link>
       ) : (
-        LogoImg(30, 57)
+        LogoImg(23,44)
       )}
     </>
   );

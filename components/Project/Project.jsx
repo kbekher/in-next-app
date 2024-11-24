@@ -10,18 +10,18 @@ import { useMediaQuery } from "react-responsive";
 
 const ProjectVideo = ({ name, assets }) => {
   const videoRef = useRef(null);
-  const [isHydrated, setIsHydrated] = useState(false);
-  const isDesktop = useMediaQuery({ minWidth: 768 }, undefined, () => {
-    // Update after hydration
-    setIsHydrated(true);
-  });
+
+  const [isDesktop, setIsDesktop] = useState(false);
+  const isDesktopQuery = useMediaQuery({ minWidth: 768 });
+
+  useEffect(() => {
+    setIsDesktop(isDesktopQuery);
+  }, [isDesktopQuery]);
 
   // Ensure a consistent `videoSrc` during SSR
   const videoSrc = useMemo(() => {
-    // Always use the mobile asset during SSR
-    if (!isHydrated) return assets[0];
     return isDesktop && name === "xtrafit" ? assets[1] : assets[0];
-  }, [isHydrated, isDesktop, name, assets]);
+  }, [isDesktop, name, assets]);
 
   const handleScroll = useCallback(() => {
     const videoElement = videoRef.current;
@@ -47,6 +47,7 @@ const ProjectVideo = ({ name, assets }) => {
 
   useEffect(() => {
     const videoElement = videoRef.current;
+    
     if (videoElement) {
       videoElement.currentTime = 0;
       videoElement.load();
@@ -57,7 +58,7 @@ const ProjectVideo = ({ name, assets }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [videoSrc, handleScroll]);
+  }, [handleScroll]); //,videoSrc
 
   return (
     <div className="project-video">
