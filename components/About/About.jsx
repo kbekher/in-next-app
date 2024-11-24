@@ -9,23 +9,23 @@ const About = () => {
 
   return (
     <section className="max-w-1680 mx-auto h-full pt-[230px]" id="about">
-      <div className='h-full w-full flex flex-col lg:flex-row justify-between itmes-center px-5 md:px-[80px] mb-[84px]'>
+      <div className='grid grid-cols-2 md:grid-cols-12 gap-4 md:gap-6 px-5 md:px-[80px] mb-[84px]'>
         {/* Text Section */}
-        <div className='lg:w-1/2 flex flex-col justify-center pt-[100px] lg:pr-20 lg:pt-0 text-center lg:text-left  pb-5 lg:pb-0'>
-          <h2 className='section-title mb-4'>
+        <div className='col-span-2 md:col-span-6 flex flex-col justify-center pt-[100px] lg:pr-20 lg:pt-0 text-center lg:text-left  pb-5 lg:pb-0'>
+          <h2 className='section-title mb-4 text-center md:text-left'>
             {t("about.title")}
           </h2>
 
-          <p className='text-sm md:text-base mb-6 text-justify'>{t("about.p1")}</p>
-          <p className='text-sm md:text-base mb-6 text-justify'>{t("about.p2")}</p>
-          <p className='text-sm md:text-base mb-6 text-justify'>{t("about.p3")}</p>
+          <p className='text-sm md:text-base mb-6 md:text-justify'>{t("about.p1")}</p>
+          <p className='text-sm md:text-base mb-6 md:text-justify'>{t("about.p2")}</p>
+          <p className='text-sm md:text-base mb-6 md:text-justify'>{t("about.p3")}</p>
 
           <ContactLinks />
         </div>
 
         {/* Image Section */}
-        <div className='lg:w-1/2 h-[100%] flex items-center'>
-          <div className="w-[100%] max-w-[600px] mx-auto lg:max-w-[800px] overflow-hidden bg-[var(--color-gray)] rounded-[40px] lg:rounded-[100px] pt-20 flex justify-center">
+        <div className='col-span-2 md:col-start-7 md:col-span-6 h-[100%] flex items-center'>
+          <div className="w-[100%] max-w-[600px] mx-auto lg:max-w-[800px] overflow-hidden bg-[var(--color-gray)] rounded-[56px] md:rounded-[144px] pt-20 flex justify-center">
             <Image
               src={`${DOMAIN}hero.png`}
               alt='Ivan Inozemtsev'
