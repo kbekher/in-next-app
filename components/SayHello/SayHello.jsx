@@ -22,13 +22,13 @@ const SayHello = () => {
     
       <Dialog open={isLayerOpen} onClose={toggleOverlay} className="relative z-50">
         <div className="fixed inset-0 bg-[var(--background)] fade-in z-49" aria-hidden="true" />
-        <Dialog.Panel className="w-[100vw] h-[100vh] fixed inset-0 flex flex-col items-center justify-center">
-          <Dialog.Title className="text-xl md:text-2xl">{t("hello.p")}</Dialog.Title>
+        <Dialog.Panel className="w-screen h-screen fixed inset-0 flex flex-col items-center justify-center">
+          <Dialog.Title className="font-normal text-xl md:text-2xl">{t("hello.p")}</Dialog.Title>
 
           <Dialog.Description>
             <a 
               href="mailto:inozemtsevco@gmail.com" 
-              className="email-link relative font-medium text-clamp text-[clamp(24px, 5vw, 64px)] transition hover:no-underline hover-underline-animation"
+              className="email-link relative font-medium text-responsive transition hover:no-underline hover-underline-animation"
             >
               inozemtsevco@gmail.com
             </a>
