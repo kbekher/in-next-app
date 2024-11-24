@@ -76,6 +76,10 @@ h1, h2, h3 {
     animation: gradient-animation ease-in-out infinite;
   }
 
+  .section-title {
+    @apply text-[36px] md:text-[48px] leading-tight;
+  }
+
   .btn {
     @apply text-[12px] md:text-sm text-white rounded-full box-border uppercase transition cursor-pointer bg-opacity-20 bg-black backdrop-blur-md py-[14px] md:py-3 px-4 ;
   }

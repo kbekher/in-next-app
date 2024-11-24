@@ -138,7 +138,7 @@ const Project = ({ type, name }) => {
       <div className="col-start-3 col-span-8">
 
         <div className='px-5 md:px-0 mb-[120px]'>
-          <h2 className='mx-auto text-[36px] md:text-[48px] leading-tight mb-6 md:mb-8 text-center'>
+          <h2 className='mx-auto section-title  mb-6 md:mb-8 text-center'>
             {t(`projects.${name}.title`)}
           </h2>
 

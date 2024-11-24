@@ -25,7 +25,7 @@ const Skills = () => {
   return (
     <section className='max-w-1680 mx-auto h-full pt-[160px]' id="skills">
       <div className='px-5 md:px-[80px] mb-[64px]'>
-        <h2 className='max-w-[740px] mx-auto text-[36px] md:text-[48px] leading-tight mb-[24px] md:mb-[54px] text-center'>
+        <h2 className='max-w-[740px] mx-auto section-title mb-[24px] md:mb-[54px] text-center'>
           {t("skills.title")}
         </h2>
 
