@@ -28,14 +28,14 @@ const SayHello = () => {
           <Dialog.Description>
             <a 
               href="mailto:inozemtsevco@gmail.com" 
-              className="email-link relative font-medium text-2xl md:text-8xl transition hover:no-underline hover-underline-animation"
+              className="email-link relative font-medium text-clamp text-[clamp(24px, 5vw, 64px)] transition hover:no-underline hover-underline-animation"
             >
               inozemtsevco@gmail.com
             </a>
           </Dialog.Description>
 
-          <button type="button" className="absolute right-10 md:right-[88px] top-10 md:top-[54px]" onClick={toggleOverlay}>
-            <svg width="36" height="36" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <button type="button" className="absolute right-5 md:right-20 top-16 md:top-12" onClick={toggleOverlay}>
+            <svg width="39" height="39" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M20.3369 20.5576L40.299 38.7377" stroke="#FFFFFE" strokeLinecap="round" />
               <path d="M21.2305 39.6254L39.4106 19.6633" stroke="#FFFFFE" strokeLinecap="round" />
               <rect x="0.5" y="0.5" width="60" height="60" rx="30" stroke="#FFFFFE" />

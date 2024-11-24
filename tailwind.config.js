@@ -12,6 +12,9 @@ module.exports = {
           '100%': { backgroundPosition: '0% 50%' },
         },
       },
+      fontSize: {
+        clamp: "clamp(24px, 5vw, 64px)",
+      },
       animation: {
         'gradient-animation': 'gradient-animation ease-in-out infinite',
       },

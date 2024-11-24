@@ -54,7 +54,7 @@ const Hero = () => {
       <Header />
 
       <div className='flex flex-col md:flex-row md:items-end justify-between flex-1 mt-5 md:mt-0'>
-        <h1 className='md:max-w-[490px] text-4xl md:text-5xl select-none'>
+        <h1 className='md:max-w-[490px] text-[40px] leading-[normal] md:text-5xl select-none'>
           {t("h1")}
         </h1>
 
