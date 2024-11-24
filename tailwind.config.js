@@ -12,6 +12,9 @@ module.exports = {
           '100%': { backgroundPosition: '0% 50%' },
         },
       },
+      maxWidth: {
+        '1680': '1680px',
+      },
       fontSize: {
         'responsive': 'clamp(24px, 5vw, 64px)',
       },

@@ -134,11 +134,11 @@ const Project = ({ type, name }) => {
   const { assetsUrls, behanceUrl } = project;
 
   return (
-    <section className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] m-auto h-full pt-[130px] md:pt-[220px]'>
+    <section className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] mx-auto h-full pt-[130px] md:pt-[220px]'>
       <div className="col-start-3 col-span-8">
 
         <div className='px-5 md:px-0 mb-[120px]'>
-          <h2 className='m-auto text-[36px] md:text-[48px] leading-tight mb-6 md:mb-8 text-center'>
+          <h2 className='mx-auto text-[36px] md:text-[48px] leading-tight mb-6 md:mb-8 text-center'>
             {t(`projects.${name}.title`)}
           </h2>
 

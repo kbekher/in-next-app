@@ -8,7 +8,7 @@ const About = () => {
   const { t } = useTranslation("common");
 
   return (
-    <section className="max-w-[1680px] m-auto h-full pt-[230px]" id="about">
+    <section className="max-w-1680 mx-auto h-full pt-[230px]" id="about">
       <div className='h-full w-full flex flex-col lg:flex-row justify-between itmes-center px-5 md:px-[80px] mb-[84px]'>
         {/* Text Section */}
         <div className='lg:w-1/2 flex flex-col justify-center pt-[100px] lg:pr-20 lg:pt-0 text-center lg:text-left  pb-5 lg:pb-0'>
@@ -25,7 +25,7 @@ const About = () => {
 
         {/* Image Section */}
         <div className='lg:w-1/2 h-[100%] flex items-center'>
-          <div className="w-[100%] max-w-[600px] m-auto lg:max-w-[800px] overflow-hidden bg-[var(--color-gray)] rounded-[40px] lg:rounded-[100px] pt-20 flex justify-center">
+          <div className="w-[100%] max-w-[600px] mx-auto lg:max-w-[800px] overflow-hidden bg-[var(--color-gray)] rounded-[40px] lg:rounded-[100px] pt-20 flex justify-center">
             <Image
               src={`${DOMAIN}hero.png`}
               alt='Ivan Inozemtsev'
