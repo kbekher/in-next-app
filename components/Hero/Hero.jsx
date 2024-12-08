@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useTranslation } from "next-i18next";
 
@@ -14,6 +14,7 @@ import Preloader from "../Preloader/Preloader";
 
 const Hero = () => {
   const { t } = useTranslation("common");
+  const videoRef = useRef(null);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,6 +23,11 @@ const Hero = () => {
 
   useEffect(() => {
     setIsDesktop(isDesktopQuery);
+
+    if (videoRef.current) {
+      // Set the playback rate to 0.5x (half speed)
+      videoRef.current.playbackRate = 0.5;
+    }
 
     const timer = setTimeout(() => {
       setIsLoading(false); // Hide the preloader once the scene is loaded
@@ -39,8 +45,18 @@ const Hero = () => {
         </div>
       )}
 
-      <div className='absolute inset-0 z-[-1] '>
-        <video src={`${DOMAIN}spline-bg.webm`} autoPlay muted loop className="h-full w-full object-cover" />
+      <div className='absolute inset-0 z-[-1]'>
+        <video
+          ref={videoRef}
+          className="h-full w-full object-cover"
+          autoPlay 
+          muted 
+          loop 
+        >
+          <source src={`${DOMAIN}spline-bg.webm`} type="video/webm" />
+          <source src={`${DOMAIN}spline-bg.mp4`} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       <Header />
@@ -67,7 +83,7 @@ const Hero = () => {
           <div className='flex-grow'>
             <LangToggle />
           </div>
-          
+
         </div>
 
       </div>
