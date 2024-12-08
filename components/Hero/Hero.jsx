@@ -53,8 +53,8 @@ const Hero = () => {
           muted 
           loop 
         >
-          <source src={`${DOMAIN}spline-bg.mp4`} type="video/mp4" />
           <source src={`${DOMAIN}spline-bg.webm`} type="video/webm" />
+          <source src={`${DOMAIN}spline-bg.mp4`} type="video/mp4" /> //TODO: doesn't work in Safari
           Your browser does not support the video tag.
         </video>
       </div>
