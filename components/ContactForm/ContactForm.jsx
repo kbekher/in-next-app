@@ -78,7 +78,7 @@ const ContactForm = () => {
           <button
             type='submit'
             disabled={isSubmitting}
-            className='w-auto form-btn mt-[24px] md:mt-0 md:ml-4 bg-transparent uppercase text-[var(--color-white)] px-8 py-1 border border-[var(--color-white)] rounded-full hover:bg-[var(--color-white)] hover:text-[var(--color-gray-dark)] transition focus:ring-2 focus:ring-white focus:outline-none'
+            className='w-auto mt-[24px] md:mt-0 md:ml-4 bg-transparent uppercase text-[var(--color-white)] px-8 py-[7px] border border-[var(--color-white)] rounded-full hover:bg-[var(--color-white)] hover:text-[var(--color-gray-dark)] transition focus:ring-2 focus:ring-white focus:outline-none'
           >
             Join
           </button>

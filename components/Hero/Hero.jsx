@@ -29,7 +29,9 @@ const Hero = () => {
   }, [isDesktopQuery]);
 
   const handleSceneLoaded = () => {
-    setIsLoading(false); // Hide the preloader once the scene is loaded
+    setTimeout(() => {
+      setIsLoading(false); // Hide the preloader once the scene is loaded
+    }, 2000);
   };
 
   return (
@@ -39,7 +41,7 @@ const Hero = () => {
       <Script src={splineSrc} strategy="afterInteractive" />
 
       {isLoading && (
-        <div className="absolute inset-0 z-[9999] bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="absolute inset-0 z-[9999] bg-[var(--background)] flex justify-center items-center">
           <Preloader />
         </div>
       )}
@@ -59,7 +61,7 @@ const Hero = () => {
         </h1>
 
         <div className='flex flex-wrap gap-3 md:block left-1/2 -translate-x-1/2 w-full md:left-auto md:-translate-x-0 w-full md:max-w-max fixed bottom-9 md:static box-border z-[48] md:z-auto'>
-          
+
           {!isDesktop && (
             <>
               <div className='md:hidden basis-full'>
@@ -78,7 +80,7 @@ const Hero = () => {
         </div>
       </div>
     </header>
-  );
+  )
 };
 
 export default Hero;

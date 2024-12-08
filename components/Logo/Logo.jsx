@@ -30,7 +30,8 @@ const Logo = ({ isClickable = false }) => {
           className='w-[110px] cursor-pointer'
           onClick={handleLogoClick}
         >
-          {LogoImg(30, 57)}
+          {LogoImg(23, 44)}
+          {/* {LogoImg(30, 57)} */}
         </Link>
       ) : (
         LogoImg(23,44)

@@ -19,7 +19,13 @@ class MyDocument extends Document {
           <link
             data-react-helmet='true'
             rel='icon'
-            href={`${DOMAIN}logo-new.png`}
+            href={`${DOMAIN}favicon2.png`}
+          />
+          <link 
+            rel="preload" 
+            href={`${DOMAIN}preloader.gif`}
+            as="image" 
+            type="gif"
           />
         </Head>
         <body>
