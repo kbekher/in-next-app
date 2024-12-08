@@ -1,4 +1,5 @@
 const { i18n } = require('./next-i18next.config.js')
+const withVideos = require('next-videos');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -15,4 +16,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = withVideos(nextConfig);

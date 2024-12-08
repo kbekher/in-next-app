@@ -7,10 +7,10 @@ const Preloader = () => {
       <Image 
         src={`${DOMAIN}preloader.gif`} 
         alt='preloader logo' 
-        width={39}
-        height={56}
+        width={59}
+        height={67}
+        unoptimized
       />
-
     </div>
   )
 }

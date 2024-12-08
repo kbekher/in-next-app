@@ -3,9 +3,8 @@
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useTranslation } from "next-i18next";
-import Script from 'next/script';
-import Spline from "@splinetool/react-spline";
 
+import { DOMAIN } from "@/constants";
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import SayHello from "../SayHello/SayHello";
@@ -21,24 +20,18 @@ const Hero = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const isDesktopQuery = useMediaQuery({ minWidth: 768 });
 
-  const splineSrc = "https://prod.spline.design/liDjqaY-i3BfRC2o/scene.splinecode";
-  // const splineSrc = "https://prod.spline.design/xDqJelryf2jxk8Gz/scene.splinecode";
-
   useEffect(() => {
     setIsDesktop(isDesktopQuery);
-  }, [isDesktopQuery]);
 
-  const handleSceneLoaded = () => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false); // Hide the preloader once the scene is loaded
     }, 2000);
-  };
+
+    return timer;
+  }, [isDesktopQuery]);
 
   return (
     <header className='relative h-[100vh] w-full flex flex-col pt-[60px] px-5 pb-[36px] md:pt-10 md:px-20 md:pb-[70px]'>
-
-      {/* Preload Spline Object */}
-      <Script src={splineSrc} strategy="afterInteractive" />
 
       {isLoading && (
         <div className="absolute inset-0 z-[9999] bg-[var(--background)] flex justify-center items-center">
@@ -46,11 +39,8 @@ const Hero = () => {
         </div>
       )}
 
-      <div className='absolute inset-0 z-[-1]'>
-        <Spline
-          scene={splineSrc}
-          onLoad={handleSceneLoaded}
-        />
+      <div className='absolute inset-0 z-[-1] '>
+        <video src={`${DOMAIN}spline-bg.webm`} autoPlay muted loop className="h-full w-full object-cover" />
       </div>
 
       <Header />
@@ -77,7 +67,9 @@ const Hero = () => {
           <div className='flex-grow'>
             <LangToggle />
           </div>
+          
         </div>
+
       </div>
     </header>
   )
