@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useTranslation } from "next-i18next";
 
-import { DOMAIN } from "@/constants";
+
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import SayHello from "../SayHello/SayHello";
@@ -14,7 +14,7 @@ import Preloader from "../Preloader/Preloader";
 
 const Hero = () => {
   const { t } = useTranslation("common");
-  const videoRef = useRef(null);
+
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,18 +22,17 @@ const Hero = () => {
   const isDesktopQuery = useMediaQuery({ minWidth: 768 });
 
   useEffect(() => {
-    setIsDesktop(isDesktopQuery);
-
-    if (videoRef.current) {
-      // Set the playback rate to 0.5x (half speed)
-      videoRef.current.playbackRate = 0.5;
-    }
 
     const timer = setTimeout(() => {
       setIsLoading(false); // Hide the preloader once the scene is loaded
     }, 2000);
 
-    return timer;
+    // Return a cleanup function to clear the timeout
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    setIsDesktop(isDesktopQuery);
   }, [isDesktopQuery]);
 
   return (
@@ -44,21 +43,7 @@ const Hero = () => {
           <Preloader />
         </div>
       )}
-
-      <div className='absolute inset-0 z-[-1]'>
-        <video
-          ref={videoRef}
-          className="h-full w-full object-cover"
-          autoPlay 
-          muted 
-          loop 
-        >
-          <source src={`${DOMAIN}spline-bg.webm`} type="video/webm" />
-          <source src={`${DOMAIN}spline-bg.mp4`} type="video/mp4" /> //TODO: doesn't work in Safari
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
+      
       <Header />
 
       <div className='flex flex-col md:flex-row md:items-end justify-between flex-1 mt-5 md:mt-0'>

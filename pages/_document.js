@@ -25,7 +25,6 @@ class MyDocument extends Document {
             rel="preload" 
             href={`${DOMAIN}preloader.gif`}
             as="image" 
-            type="gif"
           />
         </Head>
         <body>

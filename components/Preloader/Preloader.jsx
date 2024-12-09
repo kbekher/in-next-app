@@ -4,12 +4,12 @@ import { DOMAIN } from "@/constants";
 const Preloader = () => {
   return (
     <div>
-      <Image 
+      <Image
         src={`${DOMAIN}preloader.gif`} 
-        alt='preloader logo' 
-        width={59}
+        alt='preloader logo'
+        width={47}
         height={67}
-        unoptimized
+        className="max-w-[47px] max-h-[67px] w-auto h-auto"
       />
     </div>
   )

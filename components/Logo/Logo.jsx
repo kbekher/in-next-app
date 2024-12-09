@@ -4,7 +4,7 @@ import { DOMAIN } from "@/constants";
 
 const LogoImg = (width, height) => (
   <Image
-    src={`${DOMAIN}logo-new.png`}
+    src={`${DOMAIN}logo-new-1.png`}
     alt='Ivan Inozemtsev logo'
     width={width}
     height={height}
@@ -34,7 +34,7 @@ const Logo = ({ isClickable = false }) => {
           {/* {LogoImg(30, 57)} */}
         </Link>
       ) : (
-        LogoImg(23,44)
+        LogoImg(23, 44)
       )}
     </>
   );
