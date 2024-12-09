@@ -3,32 +3,37 @@
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useTranslation } from "next-i18next";
-import Image from "next/image";
-
-import { DOMAIN } from "@/constants";
-
 
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import SayHello from "../SayHello/SayHello";
 import LangToggle from "../LangToggle/LangToggle";
 import Preloader from "../Preloader/Preloader";
-
+import { DOMAIN } from "@/constants";
+import Image from "next/image";
 
 const Hero = () => {
   const { t } = useTranslation("common");
-
 
   const [isLoading, setIsLoading] = useState(true);
 
   const [isDesktop, setIsDesktop] = useState(false);
   const isDesktopQuery = useMediaQuery({ minWidth: 768 });
 
-  const handleBgLoad = () => {
-    setTimeout(() => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false); // Hide the preloader once the scene is loaded
     }, 2000);
-  }
+
+    // Return a cleanup function to clear the timeout
+    return () => clearTimeout(timer);
+  }, []);
+
+  // const handleBgLoad = () => {
+  //   setTimeout(() => {
+  //     setIsLoading(false); // Hide the preloader once the scene is loaded
+  //   }, 2000);
+  // }
 
   useEffect(() => {
     setIsDesktop(isDesktopQuery);
@@ -47,10 +52,9 @@ const Hero = () => {
         <Image
           src={`${DOMAIN}spline-bg.gif`}
           className="w-full h-full"
-          height={1750}
-          width={1750}
+          height={100}
+          width={100}
           alt={'gradient bg'}
-          onLoad={handleBgLoad}
         />
       </div>
 
