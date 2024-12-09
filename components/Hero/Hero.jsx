@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useTranslation } from "next-i18next";
+import Image from "next/image";
+
+import { DOMAIN } from "@/constants";
 
 
 import Header from "../Header/Header";
@@ -21,15 +24,11 @@ const Hero = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const isDesktopQuery = useMediaQuery({ minWidth: 768 });
 
-  useEffect(() => {
-
-    const timer = setTimeout(() => {
+  const handleBgLoad = () => {
+    setTimeout(() => {
       setIsLoading(false); // Hide the preloader once the scene is loaded
     }, 2000);
-
-    // Return a cleanup function to clear the timeout
-    return () => clearTimeout(timer);
-  }, []);
+  }
 
   useEffect(() => {
     setIsDesktop(isDesktopQuery);
@@ -43,7 +42,18 @@ const Hero = () => {
           <Preloader />
         </div>
       )}
-      
+
+      <div className='absolute inset-0 z-[-1]'>
+        <Image
+          src={`${DOMAIN}spline-bg.gif`}
+          className="w-full h-full"
+          height={1750}
+          width={1750}
+          alt={'gradient bg'}
+          onLoad={handleBgLoad}
+        />
+      </div>
+
       <Header />
 
       <div className='flex flex-col md:flex-row md:items-end justify-between flex-1 mt-5 md:mt-0'>

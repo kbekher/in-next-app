@@ -37,12 +37,12 @@ body {
   padding-top: 100vh;
 } */
 
-header {
+/* header {
   background-image: url('https://d3bxg96r07nwt6.cloudfront.net/spline-bg.gif');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 h1, h2, h3 {
   font-weight: 500;
