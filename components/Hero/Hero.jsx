@@ -3,14 +3,15 @@
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useTranslation } from "next-i18next";
+import Image from "next/image";
+
+import { DOMAIN } from "@/constants";
 
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import SayHello from "../SayHello/SayHello";
 import LangToggle from "../LangToggle/LangToggle";
 import Preloader from "../Preloader/Preloader";
-import { DOMAIN } from "@/constants";
-import Image from "next/image";
 
 const Hero = () => {
   const { t } = useTranslation("common");
@@ -29,11 +30,11 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // const handleBgLoad = () => {
-  //   setTimeout(() => {
-  //     setIsLoading(false); // Hide the preloader once the scene is loaded
-  //   }, 2000);
-  // }
+  const handleBgLoad = () => {
+    setTimeout(() => {
+      setIsLoading(false); // Hide the preloader once the scene is loaded
+    }, 2000);
+  }
 
   useEffect(() => {
     setIsDesktop(isDesktopQuery);
@@ -50,11 +51,13 @@ const Hero = () => {
 
       <div className='absolute inset-0 z-[-1]'>
         <Image
-          src={`${DOMAIN}spline-bg.gif`}
+          src={`${DOMAIN}bg.gif`}
           className="w-full h-full"
           height={100}
           width={100}
           alt={'gradient bg'}
+          unoptimized
+          // onLoad={handleBgLoad}
         />
       </div>
 
