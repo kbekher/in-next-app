@@ -118,6 +118,7 @@ const ProjectGallery = ({ name, assets }) => {
             className={`${imgClass} ${extraClass || 'object-cover'}`}
             src={`${DOMAIN}${src}`}
             alt=""
+            //  sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
           />
         </div>
       ))}

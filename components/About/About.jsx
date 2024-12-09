@@ -33,6 +33,7 @@ const About = () => {
               height={778}
               draggable='false'
               className='object-cover'
+              //  sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" // TODO:
             />
           </div>
           </div> 

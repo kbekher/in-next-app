@@ -13,6 +13,7 @@ const ReviewCard = ({ review, t }) => (
           width={100}
           height={100}
           className='object-cover'
+          //  sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
         />
       </div>
       <h4 className="mt-4">{t(`testimonials.review${review.id}.name`)}</h4>

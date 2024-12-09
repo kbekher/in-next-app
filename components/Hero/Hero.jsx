@@ -21,20 +21,32 @@ const Hero = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const isDesktopQuery = useMediaQuery({ minWidth: 768 });
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false); // Hide the preloader once the scene is loaded
-    }, 2000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsLoading(false); // Hide the preloader once the scene is loaded
+  //   }, 2000);
 
-    // Return a cleanup function to clear the timeout
-    return () => clearTimeout(timer);
-  }, []);
+  //   // Return a cleanup function to clear the timeout
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const handleBgLoad = () => {
     setTimeout(() => {
       setIsLoading(false); // Hide the preloader once the scene is loaded
     }, 2000);
   }
+
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = ""; // Reset overflow
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isLoading]);
 
   useEffect(() => {
     setIsDesktop(isDesktopQuery);
@@ -44,7 +56,7 @@ const Hero = () => {
     <header className='relative h-[100vh] w-full flex flex-col pt-[60px] px-5 pb-[36px] md:pt-10 md:px-20 md:pb-[70px]'>
 
       {isLoading && (
-        <div className="absolute inset-0 z-[9999] bg-[var(--background)] flex justify-center items-center">
+        <div className="absolute inset-0 z-[9999] bg-black flex justify-center items-center">
           <Preloader />
         </div>
       )}
@@ -53,11 +65,13 @@ const Hero = () => {
         <Image
           src={`${DOMAIN}bg.gif`}
           className="w-full h-full"
-          height={100}
-          width={100}
+          // height={100}
+          // width={100}
+          fill={true}
           alt={'gradient bg'}
           unoptimized
-          // onLoad={handleBgLoad}
+          onLoad={handleBgLoad}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
 

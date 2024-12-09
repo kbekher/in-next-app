@@ -9,6 +9,7 @@ const LogoImg = (width, height) => (
     width={width}
     height={height}
     draggable='false'
+    //  sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
   />
 );
 

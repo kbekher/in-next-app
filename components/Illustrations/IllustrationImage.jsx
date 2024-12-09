@@ -18,6 +18,7 @@ const IllustrationImage = ({ name, behanceUrl, size = 200 }) => {
       className={`h-full md:h-auto w-full md:w-auto rounded-3xl object-cover ${!behanceUrl ? `md:absolute ${positions[name]}` : ''}`}
       src={`${DOMAIN}${name}.jpg`}
       alt={name}
+      // sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw"
     />
   );
 
