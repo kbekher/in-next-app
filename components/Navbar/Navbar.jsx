@@ -2,15 +2,15 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { navLinks } from "@/constants";
 
-const Navbar = () => {
+const Navbar = ({ isShrunk = false }) => {
   const { t } = useTranslation("common");
 
   return (
     <nav>
-      <ul className='flex justify-center gap-3 md:gap-8 flex-wrap'>
+      <ul className={`flex justify-center flex-wrap ${isShrunk ? 'gap-10' : 'gap-3 md:gap-8'}`}>
         {navLinks.map((navLink) => (
           <li
-            className='btn'
+            className={`${isShrunk ? 'btn--shrunk' : 'btn'}`}
             key={navLink.id}
           >
             <Link href={`#${navLink.id}`}>{t(`nav.${navLink.id}`)}</Link>

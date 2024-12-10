@@ -1,9 +1,9 @@
 import Logo from "../Logo/Logo";
 
-const HeaderMobile = () => {
+const HeaderMobile = ({ isShrunk }) => {
   return (
     <div>
-      <Logo />
+      <Logo isClickable={false} isShrunk={isShrunk} />
     </div>
   );
 };

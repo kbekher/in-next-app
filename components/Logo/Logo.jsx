@@ -9,11 +9,11 @@ const LogoImg = (width, height) => (
     width={width}
     height={height}
     draggable='false'
-    //  sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
+  //  sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
   />
 );
 
-const Logo = ({ isClickable = false }) => {
+const Logo = ({ isClickable = false, isShrunk = false }) => {
   const handleLogoClick = () => {
     if (!isClickable || window.scrollY === 0) return;
 
@@ -23,6 +23,11 @@ const Logo = ({ isClickable = false }) => {
     });
   };
 
+  const sizes = {
+    width: isShrunk ? 18 : 23,
+    height: isShrunk ? 35 : 44,
+  }
+
   return (
     <>
       {isClickable ? (
@@ -31,11 +36,11 @@ const Logo = ({ isClickable = false }) => {
           className='w-[110px] cursor-pointer'
           onClick={handleLogoClick}
         >
-          {LogoImg(23, 44)}
+          {LogoImg(sizes.width, sizes.height)}
           {/* {LogoImg(30, 57)} */}
         </Link>
       ) : (
-        LogoImg(23, 44)
+        LogoImg(sizes.width, sizes.height)
       )}
     </>
   );
