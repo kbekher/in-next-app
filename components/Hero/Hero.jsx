@@ -82,8 +82,8 @@ const Hero = () => {
       const borderRadius = percentageScrolled === 0 ? "0px" : "54px";
       imageAnimation.style.borderRadius = borderRadius;
 
-      setIsShrunk(window.scrollY > 250);
-    }, 200)
+      setIsShrunk(window.scrollY !== 0);
+    }, 300)
 
     window.addEventListener("scroll", handleScroll);
     return () => {
