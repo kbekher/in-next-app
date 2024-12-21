@@ -10,7 +10,7 @@ const Illustrations = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
-    <section className='max-w-[1300px] mx-auto h-full pt-[130px] md:pt-[220px]'>
+    <section className='max-w-[1300px] mx-auto h-full pt-[130px] md:pt-[146px]'>
 
       <div className='px-5 md:px-[40px] mb-[120px]'>
         { isMobile ? <IllustrationMobile /> : <IllustrationDesktop /> }

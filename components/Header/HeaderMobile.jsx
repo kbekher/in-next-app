@@ -3,7 +3,7 @@ import Logo from "../Logo/Logo";
 const HeaderMobile = ({ isShrunk }) => {
   return (
     <div>
-      <Logo isClickable={false} isShrunk={isShrunk} />
+      <Logo isClickable={true} isShrunk={isShrunk} />
     </div>
   );
 };

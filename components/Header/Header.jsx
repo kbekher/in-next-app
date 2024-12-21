@@ -7,7 +7,7 @@ const HeaderDesktop = dynamic(() => import('./HeaderDesktop'), { ssr: false });
 const Header = ({ isShrunk }) => {
   const isDesktop = useMediaQuery({ minWidth: 768 });
 
-  return isDesktop ? <HeaderDesktop isShrunk={isShrunk} /> : <HeaderMobile isShrunk={isShrunk} />;
+  return isDesktop ? <HeaderDesktop isShrunk={isShrunk} /> : <HeaderMobile  isShrunk={isShrunk} />;
 };
 
 export default Header;

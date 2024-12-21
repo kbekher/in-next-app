@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Roboto } from 'next/font/google';
 
@@ -19,25 +20,30 @@ const roboto = Roboto({
 });
 
 const Homepage = () => {
+  useEffect (() => {
+    window.scrollTo({
+      top: 0,
+      left: 0
+    });
+  }, []);
 
   return (
     <>
-      <div className={`${roboto.className} min-w-[320px] overflow-hidden`}>
+      <div className={`${roboto.className} min-w-[320px] overflow-x-hidden`}>
         <div className='w-full h-full'>
           <Hero />
 
           <main>
             <div id="work">
-              <Project type="ux" name="ace-and-tate" />
-              <Project type="ux" name="xtrafit" />
-              <Project type="brand" name="flowtech" />
-              <Project type="brand" name="paysera" />
-              <Illustrations />
+            <Project type="ux" name="ace-and-tate"/> 
+            <Project type="ux" name="xtrafit" />
+            <Project type="brand" name="flowtech" />
+            <Project type="brand" name="paysera" />
+            <Illustrations />
             </div>
-
             <Skills />
             <About />
-            <Testimonials />
+            <Testimonials /> 
           </main>
 
           <Footer />

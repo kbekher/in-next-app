@@ -26,7 +26,7 @@ const Testimonials = () => {
   const { t } = useTranslation("common");
 
   return (
-    <section className='max-w-1680 mx-auto h-full pt-[160px]'>
+    <section className='max-w-1680 mx-auto h-full pt-[146px]'>
       <div className='px-5 md:px-[80px] mb-[120px]'>
         <h2 className='max-w-[540px] mx-auto section-title mb-4 md:mb-[44px] text-center'>
           {t("testimonials.title")}

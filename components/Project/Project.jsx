@@ -135,7 +135,7 @@ const Project = ({ type, name }) => {
   const { assetsUrls, behanceUrl } = project;
 
   return (
-    <section className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] mx-auto h-full pt-[130px] md:pt-[220px]'>
+    <section className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] mx-auto h-full pt-[130px] md:pt-[146px]'>
       <div className="col-start-3 col-span-8">
 
         <div className='px-5 md:px-0 mb-[120px]'>

@@ -11,6 +11,11 @@
   --transition: all 300ms ease-in-out;
   --border-radius: 30px;
 
+  --header-outer-height: 100vh;
+	--header-inner-height: 72px;
+	--header-height-difference: calc(
+		var(--header-outer-height) - var(--header-inner-height)
+	);
 }
 
 * {
@@ -21,6 +26,13 @@ html {
   color: var(--color-white);
   background-color: var(--background);
   height: -webkit-fill-available;
+  overflow-x: hidden;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--color-gray-dark) transparent;/* Firefox */
+  &::-webkit-scrollbar {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: var(--color-gray-dark) transparent;/* Firefox */
+  }
 }
 
 body {
@@ -35,7 +47,7 @@ body {
 
 /* TODO: fixed position to HeroSection + */
 main {
-  padding-top: 100vh;
+  padding-top: 80vh;
 }
 
 header {
@@ -76,9 +88,6 @@ h1, h2, h3 {
     -webkit-background-clip: text;
   } */
 
-  .animate-gradient-animation {
-    animation: gradient-animation ease-in-out infinite;
-  }
 
   .section-title {
     @apply text-[36px] md:text-[48px] leading-tight;
@@ -150,6 +159,10 @@ h1, h2, h3 {
 }
 
 @media screen and (max-width: 768px) {
+  main {
+    padding-top: 50vh;
+  }
+
   .project-video { 
     position: relative;
 

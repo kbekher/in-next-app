@@ -5,7 +5,7 @@ import SayHello from "../SayHello/SayHello";
 const HeaderDesktop = ( {isShrunk} ) => {
   return (
     <div className='flex w-full justify-between items-center'>
-      <Logo isClickable />
+      <Logo isClickable isShrunk={isShrunk} />
       <Navbar isShrunk={isShrunk} />
       <SayHello />
     </div>

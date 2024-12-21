@@ -8,7 +8,7 @@ const About = () => {
   const { t } = useTranslation("common");
 
   return (
-    <section className="max-w-1680 mx-auto h-full pt-[230px]" id="about">
+    <section className="max-w-1680 mx-auto h-full pt-[146px]" id="about">
       <div className='grid grid-cols-2 md:grid-cols-12 gap-4 md:gap-6 px-5 md:px-[80px] mb-[84px]'>
         {/* Text Section */}
         <div className='col-span-2 md:col-span-6 flex flex-col justify-center pt-[100px] lg:pr-20 lg:pt-0 text-center lg:text-left  pb-5 lg:pb-0'>
