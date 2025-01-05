@@ -21,4 +21,4 @@ const Illustrations = () => {
   );
 }
 
-export default Illustrations
+export default Illustrations;

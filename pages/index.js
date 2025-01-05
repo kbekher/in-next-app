@@ -7,13 +7,14 @@ import { Roboto } from 'next/font/google';
 import '../app/globals.css';
 
 import Header from '@/components/Header/Header';
-import Project from '@/components/Project/Project';
+import Project from '@/components/Projects/Project';
 import Illustrations from '@/components/Illustrations/Illustrations';
 import Skills from '@/components/Skills/Skills';
 import About from '@/components/About/About';
 import Testimonials from '@/components/Testimonials/Testimonials';
 import Footer from '@/components/Footer/Footer';
 import NavbarMobile from '@/components/Navbar/NavbarMobile';
+import Projects from '@/components/Projects/Projects';
 
 const roboto = Roboto({
   weight: ['300', '400', '700'],
@@ -36,13 +37,7 @@ const Homepage = () => {
           <NavbarMobile />
 
           <main>
-            <div id="work">
-              <Project type="ux" name="ace-and-tate" />
-              <Project type="ux" name="xtrafit" />
-              <Project type="brand" name="flowtech" />
-              <Project type="brand" name="paysera" />
-              <Illustrations />
-            </div>
+            <Projects />
             <Skills />
             <About />
             <Testimonials />

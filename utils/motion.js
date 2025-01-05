@@ -1,29 +1,38 @@
-export const textVariant = (duration, delay) => {
+export const textVariant = (direction = "up") => {
+  const directionsMap = {
+    up: { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } },
+    down: { initial: { opacity: 0, y: -50 }, animate: { opacity: 1, y: 0 } },
+    left: { initial: { opacity: 0, x: 50 }, animate: { opacity: 1, x: 0 } },
+    right: { initial: { opacity: 0, x: -50 }, animate: { opacity: 1, x: 0 } },
+  };
+
+  const { initial, animate } = directionsMap[direction] || directionsMap.up;
+
   return {
-    hidden: {
-      y: -50,
-      opacity: 0,
-    },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        duration: duration,
-        delay: delay,
-      },
-    },
+    initial,
+    whileInView: animate,
+    viewport: { once: false, amount: 0.3 },
+    transition: { duration: 0.7, ease: "easeOut" },
   };
 };
 
+export const scaleIn = (size) => {
+  return {
+    initial: { scale: size, opacity: 0 },
+    whileInView: { scale: 1, opacity: 1 },
+    viewport: { once: false, amount: 0.3 },
+    transition: { duration: 0.7, ease: "easeOut" },
+  };
+}
+
 export const fadeIn = (direction, type, delay, duration) => {
   return {
-    hidden: {
+    initial: {
       x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
-      y: direction === "up" ? 200 : direction === "down" ? -100 : 0,
+      y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
       opacity: 0,
     },
-    show: {
+    whileInView: {
       x: 0,
       y: 0,
       opacity: 1,
