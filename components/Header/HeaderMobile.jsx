@@ -88,22 +88,22 @@ const HeaderMobile = () => {
       className={`relative w-full h-screen flex justify-center items-center`}
     >
 
-      <motion.div 
-        initial={{ height: "100vh", width: "100vw", transform: "translateY(0px)" }}
+      <motion.div
+        layout
+        initial={{ width: "100vw", transform: "translateY(0px)" }} //height: "100vh",
         animate={{
-          height: isShrunk ? "46px" : "100vh",
           width: isShrunk ? "calc(100vw - 40px)" : "100vw",
-          transform: isShrunk ? "translateY(64px)" : "translateY(0px)",
+          transform: isShrunk ? "translateY(-600px)" : "translateY(0px)",
         }}
         transition={{ type: "spring", duration: 3.5, stiffness: 200, damping: 40 }}
         className='h-full fixed top-0'
       >
 
-        <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-1 md:py-4 pl-[32px] md:pl-[50px] md:pr-[28px]' : 'pt-[60px] md:pt-10 pb-[36px] md:pb-[70px] px-5 md:px-20'}`}>
-
+        <div className={`relative h-full w-full flex  ${isShrunk ? 'flex-col-reverse py-1 pl-[32px] pb-[20px]' : ' flex-col pt-[60px] pb-[36px] px-5 '}`}>
+          
           <HeaderBg url='spline-bg-mobile' handleBgLoad={handleBgLoad} isShrunk={isShrunk} />
 
-          <div className='flex w-full justify-between items-center'>
+          <div className='flex w-full justify-between items-center '>
             <Logo isClickable isShrunk={isShrunk} />
           </div>
 

@@ -93,7 +93,7 @@ const HeaderDesktop = () => {
     >
 
       <motion.div
-        layout="preserve-aspect"
+        layout
         initial={{ height: "100vh", width: "100vw", transform: "translateY(0px)" }}
         animate={{
           height: isShrunk ? "80px" : "100vh",
