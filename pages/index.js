@@ -6,7 +6,7 @@ import { Roboto } from 'next/font/google';
 
 import '../app/globals.css';
 
-import Hero from '../components/Hero/Hero';
+import Header from '@/components/Header/Header';
 import Project from '@/components/Project/Project';
 import Illustrations from '@/components/Illustrations/Illustrations';
 import Skills from '@/components/Skills/Skills';
@@ -32,7 +32,7 @@ const Homepage = () => {
     <>
       <div className={`${roboto.className} min-w-[320px] overflow-x-hidden`}>
         <div className='w-full h-full'>
-          <Hero />
+          <Header />
           <NavbarMobile />
 
           <main>
