@@ -89,14 +89,13 @@ const HeaderMobile = () => {
     >
 
       <motion.div 
-        layout="preserve-aspect"
         initial={{ height: "100vh", width: "100vw", transform: "translateY(0px)" }}
         animate={{
           height: isShrunk ? "46px" : "100vh",
           width: isShrunk ? "calc(100vw - 40px)" : "100vw",
           transform: isShrunk ? "translateY(64px)" : "translateY(0px)",
         }}
-        transition={{ type: "spring", duration: 1.5, stiffness: 200, damping: 40 }}
+        transition={{ type: "spring", duration: 3.5, stiffness: 200, damping: 40 }}
         className='h-full fixed top-0'
       >
 
