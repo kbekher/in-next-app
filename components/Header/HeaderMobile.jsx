@@ -88,7 +88,8 @@ const HeaderMobile = () => {
       className={`relative w-full h-screen flex justify-center items-center`}
     >
 
-      <motion.div
+      <motion.div 
+        layout="preserve-aspect"
         initial={{ height: "100vh", width: "100vw", transform: "translateY(0px)" }}
         animate={{
           height: isShrunk ? "46px" : "100vh",

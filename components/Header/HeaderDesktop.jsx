@@ -1,12 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useTranslation } from "next-i18next";
-import Image from "next/image";
 import throttle from 'lodash/throttle';
 import { motion, useScroll } from "framer-motion";
 
-import { DOMAIN } from "@/constants";
 import { scrollFadeIn } from "@/utils/motion";
 
 import Preloader from "../Preloader/Preloader";
@@ -19,7 +16,6 @@ import HeaderBg from "./HeaderBg";
 import HeaderTitle from "./HeaderTitle";
 
 const HeaderDesktop = () => {
-  const { t } = useTranslation("common");
   const { scrollY } = useScroll();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -97,6 +93,7 @@ const HeaderDesktop = () => {
     >
 
       <motion.div
+        layout="preserve-aspect"
         initial={{ height: "100vh", width: "100vw", transform: "translateY(0px)" }}
         animate={{
           height: isShrunk ? "80px" : "100vh",
