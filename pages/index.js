@@ -13,6 +13,7 @@ import Skills from '@/components/Skills/Skills';
 import About from '@/components/About/About';
 import Testimonials from '@/components/Testimonials/Testimonials';
 import Footer from '@/components/Footer/Footer';
+import NavbarMobile from '@/components/Navbar/NavbarMobile';
 
 const roboto = Roboto({
   weight: ['300', '400', '700'],
@@ -20,7 +21,7 @@ const roboto = Roboto({
 });
 
 const Homepage = () => {
-  useEffect (() => {
+  useEffect(() => {
     window.scrollTo({
       top: 0,
       left: 0
@@ -32,18 +33,19 @@ const Homepage = () => {
       <div className={`${roboto.className} min-w-[320px] overflow-x-hidden`}>
         <div className='w-full h-full'>
           <Hero />
+          <NavbarMobile />
 
           <main>
             <div id="work">
-            <Project type="ux" name="ace-and-tate"/> 
-            <Project type="ux" name="xtrafit" />
-            <Project type="brand" name="flowtech" />
-            <Project type="brand" name="paysera" />
-            <Illustrations />
+              <Project type="ux" name="ace-and-tate" />
+              <Project type="ux" name="xtrafit" />
+              <Project type="brand" name="flowtech" />
+              <Project type="brand" name="paysera" />
+              <Illustrations />
             </div>
             <Skills />
             <About />
-            <Testimonials /> 
+            <Testimonials />
           </main>
 
           <Footer />

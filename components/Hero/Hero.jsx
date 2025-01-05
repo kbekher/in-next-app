@@ -4,24 +4,33 @@ import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import throttle from 'lodash/throttle';
+import { motion, useScroll } from "framer-motion";
 
 import { DOMAIN } from "@/constants";
+import { scrollFadeIn } from "@/utils/motion";
 
 import Header from "../Header/Header";
-import Navbar from "../Navbar/Navbar";
-import SayHello from "../SayHello/SayHello";
 import LangToggle from "../LangToggle/LangToggle";
 import Preloader from "../Preloader/Preloader";
+import SectionWrapper from "@/hoc/SectionWrapper";
 
 const Hero = () => {
   const { t } = useTranslation("common");
+  const { scrollY } = useScroll();
 
   const [isLoading, setIsLoading] = useState(true);
   const [isShrunk, setIsShrunk] = useState(false);
+  const [threshold, setThreshold] = useState(0);
 
-  const scrollAnimationRef = useRef(null);
-  const scrollBarRef = useRef(null);
-  const imageAnimationRef = useRef(null);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const lastScrollY = useRef(0);
+
+  // Ensure threshold is calculated in the browser
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setThreshold(window.innerHeight / 3);
+    }
+  }, []);
 
   const handleBgLoad = () => {
     const timer = setTimeout(() => setIsLoading(false), 2000);
@@ -39,137 +48,99 @@ const Hero = () => {
     };
   }, [isLoading]);
 
-  function getPercentageScrolled(element) {
-    const distanceScrolled = window.scrollY - element.offsetTop;
-    const percentageScrolled = Math.round(distanceScrolled / (element.offsetHeight / 100));
-    return Math.min(100, Math.max(0, percentageScrolled));
-  }
-
-
   useEffect(() => {
     const handleScroll = throttle(() => {
-      const scrollAnimation = scrollAnimationRef.current;
-      const scrollBar = scrollBarRef.current;
-      const imageAnimation = imageAnimationRef.current;
+      const isScrollingDown = scrollY.current > lastScrollY.current;
+      if (isScrollingDown) {
+        setIsScrollingDown(true);
+      } else {
+        setIsScrollingDown(false);
+      }
 
-      if (!scrollAnimation || !scrollBar || !imageAnimation) return;
+      // Check if scroll position crosses the threshold
+      if (scrollY.current > threshold && !isShrunk) {
+        setIsShrunk(true);
+      } else if (scrollY.current <= threshold && isShrunk) {
+        setIsShrunk(false);
+      }
 
-      const percentageScrolled = getPercentageScrolled(scrollAnimation);
-
-      const maxWidth = window.innerWidth; 
-      const isMobile = maxWidth < 768; 
-
-      const minHeight = isMobile ? 46 : 72; 
-      const maxHeight = window.innerHeight; 
-      const height = Math.max(
-        minHeight,
-        maxHeight - (percentageScrolled / 100) * (maxHeight - minHeight)
-      );
-      scrollBar.style.height = `${height}px`;
-
-      const minWidth = maxWidth - (isMobile ? 40 : 160);
-
-      const width = Math.max(
-        minWidth,
-        maxWidth - (percentageScrolled / 100) * (maxWidth - minWidth)
-      );
-      scrollBar.style.width = `${width}px`;
-
-      // Move the element's top position up to a max of 40px
-      const topPosition = Math.min(40, percentageScrolled / 2);
-      scrollBar.style.top = `${topPosition}px`;
-
-      const borderRadius = percentageScrolled === 0 ? "0px" : "54px";
-      imageAnimation.style.borderRadius = borderRadius;
-
-      setIsShrunk(window.scrollY > 250);
-    }, 200)
+      lastScrollY.current = scrollY.current;
+    }, 200);
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isShrunk, threshold, scrollY.current]);
 
   useEffect(() => {
     const cleanup = handleBgLoad();
     return cleanup;
   }, []);
 
-
   if (isLoading) {
     return (
-      <div className="absolute inset-0 z-[9999] bg-black flex justify-center items-center">
+      <div className="absolute inset-0 z-[9999] bg-[var(--background)] flex justify-center items-center">
         <Preloader />
       </div>
     )
   }
 
   return (
-    <header
-      className={`scroll-animation relative w-full h-screen flex justify-center items-center`}
-      ref={scrollAnimationRef}
+    <motion.header
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ type: "tween", ease: "easeInOut", duration: 1.75 }}
+      className={`relative w-full h-screen flex justify-center items-center`}
     >
 
-      <div 
-        className="scroll-bar w-full h-full fixed t-0 transition-all duration-300"
-        ref={scrollBarRef} 
+      <motion.div
+        initial={{ height: "100vh", transform: "translateY(0px)" }}
+        animate={{
+          height: isShrunk ? "80px" : "100vh",
+          transform: isShrunk ? "translateY(40px)" : "translateY(0px)",
+        }}
+        transition={{ type: "spring", duration: 1.5 }} //stiffness: 100, dumpimg: 10,
+        className={`h-full fixed top-0 transition-all duration-300 ${isShrunk ? "md:w-[calc(100vw-160px)] md:w-[calc(100vw-80px)]" : "w-full"}`}
       >
 
-      <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-1 md:py-4 pl-[32px] md:pl-[50px] md:pr-[28px]' : 'pt-[60px] md:pt-10 pb-[36px] md:pb-[70px] px-5 md:px-20'}`}>
+        <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-1 md:py-4 pl-[32px] md:pl-[50px] md:pr-[28px]' : 'pt-[60px] md:pt-10 pb-[36px] md:pb-[70px] px-5 md:px-20'}`}>
 
-        <div className='absolute inset-0 z-[-1]'>
-          <Image
-            ref={imageAnimationRef}
-            src={`${DOMAIN}bg.gif`}
-            className={`w-full h-full transition-all duration-300`}
-            // height={100}
-            // width={100}
-            fill={true}
-            alt={'gradient bg'}
-            unoptimized
-            onLoad={handleBgLoad}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </div>
-
-        <Header isShrunk={isShrunk} />
-
-        <div className='transition-all duration-300 flex flex-col md:flex-row md:items-end justify-between flex-1 mt-5 md:mt-0'>
-
-          <div className="message-animation">
-            <h1
-              className={`message-text md:max-w-[490px] text-[40px] leading-[normal] md:text-5xl select-none transition-all duration-300 opacity-1 ${isShrunk ? 'opacity-0' : ''}`}
-            >
-              {t("h1")}
-            </h1>
+          <div className='absolute inset-0 z-[-1]'>
+            <Image
+              src={`${DOMAIN}bg.gif`}
+              className={`w-full h-full transition-all duration-300 ${isShrunk ? "rounded-[54px]" : "rounded-0"}`}
+              // height={100}
+              // width={100}
+              fill={true}
+              alt={'gradient bg'}
+              unoptimized
+              onLoad={handleBgLoad}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
           </div>
 
-          <div className='flex flex-wrap gap-3 md:block left-1/2 -translate-x-1/2 w-full md:left-auto md:-translate-x-0 w-full md:max-w-max fixed bottom-9 md:static box-border'>
+          <Header isShrunk={isShrunk} />
 
-              <>
-                <div className='md:hidden basis-full'>
-                  <Navbar />
-                </div>
+          <div className='flex flex-col md:flex-row md:items-end justify-between flex-1 mt-5 md:mt-0'>
 
-                <div className='md:hidden flex-grow flex justify-end'>
-                  <SayHello />
-                </div>
-              </>
+            <motion.h1
+              {...scrollFadeIn(isShrunk, isScrollingDown)}
+              className='md:max-w-[490px] text-[40px] leading-[normal] md:text-5xl select-none'
+            >
+              {t("h1")}
+            </motion.h1>
 
-            <div className={`flex-grow opacity-1 transition-all duration-300 ${isShrunk ? 'md:opacity-0' : ''}`}>
-              <LangToggle />
+            <div className='hidden md:block'>
+              <motion.div {...scrollFadeIn(isShrunk, isScrollingDown)} className='flex-grow hidden md:block'>
+                <LangToggle />
+              </motion.div>
             </div>
 
           </div>
-
         </div>
-      </div>
-      </div>
+      </motion.div>
 
-    </header>
+    </motion.header>
   )
 };
 
-export default Hero;
+export default SectionWrapper(Hero, "hero");
