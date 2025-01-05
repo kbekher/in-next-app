@@ -89,18 +89,20 @@ const HeaderMobile = () => {
     >
 
       <motion.div
+      
         layout
-        initial={{ width: "100vw", transform: "translateY(0px)" }} //height: "100vh",
+        initial={{ height: "100vh", width: "100vw", transform: "translateY(0px)" }}
         animate={{
+          height: isShrunk ? "46px" : "100vh",
           width: isShrunk ? "calc(100vw - 40px)" : "100vw",
-          transform: isShrunk ? "translateY(-600px)" : "translateY(0px)",
+          transform: isShrunk ? "translateY(40px)" : "translateY(0px)",
         }}
         transition={{ type: "spring", duration: 3.5, stiffness: 200, damping: 40 }}
         className='h-full fixed top-0'
       >
 
-        <div className={`relative h-full w-full flex  ${isShrunk ? 'flex-col-reverse py-1 pl-[32px] pb-[20px]' : ' flex-col pt-[60px] pb-[36px] px-5 '}`}>
-          
+        <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-1 pl-[32px]' : 'pt-[60px] pb-[36px] px-5 '}`}>
+
           <HeaderBg url='spline-bg-mobile' handleBgLoad={handleBgLoad} isShrunk={isShrunk} />
 
           <div className='flex w-full justify-between items-center '>
