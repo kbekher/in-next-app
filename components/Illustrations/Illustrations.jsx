@@ -1,5 +1,8 @@
 import dynamic from 'next/dynamic';
 import { useMediaQuery } from 'react-responsive';
+import { motion } from "framer-motion";
+
+import { scaleIn } from "@/utils/motion";
 
 import Divider from "../Divider/Divider";
 
@@ -12,9 +15,12 @@ const Illustrations = () => {
   return (
     <section className='max-w-[1300px] mx-auto h-full pt-[130px] md:pt-[146px]'>
 
-      <div className='px-5 md:px-[40px] mb-[120px]'>
-        { isMobile ? <IllustrationMobile /> : <IllustrationDesktop /> }
-      </div>
+      <motion.div
+        {...scaleIn(1.5)}
+        className='px-5 md:px-[40px] mb-[120px]'
+      >
+        {isMobile ? <IllustrationMobile /> : <IllustrationDesktop />}
+      </motion.div>
 
       <Divider />
     </section>

@@ -42,7 +42,7 @@ export const ProjectGallery = ({ name, assets }) => {
     <div className={container}>
       {items.map(({ src, wrapperClass, extraClass }, i) => (
         <motion.div
-        {...fadeIn(i < 3 ? "right" : "left", "spring", 0.5, 0.75)}
+          {...fadeIn(i < 3 ? "right" : "left", "spring", 0.5, 0.75)}
           key={src} 
           className={`h-auto ${wrapperClass}`}
         >

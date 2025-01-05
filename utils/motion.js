@@ -1,3 +1,5 @@
+import { transform } from "lodash";
+
 export const textVariant = (direction = "up") => {
   const directionsMap = {
     up: { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } },
@@ -40,6 +42,25 @@ export const fadeIn = (direction, type, delay, duration) => {
         type: type,
         delay: delay,
         duration: duration,
+        ease: "easeOut",
+      },
+    },
+  };
+};
+
+export const blurRevealText = (blur, stagger, delay) => {
+  return {
+    initial: {
+      opacity: 0,
+      filter: `blur(${blur}px)`,
+    },
+    whileInView: {
+      opacity: 1,
+      filter: "blur(0px)",
+      transition: {
+        staggerChildren: stagger,
+        delay: delay,
+        duration: 0.8,
         ease: "easeOut",
       },
     },
