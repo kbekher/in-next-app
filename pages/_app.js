@@ -8,14 +8,11 @@ const MyApp = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleTransitionEnd = () => {
-    console.log("Preloader animation ended!");
-    setIsLoading(false); // Stop rendering the Preloader
+    setIsLoading(false); 
   };
 
   useLayoutEffect(() => {
-
     setTimeout(() => setIsLoading(false), 2000);
-
   }, []);
 
   return (
