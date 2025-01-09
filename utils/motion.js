@@ -1,6 +1,4 @@
-import { transform } from "lodash";
-
-export const textVariant = (direction = "up") => {
+export const textVariant = (direction = "up", isSingle = true) => {
   const directionsMap = {
     up: { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } },
     down: { initial: { opacity: 0, y: -50 }, animate: { opacity: 1, y: 0 } },
@@ -13,21 +11,21 @@ export const textVariant = (direction = "up") => {
   return {
     initial,
     whileInView: animate,
-    viewport: { once: false, amount: 0.3 },
+    viewport: { once: isSingle, amount: 0.3 },
     transition: { duration: 0.7, ease: "easeOut" },
   };
 };
 
-export const scaleIn = (size) => {
+export const scaleIn = (size, isSingle = true) => {
   return {
     initial: { scale: size, opacity: 0 },
     whileInView: { scale: 1, opacity: 1 },
-    viewport: { once: false, amount: 0.3 },
+    viewport: { once: isSingle, amount: 0.3 },
     transition: { duration: 0.7, ease: "easeOut" },
   };
 }
 
-export const fadeIn = (direction, type, delay, duration) => {
+export const fadeIn = (direction, type, delay, duration, isSingle = true) => {
   return {
     initial: {
       x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
@@ -45,6 +43,7 @@ export const fadeIn = (direction, type, delay, duration) => {
         ease: "easeOut",
       },
     },
+    viewport: { once: isSingle, amount: 0.3 },
   };
 };
 
@@ -60,10 +59,10 @@ export const blurRevealText = (blur, stagger, delay) => {
       transition: {
         staggerChildren: stagger,
         delay: delay,
-        duration: 0.8,
         ease: "easeOut",
       },
     },
+    viewport: { once: true, amount: 0.3 },
   };
 };
 
@@ -75,6 +74,7 @@ export const scrollFadeIn = (isShrunk, isScrollingDown) => ({
     duration: 0.1,
     delay: isScrollingDown ? 0 : 0.3,
   },
+  viewport: { once: true, amount: 0.3 },
 });
 
 

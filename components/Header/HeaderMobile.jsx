@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import throttle from 'lodash/throttle';
 import { motion, useScroll } from "framer-motion";
 
-import Preloader from "../Preloader/Preloader";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import Logo from "../Logo/Logo";
 import HeaderBg from "./HeaderBg";
@@ -14,7 +13,6 @@ const HeaderMobile = () => {
 
   const { scrollY } = useScroll();
 
-  const [isLoading, setIsLoading] = useState(true);
   const [isShrunk, setIsShrunk] = useState(false);
   const [threshold, setThreshold] = useState(0);
 
@@ -27,22 +25,6 @@ const HeaderMobile = () => {
       setThreshold(window.innerHeight / 3);
     }
   }, []);
-
-  const handleBgLoad = () => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
-    return () => clearTimeout(timer);
-  };
-
-  useEffect(() => {
-    const overflowValue = isLoading ? "hidden" : "";
-    document.documentElement.style.overflow = overflowValue;
-    document.body.style.overflow = overflowValue;
-
-    return () => {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-    };
-  }, [isLoading]);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -67,19 +49,6 @@ const HeaderMobile = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isShrunk, threshold, scrollY.current]);
 
-  useEffect(() => {
-    const cleanup = handleBgLoad();
-    return cleanup;
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="absolute inset-0 z-[9999] bg-[var(--background)] flex justify-center items-center">
-        <Preloader />
-      </div>
-    )
-  }
-
   return (
     <motion.header
       initial={{ opacity: 0 }}
@@ -103,7 +72,7 @@ const HeaderMobile = () => {
 
         <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-1 pl-[32px]' : 'pt-[60px] pb-[36px] px-5 '}`}>
 
-          <HeaderBg url='spline-bg-mobile' handleBgLoad={handleBgLoad} isShrunk={isShrunk} />
+          <HeaderBg url='spline-bg-mobile' isShrunk={isShrunk} />
 
           <div className='flex w-full justify-between items-center '>
             <Logo isClickable isShrunk={isShrunk} />

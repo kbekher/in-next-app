@@ -25,9 +25,9 @@ const SkillTile = ({ skill, t, index }) => (
         <h4>
           <BlurText text={t(`skills.${skill.name}.title`)} index={index} />
         </h4>
-        <p className='hidden md:flex'>
+        <div className='hidden md:flex'>
           <BlurText text={t(`skills.${skill.name}.p`)} index={index} />
-        </p>
+        </div>
       </div>
     </div>
   </motion.div>

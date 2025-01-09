@@ -9,8 +9,9 @@ const BlurText = ({ text, index }) => {
     <div>
         {text.split(" ").map((word, i) => (
         <motion.span
-          {...blurRevealText(10, 0.05, 0.05 * index * i)}
-          key={i} >
+          key={i}
+          {...blurRevealText(10, 0.05, 0.5 * index + 0.05 * i)}
+        >
           {word}{" "}
         </motion.span>
       ))}

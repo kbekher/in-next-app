@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { DOMAIN } from "@/constants";
 
-const HeaderBg = ({ url, handleBgLoad, isShrunk }) => {
+const HeaderBg = ({ url, isShrunk }) => {
 
   return (
     <div className='absolute inset-0 z-[-1]'>
@@ -15,7 +15,6 @@ const HeaderBg = ({ url, handleBgLoad, isShrunk }) => {
         fill={true}
         alt={'gradient bg'}
         unoptimized
-        onLoad={handleBgLoad}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
     </div>

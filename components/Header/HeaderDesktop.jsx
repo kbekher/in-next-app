@@ -6,7 +6,6 @@ import { motion, useScroll } from "framer-motion";
 
 import { scrollFadeIn } from "@/utils/motion";
 
-import Preloader from "../Preloader/Preloader";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import Logo from "../Logo/Logo";
 import Navbar from "../Navbar/Navbar";
@@ -18,7 +17,6 @@ import HeaderTitle from "./HeaderTitle";
 const HeaderDesktop = () => {
   const { scrollY } = useScroll();
 
-  const [isLoading, setIsLoading] = useState(true);
   const [isShrunk, setIsShrunk] = useState(false);
   const [threshold, setThreshold] = useState(0);
 
@@ -31,22 +29,6 @@ const HeaderDesktop = () => {
       setThreshold(window.innerHeight / 3);
     }
   }, []);
-
-  const handleBgLoad = () => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
-    return () => clearTimeout(timer);
-  };
-
-  useEffect(() => {
-    const overflowValue = isLoading ? "hidden" : "";
-    document.documentElement.style.overflow = overflowValue;
-    document.body.style.overflow = overflowValue;
-
-    return () => {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-    };
-  }, [isLoading]);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -71,19 +53,6 @@ const HeaderDesktop = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isShrunk, threshold, scrollY.current]);
 
-  useEffect(() => {
-    const cleanup = handleBgLoad();
-    return cleanup;
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="absolute inset-0 z-[9999] bg-[var(--background)] flex justify-center items-center">
-        <Preloader />
-      </div>
-    )
-  }
-
   return (
     <motion.header
       initial={{ opacity: 0 }}
@@ -106,7 +75,7 @@ const HeaderDesktop = () => {
 
         <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-4 pl-[50px] pr-[28px]' : 'pt-10 pb-[70px] px-20'}`}>
 
-          <HeaderBg url='bg' handleBgLoad={handleBgLoad} isShrunk={isShrunk} />
+          <HeaderBg url='bg' isShrunk={isShrunk} />
 
           <div className='flex w-full justify-between items-center'>
             <Logo isClickable isShrunk={isShrunk} />

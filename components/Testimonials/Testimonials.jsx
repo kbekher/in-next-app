@@ -7,7 +7,9 @@ import { motion } from "framer-motion";
 import { DOMAIN, reviews } from "@/constants";
 import { textVariant } from "@/utils/motion";
 
-const ReviewCard = ({ review, t }) => (
+import BlurText from "../BlurText/BlurText";
+
+const ReviewCard = ({ review, t, index }) => (
   <motion.div
     className='bg-[var(--color-bg-tile)] rounded-[70px] md:col-span-6'
   >
@@ -22,8 +24,12 @@ const ReviewCard = ({ review, t }) => (
         //  sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
         />
       </div>
-      <h4 className="mt-4">{t(`testimonials.review${review.id}.name`)}</h4>
-      <p className="mt-2 md:mt-8" >{t(`testimonials.review${review.id}.p`)}</p>
+      <h4 className="mt-4">
+        <BlurText text={t(`testimonials.review${review.id}.name`)} index={index} />
+      </h4>
+      <div className="mt-2 md:mt-8" >
+        <BlurText text={t(`testimonials.review${review.id}.p`)} index={index} />
+      </div>
     </div>
   </motion.div>
 );
@@ -42,8 +48,8 @@ const Testimonials = () => {
         </motion.h2>
 
         <div className='grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-4'>
-          {reviews.map((review) => (
-            <ReviewCard key={review.id} review={review} t={t} />
+          {reviews.map((review, index) => (
+            <ReviewCard key={review.id} review={review} t={t} index={index} />
           ))}
         </div>
       </div>
