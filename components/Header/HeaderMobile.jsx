@@ -53,7 +53,7 @@ const HeaderMobile = () => {
     <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ type: "tween", ease: "easeInOut", duration: 1.75, delay: 2 }}
+      transition={{ type: "tween", ease: "easeInOut", duration: 1.75 }}
       className={`relative w-full h-screen flex justify-center items-center`}
     >
 
@@ -71,7 +71,7 @@ const HeaderMobile = () => {
 
         <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-1 pl-[32px]' : 'pt-[60px] pb-[36px] px-5 '}`}>
 
-          <HeaderBg url='spline-bg-mobile' isShrunk={isShrunk} />
+          <HeaderBg url='mobile-bg' isShrunk={isShrunk} />
 
           <div className='flex w-full justify-between items-center '>
             <Logo isClickable isShrunk={isShrunk} />

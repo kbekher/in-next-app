@@ -57,7 +57,7 @@ const HeaderDesktop = () => {
     <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ type: "tween", ease: "easeInOut", duration: 1.75, delay: 2 }}
+      transition={{ type: "tween", ease: "easeInOut", duration: 1.75 }}
       className={`relative w-full h-screen flex justify-center items-center`}
     >
 

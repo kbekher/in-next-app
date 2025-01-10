@@ -7,8 +7,6 @@ import { Roboto } from 'next/font/google';
 import '../app/globals.css';
 
 import Header from '@/components/Header/Header';
-import Project from '@/components/Projects/Project';
-import Illustrations from '@/components/Illustrations/Illustrations';
 import Skills from '@/components/Skills/Skills';
 import About from '@/components/About/About';
 import Testimonials from '@/components/Testimonials/Testimonials';

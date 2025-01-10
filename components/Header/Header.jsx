@@ -5,9 +5,9 @@ const HeaderMobile = dynamic(() => import('./HeaderMobile'), { ssr: false });
 const HeaderDesktop = dynamic(() => import('./HeaderDesktop'), { ssr: false });
 
 const Header = () => {
-  const isDesktop = useMediaQuery({ minWidth: 768 });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  return isDesktop ? <HeaderDesktop /> : <HeaderMobile />;
+  return isMobile ? <HeaderMobile /> : <HeaderDesktop />;
 };
 
 export default Header;

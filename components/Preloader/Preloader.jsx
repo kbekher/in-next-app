@@ -1,36 +1,41 @@
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { DOMAIN } from "@/constants";
 import { useEffect } from 'react';
 
-const Preloader = ({ onTransitionEnd, isLoading }) => {
+const Preloader = () => {
   useEffect(() => {
-    const overflowValue = isLoading ? "hidden" : "";
-    document.documentElement.style.overflow = overflowValue;
-    document.body.style.overflow = overflowValue;
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
 
     return () => {
       document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
     };
-  }, [isLoading]);
+  }, []);
 
   return (
-    isLoading && (
-      <div
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }} 
+        transition={{ type: "tween" , ease: "easeOut", duration: 1.75 }}
         id="loader"
-        className="absolute inset-0 z-[9999] bg-[var(--background)] flex justify-center items-center"
-        onTransitionEnd={onTransitionEnd} // Trigger the callback when the transition ends
+        className="absolute inset-0 z-[9999] bg-[var(--background)] flex justify-center items-center select-none"
       >
         <Image
           src={`${DOMAIN}preloader.gif`}
           alt="preloader logo"
-          width={47}
-          height={67}
+          width={184}
+          height={212}
+          priority
+          as="image"
           className="max-w-[47px] max-h-[67px] w-auto h-auto"
         />
-      </div>
-    )
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

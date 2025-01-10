@@ -12,6 +12,7 @@ const HeaderBg = ({ url, isShrunk }) => {
         className={`w-full h-full transition-all duration-300 ${isShrunk ? "rounded-[54px]" : "rounded-0"}`}
         // height={100}
         // width={100}
+        priority
         fill={true}
         alt={'gradient bg'}
         unoptimized
