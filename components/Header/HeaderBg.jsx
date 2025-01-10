@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { DOMAIN } from "@/constants";
 
-const HeaderBg = ({ url, isShrunk }) => {
+const HeaderBg = ({ url, type, isShrunk }) => {
 
   return (
     <div className='absolute inset-0 z-[-1]'>
@@ -22,7 +22,7 @@ const HeaderBg = ({ url, isShrunk }) => {
         muted
         playsInline
       >
-        <source src={`${DOMAIN}${url}`} type="video/webm" />
+        <source src={`${DOMAIN}${url}`} type={type} />
       </video>
     </div>
   );
