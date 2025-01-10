@@ -30,6 +30,7 @@ const Preloader = () => {
           alt="preloader logo"
           width={184}
           height={212}
+          priority
           unoptimized
           className="max-w-[47px] max-h-[67px] w-auto h-auto"
         />

@@ -9,16 +9,16 @@ import { DOMAIN } from '@/constants';
 const MyApp = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  const imageUrl = isMobile ? `${DOMAIN}mobile-bg.gif` : `${DOMAIN}bg.gif`;
+  const imageUrl = isMobile ? `${DOMAIN}bg-spline-mobile.gif` : `${DOMAIN}bg-spline.gif`;
 
   useEffect(() => {
     const img = new Image();
     img.src = imageUrl;
     img.onload = () => {
-      // const timeout = setTimeout(() => {
+      const timeout = setTimeout(() => {
         setIsLoading(false);
-      // }, 1000);
-      // return () => clearTimeout(timeout);
+      }, 2000);
+      return () => clearTimeout(timeout);
     };
   }, []);
 
@@ -34,8 +34,8 @@ const MyApp = ({ Component, pageProps }) => {
         />
       </Head>
 
-      {isLoading && <Preloader />}
-      {!isLoading && <Component {...pageProps} />}
+      { isLoading && <Preloader /> }
+      { !isLoading && <Component {...pageProps} /> }
     </>
   );
 }
