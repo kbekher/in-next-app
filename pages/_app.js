@@ -8,7 +8,7 @@ import { DOMAIN } from '@/constants';
 
 const MyApp = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const isMobile = useMediaQuery({ maxWidth: 768 }) || /mobile/i.test(navigator.userAgent);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const imageUrl = isMobile ? `${DOMAIN}mobile-bg.gif` : `${DOMAIN}bg.gif`;
 
   useEffect(() => {
