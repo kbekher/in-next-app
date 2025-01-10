@@ -2,29 +2,16 @@ import Preloader from '@/components/Preloader/Preloader';
 import { appWithTranslation } from 'next-i18next';
 import { useMediaQuery } from 'react-responsive';
 import Head from 'next/head';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DOMAIN } from '@/constants';
 // import nextI18NextConfig from '../next-i18next.config.js'
 
 const MyApp = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(true);
-
-  // const handleTransitionEnd = () => {
-  //   setIsLoading(false); 
-  // };
-
   const isMobile = useMediaQuery({ maxWidth: 768 }) || /mobile/i.test(navigator.userAgent);
-  console.log(isMobile);
-
   const imageUrl = isMobile ? `${DOMAIN}mobile-bg.gif` : `${DOMAIN}bg.gif`;
-  console.log(imageUrl);
 
-
-  useLayoutEffect(() => {
-
-    // setHeaderImage(imageUrl);
-
-    // Preload the image
+  useEffect(() => {
     const img = new Image();
     img.src = imageUrl;
     img.onload = () => {
