@@ -9,16 +9,29 @@ import { DOMAIN } from '@/constants';
 const MyApp = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  const imageUrl = isMobile ? `${DOMAIN}bg-spline-mobile.gif` : `${DOMAIN}bg-spline.gif`;
+  const videoUrl = isMobile ? `${DOMAIN}web-bg-mobile.webm` : `${DOMAIN}web-bg.webm`;
 
   useEffect(() => {
-    const img = new Image();
-    img.src = imageUrl;
-    img.onload = () => {
+    const video = document.createElement('video');
+    video.src = videoUrl;
+    video.preload = 'auto'; // Preload the video
+    video.oncanplaythrough = () => {
+      // Ensure the preloader stays for at least 2 seconds
       const timeout = setTimeout(() => {
         setIsLoading(false);
       }, 2000);
       return () => clearTimeout(timeout);
+    };
+
+    video.onerror = () => {
+      console.error('Failed to load video:', videoUrl);
+      setIsLoading(false); // Fallback if video fails to load
+    };
+
+    // Cleanup the video object
+    return () => {
+      video.oncanplaythrough = null;
+      video.onerror = null;
     };
   }, []);
 
