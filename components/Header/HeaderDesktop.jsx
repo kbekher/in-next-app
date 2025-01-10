@@ -75,7 +75,7 @@ const HeaderDesktop = () => {
 
         <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-4 pl-[50px] pr-[28px]' : 'pt-10 pb-[70px] px-20'}`}>
 
-          <HeaderBg url='web-bg.webm' type="video/webm" isShrunk={isShrunk} />
+          <HeaderBg url='web-bg.webm' isShrunk={isShrunk} />
 
           <div className='flex w-full justify-between items-center'>
             <Logo isClickable isShrunk={isShrunk} />

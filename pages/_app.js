@@ -12,19 +12,18 @@ const MyApp = ({ Component, pageProps }) => {
   const videoUrl = isMobile ? `${DOMAIN}bg-mobile.mov` : `${DOMAIN}web-bg.webm`;
 
   useEffect(() => {
-    const video = document.createElement('video');
-    video.src = videoUrl;
-    video.preload = 'auto'; // Preload the video
-    video.oncanplaythrough = () => {
+    // const video = document.createElement('video');
+    // video.src = videoUrl;
+    // video.preload = 'auto'; // Preload the video
+    // video.oncanplaythrough = () => {
       // Ensure the preloader stays for at least 2 seconds
       const timeout = setTimeout(() => {
         setIsLoading(false);
       }, 2000);
       return () => clearTimeout(timeout);
-    };
+    // };
 
     video.onerror = () => {
-      console.error('Failed to load video:', videoUrl);
       setIsLoading(false); // Fallback if video fails to load
     };
 
