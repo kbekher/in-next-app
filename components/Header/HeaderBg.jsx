@@ -8,7 +8,7 @@ const HeaderBg = ({ url, isShrunk }) => {
   return (
     <div className='absolute inset-0 z-[-1]'>
       <video
-        src={`${DOMAIN}${url}.webm`}
+        src={`${DOMAIN}${url}`}
         className={`object-cover w-full h-full transition-all duration-300 ${isShrunk ? "rounded-[54px]" : "rounded-0"}`}
         // height={100}
         // width={100}
@@ -22,7 +22,7 @@ const HeaderBg = ({ url, isShrunk }) => {
         muted
         playsInline
       >
-        <source src={`${DOMAIN}${url}.webm`} type="video/webm" />
+        <source src={`${DOMAIN}${url}`} type="video/webm" />
       </video>
     </div>
   );

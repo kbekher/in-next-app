@@ -9,7 +9,7 @@ import { DOMAIN } from '@/constants';
 const MyApp = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  const videoUrl = isMobile ? `${DOMAIN}web-bg-mobile.webm` : `${DOMAIN}web-bg.webm`;
+  const videoUrl = isMobile ? `${DOMAIN}bg-mobile.mov` : `${DOMAIN}web-bg.webm`;
 
   useEffect(() => {
     const video = document.createElement('video');

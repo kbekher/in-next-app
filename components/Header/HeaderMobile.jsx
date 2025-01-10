@@ -71,7 +71,7 @@ const HeaderMobile = () => {
 
         <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-1 pl-[32px]' : 'pt-[60px] pb-[36px] px-5 '}`}>
 
-          <HeaderBg url='web-bg-mobile' isShrunk={isShrunk} />
+          <HeaderBg url='bg-mobile.mov' isShrunk={isShrunk} />
 
           <div className='flex w-full justify-between items-center '>
             <Logo isClickable isShrunk={isShrunk} />
