@@ -29,7 +29,7 @@ const Project = ({ type, name }) => {
         onViewportEnter={() => {
           if (name === "ace-and-tate") {
             scroller.scrollTo(ref.current.id, {
-              duration: 300,
+              duration: 100,
               smooth: true,
               offset: -50, // Adjust for fixed headers if needed
             });
