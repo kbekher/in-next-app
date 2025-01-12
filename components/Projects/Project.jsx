@@ -27,11 +27,13 @@ const Project = ({ type, name }) => {
     <Element>
       <motion.section
         onViewportEnter={() => {
+          if (name === "ace-and-tate") {
             scroller.scrollTo(ref.current.id, {
               duration: 300,
               smooth: true,
               offset: -50, // Adjust for fixed headers if needed
             });
+          }
           // console.log(ref.current.id);
         }}
         className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] mx-auto h-full pt-[130px] md:pt-[146px]'

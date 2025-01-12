@@ -1,25 +1,12 @@
 import { motion } from "framer-motion";
-import { Element, scroller } from 'react-scroll';
 
 import { staggerContainer } from '../utils/motion';
-import { useRef } from "react";
 
 const SectionWrapper = (Component, idName) =>
   function HOC() {
-    const ref = useRef(null);
 
     return (
-      <Element>
         <motion.section
-          ref={ref}
-          id={idName}
-          onViewportEnter={() => {
-            scroller.scrollTo(ref.current.id, {
-              duration: 300,
-              smooth: true,
-              offset: -50, // Adjust for fixed headers if needed
-            });
-          }}
           variants={staggerContainer()}
           initial="hidden"
           whileInView="show"
@@ -30,7 +17,6 @@ const SectionWrapper = (Component, idName) =>
           </span>
           <Component />
         </motion.section>
-      </Element>
     )
   }
 
