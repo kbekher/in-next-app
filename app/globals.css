@@ -45,9 +45,9 @@ body {
   font-weight: 300;
 }
 
-/* TODO: fixed position to HeroSection + */
+
 main {
-  margin-top: 80vh;
+  padding-top: 900px;
 }
 
 header {

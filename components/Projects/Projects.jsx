@@ -1,7 +1,6 @@
 import React from 'react'
 import Project from './Project';
 import Illustrations from '../Illustrations/Illustrations';
-import SectionWrapper from '@/hoc/SectionWrapper';
 
 const Projects = () => {
   const projectsArray = [
@@ -22,4 +21,4 @@ const Projects = () => {
   )
 }
 
-export default SectionWrapper(Projects, 'projects');
+export default Projects;

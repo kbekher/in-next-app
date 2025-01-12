@@ -1,37 +1,40 @@
-import Preloader from '@/components/Preloader/Preloader';
 import { appWithTranslation } from 'next-i18next';
-import { useMediaQuery } from 'react-responsive';
-import Head from 'next/head';
-import { useEffect, useState } from 'react';
-import { DOMAIN } from '@/constants';
 // import nextI18NextConfig from '../next-i18next.config.js'
+import Head from 'next/head';
+
+import { useEffect, useState } from 'react';
+// import { useMediaQuery } from 'react-responsive';
+
+import Preloader from '@/components/Preloader/Preloader';
+// import { DOMAIN } from '@/constants';
+
 
 const MyApp = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-  const videoUrl = isMobile ? `${DOMAIN}bg-mobile.mov` : `${DOMAIN}web-bg.webm`;
+  // const isMobile = useMediaQuery({ maxWidth: 768 });
+  // const videoUrl = isMobile ? `${DOMAIN}bg-mobile.mov` : `${DOMAIN}web-bg.webm`;
 
   useEffect(() => {
     // const video = document.createElement('video');
     // video.src = videoUrl;
     // video.preload = 'auto'; // Preload the video
     // video.oncanplaythrough = () => {
-      // Ensure the preloader stays for at least 2 seconds
-      const timeout = setTimeout(() => {
-        setIsLoading(false);
-      }, 2000);
-      return () => clearTimeout(timeout);
+    // Ensure the preloader stays for at least 2 seconds
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => clearTimeout(timeout);
     // };
 
-    video.onerror = () => {
-      setIsLoading(false); // Fallback if video fails to load
-    };
+    // video.onerror = () => {
+    //   setIsLoading(false); // Fallback if video fails to load
+    // };
 
-    // Cleanup the video object
-    return () => {
-      video.oncanplaythrough = null;
-      video.onerror = null;
-    };
+    // // Cleanup the video object
+    // return () => {
+    //   video.oncanplaythrough = null;
+    //   video.onerror = null;
+    // };
   }, []);
 
   return (

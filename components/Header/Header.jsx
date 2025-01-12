@@ -1,3 +1,4 @@
+import SectionWrapper from '@/hoc/SectionWrapper';
 import dynamic from 'next/dynamic';
 import { useMediaQuery } from 'react-responsive';
 
@@ -10,4 +11,4 @@ const Header = () => {
   return isMobile ? <HeaderMobile /> : <HeaderDesktop />;
 };
 
-export default Header;
+export default SectionWrapper(Header, "header");

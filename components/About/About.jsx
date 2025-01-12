@@ -3,6 +3,7 @@ import Image from "next/image";
 import ContactLinks from "../ContactLinks/ContactLinks";
 import Divider from "../Divider/Divider";
 import { DOMAIN } from "@/constants";
+import SectionWrapper from "@/hoc/SectionWrapper";
 
 const About = () => {
   const { t } = useTranslation("common");
@@ -43,7 +44,7 @@ const About = () => {
   );
 };
 
-export default About;
+export default SectionWrapper(About, "about");
 
 {
   /* {t(`${name}.title`).split(" ").map((word, index) => {

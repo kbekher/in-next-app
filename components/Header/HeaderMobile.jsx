@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import throttle from 'lodash/throttle';
 import { motion, useScroll } from "framer-motion";
 
-import SectionWrapper from "@/hoc/SectionWrapper";
 import Logo from "../Logo/Logo";
 import HeaderBg from "./HeaderBg";
 import HeaderTitle from "./HeaderTitle";
@@ -54,7 +53,7 @@ const HeaderMobile = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ type: "tween", ease: "easeInOut", duration: 1.75 }}
-      className={`relative w-full h-screen flex justify-center items-center`}
+      className="relative w-full h-screen flex justify-center items-center"
     >
 
       <motion.div
@@ -88,4 +87,4 @@ const HeaderMobile = () => {
   )
 };
 
-export default SectionWrapper(HeaderMobile, "headerMobile");
+export default HeaderMobile;

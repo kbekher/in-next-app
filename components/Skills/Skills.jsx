@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 import { skills } from "@/constants";
 import { fadeIn, textVariant } from "@/utils/motion";
+import SectionWrapper from "@/hoc/SectionWrapper";
 
 import Divider from "../Divider/Divider";
 import BlurText from "../BlurText/BlurText";
@@ -57,4 +58,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default SectionWrapper(Skills, "skills");

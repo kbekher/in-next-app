@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 import { DOMAIN, reviews } from "@/constants";
 import { textVariant } from "@/utils/motion";
+import SectionWrapper from "@/hoc/SectionWrapper";
 
 import BlurText from "../BlurText/BlurText";
 
@@ -57,4 +58,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default SectionWrapper(Testimonials, "testimonials");

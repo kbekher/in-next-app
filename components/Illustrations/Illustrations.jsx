@@ -3,6 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import { motion } from "framer-motion";
 
 import { scaleIn } from "@/utils/motion";
+import SectionWrapper from '@/hoc/SectionWrapper';
 
 import Divider from "../Divider/Divider";
 
@@ -27,4 +28,4 @@ const Illustrations = () => {
   );
 }
 
-export default Illustrations;
+export default SectionWrapper(Illustrations, "illustrations");
