@@ -5,13 +5,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { DOMAIN, reviews } from "@/constants";
-import { textVariant } from "@/utils/motion";
+import { fadeIn, textVariant } from "@/utils/motion";
 import SectionWrapper from "@/hoc/SectionWrapper";
 
 import BlurText from "../BlurText/BlurText";
 
 const ReviewCard = ({ review, t, index }) => (
   <motion.div
+    {...fadeIn(index === 0 ? "right" : "left", "spring", 0.5, 0.75)}
     className='bg-[var(--color-bg-tile)] rounded-[70px] md:col-span-6'
   >
     <div className='flex flex-col items-center w-full h-full p-8 md:p-[40px] pt-4 md:pt-8 pb-[40px] text-justify'>
@@ -22,7 +23,7 @@ const ReviewCard = ({ review, t, index }) => (
           width={100}
           height={100}
           className='object-cover'
-        //  sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
+          //  sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
         />
       </div>
       <h4 className="mt-4">

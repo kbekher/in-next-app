@@ -1,9 +1,13 @@
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
-import ContactLinks from "../ContactLinks/ContactLinks";
-import Divider from "../Divider/Divider";
+import { motion } from "framer-motion";
+
 import { DOMAIN } from "@/constants";
 import SectionWrapper from "@/hoc/SectionWrapper";
+import { fadeIn } from "@/utils/motion";
+
+import ContactLinks from "../ContactLinks/ContactLinks";
+import Divider from "../Divider/Divider";
 
 const About = () => {
   const { t } = useTranslation("common");
@@ -12,7 +16,10 @@ const About = () => {
     <section className="max-w-1680 mx-auto h-full pt-[146px]" id="about">
       <div className='grid grid-cols-2 md:grid-cols-12 gap-4 md:gap-6 px-5 md:px-[80px] mb-[84px]'>
         {/* Text Section */}
-        <div className='col-span-2 md:col-span-6 flex flex-col justify-center pt-[100px] lg:pr-20 lg:pt-0 text-center lg:text-left  pb-5 lg:pb-0'>
+        <motion.div
+          {...fadeIn("right", "spring", 0.5, 0.75)}
+          className='col-span-2 md:col-span-6 flex flex-col justify-center pt-[100px] lg:pr-20 lg:pt-0 text-center lg:text-left pb-5 lg:pb-0'
+        >
           <h2 className='section-title mb-4 text-center md:text-left'>
             {t("about.title")}
           </h2>
@@ -22,10 +29,13 @@ const About = () => {
           <p className='text-sm md:text-base mb-6 md:text-justify'>{t("about.p3")}</p>
 
           <ContactLinks />
-        </div>
+        </motion.div>
 
         {/* Image Section */}
-        <div className='col-span-2 md:col-start-7 md:col-span-6 h-[100%] flex items-center'>
+        <motion.div
+          {...fadeIn("left", "spring", 0.5, 0.75)}
+          className='col-span-2 md:col-start-7 md:col-span-6 h-[100%] flex items-center'
+        >
           <div className="w-[100%] max-w-[600px] mx-auto lg:max-w-[800px] overflow-hidden bg-[var(--color-gray)] rounded-[56px] md:rounded-[144px] pt-20 flex justify-center">
             <Image
               src={`${DOMAIN}hero.png`}
@@ -37,7 +47,7 @@ const About = () => {
               //  sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" // TODO:
             />
           </div>
-          </div> 
+        </motion.div>
       </div>
       <Divider />
     </section>
