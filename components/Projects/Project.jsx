@@ -33,8 +33,8 @@ const Project = ({ type, name }) => {
               smooth: true,
               offset: -50, // Adjust for fixed headers if needed
             });
+            // console.log(ref.current.id);
           }
-          // console.log(ref.current.id);
         }}
         className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] mx-auto h-full pt-[130px] md:pt-[146px]'
         ref={ref}
