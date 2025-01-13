@@ -60,7 +60,7 @@ const ContactLinks = () => {
           title={`Ivan's ${name}`}
           className='w-[38px] h-[38px] flex justify-center items-center rounded-[50%] bg-[var(--color-gray-dark)] text-[var(--background)] hover:text-[var(---color-white)] transition'
         >
-          <FontAwesomeIcon icon={iconMap[name]} />
+          <FontAwesomeIcon icon={iconMap[name]} height={22} />
         </a>
       ))}
     </div>

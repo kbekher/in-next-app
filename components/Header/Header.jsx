@@ -8,7 +8,11 @@ const HeaderDesktop = dynamic(() => import('./HeaderDesktop'), { ssr: false });
 const Header = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  return isMobile ? <HeaderMobile /> : <HeaderDesktop />;
+  return (
+    <header className='relative w-full h-screen'>
+      {isMobile ? <HeaderMobile /> : <HeaderDesktop />}
+    </header>
+  )
 };
 
 export default SectionWrapper(Header, "header");

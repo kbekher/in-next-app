@@ -26,19 +26,19 @@ const Project = ({ type, name }) => {
   return (
     <Element>
       <motion.section
+        id={name}
+        ref={ref}
         onViewportEnter={() => {
           if (name === "ace-and-tate") {
             scroller.scrollTo(ref.current.id, {
               duration: 100,
               smooth: true,
-              offset: -50, // Adjust for fixed headers if needed
+              // offset: -500, 
             });
             // console.log(ref.current.id);
           }
         }}
-        className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] mx-auto h-full pt-[130px] md:pt-[146px]'
-        ref={ref}
-        id={name}
+        className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] mx-auto h-full pt-[110px] md:pt-[146px]'
       >
         <div className="col-start-3 col-span-8">
 

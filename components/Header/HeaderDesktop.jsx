@@ -53,11 +53,11 @@ const HeaderDesktop = () => {
   }, [isShrunk, threshold, scrollY.current]);
 
   return (
-    <motion.header
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ type: "tween", ease: "easeInOut", duration: 1.75 }}
-      className="relative w-full h-screen flex justify-center items-center"
+      className="relative w-full h-full flex justify-center items-center"
     >
 
       <motion.div
@@ -96,7 +96,7 @@ const HeaderDesktop = () => {
         </div>
       </motion.div>
 
-    </motion.header>
+    </motion.div>
   )
 };
 
