@@ -17,7 +17,7 @@ const Illustrations = () => {
     <section className='max-w-[1300px] mx-auto h-full pt-[130px] md:pt-[146px]'>
 
       <motion.div
-        {...scaleIn(1.5)}
+        {...scaleIn(0.5)}
         className='px-5 md:px-[40px] mb-[120px]'
       >
         {isMobile ? <IllustrationMobile /> : <IllustrationDesktop />}

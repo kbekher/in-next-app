@@ -11,7 +11,7 @@ export const textVariant = (direction = "up", isSingle = true) => {
   return {
     initial,
     whileInView: animate,
-    viewport: { once: isSingle, amount: 0.1 },
+    viewport: { once: isSingle, amount: 0.2 },
     transition: { duration: 0.7, ease: "easeOut" },
   };
 };
@@ -20,7 +20,7 @@ export const scaleIn = (size, isSingle = true) => {
   return {
     initial: { scale: size, opacity: 0 },
     whileInView: { scale: 1, opacity: 1 },
-    viewport: { once: isSingle, amount: 0.1 },
+    viewport: { once: isSingle, amount: 0.2 },
     transition: { duration: 0.7, ease: "easeOut" },
   };
 }
@@ -45,7 +45,7 @@ export const fadeIn = (direction, type, delay, duration, isSingle = true) => {
     },
     viewport: { 
       once: isSingle, 
-      amount: 0.1
+      amount: 0.2
     },
   };
 };
@@ -65,7 +65,7 @@ export const blurRevealText = (blur, stagger, delay) => {
         ease: "easeOut",
       },
     },
-    viewport: { once: true, amount: 0.1 },
+    viewport: { once: true, amount: 0.2 },
   };
 };
 
@@ -77,7 +77,7 @@ export const scrollFadeIn = (isShrunk, isScrollingDown) => ({
     duration: 0.1,
     delay: isScrollingDown ? 0 : 0.3,
   },
-  viewport: { once: true, amount: 0.1 },
+  viewport: { once: true, amount: 0.2 },
 });
 
 
