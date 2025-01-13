@@ -45,7 +45,7 @@ export const fadeIn = (direction, type, delay, duration, isSingle = true) => {
     },
     viewport: { 
       once: isSingle, 
-      amount: 0.3
+      amount: "all"
     },
   };
 };
