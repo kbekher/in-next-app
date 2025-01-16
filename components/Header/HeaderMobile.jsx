@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
 
 import { HeaderContext } from "@/context/HeaderContext";
@@ -11,7 +11,7 @@ import HeaderTitle from "./HeaderTitle";
 
 const HeaderMobile = () => {
   const { isShrunk } = useContext(HeaderContext);
-  
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
