@@ -5,36 +5,20 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 // import { useMediaQuery } from 'react-responsive';
 
-import Preloader from '@/components/Preloader/Preloader';
+import { HeaderProvider } from '../context/HeaderContext';
 // import { DOMAIN } from '@/constants';
+
+import Preloader from '@/components/Preloader/Preloader';
 
 
 const MyApp = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(true);
-  // const isMobile = useMediaQuery({ maxWidth: 768 });
-  // const videoUrl = isMobile ? `${DOMAIN}bg-mobile.mov` : `${DOMAIN}web-bg.webm`;
 
   useEffect(() => {
-    // const video = document.createElement('video');
-    // video.src = videoUrl;
-    // video.preload = 'auto'; // Preload the video
-    // video.oncanplaythrough = () => {
-    // Ensure the preloader stays for at least 2 seconds
     const timeout = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
     return () => clearTimeout(timeout);
-    // };
-
-    // video.onerror = () => {
-    //   setIsLoading(false); // Fallback if video fails to load
-    // };
-
-    // // Cleanup the video object
-    // return () => {
-    //   video.oncanplaythrough = null;
-    //   video.onerror = null;
-    // };
   }, []);
 
   return (
@@ -47,10 +31,18 @@ const MyApp = ({ Component, pageProps }) => {
           name='description'
           content='Welcome to the portfolio of Ivan Inozemtsev, a UX/UI designer and Illustrator focused on creating visually appealing and user-friendly digital products.'
         />
+
+          {/* <meta name="description" content={pageProps.description || "Default Description"} />
+          <meta property="og:title" content={pageProps.title || "Default Title"} />
+          <meta property="og:description" content={pageProps.description || "Default Description"} />
+          <meta property="og:image" content={pageProps.image || "/default-image.jpg"} /> */}
       </Head>
 
-      { isLoading && <Preloader /> }
-      { !isLoading && <Component {...pageProps} /> }
+      <HeaderProvider>
+        {isLoading && <Preloader />}
+        {!isLoading && <Component {...pageProps} />}
+      </HeaderProvider>
+
     </>
   );
 }

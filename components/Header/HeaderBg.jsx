@@ -1,9 +1,10 @@
-import React from 'react';
-import Image from 'next/image';
+import React, { useContext } from 'react';
 
 import { DOMAIN } from "@/constants";
+import { HeaderContext } from '@/context/HeaderContext';
 
-const HeaderBg = ({ url, isShrunk }) => {
+const HeaderBg = ({ url }) => {
+  const { isShrunk } = useContext(HeaderContext);
 
   return (
     <div className='absolute inset-0 z-[-1]'>

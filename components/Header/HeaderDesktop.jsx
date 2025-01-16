@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import throttle from 'lodash/throttle';
-import { motion, useScroll } from "framer-motion";
+import { useContext } from "react";
+import { motion } from "framer-motion";
 
 import { scrollFadeIn } from "@/utils/motion";
 
@@ -12,45 +11,10 @@ import SayHello from "../SayHello/SayHello";
 import LangToggle from "../LangToggle/LangToggle";
 import HeaderBg from "./HeaderBg";
 import HeaderTitle from "./HeaderTitle";
+import { HeaderContext } from "@/context/HeaderContext";
 
 const HeaderDesktop = () => {
-  const { scrollY } = useScroll();
-
-  const [isShrunk, setIsShrunk] = useState(false);
-  const [threshold, setThreshold] = useState(0);
-
-  const [isScrollingDown, setIsScrollingDown] = useState(false);
-  const lastScrollY = useRef(0);
-
-  // Ensure threshold is calculated in the browser
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setThreshold(window.innerHeight / 3);
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = throttle(() => {
-      const isScrollingDown = scrollY.current > lastScrollY.current;
-      if (isScrollingDown) {
-        setIsScrollingDown(true);
-      } else {
-        setIsScrollingDown(false);
-      }
-
-      // Check if scroll position crosses the threshold
-      if (scrollY.current > threshold && !isShrunk) {
-        setIsShrunk(true);
-      } else if (scrollY.current <= threshold && isShrunk) {
-        setIsShrunk(false);
-      }
-
-      lastScrollY.current = scrollY.current;
-    }, 200);
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isShrunk, threshold, scrollY.current]);
+  const { isShrunk, scrollDirection } = useContext(HeaderContext);
 
   return (
     <motion.div
@@ -74,20 +38,20 @@ const HeaderDesktop = () => {
 
         <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-4 pl-[50px] pr-[28px]' : 'pt-10 pb-[70px] px-20'}`}>
 
-          <HeaderBg url='web-bg.webm' isShrunk={isShrunk} />
+          <HeaderBg url='web-bg.webm' />
 
           <div className='flex w-full justify-between items-center'>
-            <Logo isClickable isShrunk={isShrunk} />
-            <Navbar isShrunk={isShrunk} />
+            <Logo isClickable />
+            <Navbar />
             <SayHello />
           </div>
 
           <div className='flex flex-row items-end justify-between flex-1'>
 
-            <HeaderTitle isShrunk={isShrunk} isScrollingDown={isScrollingDown} />
+            <HeaderTitle />
 
             <div>
-              <motion.div {...scrollFadeIn(isShrunk, isScrollingDown)} className='flex-grow'>
+              <motion.div {...scrollFadeIn(isShrunk, scrollDirection)} className='flex-grow'>
                 <LangToggle />
               </motion.div>
             </div>

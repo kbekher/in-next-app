@@ -1,53 +1,17 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import throttle from 'lodash/throttle';
-import { motion, useScroll } from "framer-motion";
+import { useState, useContext } from "react";
+import { motion } from "framer-motion";
+
+import { HeaderContext } from "@/context/HeaderContext";
 
 import Logo from "../Logo/Logo";
 import HeaderBg from "./HeaderBg";
 import HeaderTitle from "./HeaderTitle";
 
 const HeaderMobile = () => {
-
-  const { scrollY } = useScroll();
-
-  const [isShrunk, setIsShrunk] = useState(false);
-  const [threshold, setThreshold] = useState(0);
-
-  const [isScrollingDown, setIsScrollingDown] = useState(false);
-  const lastScrollY = useRef(0);
-
-  // Ensure threshold is calculated in the browser
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setThreshold(window.innerHeight / 3);
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = throttle(() => {
-      const isScrollingDown = scrollY.current > lastScrollY.current;
-      if (isScrollingDown) {
-        setIsScrollingDown(true);
-      } else {
-        setIsScrollingDown(false);
-      }
-
-      // Check if scroll position crosses the threshold
-      if (scrollY.current > threshold && !isShrunk) {
-        setIsShrunk(true);
-      } else if (scrollY.current <= threshold && isShrunk) {
-        setIsShrunk(false);
-      }
-
-      lastScrollY.current = scrollY.current;
-    }, 200);
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isShrunk, threshold, scrollY.current]);
-
+  const { isShrunk } = useContext(HeaderContext);
+  
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -70,14 +34,14 @@ const HeaderMobile = () => {
 
         <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-1 pl-[32px]' : 'pt-[60px] pb-[36px] px-5 '}`}>
 
-          <HeaderBg url='bg-mobile.mov' isShrunk={isShrunk} />
+          <HeaderBg url='bg-mobile.mov' />
 
           <div className='flex w-full justify-between items-center '>
-            <Logo isClickable isShrunk={isShrunk} />
+            <Logo isClickable />
           </div>
 
           <div className='flex flex-col md:flex-row md:items-end justify-between flex-1 mt-5 md:mt-0'>
-            <HeaderTitle isShrunk={isShrunk} isScrollingDown={isScrollingDown} />
+            <HeaderTitle />
           </div>
 
         </div>

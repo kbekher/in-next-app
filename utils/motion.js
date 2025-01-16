@@ -69,13 +69,13 @@ export const blurRevealText = (blur, stagger, delay) => {
   };
 };
 
-export const scrollFadeIn = (isShrunk, isScrollingDown) => ({
+export const scrollFadeIn = (isShrunk, scrollDirection) => ({
   initial: { opacity: 1 },
   animate: { opacity: isShrunk ? 0 : 1 },
   transition: {
     type: "easeOut",
     duration: 0.1,
-    delay: isScrollingDown ? 0 : 0.3,
+    delay: scrollDirection === 'down' ? 0 : 0.3,
   },
   viewport: { once: true, amount: 0.2 },
 });

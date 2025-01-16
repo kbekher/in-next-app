@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Roboto } from 'next/font/google';
 
@@ -13,6 +13,7 @@ import Testimonials from '@/components/Testimonials/Testimonials';
 import Footer from '@/components/Footer/Footer';
 import NavbarMobile from '@/components/Navbar/NavbarMobile';
 import Projects from '@/components/Projects/Projects';
+import { HeaderContext } from '@/context/HeaderContext';
 
 const roboto = Roboto({
   weight: ['300', '400', '700'],
@@ -20,31 +21,28 @@ const roboto = Roboto({
 });
 
 const Homepage = () => {
+  const { setIsShrunk } = useContext(HeaderContext);
+
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0
-    });
+    window.scrollTo({ top: 0, left: 0 });
   }, []);
 
   return (
-    <>
-      <div className={`${roboto.className} min-w-[320px] overflow-x-hidden`}>
-        <div className='w-full h-full'>
-          <Header />
-          <NavbarMobile />
+    <div className={`${roboto.className} min-w-[320px] overflow-x-hidden`}>
+      <div className='w-full h-full'>
+        <Header />
+        <NavbarMobile />
 
-          <main>
-            <Projects />
-            <Skills />
-            <About />
-            <Testimonials />
-          </main>
+        <main>
+          <Projects />
+          <Skills />
+          <About />
+          <Testimonials />
+        </main>
 
-          <Footer />
-        </div>
+        <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

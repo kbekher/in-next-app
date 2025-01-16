@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
+
 import { DOMAIN } from "@/constants";
+import { HeaderContext } from "@/context/HeaderContext";
 
 const LogoImg = (width, height) => (
   <Image
@@ -13,7 +16,9 @@ const LogoImg = (width, height) => (
   />
 );
 
-const Logo = ({ isClickable = false, isShrunk = false }) => {
+const Logo = ({ isClickable = false }) => {
+  const { isShrunk } = useContext(HeaderContext);
+
   const handleLogoClick = () => {
     if (!isClickable || window.scrollY === 0) return;
 
