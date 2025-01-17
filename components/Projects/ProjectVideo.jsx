@@ -55,7 +55,7 @@ const ProjectVideo = ({ name, assets }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [handleScroll]); //,videoSrc
+  }, []); //,videoSrc
 
   return (
     <motion.div
@@ -65,7 +65,7 @@ const ProjectVideo = ({ name, assets }) => {
       <video
         ref={videoRef}
         src={`${DOMAIN}${videoSrc}`}
-        className="w-full h-auto scale-[1.5]"
+        className="w-full h-auto scale-150"
         muted
         playsInline
         loop={false}
