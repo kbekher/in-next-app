@@ -13,6 +13,8 @@ import HeaderBg from "./HeaderBg";
 import HeaderTitle from "./HeaderTitle";
 import { HeaderContext } from "@/context/HeaderContext";
 
+// TODO: make mobile and desktop one component
+
 const HeaderDesktop = () => {
   const { isShrunk, scrollDirection } = useContext(HeaderContext);
 
@@ -35,7 +37,7 @@ const HeaderDesktop = () => {
         transition={{ type: "spring", duration: 1.5, stiffness: 150, damping: 20 }}
         className='h-full fixed top-0'
       >
-
+        {/* TODO: motion.div layout */}
         <div className={`relative h-full w-full flex flex-col ${isShrunk ? 'py-4 pl-[50px] pr-[28px]' : 'pt-10 pb-[70px] px-20'}`}>
 
           <HeaderBg url='web-bg.webm' />
@@ -46,7 +48,7 @@ const HeaderDesktop = () => {
             <SayHello />
           </div>
 
-          <div className='flex flex-row items-end justify-between flex-1'>
+          <motion.div layout className={isShrunk ? 'hidden' : 'flex flex-row items-end justify-between flex-1'}>
 
             <HeaderTitle />
 
@@ -56,7 +58,7 @@ const HeaderDesktop = () => {
               </motion.div>
             </div>
 
-          </div>
+          </motion.div>
         </div>
       </motion.div>
 

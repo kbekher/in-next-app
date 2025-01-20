@@ -10,6 +10,8 @@ import { HeaderProvider } from '../context/HeaderContext';
 
 import Preloader from '@/components/Preloader/Preloader';
 
+// import { motion } from 'framer-motion';
+
 
 const MyApp = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,8 +41,10 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
 
       <HeaderProvider>
+        {/* <motion.div layout> */}
         {isLoading && <Preloader />}
         {!isLoading && <Component {...pageProps} />}
+        {/* </motion.div> */}
       </HeaderProvider>
 
     </>

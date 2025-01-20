@@ -4,8 +4,21 @@ export const HeaderContext = createContext();
 
 export const HeaderProvider = ({ children }) => {
   const [isShrunk, setIsShrunk] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState(null); 
-  const [lastScrollY, setLastScrollY] = useState(0); 
+  const [scrollDirection, setScrollDirection] = useState(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [hasLinkedFirstSection, setHasLinkedFirstSection] = useState(false);
+
+  const scrollToFirstSection = () => {
+    const firstSection = document.getElementById("ace-and-tate");
+    // console.log(firstSection, 'Trigger scroll') // TODO:
+
+    if (firstSection) {
+      firstSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +29,18 @@ export const HeaderProvider = ({ children }) => {
         setIsShrunk(true);
       } else {
         setIsShrunk(false);
+        setHasLinkedFirstSection(false);
       }
 
       // Determine scroll direction
       if (currentScrollY > lastScrollY) {
         setScrollDirection('down');
+
+        if (!isShrunk && !hasLinkedFirstSection) {
+          setHasLinkedFirstSection(true); // Prevent repeated triggers
+          scrollToFirstSection(); // Auto-scroll to the first section
+        }
+
       } else if (currentScrollY < lastScrollY) {
         setScrollDirection('up');
       }
@@ -36,10 +56,17 @@ export const HeaderProvider = ({ children }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]); // Dependency on lastScrollY
+  }, [lastScrollY, isShrunk, hasLinkedFirstSection]); // Dependencies ensure updates are handled properly
 
   return (
-    <HeaderContext.Provider value={{ isShrunk, setIsShrunk, scrollDirection }}>
+    <HeaderContext.Provider
+      value={{
+        isShrunk,
+        setIsShrunk,
+        scrollDirection,
+        // hasLinkedFirstSection,
+        // setHasLinkedFirstSection
+      }}>
       {children}
     </HeaderContext.Provider>
   );
