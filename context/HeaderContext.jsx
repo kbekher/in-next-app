@@ -1,3 +1,4 @@
+import { throttle } from 'lodash';
 import { createContext, useState, useEffect } from 'react';
 
 export const HeaderContext = createContext();
@@ -9,8 +10,8 @@ export const HeaderProvider = ({ children }) => {
   const [hasLinkedFirstSection, setHasLinkedFirstSection] = useState(false);
 
   const scrollToFirstSection = () => {
-    const firstSection = document.getElementById("ace-and-tate");
-    // console.log(firstSection, 'Trigger scroll') // TODO:
+    const firstSection = document.getElementById("work");
+    // console.log('Trigger scroll') // TODO:
 
     if (firstSection) {
       firstSection.scrollIntoView({
@@ -21,7 +22,7 @@ export const HeaderProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       const currentScrollY = window.scrollY;
 
       // Update isShrunk
@@ -36,7 +37,7 @@ export const HeaderProvider = ({ children }) => {
       if (currentScrollY > lastScrollY) {
         setScrollDirection('down');
 
-        if (!isShrunk && !hasLinkedFirstSection) {
+        if (isShrunk && !hasLinkedFirstSection) {
           setHasLinkedFirstSection(true); // Prevent repeated triggers
           scrollToFirstSection(); // Auto-scroll to the first section
         }
@@ -47,7 +48,7 @@ export const HeaderProvider = ({ children }) => {
 
       // Update lastScrollY
       setLastScrollY(currentScrollY);
-    };
+    }, 200);
 
     // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
@@ -56,17 +57,11 @@ export const HeaderProvider = ({ children }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY, isShrunk, hasLinkedFirstSection]); // Dependencies ensure updates are handled properly
+  }, [lastScrollY]); // Dependencies ensure updates are handled properly
 
   return (
     <HeaderContext.Provider
-      value={{
-        isShrunk,
-        setIsShrunk,
-        scrollDirection,
-        // hasLinkedFirstSection,
-        // setHasLinkedFirstSection
-      }}>
+      value={{ isShrunk, setIsShrunk, scrollDirection }}>
       {children}
     </HeaderContext.Provider>
   );

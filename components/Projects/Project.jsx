@@ -1,9 +1,8 @@
 "use client";
 
-// import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useTranslation } from "next-i18next";
-import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
-import { Element } from 'react-scroll';
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 
 import Divider from "../Divider/Divider";
@@ -16,44 +15,31 @@ import { textVariant } from "@/utils/motion";
 const Project = ({ type, name }) => {
   const { t } = useTranslation("common");
   const project = projects.find(project => project.name === name);
-
   if (!project) return null;
 
   const { assetsUrls, behanceUrl } = project;
 
-  // TODO: animation on scroll ??
-
-  // const ref = useRef(null);
+  // Animate projects on scroll
+  const ref = useRef(null);
   // const controls = useAnimation(); // For animations
-  // const { scrollYProgress } = useScroll({
-  //   target: ref, // Target element to monitor
-  //   offset: ["start end", "end start"], // Defines when the element is in view
-  // });
+  const { scrollYProgress } = useScroll({
+    target: ref, // Target element to monitor
+    offset: ["start end", "end start"], // Defines when the element is in view
+  });
 
-  // // Create a transformation based on scroll progress
-  // const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1.2]); // Scale from 0.8 to 1.2
-  // const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]); // Fade in and out
-
-  // // Perform actions when the element reaches specific scroll positions
-  // useEffect(() => {
-  //   const unsubscribe = scrollYProgress.onChange((value) => {
-  //     if (value > 0.5) {
-  //       // console.log("Element is halfway in the viewport!");
-  //       // controls.start({ rotate: 360 }); // Example: Rotate element
-  //     }
-  //   });
-  //   return () => unsubscribe(); // Clean up listener on unmount
-  // }, [scrollYProgress, controls]);
+  // Create a transformation based on scroll progress
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1.2]); // Scale from 0.8 to 1.2
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]); // Fade in and out
 
   return (
     <motion.section
-      // ref={ref}
-      // style={{
-      //   scale, // Bind scale to the scroll progress
-      //   opacity, // Bind opacity to the scroll progress
-      // }}
+      ref={ref}
+      style={{
+        scale, // Bind scale to the scroll progress
+        opacity, // Bind opacity to the scroll progress
+      }}
       // animate={controls} // Control animations
-      // initial={{ rotate: 0 }}
+      initial={{ rotate: 0 }}
       id={name}
       className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] mx-auto h-full pt-[110px] md:pt-[146px]'
     >
