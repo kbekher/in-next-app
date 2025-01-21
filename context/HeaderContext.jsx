@@ -16,7 +16,7 @@ export const HeaderProvider = ({ children }) => {
     if (firstSection) {
       firstSection.scrollIntoView({
         behavior: "smooth",
-        block: "start",
+        // block: "start",
       });
     }
   };
@@ -28,12 +28,12 @@ export const HeaderProvider = ({ children }) => {
       // console.log(currentScrollY);
       // console.log(isShrunk, hasLinkedFirstSection);
 
-      if (currentScrollY === 0) {
-        setIsShrunk(false);
-        setHasLinkedFirstSection(false);
+      // if (currentScrollY === 0) {
+      //   setIsShrunk(false);
+      //   setHasLinkedFirstSection(false);
 
-        return;
-      }
+      //   return;
+      // }
 
       // Update isShrunk
       if (currentScrollY > 100) {
