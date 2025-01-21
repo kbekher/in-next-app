@@ -25,6 +25,16 @@ export const HeaderProvider = ({ children }) => {
     const handleScroll = throttle(() => {
       const currentScrollY = window.scrollY;
 
+      // console.log(currentScrollY);
+      // console.log(isShrunk, hasLinkedFirstSection);
+
+      if (currentScrollY === 0) {
+        setIsShrunk(false);
+        setHasLinkedFirstSection(false);
+
+        return;
+      }
+
       // Update isShrunk
       if (currentScrollY > 100) {
         setIsShrunk(true);

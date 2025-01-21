@@ -13,12 +13,12 @@ const About = () => {
   const { t } = useTranslation("common");
 
   return (
-    <section className="max-w-1680 mx-auto h-full pt-[146px]" id="about">
+    <section className="max-w-1680 mx-auto h-full md:pt-[146px] pt-[130px]" id="about">
       <div className='grid grid-cols-2 md:grid-cols-12 gap-4 md:gap-6 px-5 md:px-[80px] mb-[84px]'>
         {/* Text Section */}
         <motion.div
           {...fadeIn("right", "spring", 0.5, 0.75)}
-          className='col-span-2 md:col-span-6 flex flex-col justify-center pt-[100px] lg:pr-20 lg:pt-0 text-center lg:text-left pb-5 lg:pb-0'
+          className='col-span-2 md:col-span-6 flex flex-col justify-center md:pt-[100px] lg:pr-20 lg:pt-0 text-center lg:text-left pb-5 lg:pb-0'
         >
           <h2 className='section-title mb-4 text-center md:text-left'>
             {t("about.title")}

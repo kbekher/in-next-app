@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { debounce } from 'lodash';
 
-import { HeaderContext } from "@/context/HeaderContext";
 
 const LangToggle = () => {
   const router = useRouter();
-  const { setIsShrunk } = useContext(HeaderContext);
 
   const [checked, setChecked] = useState(null); // Start with null to avoid mismatched UI
 
@@ -18,8 +16,6 @@ const LangToggle = () => {
   }, [router.locale]);
 
   const onToggleLanguageClick = debounce(() => {
-    setIsShrunk(false);
-
     const newLocale = checked ? 'en' : 'de'; // Switch locale based on the current state
     const { pathname, asPath, query } = router;
 

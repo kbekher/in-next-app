@@ -38,7 +38,7 @@ const Skills = () => {
   const { t } = useTranslation("common");
 
   return (
-    <section className='max-w-1680 mx-auto h-full pt-[146px]' id="skills">
+    <section className='max-w-1680 mx-auto h-full md:pt-[146px] pt-[130px]' id="skills">
       <div className='px-5 md:px-[80px] mb-[64px]'>
         <motion.h2
           {...textVariant("down")}

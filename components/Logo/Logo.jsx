@@ -20,12 +20,13 @@ const Logo = ({ isClickable = false }) => {
   const { isShrunk } = useContext(HeaderContext);
 
   const handleLogoClick = () => {
-    if (!isClickable || window.scrollY === 0) return;
+    if (window.scrollY === 0) return;
 
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+
   };
 
   const sizes = {
