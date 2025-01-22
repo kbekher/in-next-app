@@ -11,9 +11,12 @@ export const HeaderProvider = ({ children }) => {
 
   useEffect(() => {
     const handleScroll = throttle(() => {
+
+      // console.log(isShrunk, hasLinkedFirstSection);
+
       const currentScrollY = window.scrollY;
 
-      // remove hash at the top of the page
+      // Remove hash at the top of the page
       if (currentScrollY === 0) {
         history.replaceState(null, '', window.location.pathname);
       }
@@ -30,19 +33,20 @@ export const HeaderProvider = ({ children }) => {
       if (currentScrollY > lastScrollY) {
         setScrollDirection('down');
 
+        // Auto-scroll to the first section on first scroll down only
         if (isShrunk && !hasLinkedFirstSection) {
-          setHasLinkedFirstSection(true); // Prevent repeated triggers
-          
-          // Auto-scroll to the first section
           const firstSection = document.getElementById("work");
 
-          // If click on navlink - don;t force scroll
-          if (firstSection && !location.hash) {
+          // console.log('Trigger scroll');
+
+          if (firstSection && !window.location.hash) {
             firstSection.scrollIntoView({
               behavior: "smooth",
-              // block: "start",
+              block: "start",
             });
           }
+
+          setHasLinkedFirstSection(true);
         }
 
       } else if (currentScrollY < lastScrollY) {
@@ -60,11 +64,23 @@ export const HeaderProvider = ({ children }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]); // Dependencies ensure updates are handled properly
+  }, [lastScrollY, isShrunk, hasLinkedFirstSection]); // Add dependencies
+
+  useEffect(() => {
+    // Handle clicks on nav links to prevent forced auto-scroll
+    const handleHashChange = () => {
+      setHasLinkedFirstSection(true);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
 
   return (
-    <HeaderContext.Provider
-      value={{ isShrunk, setIsShrunk, scrollDirection }}>
+    <HeaderContext.Provider value={{ isShrunk, setIsShrunk, scrollDirection }}>
       {children}
     </HeaderContext.Provider>
   );
