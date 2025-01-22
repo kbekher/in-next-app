@@ -8,13 +8,9 @@ export const HeaderProvider = ({ children }) => {
   const [scrollDirection, setScrollDirection] = useState(null);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hasLinkedFirstSection, setHasLinkedFirstSection] = useState(false);
-  const [isHashNavigating, setIsHashNavigating] = useState(false);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
-      // Prevent state updates if hash navigation is in progress
-      if (isHashNavigating) return;
-
       const currentScrollY = window.scrollY;
 
       // remove hash at the top of the page
@@ -46,6 +42,15 @@ export const HeaderProvider = ({ children }) => {
               // block: "start",
             });
           }
+
+          const hash = window.location.hash;
+          if (hash) {
+            console.log('Force hash scroll', hash)
+            const target = document.querySelector(hash);
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }
         }
 
       } else if (currentScrollY < lastScrollY) {
@@ -63,26 +68,8 @@ export const HeaderProvider = ({ children }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY, isHashNavigating]); // Dependencies ensure updates are handled properly
+  }, [lastScrollY]); // Dependencies ensure updates are handled properly
 
-  useEffect(() => {
-    // Handle hash navigation
-    const handleHashChange = () => {
-      setIsHashNavigating(true);
-
-      // Wait for the scroll to complete before re-enabling state updates
-      setTimeout(() => {
-        setIsHashNavigating(false);
-      }, 1000); // Adjust timeout as needed for longer/shorter scroll durations
-    };
-
-    // Listen for hashchange events
-    window.addEventListener("hashchange", handleHashChange);
-
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
-  }, []);
 
   return (
     <HeaderContext.Provider
