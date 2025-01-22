@@ -1,8 +1,8 @@
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { DOMAIN } from "@/constants";
-import { useEffect } from 'react';
 
 const Preloader = () => {
   useEffect(() => {

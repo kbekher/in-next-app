@@ -5,12 +5,12 @@ import { useTranslation } from "next-i18next";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 
+import { projects } from "@/constants";
+import { textVariant } from "@/utils/motion";
+
 import Divider from "../Divider/Divider";
 import ProjectVideo from "./ProjectVideo";
 import ProjectGallery from "./ProjectGallery";
-
-import { projects } from "@/constants";
-import { textVariant } from "@/utils/motion";
 
 const Project = ({ type, name }) => {
   const { t } = useTranslation("common");
@@ -19,26 +19,22 @@ const Project = ({ type, name }) => {
 
   const { assetsUrls, behanceUrl } = project;
 
-  // Animate projects on scroll
   const ref = useRef(null);
-  // const controls = useAnimation(); // For animations
+  // const controls = useAnimation();
   const { scrollYProgress } = useScroll({
-    target: ref, // Target element to monitor
-    offset: ["start end", "end start"], // Defines when the element is in view
+    target: ref,
+    offset: ["start end", "end start"],
   });
 
   // Create a transformation based on scroll progress
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1.2]); // Scale from 0.8 to 1.2
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]); // Fade in and out
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1.2]); 
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
 
   return (
     <motion.section
       ref={ref}
-      style={{
-        scale, // Bind scale to the scroll progress
-        opacity, // Bind opacity to the scroll progress
-      }}
-      // animate={controls} // Control animations
+      style={{ scale, opacity }}
+      // animate={controls}
       initial={{ rotate: 0 }}
       id={name}
       className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] mx-auto h-full pt-[110px] md:pt-[146px]'
@@ -63,7 +59,6 @@ const Project = ({ type, name }) => {
             </div>
 
           )}
-
 
           <motion.div
             {...textVariant("up")}

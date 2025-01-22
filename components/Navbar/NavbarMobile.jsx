@@ -33,7 +33,7 @@ const NavbarMobile = () => {
       </div>
 
     </div>
-  )
+  );
 }
 
 export default NavbarMobile;

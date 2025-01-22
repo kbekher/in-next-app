@@ -1,19 +1,17 @@
 import { illustrations } from "@/constants";
+
 import IllustrationImage from "./IllustrationImage";
 import IllustrationTitle from "./IllustrationTitle";
 
-const IllustrationDesktop = () => {
-  return (
-    <div
-      className='relative min-h-[640px] w-full h-full flex items-center'>
+const IllustrationDesktop = () => (
+  <div className='relative min-h-[640px] w-full h-full flex items-center'>
 
-      {illustrations.map(item => (
-        <IllustrationImage key={item.name} {...item} />
-      ))}
+    {illustrations.map(item => (
+      <IllustrationImage key={item.name} {...item} />
+    ))}
 
-      <IllustrationTitle />
-    </div>
-  )
-}
+    <IllustrationTitle />
+  </div>
+);
 
 export default IllustrationDesktop;

@@ -9,31 +9,14 @@ export const HeaderProvider = ({ children }) => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hasLinkedFirstSection, setHasLinkedFirstSection] = useState(false);
 
-  const scrollToFirstSection = () => {
-    const firstSection = document.getElementById("work");
-    // console.log('Trigger scroll') // TODO:
-
-    if (firstSection) {
-      firstSection.scrollIntoView({
-        behavior: "smooth",
-        // block: "start",
-      });
-    }
-  };
-
   useEffect(() => {
     const handleScroll = throttle(() => {
       const currentScrollY = window.scrollY;
 
-      // console.log(currentScrollY);
-      // console.log(isShrunk, hasLinkedFirstSection);
-
-      // if (currentScrollY === 0) {
-      //   setIsShrunk(false);
-      //   setHasLinkedFirstSection(false);
-
-      //   return;
-      // }
+      // remove hash at the top of the page
+      if (currentScrollY === 0) {
+        history.replaceState(null, '', window.location.pathname);
+      }
 
       // Update isShrunk
       if (currentScrollY > 100) {
@@ -49,7 +32,17 @@ export const HeaderProvider = ({ children }) => {
 
         if (isShrunk && !hasLinkedFirstSection) {
           setHasLinkedFirstSection(true); // Prevent repeated triggers
-          scrollToFirstSection(); // Auto-scroll to the first section
+          
+          // Auto-scroll to the first section
+          const firstSection = document.getElementById("work");
+
+          // If click on navlink - don;t force scroll
+          if (firstSection && !location.hash) {
+            firstSection.scrollIntoView({
+              behavior: "smooth",
+              // block: "start",
+            });
+          }
         }
 
       } else if (currentScrollY < lastScrollY) {
