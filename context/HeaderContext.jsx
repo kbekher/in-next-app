@@ -50,7 +50,7 @@ export const HeaderProvider = ({ children }) => {
 
       // Update lastScrollY
       setLastScrollY(currentScrollY);
-    }, 200);
+    }, 400);
 
     // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
@@ -59,7 +59,7 @@ export const HeaderProvider = ({ children }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [ lastScrollY ]); // Dependencies ensure updates are handled properly
+  }, [ lastScrollY, isShrunk ]); 
 
   return (
     <HeaderContext.Provider
