@@ -61,7 +61,6 @@ const Header = () => {
               {!isMobile && <SayHello />}
             </div>
 
-
             <motion.div
               layout
               className={`${isShrunk ? 'hidden' : 'flex'} flex-col md:flex-row items-end justify-between flex-1 mt-5 md:mt-0 `}
