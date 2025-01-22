@@ -8,15 +8,16 @@ export const HeaderProvider = ({ children }) => {
   const [scrollDirection, setScrollDirection] = useState(null);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hasLinkedFirstSection, setHasLinkedFirstSection] = useState(false);
+  const [isHashNavigating, setIsHashNavigating] = useState(false);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
-
-      // console.log(isShrunk, hasLinkedFirstSection);
+      // Prevent state updates if hash navigation is in progress
+      if (isHashNavigating) return;
 
       const currentScrollY = window.scrollY;
 
-      // Remove hash at the top of the page
+      // remove hash at the top of the page
       if (currentScrollY === 0) {
         history.replaceState(null, '', window.location.pathname);
       }
@@ -33,18 +34,18 @@ export const HeaderProvider = ({ children }) => {
       if (currentScrollY > lastScrollY) {
         setScrollDirection('down');
 
-        // Auto-scroll to the first section on first scroll down only
         if (isShrunk && !hasLinkedFirstSection) {
+          setHasLinkedFirstSection(true); // Prevent repeated triggers
+
+          // Auto-scroll to the first section
           const firstSection = document.getElementById("work");
-
-          // console.log('Trigger scroll');
-
-          firstSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-
-          setHasLinkedFirstSection(true);
+          // If click on navlink - don;t force scroll
+          if (!window.location.hash) {
+            firstSection.scrollIntoView({
+              behavior: "smooth",
+              // block: "start",
+            });
+          }
         }
 
       } else if (currentScrollY < lastScrollY) {
@@ -62,23 +63,30 @@ export const HeaderProvider = ({ children }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY, isShrunk, hasLinkedFirstSection]); // Add dependencies
+  }, [lastScrollY, isHashNavigating]); // Dependencies ensure updates are handled properly
 
   useEffect(() => {
-    // Handle clicks on nav links to prevent forced auto-scroll
+    // Handle hash navigation
     const handleHashChange = () => {
-      setHasLinkedFirstSection(true);
+      setIsHashNavigating(true);
+
+      // Wait for the scroll to complete before re-enabling state updates
+      setTimeout(() => {
+        setIsHashNavigating(false);
+      }, 1000); // Adjust timeout as needed for longer/shorter scroll durations
     };
 
-    window.addEventListener('hashchange', handleHashChange);
+    // Listen for hashchange events
+    window.addEventListener("hashchange", handleHashChange);
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener("hashchange", handleHashChange);
     };
   }, []);
 
   return (
-    <HeaderContext.Provider value={{ isShrunk, setIsShrunk, scrollDirection }}>
+    <HeaderContext.Provider
+      value={{ isShrunk, setIsShrunk, scrollDirection }}>
       {children}
     </HeaderContext.Provider>
   );
