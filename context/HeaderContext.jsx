@@ -14,9 +14,9 @@ export const HeaderProvider = ({ children }) => {
       const currentScrollY = window.scrollY;
 
       // remove hash at the top of the page
-      if (currentScrollY === 0) {
-        history.replaceState(null, '', window.location.pathname);
-      }
+      // if (currentScrollY === 0) {
+      //   history.replaceState(null, '', window.location.pathname);
+      // }
 
       // Update isShrunk
       if (currentScrollY > 100) {
@@ -33,18 +33,17 @@ export const HeaderProvider = ({ children }) => {
         if (isShrunk && !hasLinkedFirstSection) {
           setHasLinkedFirstSection(true); // Prevent repeated triggers
 
-          // Auto-scroll to the first section
-          const firstSection = document.getElementById("work");
-          // If click on navlink - don;t force scroll
-          if (!window.location.hash) {
+          const hash = window.location.hash;
+
+          // If click on navlink - don't force scroll
+          if (!hash) {
+            const firstSection = document.getElementById("work");
+
             firstSection.scrollIntoView({
               behavior: "smooth",
-              // block: "start",
+              block: "start",
             });
-          }
-
-          const hash = window.location.hash;
-          if (hash) {
+          } else if (hash) {
             console.log('Force hash scroll', hash)
             const target = document.querySelector(hash);
             if (target) {
