@@ -18,19 +18,6 @@ import { HeaderContext } from "@/context/HeaderContext";
 const HeaderDesktop = () => {
   const { isShrunk, scrollDirection } = useContext(HeaderContext);
 
-  // Animate projects on scroll
-  // const ref = useRef(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: ref, // Target element to monitor
-  //   offset: ["start end", "end start"], // Defines when the element is in view
-  // });
-  // // const scaleY = useSpring(scrollYProgress);
-
-  // // Create a transformation based on scroll progress
-  // const height = useTransform(scrollYProgress, [0, 1], ["100%", "10%"]);
-  // const width = useTransform(scrollYProgress, [0, 1], ["100%", "90%"]);
-  // const translateY = useTransform(scrollYProgress, [0, 1], [0, 40]);
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -40,7 +27,6 @@ const HeaderDesktop = () => {
     >
 
       <motion.div
-        // style={{ height, width, translateY }}
         layout
         initial={{ height: "100vh", width: "100vw", transform: "translateY(0px)" }}
         animate={{
@@ -81,3 +67,16 @@ const HeaderDesktop = () => {
 };
 
 export default HeaderDesktop;
+
+  // Animate projects on scroll
+  // const ref = useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: ref, // Target element to monitor
+  //   offset: ["start end", "end start"], // Defines when the element is in view
+  // });
+  // // const scaleY = useSpring(scrollYProgress);
+
+  // // Create a transformation based on scroll progress
+  // const height = useTransform(scrollYProgress, [0, 1], ["100%", "10%"]);
+  // const width = useTransform(scrollYProgress, [0, 1], ["100%", "90%"]);
+  // const translateY = useTransform(scrollYProgress, [0, 1], [0, 40]);
