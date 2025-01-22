@@ -26,9 +26,6 @@ export const HeaderProvider = ({ children }) => {
         setHasLinkedFirstSection(false);
       }
 
-      const hash = window.location.hash;
-
-
       // Determine scroll direction
       if (currentScrollY > lastScrollY) {
         setScrollDirection('down');
@@ -36,28 +33,19 @@ export const HeaderProvider = ({ children }) => {
         if (isShrunk && !hasLinkedFirstSection) {
           setHasLinkedFirstSection(true); // Prevent repeated triggers
 
-
-          // If click on navlink - don't force scroll
-          if (!hash) {
-            const firstSection = document.getElementById("work");
-
+          // Auto-scroll to the first section
+          const firstSection = document.getElementById("work");
+          // If click on navlink - don;t force scroll
+          if (!window.location.hash) {
             firstSection.scrollIntoView({
               behavior: "smooth",
-              block: "start",
+              // block: "start",
             });
           }
         }
 
       } else if (currentScrollY < lastScrollY) {
         setScrollDirection('up');
-      }
-
-      if (hash) {
-        console.log('Force hash scroll', hash)
-        const target = document.querySelector(hash);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
       }
 
       // Update lastScrollY
@@ -71,8 +59,7 @@ export const HeaderProvider = ({ children }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]); // Dependencies ensure updates are handled properly
-
+  }, [ lastScrollY ]); // Dependencies ensure updates are handled properly
 
   return (
     <HeaderContext.Provider
