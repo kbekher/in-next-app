@@ -39,12 +39,10 @@ export const HeaderProvider = ({ children }) => {
 
           // console.log('Trigger scroll');
 
-          if (firstSection && !window.location.hash) {
-            firstSection.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
+          firstSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
 
           setHasLinkedFirstSection(true);
         }
