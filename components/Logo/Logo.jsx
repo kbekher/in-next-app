@@ -35,11 +35,11 @@ const Logo = ({ isClickable = false }) => {
   }
 
   return (
-    <>
+    <div className='w-[110px]'>
       {isClickable ? (
         <Link
           href='/'
-          className='w-[110px] cursor-pointer'
+          className='block w-[24px] cursor-pointer'
           onClick={handleLogoClick}
         >
           {LogoImg(sizes.width, sizes.height)}
@@ -48,7 +48,7 @@ const Logo = ({ isClickable = false }) => {
       ) : (
         LogoImg(sizes.width, sizes.height)
       )}
-    </>
+    </div>
   );
 };
 

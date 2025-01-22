@@ -10,7 +10,7 @@ export const HeaderProvider = ({ children }) => {
   const [hasLinkedFirstSection, setHasLinkedFirstSection] = useState(false);
 
   useEffect(() => {
-    const handleScroll = throttle(() => {
+    const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       // remove hash at the top of the page
@@ -39,7 +39,7 @@ export const HeaderProvider = ({ children }) => {
           if (!window.location.hash) {
             firstSection.scrollIntoView({
               behavior: "smooth",
-              // block: "start",
+              block: "start",
             });
           }
         }
@@ -50,7 +50,7 @@ export const HeaderProvider = ({ children }) => {
 
       // Update lastScrollY
       setLastScrollY(currentScrollY);
-    }, 400);
+    };
 
     // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
