@@ -44,7 +44,7 @@ const Testimonials = () => {
       <div className='px-5 md:px-[80px] mb-[120px]'>
         <motion.h2
           {...textVariant("down")}
-          className='max-w-[540px] mx-auto section-title mb-4 md:mb-[44px] text-center'
+          className='max-w-[552px] mx-auto section-title mb-4 md:mb-[44px] text-center'
         >
           {t("testimonials.title")}
         </motion.h2>
