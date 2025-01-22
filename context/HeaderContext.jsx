@@ -14,9 +14,9 @@ export const HeaderProvider = ({ children }) => {
       const currentScrollY = window.scrollY;
 
       // remove hash at the top of the page
-      // if (currentScrollY === 0) {
-      //   history.replaceState(null, '', window.location.pathname);
-      // }
+      if (currentScrollY === 0) {
+        history.replaceState(null, '', window.location.pathname);
+      }
 
       // Update isShrunk
       if (currentScrollY > 100) {
@@ -26,6 +26,9 @@ export const HeaderProvider = ({ children }) => {
         setHasLinkedFirstSection(false);
       }
 
+      const hash = window.location.hash;
+
+
       // Determine scroll direction
       if (currentScrollY > lastScrollY) {
         setScrollDirection('down');
@@ -33,7 +36,6 @@ export const HeaderProvider = ({ children }) => {
         if (isShrunk && !hasLinkedFirstSection) {
           setHasLinkedFirstSection(true); // Prevent repeated triggers
 
-          const hash = window.location.hash;
 
           // If click on navlink - don't force scroll
           if (!hash) {
@@ -43,17 +45,19 @@ export const HeaderProvider = ({ children }) => {
               behavior: "smooth",
               block: "start",
             });
-          } else if (hash) {
-            console.log('Force hash scroll', hash)
-            const target = document.querySelector(hash);
-            if (target) {
-              target.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
           }
         }
 
       } else if (currentScrollY < lastScrollY) {
         setScrollDirection('up');
+      }
+
+      if (hash) {
+        console.log('Force hash scroll', hash)
+        const target = document.querySelector(hash);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
 
       // Update lastScrollY
