@@ -21,11 +21,6 @@ class MyDocument extends Document {
             rel='icon'
             href={`${DOMAIN}favicon2.png`}
           />
-          {/* <link 
-            rel="preload" 
-            href={`${DOMAIN}preloader.gif`}
-            as="image" 
-          /> */}
         </Head>
         <body>
           <Main />

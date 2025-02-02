@@ -3,15 +3,8 @@ import { appWithTranslation } from 'next-i18next';
 import Head from 'next/head';
 
 import { useEffect, useState } from 'react';
-// import { useMediaQuery } from 'react-responsive';
-
 import { HeaderProvider } from '../context/HeaderContext';
-// import { DOMAIN } from '@/constants';
-
 import Preloader from '@/components/Preloader/Preloader';
-
-// import { motion } from 'framer-motion';
-
 
 const MyApp = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,25 +19,25 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <title>
-          Ivan Inozemtsev | UX/UI Designer - Creating Inspiring Web Solutions
-        </title>
-        <meta
-          name='description'
-          content='Welcome to the portfolio of Ivan Inozemtsev, a UX/UI designer and Illustrator focused on creating visually appealing and user-friendly digital products.'
-        />
-
-          {/* <meta name="description" content={pageProps.description || "Default Description"} />
-          <meta property="og:title" content={pageProps.title || "Default Title"} />
-          <meta property="og:description" content={pageProps.description || "Default Description"} />
-          <meta property="og:image" content={pageProps.image || "/default-image.jpg"} /> */}
+        <title>Ivan Inozemtsev | UX/UI Designer - Creating Inspiring Web Solutions</title>
+        <meta name='description' content='Artist & UX/UI Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences.' />
+        <meta name="keywords" content="UX/UI design, Installations, Artworks, Ivan Inozemtsev, graphic design, art, illustration, ukrainian artist, artist, designer, artist and designer, colour, art, german artist, artist, designer, germany"></meta>
+        <meta property="og:title" content="Ivan Inozemtsev | UX/UI Designer - Creating Inspiring Web Solutions" />
+        <meta property="og:description" content="Artist & UX/UI Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences." />
+        <meta property="og:image" content="/hero.png" />
+        <meta property="og:url" content="https:/inozemtsev.com/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ivan Inozemtsev | UX/UI Designer - Creating Inspiring Web Solutions" />
+        <meta name="twitter:description" content="Artist & UX/UI Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences." />
+        <link rel="apple-touch-icon" sizes="72x72" href="/logo.png"></link>
+        <link rel="apple-touch-icon" sizes="114x114" href="/logo.png"></link>
+        <link rel="apple-touch-icon" sizes="144x144" href="/logo.png"></link>
       </Head>
 
       <HeaderProvider>
-        {/* <motion.div layout> */}
         {isLoading && <Preloader />}
         {!isLoading && <Component {...pageProps} />}
-        {/* </motion.div> */}
       </HeaderProvider>
 
     </>
