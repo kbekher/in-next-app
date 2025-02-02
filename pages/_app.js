@@ -25,7 +25,7 @@ const MyApp = ({ Component, pageProps }) => {
         <meta property="og:title" content="Ivan Inozemtsev | UX/UI Designer - Creating Inspiring Web Solutions" />
         <meta property="og:description" content="Artist & UX/UI Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences." />
         <meta property="og:image" content="/hero.png" />
-        <meta property="og:url" content="https:/inozemtsevco.com/" />
+        <meta property="og:url" content="https://www.inozemtsevco.com/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ivan Inozemtsev | UX/UI Designer - Creating Inspiring Web Solutions" />
