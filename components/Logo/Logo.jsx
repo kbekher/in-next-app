@@ -12,7 +12,7 @@ const LogoImg = (width, height) => (
     width={width}
     height={height}
     draggable='false'
-    // sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
+  // sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
   />
 );
 
@@ -35,20 +35,24 @@ const Logo = ({ isClickable = false }) => {
   }
 
   return (
-    <div className='w-[110px]'>
+    <>
       {isClickable ? (
-        <Link
-          href='/'
-          className='block w-[24px] cursor-pointer'
-          onClick={handleLogoClick}
-        >
-          {LogoImg(sizes.width, sizes.height)}
-          {/* {LogoImg(30, 57)} */}
-        </Link>
+        <div className='w-[110px]'>
+          <Link
+            href='/'
+            className='block w-[24px] cursor-pointer'
+            onClick={handleLogoClick}
+          >
+            {LogoImg(sizes.width, sizes.height)}
+            {/* {LogoImg(30, 57)} */}
+          </Link>
+        </div>
       ) : (
-        LogoImg(sizes.width, sizes.height)
+        <div className='w-[110px] flex justify-center md:block'>
+          {LogoImg(sizes.width, sizes.height)}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
