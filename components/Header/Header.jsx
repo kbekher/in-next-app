@@ -16,7 +16,7 @@ const Header = () => {
         </div>
 
         {/* Center - Title and Location (cols 4-9) */}
-        <div className='md:col-start-8 md:col-span-2 flex flex-col'>
+        <div className='md:col-start-8 md:col-span-3 flex flex-col'>
           <span className='uppercase'>UX/UI, Graphic Designer</span>
           <span className='uppercase text-[var(--color-gray)]'>Dortmund, Germany</span>
         </div>

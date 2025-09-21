@@ -21,7 +21,7 @@ const Logo = ({ isClickable = false }) => {
           </Link>
         </div>
       ) : (
-        <div className='w-[110px] flex justify-center md:block'>
+        <div className='flex justify-center md:block'>
           <Image
             src='/logo.png'
             alt='Ivan Inozemtsev logo'

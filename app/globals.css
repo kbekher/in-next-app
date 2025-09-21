@@ -53,9 +53,7 @@ body {
   min-height: -webkit-fill-available;
   /* mobile viewport bug fix */
   font-weight: 400;
-  font-size: 16px;
 }
-
 
 main {
   /* 240px + 100px header = 340px */
@@ -66,14 +64,24 @@ section {
   margin: 0 20px;
 }
 
+body,
+header,
+h2,
+h3 {
+  font-size: 16px;
+}
+
+footer {
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 48px;
+}
 
 /* TODO: delete */
 header {
   z-index: 48;
-}
-
-h1 {
-  font-size: 20px;
 }
 
 @layer utilities {
@@ -149,7 +157,21 @@ h1 {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1400px) {
+  header,
+  footer,
+  h3 {
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
   body {
     font-size: 12px;
   }
@@ -160,7 +182,21 @@ h1 {
     padding-top: 50vh;
   }
 
-  body {
+  header,
+  footer {
     font-size: 14px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  h2,
+  body {
+    font-size: 12px;
   }
 }

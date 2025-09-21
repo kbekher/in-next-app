@@ -10,7 +10,7 @@ const ContactLinks = () => {
           target='_blank'
           rel='noreferrer'
           title={`Ivan's ${name}`}
-          className='text-[var(--color-gray)] text-link'
+          className='text-[var(--color-gray)] text-link w-max'
         >
           {name}
         </a>

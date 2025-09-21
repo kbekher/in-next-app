@@ -44,7 +44,7 @@ const Menu = () => {
               </div>
 
               {/* Center - Title and Location (cols 8-9) */}
-              <div className='md:col-start-8 md:col-span-2 flex flex-col'>
+              <div className='md:col-start-8 md:col-span-3 flex flex-col'>
                 <span className='uppercase text-[var(--color-white)]'>UX/UI, Graphic Designer</span>
                 <span className='uppercase text-[var(--color-gray)]'>Dortmund, Germany</span>
               </div>
@@ -179,7 +179,7 @@ const Menu = () => {
 
           {/* Mobile Navbar - Mobile only */}
           {isMobile && (
-            <div className='text-[var(--color-white)] px-5 pb-[68px]'>
+            <div className='text-[var(--color-white)] px-5 py-8'>
               <div className=' flex justify-between'>
                 <LangToggle />
                 <button
