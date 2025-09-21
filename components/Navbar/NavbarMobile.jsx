@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { navLinks } from '@/constants';
 
-import SayHello from '../SayHello/SayHello';
+import SayHello from '../Menu/Menu';
 import LangToggle from '../LangToggle/LangToggle';
 
 const NavbarMobile = () => {

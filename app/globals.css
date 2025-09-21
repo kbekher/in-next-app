@@ -52,20 +52,27 @@ body {
   min-height: -webkit-fill-available;
   /* mobile viewport bug fix */
   font-weight: 400;
+  font-size: 16px;
 }
 
 
 main {
-  /* margin-top: 100px; */
+  /* 240px + 100px header = 340px */
+  margin-top: 340px; 
 }
+
+section {
+  margin: 0 20px;
+}
+
 
 /* TODO: delete */
 header {
   z-index: 48;
 }
 
-h1, h2, h3 {
-  font-weight: 500;
+h1 {
+  font-size: 20px;
 }
 
 @layer utilities {
@@ -137,5 +144,9 @@ h1, h2, h3 {
 @media screen and (max-width: 768px) {
   main {
     padding-top: 50vh;
+  }
+
+  body {
+    font-size: 14px;
   }
 }

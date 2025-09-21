@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Project from './Project';
-import Illustrations from '../Illustrations/Illustrations';
 
 const Projects = () => {
   const projectsArray = [
@@ -13,11 +12,9 @@ const Projects = () => {
 
   return (
     <div id="work">
-      {projectsArray.map(project => (
+      {/* {projectsArray.map(project => (
         <Project type={project.type} name={project.name} key={project.id} />
-      ))}
-
-      <Illustrations />
+      ))} */}
     </div>
   )
 }

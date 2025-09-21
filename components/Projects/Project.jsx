@@ -1,16 +1,8 @@
 "use client";
 
-import { useRef } from "react";
 import { useTranslation } from "next-i18next";
-import { motion, useScroll, useTransform } from "framer-motion";
-import Link from "next/link";
 
 import { projects } from "@/constants";
-import { textVariant } from "@/utils/motion";
-
-import Divider from "../Divider/Divider";
-import ProjectVideo from "./ProjectVideo";
-import ProjectGallery from "./ProjectGallery";
 
 const Project = ({ type, name }) => {
   const { t } = useTranslation("common");
@@ -19,27 +11,10 @@ const Project = ({ type, name }) => {
 
   const { assetsUrls, behanceUrl } = project;
 
-  const ref = useRef(null);
-  // const controls = useAnimation();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  // Create a transformation based on scroll progress
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1.2]); 
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
 
   return (
-    <motion.section
-      ref={ref}
-      style={{ scale, opacity }}
-      // animate={controls}
-      initial={{ rotate: 0 }}
-      id={name}
-      className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] mx-auto h-full pt-[110px] md:pt-[146px]'
-    >
-      <div className="col-start-3 col-span-8">
+    <section className='md:grid md:grid-cols-12 gap-4 max-w-[1100px] mx-auto h-full pt-[110px] md:pt-[146px]'>
+      {/* <div className="col-start-3 col-span-8">
 
         <div className='px-5 md:px-0 mb-[120px]'>
           <motion.h2
@@ -87,8 +62,8 @@ const Project = ({ type, name }) => {
 
         <Divider />
 
-      </div>
-    </motion.section>
+      </div> */}
+    </section>
   );
 };
 

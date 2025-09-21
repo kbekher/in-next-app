@@ -20,7 +20,7 @@ const Homepage = () => {
 
   return (
     <div className='min-w-[320px] overflow-x-hidden'>
-      <div className='w-full h-full'>
+      <div className='w-full min-h-screen'>
         <Header />
         <NavbarMobile />
 

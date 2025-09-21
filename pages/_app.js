@@ -3,7 +3,6 @@ import { appWithTranslation } from 'next-i18next';
 import Head from 'next/head';
 
 import { useState } from 'react';
-import { HeaderProvider } from '../context/HeaderContext';
 import Preloader from '@/components/Preloader/Preloader';
 
 const MyApp = ({ Component, pageProps }) => {
@@ -32,15 +31,12 @@ const MyApp = ({ Component, pageProps }) => {
         <link rel="apple-touch-icon" sizes="144x144" href="/logo.png"></link>
       </Head>
 
-      <HeaderProvider>
-        {showPreloader && (
-          <Preloader 
-            onComplete={handlePreloaderComplete} 
-          />
-        )}
-        {!showPreloader && <Component {...pageProps} />}
-      </HeaderProvider>
-
+      {showPreloader && (
+        <Preloader
+          onComplete={handlePreloaderComplete}
+        />
+      )}
+      {!showPreloader && <Component {...pageProps} />}
     </>
   );
 }

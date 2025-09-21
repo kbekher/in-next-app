@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { debounce } from 'lodash';
 
-
 const LangToggle = () => {
   const router = useRouter();
 
@@ -31,30 +30,28 @@ const LangToggle = () => {
 
   // Don't render the component until the locale is available
   if (checked === null) {
-    return null; 
+    return null;
   }
 
+  const languages = [
+    { code: 'en', label: 'EN', isActive: !checked },
+    { code: 'de', label: 'DE', isActive: checked }
+  ];
+
+  const baseClasses = 'cursor-pointer underline-offset-2 transition-all duration-200 ease';
+
   return (
-    <label
-      className='btn block w-[92px] cursor-pointer relative hover:bg-opacity-20'
-      onClick={onToggleLanguageClick} // Handle the toggle click
-    >
-      <span className='absolute top-1/2 -translate-y-1/2 left-[1.4em] md:left-[1.1em]'>EN</span>
-      <span className='absolute top-1/2 -translate-y-1/2 right-[1.4em] md:right-[1.1em] '>DE</span>
-      <input
-        className='peer h-[1em] w-[1em] opacity-0'
-        id=''
-        name=''
-        type='checkbox'
-        checked={checked} // Sync checkbox with locale
-        onChange={() => setChecked(!checked)} // Sync checkbox state with click
-      />
-      <span className="absolute left-0 top-1/2 flex h-full w-[54%] -translate-y-1/2 items-center justify-center rounded-full bg-[rgb(26,26,26, 0.5)] shadow-[inset_4px_4px_4px_0px_rgba(64,64,64,0.25),inset_-4px_-4px_4px_0px_rgba(16,16,16,0.3)] duration-300 peer-checked:left-[46%]">
-        <span className='relative h-full w-full rounded-full'>
-          <span className='absolute inset-[0.1em] rounded-full'></span>
+    <div className='flex items-center gap-4 text-[16px]'>
+      {languages.map(({ label, isActive }) => (
+        <span
+          key={label}
+          onClick={onToggleLanguageClick}
+          className={`${baseClasses} ${isActive ? 'underline' : 'hover:underline'}`}
+        >
+          {label}
         </span>
-      </span>
-    </label>
+      ))}
+    </div>
   );
 };
 

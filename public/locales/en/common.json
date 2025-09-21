@@ -5,8 +5,8 @@
     "work": "Portfolio",
     "skills": "Skills"
   },
-  "hello": {
-    "btn": "Say hello",
+  "menu": {
+    "btn": "Menu",
     "p": "Don't be shy!"
   },
   "buttons": {

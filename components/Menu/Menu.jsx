@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'next-i18next'
 import { Dialog } from '@headlessui/react';
 
-const SayHello = () => {
+const Menu = () => {
   const { t } = useTranslation('common');
   const [isLayerOpen, setIsLayerOpen] = useState(false);
 
@@ -17,13 +17,13 @@ const SayHello = () => {
         className='btn'
         onClick={toggleOverlay} 
       >
-        {t("hello.btn")}
+        {t("menu.btn")}
       </button>
     
       <Dialog open={isLayerOpen} onClose={toggleOverlay} className="relative z-50">
         <div className="fixed inset-0 bg-[var(--background)] fade-in z-49" aria-hidden="true" />
         <Dialog.Panel className="w-screen h-screen fixed inset-0 flex flex-col items-center justify-center">
-          <Dialog.Title className="font-normal text-xl md:text-2xl">{t("hello.p")}</Dialog.Title>
+          <Dialog.Title className="font-normal text-xl md:text-2xl">{t("menu.p")}</Dialog.Title>
 
           <Dialog.Description>
             <a 
@@ -47,4 +47,4 @@ const SayHello = () => {
   );
 };
 
-export default SayHello;
+export default Menu;
