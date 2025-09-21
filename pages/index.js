@@ -8,7 +8,6 @@ import '../app/globals.css';
 import Header from '@/components/Header/Header';
 import Skills from '@/components/Skills/Skills';
 import About from '@/components/About/About';
-import Testimonials from '@/components/Testimonials/Testimonials';
 import Footer from '@/components/Footer/Footer';
 import NavbarMobile from '@/components/Navbar/NavbarMobile';
 import Projects from '@/components/Projects/Projects';
@@ -28,7 +27,6 @@ const Homepage = () => {
           <Projects />
           <Skills />
           <About />
-          <Testimonials />
         </main>
 
         <Footer />

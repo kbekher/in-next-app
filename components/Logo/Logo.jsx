@@ -1,19 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { DOMAIN } from "@/constants";
-
-const LogoImg = (width, height) => (
-  <Image
-    src={`${DOMAIN}logo-new-1.png`}
-    alt='Ivan Inozemtsev logo'
-    width={width}
-    height={height}
-    draggable='false'
-    // sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
-  />
-);
-
 const Logo = ({ isClickable = false }) => {
 
   const handleLogoClick = () => {
@@ -21,18 +8,13 @@ const Logo = ({ isClickable = false }) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const sizes = {
-    width: 23,
-    height: 44,
-  }
-
   return (
     <>
       {isClickable ? (
         <div className=''>
           <Link
             href='/'
-            className='block cursor-pointer uppercase'
+            className='w-max block cursor-pointer uppercase'
             onClick={handleLogoClick}
           >
             Ivan Inozemtsev
@@ -40,7 +22,14 @@ const Logo = ({ isClickable = false }) => {
         </div>
       ) : (
         <div className='w-[110px] flex justify-center md:block'>
-          {LogoImg(sizes.width, sizes.height)}
+          <Image
+            src='/logo.png'
+            alt='Ivan Inozemtsev logo'
+            width={30}
+            height={30}
+            draggable='false'
+            // sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
+          />
         </div>
       )}
     </>

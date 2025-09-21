@@ -1,13 +1,14 @@
 {
-  "h1": "Creating Visual Solutions that Inspire the World",
+  "h1": "From Design to Impossible.",
   "nav": {
-    "about": "About me",
+    "about": "About",
     "work": "Portfolio",
-    "skills": "Skills"
+    "skills": "Skills and Tools"
   },
   "menu": {
     "btn": "Menu",
-    "p": "Don't be shy!"
+    "selected-work": "Selected Work",
+    "category": "Category"
   },
   "buttons": {
     "behance": "View on Behance",
@@ -15,33 +16,33 @@
     "join": "Join"
   },
   "projects": {
-    "ace-and-tate": {
-      "title": "Reflecting Style: Web Design for Ace and Tate",
-      "p": "Designed with the latest trends in design and user interface in mind, our web design transforms Ace and Tate's online presence into a source of inspiration and comfort for visitors."
+    "types": {
+      "brand": "Brand Design",
+      "ux": "UX/UI Design"
+    },
+    "andere-lab": {
+      "title": "andere lab",
+      "p": "Rooted in graphic design, identity, it began as a personal space - free from briefs and expectations - to explore ideas through form. <br /> Over time, it evolved into a methodical lab for crafting visual systems: minimal, structured, and quietly expressive."
+    },
+    "virtual-gallery": {
+      "title": "Virtual Gallery of a Film Photographer",
+      "p": "When we set out to create this website, the goal was clear: not just to showcase stunning photography, but to build a digital space that feels like stepping into the photographer’s world."
+    },
+    "raum-studio": {
+      "title": "RAUM STUDIO / R.S. / Architectural bureau",
+      "p": "For the Berlin-based architecture firm RAUM STUDIO, we developed a new premium brand identity - one that directly communicates the studio’s values and speaks to its target audience."
     },
     "xtrafit": {
-      "title": "Xtrafit: Feel extra. Feel good.",
-      "p": "Designed a new look for the Xtrafit gym app to make it easier to use, with a modern and easy-to-understand layout. Added colorful images and made it simple to find workouts and other gym services, making it more enjoyable for users."
+      "title": "XTRAFIT Gym",
+      "p": "In this project, I carried out a redesign of the Xtrafit mobile application, which helps users improve their health and fitness results. The goal of the redesign was to enhance the user experience and visual design to make the app more intuitive, user-friendly, and aesthetically pleasing."
     },
-    "flowtech": {
-      "title": "Flowtech Brand Identity",
-      "p": "I developed the brand identity for Flowtech. In this project, I created the logo, packaging design, landing page, and Instagram page. My goal is to design a visual style that highlights the modern, elegant, and functional aspects of Flowtech products."
-    },
-    "paysera": {
-      "title": "Paysera New Corporate Identity",
-      "p": "I created a new brand identity for Paysera, redesigning the logo, business cards, and bank card. Additionally, I revamped the banking app, banners, and landing page to reflect a fresh, cohesive look."
+    "ace-and-tate": {
+      "title": "Ace & Tate",
+      "p": "Revamped Ace and Tate's website with a fresh design, integrating user-friendly features across web and mobile. Prioritized clarity and ease of use while maintaining brand identity. Streamlined interface, enhancing browsing experience."
     }
-  },
-  "illustrations": {
-    "title": "Illustrations bringing ideas to life",
-    "p": "Illustrations embody unique visuals. I create illustrations that depict the essence of your idea or product."
   },
   "skills": {
     "title": "Skills that I use to create digital products",
-    "systems": {
-      "title": "Design Systems",
-      "p": "Creating scalable, cohesive components that ensure consistent and efficient design across platforms and projects."
-    },
     "graphic": {
       "title": "Graphic Design",
       "p": "Developing scalable, cohesive visual elements that maintain a consistent and polished brand identity across various platforms and projects."
@@ -50,15 +51,19 @@
       "title": "UX Design",
       "p": "Creating user experiences through research, user testing, and innovative design solutions."
     },
-    "prototyping": {
-      "title": "Prototyping",
-      "p": "Building interactive prototypes to test ideas, gather feedback, and refine designs before final implementation."
+    "systems": {
+      "title": "Design Systems",
+      "p": "Creating scalable, cohesive components that ensure consistent and efficient design across platforms and projects."
     },
     "illustration": {
       "title": "Illustration",
       "p": "Creative illustrations that enhance storytelling, add visual interest, and align with brand identity."
     },
-    "ui": {
+    "photography": {
+      "title": "Prototyping",
+      "p": "Building interactive prototypes to test ideas, gather feedback, and refine designs before final implementation."
+    },
+    "typography": {
       "title": "UI Design",
       "p": "Designing visually appealing and intuitive interfaces that provide seamless interaction and elevate user engagement."
     }
@@ -68,22 +73,5 @@
     "p1": "Hi there! I'm Ivan, a UX/UI designer, graphic designer, and illustrator with extensive experience in creating unique and effective visual solutions. I specialize in making brands and products stand out by designing user-friendly interfaces that are both intuitive and eye-catching.",
     "p2": "I started my career in graphic design, crafting attractive logos and corporate identities for various companies. Over time, I shifted my focus to UX/UI design, where I design interfaces that are not only easy to use but also visually appealing. I'm also passionate about illustration, which allows me to express my creativity and inspiration through visual art.",
     "p3": "My goal is to not just complete projects, but to inspire my clients and users alike with each design I create."
-  },
-  "testimonials": {
-    "title": "Hear it about me from my co-workers",
-    "review1": {
-      "name": "- Krisitna B. - Front-End Developer",
-      "p": "I've had the pleasure of working closely with Ivan on several UX/UI design projects. His ability to balance beauty with functionality consistently impressed me. As a developer, I appreciated how his user-centric designs made my job easier, resulting in visually stunning and intuitive websites. Beyond UX/UI, Ivan’s graphic design and artistic skills are outstanding. He consistently delivers creative and polished work. He’s a talented designer and artist with a passion for creating exceptional visual experiences, and I highly recommend him."
-    },
-    "review2": {
-      "name": "-Tetiana V. - UX / UI Designer",
-      "p": "Working with Ivan on projects has been a fantastic experience. His design skills always stand out. He’s not just skilled in UX/UI but also brings strong graphic design expertise to the table, which adds depth to the product and elevates the overall customer experience. Collaborating with Ivan has been inspiring, and I look forward to creating more great work together!"
-    }
-  },
-  "footer": {
-    "title": "Stay informed, subscribe",
-    "description": "Receive latest updates and exclusive offers.",
-    "successToast": "Thanks for subscribing!",
-    "errorToast": "Something went wrong. Please try again."
   }
 }

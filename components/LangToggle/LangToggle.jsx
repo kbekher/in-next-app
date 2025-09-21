@@ -38,15 +38,13 @@ const LangToggle = () => {
     { code: 'de', label: 'DE', isActive: checked }
   ];
 
-  const baseClasses = 'cursor-pointer underline-offset-2 transition-all duration-200 ease';
-
   return (
-    <div className='flex items-center gap-4 text-[16px]'>
+    <div className='flex gap-4'>
       {languages.map(({ label, isActive }) => (
         <span
           key={label}
           onClick={onToggleLanguageClick}
-          className={`${baseClasses} ${isActive ? 'underline' : 'hover:underline'}`}
+          className={`text-link ${isActive ? 'underline' : 'hover:underline'}`}
         >
           {label}
         </span>

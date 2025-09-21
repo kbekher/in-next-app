@@ -16,7 +16,7 @@ const SkillTile = ({ skill, t, index }) => (
     {...fadeIn("up", "spring", 0.5 * index, 0.75)}
     className='bg-[var(--color-bg-tile)] rounded-[43px] md:col-span-4'
   >
-    <div className='flex flex-col lg:flex-row items-center lg:items-start gap-4 w-full h-full px-6 py-8'>
+    {/* <div className='flex flex-col lg:flex-row items-center lg:items-start gap-4 w-full h-full px-6 py-8'>
       <div className='flex justify-center items-center bg-[var(--color-gray)] p-2 rounded-[22px] overflow-hidden aspect-square'>
         <Image src={skill.icon} alt={skill.name} width={62} height={62} />
       </div>
@@ -30,7 +30,7 @@ const SkillTile = ({ skill, t, index }) => (
           <BlurText text={t(`skills.${skill.name}.p`)} index={index} />
         </div>
       </div>
-    </div>
+    </div> */}
   </motion.div>
 );
 
@@ -39,7 +39,7 @@ const Skills = () => {
 
   return (
     <section className='max-w-1680 mx-auto h-full md:pt-[146px] pt-[130px]' id="skills">
-      <div className='px-5 md:px-[80px] mb-[64px]'>
+      {/* <div className='px-5 md:px-[80px] mb-[64px]'>
         <motion.h2
           {...textVariant("down")}
           className='max-w-[740px] mx-auto section-title mb-4 md:mb-12 text-center'
@@ -53,7 +53,7 @@ const Skills = () => {
           ))}
         </div>
       </div>
-      <Divider />
+      <Divider /> */}
     </section>
   );
 };

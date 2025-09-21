@@ -1,13 +1,14 @@
 {
-  "h1": "Kreative visuelle Lösungen, die die Welt inspirieren",
+  "h1": "From Design to Impossible.",
   "nav": {
     "about": "Über mich",
     "work": "Portfolio",
-    "skills": "Skills"
+    "skills": "Skills and Tools"
   },
   "menu": {
     "btn": "Menü",
-    "p": "Sei nicht schüchtern!"
+    "selected-work": "Ausgewählte Arbeiten",
+    "category": "Kategorie"
   },
   "buttons": {
     "behance": "Ansehen auf Behance",
@@ -15,33 +16,33 @@
     "join": "Join"
   },
   "projects": {
-    "ace-and-tate": {
-      "title": "Reflektierender Stil: Webdesign für Ace and Tate",
-      "p": "Mit den neuesten Trends im Design und der Benutzeroberfläche im Blick, verwandelt unser Webdesign die Online-Präsenz von Ace and Tate in eine Inspirationsquelle und einen Ort des Komforts für Besucher."
+    "types": {
+      "brand": "Brand Design",
+      "ux": "UX/UI Design"
+    },
+    "andere-lab": {
+      "title": "andere lab",
+      "p": "Mit den neuesten Trends im Design und der Benutzeroberfläche im Blick, verwandelt unser Webdesign die Online-Präsenz von Andere Lab in eine Inspirationsquelle und einen Ort des Komforts für Besucher."
+    },
+    "virtual-gallery": {
+      "title": "Virtual Gallery of a Film Photographer",
+      "p": "Ich habe ein neues Erscheinungsbild für die virtuelle Galerie eines Filmfotografen entworfen, um sie mit einem modernen und leicht verständlichen Layout benutzerfreundlicher zu gestalten. Wir haben farbenfrohe Bilder hinzugefügt und es fur die Benutzer einfach angenehmer zu machen, Workouts und andere Fitnessstudio-Dienstleistungen zu finden."
+    },
+    "raum-studio": {
+      "title": "RAUM STUDIO / R.S. / Architectural bureau",
+      "p": "Ich habe ein neues Erscheinungsbild für RAUM STUDIO entworfen, um sie mit einem modernen und leicht verständlichen Layout benutzerfreundlicher zu gestalten. Wir haben farbenfrohe Bilder hinzugefügt und es fur die Benutzer einfach angenehmer zu machen, Workouts und andere Fitnessstudio-Dienstleistungen zu finden."
     },
     "xtrafit": {
-      "title": "Xtrafit: Fühlen Sie sich besonders fit. Fühlen Sie sich gut.",
+      "title": "XTRAFIT Gym",
       "p": "Ich habe einen neuen Look für die Xtrafit Gym-App entworfen, um sie mit einem modernen und leicht verständlichen Layout benutzerfreundlicher zu gestalten. Wir haben farbenfrohe Bilder hinzugefügt und es fur die Benutzer einfach angenehmer zu machen, Workouts und andere Fitnessstudio-Dienstleistungen zu finden."
     },
-    "flowtech": {
-      "title": "Flowtech Markenidentität",
-      "p": "Ich habe die Markenidentität für Flowtech entwickelt. In diesem Projekt habe ich das Logo, das Verpackungsdesign, die Landingpage und die Instagram-Seite erstellt. Mein Ziel ist es, einen visuellen Stil zu entwerfen, der die modernen, eleganten und funktionalen Aspekte der Flowtech-Produkte hervorhebt."
-    },
-    "paysera": {
-      "title": "Payseras Neue Corporate Identity",
-      "p": "Ich habe eine neue Markenidentität für Paysera geschaffen und das Logo, die Visitenkarten und die Bankkarte neu gestaltet. Darüber hinaus habe ich die Banking-App, Banner und die Landingpage überarbeitet, um ein frisches, einheitliches Erscheinungsbild zu erzielen."
+    "ace-and-tate": {
+      "title": "Ace & Tate",
+      "p": "Mit den neuesten Trends im Design und der Benutzeroberfläche im Blick, verwandelt unser Webdesign die Online-Präsenz von Ace and Tate in eine Inspirationsquelle und einen Ort des Komforts für Besucher."
     }
-  },
-  "illustrations": {
-    "title": "Illustrationen erwecken Ideen zum Leben",
-    "p": "Illustrationen verkörpern einzigartige visuelle Elemente. Ich erstelle Illustrationen, die die Essenz Ihrer Idee oder Ihres Produkts darstellen."
   },
   "skills": {
     "title": "Fähigkeiten, die ich zur Erstellung digitaler Produkte nutze",
-    "systems": {
-      "title": "Designsysteme",
-      "p": "Erstellen skalierbarer, zusammenhängender Komponenten, die ein konsistentes und effizientes Design ermöglichen."
-    },
     "graphic": {
       "title": "Grafikdesign",
       "p": "Entwicklung skalierbarer, zusammenhängender visueller Elemente, die verschiedene Plattformen und Projekte unterstützen."
@@ -50,15 +51,19 @@
       "title": "UX Design",
       "p": "Schaffen von Benutzererlebnissen durch Forschung, Benutzertests und innovative Designlösungen."
     },
-    "prototyping": {
-      "title": "Prototyping",
-      "p": "Erstellen interaktiver Prototypen, um Ideen zu testen, Feedback zu sammeln."
+    "systems": {
+      "title": "Designsysteme",
+      "p": "Erstellen skalierbarer, zusammenhängender Komponenten, die ein konsistentes und effizientes Design ermöglichen."
     },
     "illustration": {
       "title": "Illustration",
       "p": "Kreative Illustrationen, die das Geschichtenerzählen verbessern."
     },
-    "ui": {
+    "photography": {
+      "title": "Prototyping",
+      "p": "Erstellen interaktiver Prototypen, um Ideen zu testen, Feedback zu sammeln."
+    },
+    "typography": {
       "title": "UI Design",
       "p": "Entwerfen optisch ansprechender und intuitiver Benutzeroberflächen."
     }
@@ -68,22 +73,5 @@
     "p1": "Hallo! Ich bin Ivan, ein UX/UI-Designer, Grafikdesigner und Illustrator mit umfassender Erfahrung in der Erstellung einzigartiger und effektiver visueller Lösungen. Ich bin darauf spezialisiert, Marken und Produkte hervorzuheben, indem ich benutzerfreundliche Oberflächen entwerfe, die sowohl intuitiv als auch auffällig sind.",
     "p2": "Ich begann meine Karriere im Grafikdesign und entwarf attraktive Logos und Corporate Identities für verschiedene Unternehmen. Im Laufe der Zeit verlagerte sich mein Schwerpunkt auf UX/UI-Design, wo ich Oberflächen entwerfe, die nicht nur einfach zu verwenden, sondern auch optisch ansprechend sind. Ich illustriere auch leidenschaftlich gern, was es mir ermöglicht, meine Kreativität und Inspiration durch visuelle Kunst auszudrücken.",
     "p3": "Mein Ziel ist es nicht nur, Projekte abzuschließen, sondern meine Kunden und Benutzer mit jedem Design, das ich erstelle, gleichermaßen zu inspirieren."
-  },
-  "testimonials": {
-    "title": "Hören Sie, was meine Kollegen über mich sagen",
-    "review1": {
-      "name": "- Krisitna B. - Front-End Entwickler",
-      "p": "Ich hatte das Vergnügen, bei mehreren UX/UI-Designprojekten eng mit Ivan zusammenzuarbeiten. Seine Fähigkeit, Schönheit und Funktionalität in Einklang zu bringen, hat mich immer wieder beeindruckt. Als Entwickler schätzte ich, wie seine benutzerorientierten Designs meine Arbeit erleichterten und zu visuell beeindruckenden und intuitiven Websites führten. Über UX/UI hinaus sind Ivans Grafikdesign und seine künstlerischen Fähigkeiten hervorragend. Er liefert stets kreative und ausgefeilte Arbeiten. Er ist ein talentierter Designer und Künstler mit einer Leidenschaft für die Schaffung außergewöhnlicher visueller Erlebnisse, und ich kann ihn nur empfehlen."
-    },
-    "review2": {
-      "name": "-Tetiana V. - UX / UI Designerin",
-      "p": "Die Zusammenarbeit mit Ivan bei Projekten war eine fantastische Erfahrung. Seine Designfähigkeiten sind immer herausragend. Er kennt sich nicht nur mit UX/UI aus, sondern verfügt auch über ein ausgeprägtes Fachwissen im Bereich Grafikdesign, das dem Produkt Tiefe verleiht und das Kundenerlebnis insgesamt verbessert. Die Zusammenarbeit mit Ivan war sehr inspirierend, und ich freue mich auf weitere großartige gemeinsame Projekte!"
-    }
-  },
-  "footer": {
-    "title": "Bleib informiert, abonniere jetzt",
-    "description": "Erhalte neuesten Updates und exklusiven Angebote.",
-    "successToast": "Danke fürs Abonnieren!",
-    "errorToast": "Hat nicht geklappt, versuch's nochmal!"
   }
 }

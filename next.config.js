@@ -8,7 +8,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'd3bxg96r07nwt6.cloudfront.net',
+        hostname: 'd282ut73jdj7fd.cloudfront.net/',
         port: '',
         pathname: '/**', // Allows all images from this hostname
       },
