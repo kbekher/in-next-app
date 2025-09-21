@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { Roboto } from 'next/font/google';
 
 import '../app/globals.css';
 
@@ -14,18 +13,13 @@ import Footer from '@/components/Footer/Footer';
 import NavbarMobile from '@/components/Navbar/NavbarMobile';
 import Projects from '@/components/Projects/Projects';
 
-const roboto = Roboto({
-  weight: ['300', '400', '700'],
-  subsets: ['latin'],
-});
-
 const Homepage = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
   }, []);
 
   return (
-    <div className={`${roboto.className} min-w-[320px] overflow-x-hidden`}>
+    <div className='min-w-[320px] overflow-x-hidden'>
       <div className='w-full h-full'>
         <Header />
         <NavbarMobile />

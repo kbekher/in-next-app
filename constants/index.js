@@ -6,6 +6,7 @@ import illustration from "/images/illustration.svg";
 import ui from "/images/ui.svg";
 
 const DOMAIN = 'https://d3bxg96r07nwt6.cloudfront.net/';
+// const DOMAIN_NEW = 'https://d282ut73jdj7fd.cloudfront.net/';
 
 const navLinks = [
   {

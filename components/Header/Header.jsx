@@ -53,7 +53,7 @@ const Header = () => {
           className="h-full fixed top-0"
         >
           <div className={`relative h-full w-full flex flex-col ${layoutStyles.container}`}>
-            <HeaderBg url={layoutStyles.bgUrl} />
+            {/* <HeaderBg url={layoutStyles.bgUrl} /> */}
 
             <div className="flex w-full justify-between items-center">
               <Logo isClickable />
