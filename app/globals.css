@@ -57,7 +57,7 @@ body {
 
 main {
   /* 240px + 100px header = 340px */
-  margin-top: 340px; 
+  margin-top: 340px
 }
 
 section {
@@ -177,9 +177,9 @@ header {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   main {
-    padding-top: 50vh;
+    margin-top: 30vh;
   }
 
   header,

@@ -3,7 +3,7 @@ import photoshop from "/images/photoshop.svg";
 import illustrator from "/images/illustrator.svg";
 import procreate from "/images/procreate.svg";
 
-const DOMAIN = 'https://d282ut73jdj7fd.cloudfront.net/';
+const DOMAIN = 'https://d282ut73jdj7fd.cloudfront.net';
 
 const navLinks = [
   {
@@ -41,6 +41,7 @@ const skillsAndTools = [
 
 const projects = [
   {
+    id: 1,
     name: "andere-lab",
     year: 2025,
     type: "brand",
@@ -48,6 +49,7 @@ const projects = [
     behanceUrl: "https://www.behance.net/gallery/224980497/andere-lab-Brand-Identity"
   },
   {
+    id: 2,
     name: "virtual-gallery",
     year: 2025,
     type: "ux",
@@ -55,20 +57,23 @@ const projects = [
     behanceUrl: "https://www.behance.net/gallery/224544111/Virtual-Gallery-of-a-Film-Photographer-Website-Design"
   },
   {
+    id: 3,
     name: "raum-studio",
     year: 2025,
     type: "brand",
-    assetsUrls: ["raum-1", "raum-2, raum-3"],
+    assetsUrls: ["raum-1", "raum-2", "raum-3"],
     behanceUrl: "https://www.behance.net/gallery/230235097/RAUM-STUDIO-RS-Architectural-bureau"
   },
   {
+    id: 4,
     name: "xtrafit",
     year: 2024,
     type: "ux",
     assetsUrls: ["xtrafit-1", "xtrafit-2"],
     behanceUrl: "https://www.behance.net/gallery/200658231/Xtrafit-Gym-Mobile-App-Design"
   },
-  {
+  { 
+    id: 5,
     name: "ace-and-tate",
     year: 2024,
     type: "ux",
