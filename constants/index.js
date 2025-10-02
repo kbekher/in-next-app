@@ -26,19 +26,6 @@ const mediaLinks = [
   { name: 'Threads', href: 'https://www.threads.net/@inozemtsevco' }
 ];
 
-const skillsAndTools = [
-  { name: "Figma", icon: figma },
-  { name: "Photoshop", icon: photoshop },
-  { name: "Illustrator", icon: illustrator },
-  { name: "Procreate", icon: procreate },
-  { name: "graphic"},
-  { name: "ux" },
-  { name: "systems" },
-  { name: "illustration" },
-  { name: "photography" },
-  { name: "typography" },
-];
-
 const projects = [
   {
     id: 1,
@@ -50,10 +37,10 @@ const projects = [
   },
   {
     id: 2,
-    name: "virtual-gallery",
+    name: "photo-gallery",
     year: 2025,
     type: "ux",
-    assetsUrls: ["gallery-1"],
+    assetsUrls: ["photo-gallery-1"],
     behanceUrl: "https://www.behance.net/gallery/224544111/Virtual-Gallery-of-a-Film-Photographer-Website-Design"
   },
   {
@@ -82,4 +69,19 @@ const projects = [
   }
 ]
 
-export { DOMAIN, navLinks, mediaLinks, skillsAndTools, projects };
+const logos = ["land-rover", "db", "another", "kb", "douglas", "andere-lab", "henning-co", "mate-academy", "projector", "raum", "allclinical", "flowtech"];
+
+const skillsAndTools = [
+  { name: "Figma", icon: figma },
+  { name: "Photoshop", icon: photoshop },
+  { name: "Illustrator", icon: illustrator },
+  { name: "Procreate", icon: procreate },
+  { name: "graphic"},
+  { name: "ux" },
+  { name: "systems" },
+  { name: "illustration" },
+  { name: "photography" },
+  { name: "typography" },
+];
+
+export { DOMAIN, navLinks, mediaLinks, projects, logos, skillsAndTools };

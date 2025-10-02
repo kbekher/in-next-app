@@ -46,18 +46,18 @@ const Preloader = ({ onComplete }) => {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ type: "tween", ease: "easeOut", duration: 0.6 }}
           >
-            <span className="text-white text-2xl font-bold">
+            {/* <span className="text-white text-2xl font-bold">
               Loading...
-            </span>
-            {/* <Image
-              src={`${DOMAIN}preloader.gif`}
+            </span> */}
+            <Image
+              src={`${DOMAIN}/preloader.gif`}
               alt="preloader logo"
               width={184}
               height={212}
               priority
               unoptimized
               className="max-w-[47px] max-h-[67px] w-auto h-auto"
-            /> */}
+            />
           </motion.div>
         </motion.div>
       )}

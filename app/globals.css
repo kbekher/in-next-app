@@ -11,8 +11,6 @@
   --color-bg-menu: #13110e;
   --color-gray: #888888;
   --color-gray-light: #a3a3a3;
-
-
   /* // TODO: delete */
   --color-bg-tile: #1d1c1c;
   --transition: all 300ms ease;
@@ -55,28 +53,35 @@ body {
   font-weight: 400;
 }
 
+/* Mobile-first base styles */
 main {
-  /* 240px + 100px header = 340px */
-  margin-top: 340px
+  margin-top: 30vh;
 }
 
 section {
   margin: 0 20px;
 }
 
-body,
-header,
-h2,
-h3 {
-  font-size: 16px;
+/* Mobile typography */
+body {
+  font-size: 12px;
 }
 
+header,
 footer {
   font-size: 14px;
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 12px;
+}
+
+h3 {
+  font-size: 16px;
 }
 
 /* TODO: delete */
@@ -157,7 +162,13 @@ header {
   }
 }
 
-@media screen and (max-width: 1400px) {
+/* Tablet styles */
+@media screen and (min-width: 768px) {
+  main {
+    /* 240px + 100px header = 340px */
+    margin-top: 340px;
+  }
+
   header,
   footer,
   h3 {
@@ -177,26 +188,20 @@ header {
   }
 }
 
-@media screen and (max-width: 767px) {
-  main {
-    margin-top: 30vh;
+/* Desktop styles */
+@media screen and (min-width: 1601px) {
+  body,
+  header,
+  h2,
+  h3 {
+    font-size: 16px;
   }
 
-  header,
   footer {
     font-size: 14px;
   }
 
   h1 {
-    font-size: 20px;
-  }
-
-  h3 {
-    font-size: 16px;
-  }
-
-  h2,
-  body {
-    font-size: 12px;
+    font-size: 48px;
   }
 }

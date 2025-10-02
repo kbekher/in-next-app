@@ -8,8 +8,7 @@ import { skills } from "@/constants";
 import { fadeIn, textVariant } from "@/utils/motion";
 import SectionWrapper from "@/hoc/SectionWrapper";
 
-import Divider from "../Divider/Divider";
-import BlurText from "../BlurText/BlurText";
+import Divider from "../Logos/Logos";
 
 const SkillTile = ({ skill, t, index }) => (
   <motion.div
@@ -24,10 +23,8 @@ const SkillTile = ({ skill, t, index }) => (
       <div
         className='md:flex flex-col flex-1 gap-2 items-center justify-start lg:items-start text-center lg:text-start overflow-hidden p-0 text-[14px]'>
         <h4>
-          <BlurText text={t(`skills.${skill.name}.title`)} index={index} />
         </h4>
         <div className='hidden md:flex'>
-          <BlurText text={t(`skills.${skill.name}.p`)} index={index} />
         </div>
       </div>
     </div> */}

@@ -34,7 +34,7 @@ const Menu = () => {
 
           {/* Header - Same as main header */}
           <header className='w-full py-4 text-[var(--color-white)]'>
-            <div className="grid grid-cols-2 md:grid-cols-12 px-5">
+            <div className="grid grid-cols-2 md:grid-cols-12 px-5 md:pr-8">
 
               {/* Left - Logo (cols 1-3) */}
               <div className="md:col-span-2">
@@ -68,7 +68,7 @@ const Menu = () => {
           </header>
 
           {/* Main Content Area */}
-          <div className="flex-1 flex mt-8 md:mt-[140px] px-5">
+          <div className="flex-1 flex mt-8 md:mt-[140px] px-5 pr-8">
 
             {/* Navigation Links - Table Style */}
             <div className="w-full">

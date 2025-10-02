@@ -6,8 +6,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import '../app/globals.css';
 
 import Header from '@/components/Header/Header';
-import Skills from '@/components/Skills/Skills';
+import Logos from '@/components/Logos/Logos';
 import About from '@/components/About/About';
+import Skills from '@/components/Skills/Skills';
 import Footer from '@/components/Footer/Footer';
 import NavbarMobile from '@/components/Navbar/NavbarMobile';
 import Projects from '@/components/Projects/Projects';
@@ -25,8 +26,9 @@ const Homepage = () => {
 
         <main>
           <Projects />
-          <Skills />
+          <Logos />
           <About />
+          <Skills />
         </main>
 
         <Footer />

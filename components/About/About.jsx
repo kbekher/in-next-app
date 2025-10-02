@@ -7,7 +7,7 @@ import SectionWrapper from "@/hoc/SectionWrapper";
 import { fadeIn } from "@/utils/motion";
 
 import ContactLinks from "../ContactLinks/ContactLinks";
-import Divider from "../Divider/Divider";
+import Divider from "../Logos/Logos";
 
 const About = () => {
   const { t } = useTranslation("common");

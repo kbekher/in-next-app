@@ -1,14 +1,15 @@
 import { useMediaQuery } from 'react-responsive';
 
 import Logo from "../Logo/Logo";
-import SayHello from "../Menu/Menu";
+import Menu from "../Menu/Menu";
 import LangToggle from "../LangToggle/LangToggle";
 
 const Header = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   return (
-    <header className='fixed top-0 left-0 right-0 w-full py-4 bg-[var(--color-bg)] backdrop-blur-sm z-50'>
+    // bg-[var(--color-bg)] backdrop-blur-sm
+    <header className='fixed top-0 left-0 right-0 w-full py-4 z-50 mix-blend-difference text-[var(--color-white)]'> 
       <div className="grid grid-cols-2 md:grid-cols-12 px-5">
         {/* Left - Logo (cols 1-3) */}
         <div className="md:col-span-3">
@@ -25,7 +26,7 @@ const Header = () => {
         {!isMobile && (
           <div className="md:col-start-11 md:col-span-2 h-full flex justify-between gap-6">
             <LangToggle />
-            <SayHello />
+            <Menu />
           </div>
         )}
       </div>
