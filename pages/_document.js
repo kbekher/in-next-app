@@ -13,14 +13,7 @@ class MyDocument extends Document {
       i18nextConfig.i18n.defaultLocale
     return (
       <Html lang={currentLocale}>
-        <Head>
-          <meta charSet="utf-8" />
-          <link
-            data-react-helmet='true'
-            rel='icon'
-            href='/logo.png'
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

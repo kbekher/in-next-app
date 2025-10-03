@@ -55,7 +55,7 @@ const Footer = () => {
   );
   
   return (
-    <footer className='w-full px-5 pb-[82px] md:pb-0'>
+    <footer className='mx-5 pb-[82px] md:pb-4 border-t border-[var(--color-gray-border)] pt-[22px] md:pt-[44px]'>
       
       {/* Mobile Layout */}
       <div className="md:hidden space-y-8">

@@ -68,7 +68,7 @@ const Menu = () => {
           </header>
 
           {/* Main Content Area */}
-          <div className="flex-1 flex mt-8 md:mt-[140px] px-5 pr-8">
+          <div className="flex-1 flex mt-8 md:mt-[140px] px-5">
 
             {/* Navigation Links - Table Style */}
             <div className="w-full">
@@ -179,7 +179,7 @@ const Menu = () => {
 
           {/* Mobile Navbar - Mobile only */}
           {isMobile && (
-            <div className='text-[var(--color-white)] px-5 py-8'>
+            <div className='text-[var(--color-white)] px-5 pb-8'>
               <div className=' flex justify-between'>
                 <LangToggle />
                 <button

@@ -2,7 +2,6 @@ import { useTranslation } from "next-i18next";
 import Image from "next/image";
 
 import SectionWrapper from "@/hoc/SectionWrapper";
-import { fadeIn } from "@/utils/motion";
 
 import ContactLinks from "../ContactLinks/ContactLinks";
 import imageLoader from "@/utils/image-loader";
@@ -12,10 +11,10 @@ const About = () => {
   const { t } = useTranslation("common");
 
   return (
-    <div className="border-t border-[var(--color-gray-border)] pt-[22px]">
-      <div className='flex flex-col gap-6 md:flex-row-reverse md:gap-[60px]'>
+    <div className="border-t border-[var(--color-gray-border)] pt-[22px] lg:pt-[40px]">
+      <div className='flex flex-col gap-4 lg:grid lg:grid-cols-12 lg:gap-5'>
         {/* Image */}
-        <div className='w-full'>
+        <div className='w-full lg:col-span-4 lg:col-start-9'>
           <Image
             src={`${DOMAIN}/hero.jpg`}
             alt="Ivan Inozemtsev"
@@ -27,22 +26,22 @@ const About = () => {
         </div>
 
         {/* Content */}
-        <div className='space-y-6'>
+        <div className='space-y-4 lg:space-y-[40px] lg:col-span-8 lg:col-start-1 lg:row-start-1'>
           {/* Title */}
           <h2 className='text-[16px] font-medium'>
             {t("about.title")}
           </h2>
 
-          <div className='text-[var(--color-gray)] text-[12px] leading-relaxed space-y-4 md:space-y-0 md:flex md:gap-6 md:items-start'>
+          <div className='text-[var(--color-gray)] space-y-4 lg:space-y-0 lg:grid lg:grid-cols-8'>
 
             {/* Description paragraphs */}
-            <div className='space-y-4'>
+            <div className='space-y-4 lg:col-span-4 lg:col-start-1'>
               <p>{t("about.p1")}</p>
               <p>{t("about.p2")}</p>
               <p>{t("about.p3")}</p>
             </div>
 
-            <div className='md:space-y-4'>
+            <div className='space-y-4 lg:col-span-4 lg:col-start-6 lg:col-span-2'>
               {/* Name and Title */}
               <div>
                 <p className=''>Ivan Inozemtsev</p>

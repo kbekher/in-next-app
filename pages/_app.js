@@ -1,5 +1,4 @@
 import { appWithTranslation } from 'next-i18next';
-// import nextI18NextConfig from '../next-i18next.config.js'
 import Head from 'next/head';
 
 import { useState } from 'react';
@@ -15,20 +14,33 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
+        {/* Essential Meta Tags */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {/* SEO Meta Tags */}
         <title>Ivan Inozemtsev | UX/UI & Graphic Designer - Creating Inspiring Web Solutions</title>
         <meta name='description' content='UX/UI & Graphic Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences.' />
         <meta name="keywords" content="UX/UI design, Installations, Artworks, Ivan Inozemtsev, graphic design, art, illustration, ukrainian artist, artist, designer, artist and designer, colour, art, german artist, artist, designer, germany"></meta>
+        
+        {/* Open Graph Meta Tags */}
         <meta property="og:title" content="Ivan Inozemtsev | UX/UI & Graphic Designer - Creating Inspiring Web Solutions" />
         <meta property="og:description" content="UX/UI & Graphic Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences." />
-        {/* <meta property="og:image" content="" /> TODO: add url */}
         <meta property="og:url" content="https://www.inozemtsevco.com/" />
         <meta property="og:type" content="website" />
+        
+        {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ivan Inozemtsev | UX/UI & Graphic Designer - Creating Inspiring Web Solutions" />
         <meta name="twitter:description" content="UX/UI & Graphic Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences." />
-        <link rel="apple-touch-icon" sizes="72x72" href="/logo.png"></link>
-        <link rel="apple-touch-icon" sizes="114x114" href="/logo.png"></link>
-        <link rel="apple-touch-icon" sizes="144x144" href="/logo.png"></link>
+        
+        {/* Favicons */}
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Portfolio" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
       {showPreloader && (

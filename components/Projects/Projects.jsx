@@ -12,7 +12,10 @@ const Project = ({ project, index }) => {
   const { type, name, year, assetsUrls, behanceUrl } = project;
 
   return (
-    <div className={`flex flex-col gap-2 md:gap-3 mb-8 border-t border-[var(--color-gray-border)] ${index === 0 ? 'pt-3' : 'pt-[22px]'}`}>
+    <div
+      id={name}
+      className={`flex flex-col gap-2 md:gap-3 mb-8 border-t border-[var(--color-gray-border)] ${index === 0 ? 'pt-3 md:pt-4' : 'pt-[22px] md:pt-[28px]'}`}
+    >
       {/* Img Section */}
       <Link href={behanceUrl} target='_blank'>
         <div className='flex flex-col md:flex-row gap-2 md:gap-5'>
@@ -38,7 +41,7 @@ const Project = ({ project, index }) => {
         {/* Project Title and Type */}
         <div className='md:col-span-3'>
           <Link href={behanceUrl} target='_blank'>
-            <h2 className='text-[16px] font-medium'>{t(`projects.${name}.title`)}</h2>
+            <h2>{t(`projects.${name}.title`)}</h2>
           </Link>
           <p className='text-[var(--color-gray)]'>{t(`projects.types.${type}`)}</p>
         </div>

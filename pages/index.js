@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { motion } from 'framer-motion';
 
 import '../app/globals.css';
 
@@ -25,10 +26,16 @@ const Homepage = () => {
         <NavbarMobile />
 
         <main>
-          <Projects />
-          <Logos />
-          <About />
-          <Skills />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ease: 'easeOut', duration: 0.6}}
+          >
+            <Projects />
+            <Logos />
+            <About />
+            <Skills />
+          </motion.div>
         </main>
 
         <Footer />
