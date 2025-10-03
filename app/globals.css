@@ -134,7 +134,7 @@ section {
 
 /* Mobile typography */
 body {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 header,
@@ -209,7 +209,7 @@ header {
   header,
   footer,
   h3 {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   h2 {
@@ -218,10 +218,6 @@ header {
 
   h3 {
     font-size: 14px;
-  }
-
-  body {
-    font-size: 12px;
   }
 }
 
@@ -269,7 +265,6 @@ body.menu-open {
   left: var(--cursor-x);
   color: var(--color-white);
   font-size: 12px;
-  font-weight: 500;
   pointer-events: none;
   z-index: 9999;
   opacity: 0;
@@ -297,7 +292,24 @@ body.menu-open {
   mix-blend-mode: difference;
 }
 
+/* Project Image Hover Animation */
+
+.project-link img {
+  transition: transform 0.4s ease;
+}
+
+.project-link:hover img {
+  transform: scale(1.02);
+}
+
 .project-link:hover::after,
 .project-link:hover::before {
   opacity: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .project-link::after,
+  .project-link::before {
+    display: none;
+  }
 }

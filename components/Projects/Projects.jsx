@@ -20,7 +20,7 @@ const Project = ({ project, index }) => {
       <Link href={behanceUrl} target='_blank' className='project-link'>
         <div className='flex flex-col md:flex-row gap-2 md:gap-5'>
           {assetsUrls.map(asset => (
-            <div key={asset} className='w-full'>
+            <div key={asset} className='w-full overflow-hidden'>
               <Image
                 src={`${DOMAIN}/projects/${asset}.jpg`}
                 alt={`${name} project image`}
@@ -40,7 +40,7 @@ const Project = ({ project, index }) => {
       <div className='flex flex-col gap-4 md:grid md:grid-cols-12 md:gap-5 md:items-start'>
         {/* Project Title and Type */}
         <div className='md:col-span-3'>
-          <Link href={behanceUrl} target='_blank' className='block w-max project-link'>
+          <Link href={behanceUrl} target='_blank' className='project-link'>
             <h2>{t(`projects.${name}.title`)}</h2>
           </Link>
           <p className='text-[var(--color-gray)]'>{t(`projects.types.${type}`)}</p>
