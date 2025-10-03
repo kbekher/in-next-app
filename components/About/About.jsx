@@ -1,78 +1,74 @@
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
-import { DOMAIN } from "@/constants";
 import SectionWrapper from "@/hoc/SectionWrapper";
-import { fadeIn } from "@/utils/motion";
 
 import ContactLinks from "../ContactLinks/ContactLinks";
-import Divider from "../Divider/Divider";
+import imageLoader from "@/utils/image-loader";
+import { DOMAIN, mediaLinks } from "@/constants";
 
 const About = () => {
   const { t } = useTranslation("common");
 
   return (
-    <section className="max-w-1680 mx-auto h-full md:pt-[146px] pt-[130px]" id="about">
-      <div className='grid grid-cols-2 md:grid-cols-12 gap-4 md:gap-6 px-5 md:px-[80px] mb-[84px]'>
-        {/* Text Section */}
-        <motion.div
-          {...fadeIn("right", "spring", 0.5, 0.75)}
-          className='col-span-2 md:col-span-6 flex flex-col justify-center md:pt-[100px] lg:pr-20 lg:pt-0 text-center lg:text-left pb-5 lg:pb-0'
-        >
-          <h2 className='section-title mb-4 text-center md:text-left'>
+    <div className="border-t border-[var(--color-gray-border)] pt-[22px] lg:pt-[40px]">
+      <div className='flex flex-col gap-4 lg:grid lg:grid-cols-12 lg:gap-5'>
+        {/* Image */}
+        <div className='w-full lg:col-span-4 lg:col-start-9'>
+          <Image
+            src={`${DOMAIN}/hero.jpg`}
+            alt="Ivan Inozemtsev"
+            width={600}
+            height={600}
+            loader={imageLoader}
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className='space-y-4 lg:space-y-[40px] lg:col-span-8 lg:col-start-1 lg:row-start-1'>
+          {/* Title */}
+          <h2 className='text-[16px] font-medium'>
             {t("about.title")}
           </h2>
 
-          <p className='text-sm md:text-base mb-6 md:text-justify'>{t("about.p1")}</p>
-          <p className='text-sm md:text-base mb-6 md:text-justify'>{t("about.p2")}</p>
-          <p className='text-sm md:text-base mb-6 md:text-justify'>{t("about.p3")}</p>
+          <div className='text-[var(--color-gray)] space-y-4 lg:space-y-0 lg:grid lg:grid-cols-8'>
 
-          <ContactLinks />
-        </motion.div>
+            {/* Description paragraphs */}
+            <div className='space-y-4 lg:col-span-4 lg:col-start-1'>
+              <p>{t("about.p1")}</p>
+              <p>{t("about.p2")}</p>
+              <p>{t("about.p3")}</p>
+            </div>
 
-        {/* Image Section */}
-        <motion.div
-          {...fadeIn("left", "spring", 0.5, 0.75)}
-          className='col-span-2 md:col-start-7 md:col-span-6 h-[100%] flex items-center'
-        >
-          <div className="w-[100%] max-w-[600px] mx-auto lg:max-w-[800px] overflow-hidden bg-[var(--color-gray)] rounded-[56px] md:rounded-[144px] pt-20 flex justify-center">
-            <Image
-              src={`${DOMAIN}hero.png`}
-              alt='Ivan Inozemtsev'
-              width={700}
-              height={778}
-              draggable='false'
-              className='object-cover'
-              //  sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" // TODO:
-            />
+            <div className='space-y-4 lg:col-span-4 lg:col-start-6 lg:col-span-2'>
+              {/* Name and Title */}
+              <div>
+                <p className=''>Ivan Inozemtsev</p>
+                <p className=''>{t("about.p4")}</p>
+              </div>
+
+              {/* Location and Email */}
+              <div>
+                <p className=''>{t("about.p5")}</p>
+                <a
+                  href="mailto:inozemtsevco@gmail.com"
+                  className='hover:text-[var(--color-black)] transition-colors'
+                >
+                  inozemtsevco@gmail.com
+                </a>
+              </div>
+
+              {/* Social Links */}
+              <div className="flex flex-col">
+                <ContactLinks slice={2} />
+              </div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
-      <Divider />
-    </section>
+    </div>
   );
 };
 
 export default SectionWrapper(About, "about");
-
-{
-  /* {t(`${name}.title`).split(" ").map((word, index) => {
-                if (word === "Design" || word === "Illustration") {
-                  return (
-                    <span
-                      key={index}
-                      className='bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient-animation'
-                      style={{
-                        animation: `gradient-animation 12s ease-in-out infinite`,
-                        animationDelay: `${1 * index}s`,  // Staggered delay based on index
-                      }}
-                    >
-                      {word}
-                    </span>
-                  );
-                } else {
-                  return ` ${word} `;
-                }
-              })} */
-}

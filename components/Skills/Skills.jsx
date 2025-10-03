@@ -2,59 +2,135 @@
 
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
-import { skills } from "@/constants";
-import { fadeIn, textVariant } from "@/utils/motion";
+import { skillsAndTools } from "@/constants";
 import SectionWrapper from "@/hoc/SectionWrapper";
 
-import Divider from "../Divider/Divider";
-import BlurText from "../BlurText/BlurText";
-
-const SkillTile = ({ skill, t, index }) => (
-  <motion.div
-    {...fadeIn("up", "spring", 0.5 * index, 0.75)}
-    className='bg-[var(--color-bg-tile)] rounded-[43px] md:col-span-4'
-  >
-    <div className='flex flex-col lg:flex-row items-center lg:items-start gap-4 w-full h-full px-6 py-8'>
-      <div className='flex justify-center items-center bg-[var(--color-gray)] p-2 rounded-[22px] overflow-hidden aspect-square'>
-        <Image src={skill.icon} alt={skill.name} width={62} height={62} />
-      </div>
-
-      <div
-        className='md:flex flex-col flex-1 gap-2 items-center justify-start lg:items-start text-center lg:text-start overflow-hidden p-0 text-[14px]'>
-        <h4>
-          <BlurText text={t(`skills.${skill.name}.title`)} index={index} />
-        </h4>
-        <div className='hidden md:flex'>
-          <BlurText text={t(`skills.${skill.name}.p`)} index={index} />
-        </div>
-      </div>
+// Reusable Tool Component
+const ToolCard = ({ tool, size = "mobile" }) => {
+  const padding = size === "mobile" ? "p-12" : "p-8";
+  
+  return (
+    <div className={`aspect-square w-full h-full bg-[var(--color-gray-tile)] flex items-center justify-center ${padding}`}>
+      <Image
+        src={tool.icon}
+        alt={tool.name}
+        width={40}
+        height={40}
+        unoptimized
+        className="object-contain w-auto h-[44px]"
+      />
     </div>
-  </motion.div>
-);
+  );
+};
+
+// Reusable Skill Component
+const SkillCard = ({ skill, t, layout = "mobile", index = 0, totalSkills = 0 }) => {
+  const getDesktopClasses = () => {
+    const isFirstOrLast = index === 0 || index === totalSkills - 1;
+    const colSpan = isFirstOrLast ? 'col-span-4' : 'col-span-2';
+    const paddingTop = index !== 0 ? 'pt-14' : 'pt-4 justify-center';
+    return `${colSpan} ${paddingTop}`;
+  };
+
+  const baseClasses = "bg-[var(--color-gray-tile)] p-4 flex flex-col space-y-2";
+  const mobileClasses = "px-[68px] py-[40px]";
+  const desktopClasses = `${getDesktopClasses()} justify-baseline`;
+  
+  const containerClasses = layout === "mobile" 
+    ? `${baseClasses} ${mobileClasses}` 
+    : `${baseClasses} ${desktopClasses}`;
+
+  return (
+    <div className={containerClasses}>
+      <h4 className="uppercase">
+        {t(`skills.${skill.name}.title`)}
+      </h4>
+      <p className="text-[var(--color-gray)]">
+        {t(`skills.${skill.name}.p`)}
+      </p>
+    </div>
+  );
+};
+
+// Header Component
+const SkillsHeader = ({ t, layout = "mobile" }) => {
+  if (layout === "mobile") {
+    return (
+      <div className="mb-4">
+        <h2 className="text-[16px] font-medium mb-4">{t("skills.title")}</h2>
+        <p className="text-[var(--color-gray)] mb-6">{t("skills.p")}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-8 grid grid-cols-12 gap-5">
+      <h2 className="mb-4">{t("skills.title")}</h2>
+      <p className="text-[var(--color-gray)] mb-8 col-start-4 col-span-8">
+        {t("skills.p")}
+      </p>
+    </div>
+  );
+};
 
 const Skills = () => {
   const { t } = useTranslation("common");
 
-  return (
-    <section className='max-w-1680 mx-auto h-full md:pt-[146px] pt-[130px]' id="skills">
-      <div className='px-5 md:px-[80px] mb-[64px]'>
-        <motion.h2
-          {...textVariant("down")}
-          className='max-w-[740px] mx-auto section-title mb-4 md:mb-12 text-center'
-        >
-          {t("skills.title")}
-        </motion.h2>
+  const tools = skillsAndTools.filter(item => item.icon);
+  const competencies = skillsAndTools.filter(item => !item.icon);
 
-        <div className='grid grid-cols-2 md:grid-cols-12 gap-4 md:gap-6 auto-rows-min w-full'>
-          {skills.map((skill, index) => (
-            <SkillTile key={skill.name} skill={skill} t={t} index={index} />
+  return (
+    <div className="border-t border-[var(--color-gray-border)] pt-[22px] md:pt-[32px]">
+      {/* Mobile Layout */}
+      <div className="lg:hidden">
+        <SkillsHeader t={t} layout="mobile" />
+
+        {/* Tools Grid - 2x2 */}
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          {tools.map((tool) => (
+            <ToolCard key={tool.name} tool={tool} size="mobile" />
+          ))}
+        </div>
+
+        {/* Skills List */}
+        <div className="space-y-4">
+          {competencies.map((skill) => (
+            <SkillCard 
+              key={skill.name} 
+              skill={skill} 
+              t={t} 
+              layout="mobile" 
+            />
           ))}
         </div>
       </div>
-      <Divider />
-    </section>
+
+      {/* Desktop Layout */}
+      <div className="hidden lg:flex flex-col gap-[6px]">
+        {/* Tools and Skills Grid */}
+        <div className="grid grid-cols-12 grid-rows-2 gap-5 mb-4">
+          {tools.map((tool) => (
+            <div key={tool.name} className="col-span-2">
+              <ToolCard tool={tool} size="desktop" />
+            </div>
+          ))}
+
+          {competencies.map((skill, index) => (
+            <SkillCard 
+              key={skill.name} 
+              skill={skill} 
+              t={t} 
+              layout="desktop" 
+              index={index}
+              totalSkills={competencies.length}
+            />
+          ))}
+        </div>
+
+        <SkillsHeader t={t} layout="desktop" />
+      </div>
+    </div>
   );
 };
 

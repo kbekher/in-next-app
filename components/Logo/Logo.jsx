@@ -1,55 +1,28 @@
-import { useContext } from "react";
-import Link from "next/link";
-import Image from "next/image";
-
-import { DOMAIN } from "@/constants";
-import { HeaderContext } from "@/context/HeaderContext";
-
-const LogoImg = (width, height) => (
-  <Image
-    src={`${DOMAIN}logo-new-1.png`}
-    alt='Ivan Inozemtsev logo'
-    width={width}
-    height={height}
-    draggable='false'
-  // sizes="(max-width: 1200px) 100vw, (max-width: 1200px) 50vw, 33vw" //TODO:
-  />
-);
-
 const Logo = ({ isClickable = false }) => {
-  const { isShrunk } = useContext(HeaderContext);
 
   const handleLogoClick = () => {
     if (window.scrollY === 0) return;
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-  const sizes = {
-    width: isShrunk ? 18 : 23,
-    height: isShrunk ? 35 : 44,
-  }
 
   return (
     <>
       {isClickable ? (
-        <div className='w-[110px]'>
-          <Link
-            href='/'
-            className='block w-[24px] cursor-pointer'
+        <div className=''>
+          <button
+            type='button'
+            className='w-max block cursor-pointer uppercase'
             onClick={handleLogoClick}
           >
-            {LogoImg(sizes.width, sizes.height)}
-            {/* {LogoImg(30, 57)} */}
-          </Link>
+            Ivan Inozemtsev
+          </button>
         </div>
       ) : (
-        <div className='w-[110px] flex justify-center md:block'>
-          {LogoImg(sizes.width, sizes.height)}
+        <div className='flex justify-center md:block'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path d="M9 4C12.1696 4 14.7391 6.5695 14.7391 9.73913V26.9565C11.5695 26.9565 9 24.387 9 21.2174V4Z" fill="#040404" />
+            <circle cx="18.1303" cy="24.0869" r="2.86957" fill="#040404" />
+          </svg>
         </div>
       )}
     </>

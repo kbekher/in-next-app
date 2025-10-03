@@ -1,11 +1,9 @@
-import systems from "/images/systems.svg";
-import graphic from "/images/graphic.svg";
-import ux from "/images/ux.svg";
-import prototyping from "/images/prototyping.svg";
-import illustration from "/images/illustration.svg";
-import ui from "/images/ui.svg";
+import figma from "/images/figma.svg";
+import photoshop from "/images/photoshop.svg";
+import illustrator from "/images/illustrator.svg";
+import procreate from "/images/procreate.svg";
 
-const DOMAIN = 'https://d3bxg96r07nwt6.cloudfront.net/';
+const DOMAIN = 'https://d282ut73jdj7fd.cloudfront.net';
 
 const navLinks = [
   {
@@ -19,61 +17,71 @@ const navLinks = [
   },
 ];
 
-const skills = [
-  { name: "systems", icon: systems },
-  { name: "graphic", icon: graphic },
-  { name: "ux", icon: ux },
-  { name: "prototyping", icon: prototyping },
-  { name: "illustration", icon: illustration },
-  { name: "ui", icon: ui },
-];
-
-const reviews = [
-  { id: 1, imgUrl: "reviewer1.jpg" },
-  { id: 2, imgUrl: "reviewer2.jpg" },
+const mediaLinks = [
+  { name: 'Instagram', href: 'https://www.instagram.com/inozemtsevco/' },
+  { name: 'Behance', href: 'https://www.behance.net/ivaninozemcev' },
+  { name: 'Dribbble', href: 'https://dribbble.com/Bluntcath23' },
+  { name: 'Linkedin', href: 'https://www.linkedin.com/in/inozemtsevco/' },
+  { name: 'Youtube', href: 'https://www.youtube.com/@anderelab' },
+  { name: 'Threads', href: 'https://www.threads.net/@inozemtsevco' }
 ];
 
 const projects = [
   {
-    name: "ace-and-tate",
-    assetsUrls: ["ace_and_tate.mov"],
-    behanceUrl: "https://www.behance.net/gallery/199572029/Ace-Tate-UXUI-Design"
+    id: 1,
+    name: "andere-lab",
+    year: 2025,
+    type: "brand",
+    assetsUrls: ["andere-lab-1", "andere-lab-2"],
+    behanceUrl: "https://www.behance.net/gallery/224980497/andere-lab-Brand-Identity"
   },
   {
+    id: 2,
+    name: "photo-gallery",
+    year: 2025,
+    type: "ux",
+    assetsUrls: ["photo-gallery-1"],
+    behanceUrl: "https://www.behance.net/gallery/224544111/Virtual-Gallery-of-a-Film-Photographer-Website-Design"
+  },
+  {
+    id: 3,
+    name: "raum-studio",
+    year: 2025,
+    type: "brand",
+    assetsUrls: ["raum-1", "raum-2", "raum-3"],
+    behanceUrl: "https://www.behance.net/gallery/230235097/RAUM-STUDIO-RS-Architectural-bureau"
+  },
+  {
+    id: 4,
     name: "xtrafit",
-    assetsUrls: ["xtrafit_mobile.mov", "xtrafit.mov"],
+    year: 2024,
+    type: "ux",
+    assetsUrls: ["xtrafit-1", "xtrafit-2"],
     behanceUrl: "https://www.behance.net/gallery/200658231/Xtrafit-Gym-Mobile-App-Design"
   },
-  {
-    name: "flowtech",
-    assetsUrls: ["fl1.jpg", "fl2.jpg", "fl3.jpg", "fll4.jpg", "fl5.jpg", "fl6.jpg"],
-    behanceUrl: "https://www.behance.net/gallery/203295061/Flowtech-Brand-Identity"
-  },
-  {
-    name: "paysera",
-    assetsUrls: ["pa1.jpg", "paa2.jpg", "pa3.jpg", "pa4.jpg", "pa5.jpg", "pa6.jpg"],
-    behanceUrl: "https://www.behance.net/gallery/204500631/Paysera-Bank-brand-identity"
+  { 
+    id: 5,
+    name: "ace-and-tate",
+    year: 2024,
+    type: "ux",
+    assetsUrls: ["ace-and-tate-1", "ace-and-tate-2", "ace-and-tate-3"],
+    behanceUrl: "https://www.behance.net/gallery/199572029/Ace-Tate-UXUI-Design"
   }
 ]
 
-const illustrations = [
-  {
-    name: "fatboy",
-    behanceUrl: "https://www.behance.net/gallery/188116553/Illustrative-World-of-Fatboy"
-  },
-  {
-    name: "people",
-  },
-  {
-    name: "grinch",
-  },
+const logos = ["db", "another", "kb", "douglas", "andere-lab", "henning-co", "mate-academy", "projector", "raum", "allclinical"];
 
-  {
-    name: "books",
-  },
-  {
-    name: "christmas",
-  },
-]
+const skillsAndTools = [
+  { name: "Figma", icon: figma },
+  { name: "Photoshop", icon: photoshop },
+  { name: "Illustrator", icon: illustrator },
+  { name: "Procreate", icon: procreate },
+  { name: "graphic"},
+  { name: "ux" },
+  { name: "systems" },
+  { name: "illustration" },
+  { name: "photography" },
+  { name: "typography" },
+];
 
-export {DOMAIN, navLinks, skills, reviews, projects, illustrations };
+export { DOMAIN, navLinks, mediaLinks, projects, logos, skillsAndTools };

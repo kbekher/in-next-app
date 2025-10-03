@@ -5,7 +5,6 @@ import Document, {
   NextScript,
 } from 'next/document';
 import i18nextConfig from '../next-i18next.config';
-import { DOMAIN } from "@/constants";
 
 class MyDocument extends Document {
   render() {
@@ -14,14 +13,7 @@ class MyDocument extends Document {
       i18nextConfig.i18n.defaultLocale
     return (
       <Html lang={currentLocale}>
-        <Head>
-          <meta charSet="utf-8" />
-          <link
-            data-react-helmet='true'
-            rel='icon'
-            href={`${DOMAIN}favicon2.png`}
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

@@ -1,26 +1,105 @@
 import { useTranslation } from 'next-i18next';
-import Logo from '../Logo/Logo';
-import ContactLinks from '../ContactLinks/ContactLinks';
-import ContactForm from '../ContactForm/ContactForm';
+import Link from 'next/link';
 
-const Footer = () => {
+import Logo from '../Logo/Logo';
+import { navLinks } from '@/constants';
+import ContactLinks from '../ContactLinks/ContactLinks';
+
+const Footer = ({ onCookieSettings }) => {
   const { t } = useTranslation('common');
 
-  return (
-    <footer className='max-w-1680 mx-auto px-5 pb-[254px] md:pb-[54px] lg:px-[80px] flex flex-col md:flex-row justify-between relative'>
+  // Reusable components to avoid duplication
+  const MenuSection = ({ className = "" }) => (
+    <div className={`flex flex-col gap-3 w-full ${className}`}>
+      <span className='uppercase'>Menu</span>
+      <ul className='flex flex-col gap-3 text-[var(--color-gray)]'>
+        {navLinks.map((navLink) => (
+          <li key={navLink.id}>
+            <Link href={`#${navLink.id}`} className="text-link">
+              {t(`nav.${navLink.id}`)}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 
-      <div className='text-center md:text-left'>
-        <h3 className='text-[40px] leading-[52px] md:text-[16px] md:leading-normal'>{t('footer.title')}</h3>
-        <p className='mb-8'>{t('footer.description')}</p>
-        
-        <div className='absolute bottom-[160px] left-1/2 -translate-x-1/2 md:static md:translate-x-0 z-10'>
+  const ContactSection = ({ className = "" }) => (
+    <div className={`flex flex-col gap-3 ${className}`}>
+      <span className='uppercase'>Contact</span>
+      <a
+        href="mailto:inozemtsevco@gmail.com"
+        className='text-[var(--color-gray)] text-link'
+      >
+        inozemtsevco@gmail.com
+      </a>
+    </div>
+  );
+
+  const LogoAndCopyright = ({ mobile = false, onCookieSettings }) => (
+    mobile ? (
+      <div className="grid grid-cols-2 gap-8 mt-[80px] justify-between items-end">
+        <div className="flex justify-start">
           <Logo />
         </div>
+        <div className="flex justify-between">
+          <CookieSettingsButton onCookieSettings={onCookieSettings} />
+          <p className="text-end">©2025</p>
+        </div>
+      </div>
+    ) : (
+      <div className='col-span-2 flex flex-col'>
+        <div className='mb-2'>
+          <Logo />
+        </div>
+        <p className='text-[var(--color-gray)]'>©2025</p>
+      </div>
+    )
+  );
+
+  const CookieSettingsButton = ({ onCookieSettings }) => (
+    <button
+      onClick={onCookieSettings}
+      className="text-[var(--color-gray)] text-link w-max"
+    >
+      Cookie Settings
+    </button>
+  );
+
+  return (
+    <footer className='mx-5 pb-[82px] md:pb-4 border-t border-[var(--color-gray-border)] pt-[22px] md:pt-[44px]'>
+      {/* Mobile Layout */}
+      <div className="md:hidden space-y-8">
+        <h3 className='uppercase'>{t('h1')}</h3>
+        <div className="grid grid-cols-2 gap-8">
+          <MenuSection />
+          <div className='flex flex-col gap-3'>
+            <ContactSection />
+            <div className='flex flex-col gap-3 text-[var(--color-gray)]'>
+              <ContactLinks />
+            </div>
+          </div>
+        </div>
+        <LogoAndCopyright mobile onCookieSettings={onCookieSettings} />
       </div>
 
-      <div className='flex flex-col items-center md:items-end'>
-        <ContactForm />
-        <ContactLinks />
+      {/* Desktop Layout */}
+      <div className="hidden md:block">
+        <div className="grid grid-cols-12 gap-5 items-start">
+          <div className='col-span-12 flex justify-between'>
+            <h3 className='uppercase'>{t('h1')}</h3>
+            <div className="flex flex-col items-end gap-3">
+              <MenuSection />
+              <CookieSettingsButton onCookieSettings={onCookieSettings} />
+            </div>
+          </div>
+
+          <div className='col-span-12 grid grid-cols-12 gap-5 items-end'>
+            <LogoAndCopyright />
+            <ContactSection className="col-span-3 lg:col-span-2 gap-2" />
+            <ContactLinks />
+          </div>
+        </div>
       </div>
     </footer>
   )
