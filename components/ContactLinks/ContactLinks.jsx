@@ -1,9 +1,9 @@
 import { mediaLinks } from "@/constants";
 
-const ContactLinks = () => {
+const ContactLinks = ( { slice = -1 } ) => {
   return (
     <>
-      {mediaLinks.map(({ name, href }) => (
+      {mediaLinks.slice(0, slice).map(({ name, href }) => (
         <a
           key={name}
           href={href}

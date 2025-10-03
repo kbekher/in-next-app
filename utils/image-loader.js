@@ -29,7 +29,7 @@ const imageLoader = ({ src, width }) => {
 
   // Check if this is a logo (no size extensions available)
   // Logo files are typically in root or have "logo" in the name
-  const isNotProject = !cleanPath.includes('projects/');
+  const isNotProject = !cleanPath.includes('projects/') && !cleanPath.includes('hero');
   
   let finalUrl;
   if (isNotProject) {

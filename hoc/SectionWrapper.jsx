@@ -20,9 +20,9 @@ const SectionWrapper = (Component, idName) =>
       // </motion.section>
 
       <section >
-    <span className="hash-span" id={idName}>
-      {" "}
-      </span>
+        <span className="hash-span" id={idName}>
+        {" "}
+        </span>
         <Component />
       </section >
     )

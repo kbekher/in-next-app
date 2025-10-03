@@ -69,9 +69,11 @@
     }
   },
   "about": {
-    "title": "About me",
+    "title": "About",
     "p1": "Hi there! I'm Ivan, a UX/UI designer, graphic designer, and illustrator with extensive experience in creating unique and effective visual solutions. I specialize in making brands and products stand out by designing user-friendly interfaces that are both intuitive and eye-catching.",
     "p2": "I started my career in graphic design, crafting attractive logos and corporate identities for various companies. Over time, I shifted my focus to UX/UI design, where I design interfaces that are not only easy to use but also visually appealing. I'm also passionate about illustration, which allows me to express my creativity and inspiration through visual art.",
-    "p3": "My goal is to not just complete projects, but to inspire my clients and users alike with each design I create."
+    "p3": "My goal is to not just complete projects, but to inspire my clients and users alike with each design I create.",
+    "p4": "Graphic Designer, UX/UI Designer",
+    "p5": "Dortmund, Germany"
   }
 }
