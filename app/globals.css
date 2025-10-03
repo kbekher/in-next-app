@@ -133,26 +133,28 @@ section {
 }
 
 /* Mobile typography */
-body {
-  font-size: 14px;
-}
-
+/* body {
+  font-size: 16px;
+} */
+body,
 header,
+h2,
+h3,
 footer {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 h1 {
   font-size: 20px;
 }
 
-h2 {
-  font-size: 12px;
+/* h2 {
+  font-size: 16px;
 }
 
 h3 {
   font-size: 16px;
-}
+} */
 
 /* TODO: delete */
 header {
@@ -206,16 +208,10 @@ header {
     font-size: 32px;
   }
 
+  body,
+  h2,
   header,
   footer,
-  h3 {
-    font-size: 14px;
-  }
-
-  h2 {
-    font-size: 14px;
-  }
-
   h3 {
     font-size: 14px;
   }

@@ -1,3 +1,6 @@
+import Image from "next/image";
+import logoImage from '/public/logo.png';
+
 const Logo = ({ isClickable = false }) => {
 
   const handleLogoClick = () => {
@@ -19,10 +22,11 @@ const Logo = ({ isClickable = false }) => {
         </div>
       ) : (
         <div className='flex justify-center md:block'>
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <Image src={logoImage} alt="Logo" width={40} height={40} unoptimized />
+          {/* <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
             <path d="M9 4C12.1696 4 14.7391 6.5695 14.7391 9.73913V26.9565C11.5695 26.9565 9 24.387 9 21.2174V4Z" fill="#040404" />
             <circle cx="18.1303" cy="24.0869" r="2.86957" fill="#040404" />
-          </svg>
+          </svg> */}
         </div>
       )}
     </>

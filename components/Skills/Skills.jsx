@@ -66,7 +66,7 @@ const SkillsHeader = ({ t, layout = "mobile" }) => {
 
   return (
     <div className="mb-8 grid grid-cols-12 gap-5">
-      <h2 className="mb-4">{t("skills.title")}</h2>
+      <h2 className="mb-4 col-span-2">{t("skills.title")}</h2>
       <p className="text-[var(--color-gray)] mb-8 col-start-4 col-span-8">
         {t("skills.p")}
       </p>
