@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const Logo = ({ isClickable = false }) => {
 
   const handleLogoClick = () => {
@@ -11,13 +9,13 @@ const Logo = ({ isClickable = false }) => {
     <>
       {isClickable ? (
         <div className=''>
-          <Link
-            href='/'
+          <button
+            type='button'
             className='w-max block cursor-pointer uppercase'
             onClick={handleLogoClick}
           >
             Ivan Inozemtsev
-          </Link>
+          </button>
         </div>
       ) : (
         <div className='flex justify-center md:block'>

@@ -15,6 +15,27 @@
     "website": "View Website",
     "join": "Join"
   },
+  "cookie-settings": {
+    "p": "We use cookies to enhance your experience, remember your language preferences, and analyze site traffic with Google Analytics. You can accept all cookies, manage your preferences, or accept only necessary cookies.",
+    "accept-all": "Accept All",
+    "save-all": "Save Preferences",
+    "manage-preferences": "Manage Preferences",
+    "cancel": "Cancel",
+    "title": "Cookies we use",
+    "necessary": {
+      "title": "Necessary Cookies",
+      "p": "Required for the basic functioning of the website."
+    },
+    "functional": {
+      "title": "Functional Cookies",
+      "p": "Remember your language preferences and interface settings."
+    },
+    "analytics": {
+      "title": "Analytics Cookies",
+      "p": "Google Analytics tracks usage to help us improve this portfolio website."
+    },
+    "span": "You can change your preferences at any time. "
+  },
   "projects": {
     "types": {
       "brand": "Brand Design",

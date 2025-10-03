@@ -14,7 +14,7 @@ import Footer from '@/components/Footer/Footer';
 import NavbarMobile from '@/components/Navbar/NavbarMobile';
 import Projects from '@/components/Projects/Projects';
 
-const Homepage = () => {
+const Homepage = ({ onCookieSettings }) => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
   }, []);
@@ -38,7 +38,7 @@ const Homepage = () => {
           </motion.div>
         </main>
 
-        <Footer />
+        <Footer onCookieSettings={onCookieSettings} />
       </div>
     </div>
   );

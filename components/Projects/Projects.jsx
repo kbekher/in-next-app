@@ -40,7 +40,7 @@ const Project = ({ project, index }) => {
       <div className='flex flex-col gap-4 md:grid md:grid-cols-12 md:gap-5 md:items-start'>
         {/* Project Title and Type */}
         <div className='md:col-span-3'>
-          <Link href={behanceUrl} target='_blank'>
+          <Link href={behanceUrl} target='_blank' className='block w-max'>
             <h2>{t(`projects.${name}.title`)}</h2>
           </Link>
           <p className='text-[var(--color-gray)]'>{t(`projects.types.${type}`)}</p>

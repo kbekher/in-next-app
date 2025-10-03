@@ -5,12 +5,12 @@ import Logo from '../Logo/Logo';
 import { navLinks } from '@/constants';
 import ContactLinks from '../ContactLinks/ContactLinks';
 
-const Footer = () => {
+const Footer = ({ onCookieSettings }) => {
   const { t } = useTranslation('common');
-  
+
   // Reusable components to avoid duplication
   const MenuSection = ({ className = "" }) => (
-    <div className={`flex flex-col gap-3 ${className}`}>
+    <div className={`flex flex-col gap-3 w-full ${className}`}>
       <span className='uppercase'>Menu</span>
       <ul className='flex flex-col gap-3 text-[var(--color-gray)]'>
         {navLinks.map((navLink) => (
@@ -36,13 +36,16 @@ const Footer = () => {
     </div>
   );
 
-  const LogoAndCopyright = ({ mobile = false }) => (
+  const LogoAndCopyright = ({ mobile = false, onCookieSettings }) => (
     mobile ? (
       <div className="grid grid-cols-2 gap-8 mt-[80px] justify-between items-end">
         <div className="flex justify-start">
           <Logo />
         </div>
-        <p className="text-end">©2025</p>
+        <div className="flex justify-between">
+          <CookieSettingsButton onCookieSettings={onCookieSettings} />
+          <p className="text-end">©2025</p>
+        </div>
       </div>
     ) : (
       <div className='col-span-2 flex flex-col'>
@@ -53,14 +56,21 @@ const Footer = () => {
       </div>
     )
   );
-  
+
+  const CookieSettingsButton = ({ onCookieSettings }) => (
+    <button
+      onClick={onCookieSettings}
+      className="text-[var(--color-gray)] text-link w-max"
+    >
+      Cookie Settings
+    </button>
+  );
+
   return (
     <footer className='mx-5 pb-[82px] md:pb-4 border-t border-[var(--color-gray-border)] pt-[22px] md:pt-[44px]'>
-      
       {/* Mobile Layout */}
       <div className="md:hidden space-y-8">
         <h3 className='uppercase'>{t('h1')}</h3>
-        
         <div className="grid grid-cols-2 gap-8">
           <MenuSection />
           <div className='flex flex-col gap-3'>
@@ -70,8 +80,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
-        <LogoAndCopyright mobile />
+        <LogoAndCopyright mobile onCookieSettings={onCookieSettings} />
       </div>
 
       {/* Desktop Layout */}
@@ -79,7 +88,10 @@ const Footer = () => {
         <div className="grid grid-cols-12 gap-5 items-start">
           <div className='col-span-12 flex justify-between'>
             <h3 className='uppercase'>{t('h1')}</h3>
-            <MenuSection />
+            <div className="flex flex-col items-end gap-3">
+              <MenuSection />
+              <CookieSettingsButton onCookieSettings={onCookieSettings} />
+            </div>
           </div>
 
           <div className='col-span-12 grid grid-cols-12 gap-5 items-end'>
@@ -89,7 +101,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      
     </footer>
   )
 }

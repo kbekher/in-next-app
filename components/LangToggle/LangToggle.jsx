@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { debounce } from 'lodash';
+import { useCookiePreferences } from '@/hooks/useCookiePreferences';
 
 const LangToggle = () => {
   const router = useRouter();
+  const { canStoreLanguage } = useCookiePreferences();
 
   const [checked, setChecked] = useState(null); // Start with null to avoid mismatched UI
 
@@ -11,8 +13,13 @@ const LangToggle = () => {
     // Update the checkbox state when the locale becomes available
     if (router.locale) {
       setChecked(router.locale === 'de');
+      
+      // Store language preference if functional cookies are enabled
+      if (canStoreLanguage()) {
+        localStorage.setItem('language', router.locale);
+      }
     }
-  }, [router.locale]);
+  }, [router.locale, canStoreLanguage]);
 
   const onToggleLanguageClick = debounce(() => {
     const newLocale = checked ? 'en' : 'de'; // Switch locale based on the current state
@@ -24,6 +31,11 @@ const LangToggle = () => {
 
     // Construct the new URL with the updated locale
     const newUrl = `/${newLocale}${basePath.replace(`/${router.locale}`, '')}`;
+
+    // Store language preference if functional cookies are enabled
+    if (canStoreLanguage()) {
+      localStorage.setItem('language', newLocale);
+    }
 
     router.push({ pathname, query }, newUrl, { locale: newLocale });
   }, 300); // Debounce for 300ms

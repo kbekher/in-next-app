@@ -3,12 +3,23 @@ import Head from 'next/head';
 
 import { useState } from 'react';
 import Preloader from '@/components/Preloader/Preloader';
+import CookieConsent from '@/components/CookieConsent/CookieConsent';
+import CookieBanner from '@/components/CookieConsent/CookieBanner';
 
 const MyApp = ({ Component, pageProps }) => {
   const [showPreloader, setShowPreloader] = useState(true);
+  const [showCookieConsent, setShowCookieConsent] = useState(false);
 
   const handlePreloaderComplete = () => {
     setShowPreloader(false);
+  };
+
+  const handleManagePreferences = () => {
+    setShowCookieConsent(true);
+  };
+
+  const handleCloseCookieConsent = () => {
+    setShowCookieConsent(false);
   };
 
   return (
@@ -48,7 +59,17 @@ const MyApp = ({ Component, pageProps }) => {
           onComplete={handlePreloaderComplete}
         />
       )}
-      {!showPreloader && <Component {...pageProps} />}
+      
+      {!showPreloader && (
+        <>
+          <Component {...pageProps} onCookieSettings={handleManagePreferences} />
+          <CookieBanner onManagePreferences={handleManagePreferences} />
+          <CookieConsent 
+            isOpen={showCookieConsent} 
+            onClose={handleCloseCookieConsent} 
+          />
+        </>
+      )}
     </>
   );
 }
