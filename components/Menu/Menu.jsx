@@ -218,7 +218,7 @@ const Menu = ({ isOpen, onClose }) => {
           {/* Mobile Navbar - Mobile only */}
           {isMobile && (
             <motion.div 
-              className='text-[var(--color-white)] px-5 pb-8'
+              className='text-[var(--color-white)] px-5 pb-8 text-[16px]'
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.4 }}
