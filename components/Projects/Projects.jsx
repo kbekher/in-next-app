@@ -17,7 +17,7 @@ const Project = ({ project, index }) => {
       className={`flex flex-col gap-2 md:gap-3 mb-8 border-t border-[var(--color-gray-border)] ${index === 0 ? 'pt-3 md:pt-4' : 'pt-[22px] md:pt-[28px]'}`}
     >
       {/* Img Section */}
-      <Link href={behanceUrl} target='_blank'>
+      <Link href={behanceUrl} target='_blank' className='project-link'>
         <div className='flex flex-col md:flex-row gap-2 md:gap-5'>
           {assetsUrls.map(asset => (
             <div key={asset} className='w-full'>
@@ -40,7 +40,7 @@ const Project = ({ project, index }) => {
       <div className='flex flex-col gap-4 md:grid md:grid-cols-12 md:gap-5 md:items-start'>
         {/* Project Title and Type */}
         <div className='md:col-span-3'>
-          <Link href={behanceUrl} target='_blank' className='block w-max'>
+          <Link href={behanceUrl} target='_blank' className='block w-max project-link'>
             <h2>{t(`projects.${name}.title`)}</h2>
           </Link>
           <p className='text-[var(--color-gray)]'>{t(`projects.types.${type}`)}</p>

@@ -253,3 +253,51 @@ body.menu-open {
   overflow: hidden;
   height: 100vh;
 }
+
+/* Project Hover Cursor */
+.project-link {
+  cursor: none;
+  position: relative;
+  --cursor-x: 0px;
+  --cursor-y: 0px;
+}
+
+.project-link::after {
+  content: "Open Project";
+  position: fixed;
+  top: var(--cursor-y);
+  left: var(--cursor-x);
+  color: var(--color-white);
+  font-size: 12px;
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transform: translate(8px, -50%);
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  padding-left: 15px;
+  mix-blend-mode: difference;
+}
+
+.project-link::before {
+  content: "";
+  position: fixed;
+  top: var(--cursor-y);
+  left: var(--cursor-x);
+  width: 14px;
+  height: 14px;
+  background: var(--color-white);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transform: translate(2px, -50%);
+  transition: opacity 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+.project-link:hover::after,
+.project-link:hover::before {
+  opacity: 1;
+}

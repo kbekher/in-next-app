@@ -14,6 +14,7 @@ import Skills from '@/components/Skills/Skills';
 import Footer from '@/components/Footer/Footer';
 import NavbarMobile from '@/components/Navbar/NavbarMobile';
 import Projects from '@/components/Projects/Projects';
+import ProjectCursor from '@/components/ProjectCursor/ProjectCursor';
 
 const Homepage = ({ onCookieSettings }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,6 +56,9 @@ const Homepage = ({ onCookieSettings }) => {
       
       {/* Menu rendered outside main content for proper positioning */}
       <Menu isOpen={isMenuOpen} onClose={handleMenuClose} />
+      
+      {/* Project cursor for hover effects */}
+      <ProjectCursor />
     </div>
   );
 };
