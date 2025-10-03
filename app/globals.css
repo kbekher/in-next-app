@@ -243,3 +243,13 @@ header {
     font-size: 48px;
   }
 }
+
+/* Menu Animation Styles */
+body {
+  overflow-x: hidden;
+}
+
+body.menu-open {
+  overflow: hidden;
+  height: 100vh;
+}

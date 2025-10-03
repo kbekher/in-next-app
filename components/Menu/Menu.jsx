@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 import { useMediaQuery } from 'react-responsive';
-import { Dialog } from '@headlessui/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 import { mediaLinks, navLinks, projects } from '@/constants';
@@ -11,34 +11,62 @@ import Logo from '../Logo/Logo';
 import LangToggle from '../LangToggle/LangToggle';
 import ContactLinks from '../ContactLinks/ContactLinks';
 
-const Menu = () => {
+const Menu = ({ isOpen, onClose }) => {
   const { t } = useTranslation('common');
-  const [isLayerOpen, setIsLayerOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
-  const toggleOverlay = () => { setIsLayerOpen(!isLayerOpen) };
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [isOpen]);
 
   return (
-    <div>
-      <button
-        type='button'
-        className='uppercase'
-        onClick={toggleOverlay}
-      >
-        {t("menu.btn")}
-      </button>
-
-      <Dialog open={isLayerOpen} onClose={toggleOverlay} className="relative z-50">
-        <div className="fixed inset-0 bg-[var(--color-bg-menu)] z-49" aria-hidden="true" />
-        <Dialog.Panel className="w-screen h-screen fixed inset-0 flex flex-col">
+    <AnimatePresence>
+      {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black/20 z-40"
+              onClick={onClose}
+            />
+            
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ 
+                type: 'tween',
+                duration: 0.5,
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
+              className="fixed inset-y-0 right-0 w-full h-full flex flex-col bg-[var(--color-bg-menu)] z-50"
+            >
 
           {/* Header - Same as main header */}
-          <header className='w-full py-4 text-[var(--color-white)]'>
+          <motion.header 
+            className='w-full py-4 text-[var(--color-white)]'
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+          >
             <div className="grid grid-cols-2 md:grid-cols-12 px-5 md:pr-8">
 
               {/* Left - Logo (cols 1-3) */}
               <div className="md:col-span-2">
-                <div className="w-max" onClick={toggleOverlay}>
+                <div className="w-max" onClick={onClose}>
                   <Logo isClickable />
                 </div>
               </div>
@@ -57,7 +85,7 @@ const Menu = () => {
                   <button
                     type="button"
                     className="uppercase h-max"
-                    onClick={toggleOverlay}
+                    onClick={onClose}
                   >
                     {t("menu.btn")}
                   </button>
@@ -65,10 +93,15 @@ const Menu = () => {
               )}
 
             </div>
-          </header>
+          </motion.header>
 
           {/* Main Content Area */}
-          <div className="flex-1 flex mt-8 md:mt-[140px] px-5">
+          <motion.div 
+            className="flex-1 flex mt-8 md:mt-[140px] px-5"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+          >
 
             {/* Navigation Links - Table Style */}
             <div className="w-full">
@@ -83,7 +116,7 @@ const Menu = () => {
                         <li key={navLink.id}>
                           <Link
                             href={`#${navLink.id}`}
-                            onClick={toggleOverlay}
+                            onClick={onClose}
                             className="text-link"
                           >
                             {t(`nav.${navLink.id}`)}
@@ -102,7 +135,7 @@ const Menu = () => {
                       <li key={project.name}>
                         <Link
                           href={`#${project.name}`}
-                          onClick={toggleOverlay}
+                          onClick={onClose}
                           className="text-link"
                         >
                           {t(`projects.${project.name}.title`)}
@@ -152,11 +185,16 @@ const Menu = () => {
                 )}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Footer - Desktop only */}
           {!isMobile && (
-            <footer className='w-full px-5 pb-5 flex flex-row justify-between text-[14px]'>
+            <motion.footer 
+              className='w-full px-5 pb-5 flex flex-row justify-between text-[14px]'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.4 }}
+            >
               <div className='w-full grid grid-cols-12 gap-5 col-span-12 items-end text-[var(--color-gray)]'>
                 {/* Left - Copyright and Logo */}
                 <p className='col-span-2'>©2025</p>
@@ -174,28 +212,34 @@ const Menu = () => {
 
                 <ContactLinks />
               </div>
-            </footer>
+            </motion.footer>
           )}
 
           {/* Mobile Navbar - Mobile only */}
           {isMobile && (
-            <div className='text-[var(--color-white)] px-5 pb-8'>
+            <motion.div 
+              className='text-[var(--color-white)] px-5 pb-8'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.4 }}
+            >
               <div className=' flex justify-between'>
                 <LangToggle />
                 <button
                   type="button"
                   className="uppercase btn"
-                  onClick={toggleOverlay}
+                          onClick={onClose}
                 >
                   {t("menu.btn")}
                 </button>
               </div>
-            </div>
+            </motion.div>
           )}
 
-        </Dialog.Panel>
-      </Dialog>
-    </div >
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
   );
 };
 

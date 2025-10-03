@@ -1,14 +1,14 @@
 import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'next-i18next';
 
 import Logo from "../Logo/Logo";
-import Menu from "../Menu/Menu";
 import LangToggle from "../LangToggle/LangToggle";
 
-const Header = () => {
+const Header = ({ onMenuToggle }) => {
+  const { t } = useTranslation('common');
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   return (
-    // bg-[var(--color-bg)] backdrop-blur-sm
     <header className='fixed top-0 left-0 right-0 w-full py-4 z-50 mix-blend-difference text-[var(--color-white)]'> 
       <div className="grid grid-cols-2 md:grid-cols-12 px-5">
         {/* Left - Logo (cols 1-3) */}
@@ -26,7 +26,13 @@ const Header = () => {
         {!isMobile && (
           <div className="md:col-start-11 md:col-span-2 h-full flex justify-between gap-6">
             <LangToggle />
-            <Menu />
+            <button
+              type='button'
+              className='uppercase flex'
+              onClick={onMenuToggle}
+            >
+              {t("menu.btn")}
+            </button>
           </div>
         )}
       </div>
