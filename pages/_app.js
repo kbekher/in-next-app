@@ -47,6 +47,10 @@ const MyApp = ({ Component, pageProps }) => {
         <meta name='description' content='UX/UI & Graphic Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences.' />
         <meta name="keywords" content="UX/UI design, Installations, Artworks, Ivan Inozemtsev, graphic design, art, illustration, ukrainian artist, artist, designer, artist and designer, colour, art, german artist, artist, designer, germany"></meta>
         
+        {/* Robots Meta Tags - Explicitly allow indexing */}
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content="Ivan Inozemtsev | UX/UI & Graphic Designer - Creating Inspiring Web Solutions" />
         <meta property="og:description" content="UX/UI & Graphic Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences." />
