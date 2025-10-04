@@ -43,9 +43,12 @@ const CookieConsent = ({ isOpen, onClose, onCancel }) => {
       localStorage.removeItem('language'); // Remove saved language if functional disabled
     }
 
-    // Load Google Analytics if analytics cookies are enabled
+    // Handle Google Analytics based on analytics preference
     if (preferences.analytics) {
       loadGoogleAnalytics();
+    } else {
+      // Remove GA scripts and disable tracking when analytics is disabled
+      removeGoogleAnalytics();
     }
 
     onClose();
@@ -73,9 +76,11 @@ const CookieConsent = ({ isOpen, onClose, onCancel }) => {
       const script1 = document.createElement('script');
       script1.async = true;
       script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-8E5C965PHX';
+      script1.id = 'ga-script-1'; // Add ID for easy removal
       document.head.appendChild(script1);
 
       const script2 = document.createElement('script');
+      script2.id = 'ga-script-2'; // Add ID for easy removal
       script2.innerHTML = `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -83,6 +88,34 @@ const CookieConsent = ({ isOpen, onClose, onCancel }) => {
         gtag('config', 'G-8E5C965PHX');
       `;
       document.head.appendChild(script2);
+    }
+  };
+
+  const removeGoogleAnalytics = () => {
+    if (typeof window !== 'undefined') {
+      // Remove GA scripts
+      const script1 = document.getElementById('ga-script-1');
+      const script2 = document.getElementById('ga-script-2');
+      
+      if (script1) {
+        document.head.removeChild(script1);
+      }
+      if (script2) {
+        document.head.removeChild(script2);
+      }
+
+      // Disable GA tracking by setting the disable flag
+      window['ga-disable-G-8E5C965PHX'] = true;
+
+      // Clear dataLayer instead of deleting it
+      if (window.dataLayer) {
+        window.dataLayer.length = 0; // Clear the array
+      }
+
+      // Override gtag function to do nothing instead of deleting it
+      if (window.gtag) {
+        window.gtag = null;
+      }
     }
   };
 
