@@ -4,22 +4,37 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-const CookieBanner = ({ onManagePreferences }) => {
+const CookieBanner = ({ onManagePreferences, showBanner }) => {
   const { t } = useTranslation('common');
 
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Check if user has already given consent
-    const consentGiven = localStorage.getItem('cookieConsentGiven');
-    if (!consentGiven) {
-      // Show banner after a short delay
-      const timer = setTimeout(() => {
-        setIsVisible(true);
-      }, 1000);
-      return () => clearTimeout(timer);
+    // If showBanner is explicitly set to true, show banner immediately
+    if (showBanner === true) {
+      setIsVisible(true);
+      return;
     }
-  }, []);
+
+    // If showBanner is explicitly set to false, hide banner
+    if (showBanner === false) {
+      setIsVisible(false);
+      return;
+    }
+
+    // Only check for initial visit logic when showBanner is undefined/null
+    // This preserves the first-time visitor experience
+    if (showBanner === undefined || showBanner === null) {
+      const consentGiven = localStorage.getItem('cookieConsentGiven');
+      if (!consentGiven) {
+        // Show banner after a short delay for first-time visitors
+        const timer = setTimeout(() => {
+          setIsVisible(true);
+        }, 1000);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [showBanner]);
 
   const acceptAll = () => {
     const allAccepted = {

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-const CookieConsent = ({ isOpen, onClose }) => {
+const CookieConsent = ({ isOpen, onClose, onCancel }) => {
   const { t } = useTranslation('common');
 
   const [preferences, setPreferences] = useState({
@@ -190,7 +190,7 @@ const CookieConsent = ({ isOpen, onClose }) => {
 
             <div className="flex flex-col md:flex-row gap-4">
               <button
-                onClick={onClose}
+                onClick={onCancel}
                 className="flex-1 md:flex-none px-3 md:px-2 py-2 md:py-1 border border-solid border-[var(--color-white)] hover:bg-[var(--color-white)] hover:text-[var(--color-black)] transition-colors"
               >
                 {t('cookie-settings.cancel')}

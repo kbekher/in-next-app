@@ -9,17 +9,24 @@ import CookieBanner from '@/components/CookieConsent/CookieBanner';
 const MyApp = ({ Component, pageProps }) => {
   const [showPreloader, setShowPreloader] = useState(true);
   const [showCookieConsent, setShowCookieConsent] = useState(false);
+  const [showCookieBanner, setShowCookieBanner] = useState(null);
 
   const handlePreloaderComplete = () => {
     setShowPreloader(false);
   };
 
   const handleManagePreferences = () => {
+    setShowCookieBanner(false); // Hide banner when opening preferences
     setShowCookieConsent(true);
   };
 
   const handleCloseCookieConsent = () => {
     setShowCookieConsent(false);
+  };
+
+  const handleCancelCookieConsent = () => {
+    setShowCookieConsent(false);  // Hide consent modal
+    setShowCookieBanner(true);    // Show banner again
   };
 
   return (
@@ -63,10 +70,14 @@ const MyApp = ({ Component, pageProps }) => {
       {!showPreloader && (
         <>
           <Component {...pageProps} onCookieSettings={handleManagePreferences} />
-          <CookieBanner onManagePreferences={handleManagePreferences} />
+          <CookieBanner 
+            onManagePreferences={handleManagePreferences}
+            showBanner={showCookieBanner}
+          />
           <CookieConsent 
             isOpen={showCookieConsent} 
-            onClose={handleCloseCookieConsent} 
+            onClose={handleCloseCookieConsent}
+            onCancel={handleCancelCookieConsent}
           />
         </>
       )}

@@ -192,10 +192,6 @@ header {
       opacity: 1;
     }
   }
-
-  .fade-in {
-    animation: fadeIn 0.5s ease-out;
-  }
 }
 
 /* Tablet styles */
@@ -248,7 +244,7 @@ body {
 
 body.menu-open {
   overflow: hidden;
-  height: 100vh;
+  touch-action: none;
 }
 
 /* Project Hover Cursor */

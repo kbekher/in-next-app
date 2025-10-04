@@ -24,14 +24,14 @@ const Footer = ({ onCookieSettings }) => {
     </div>
   );
 
-  const ContactSection = ({ className = "" }) => (
+  const ContactSection = ({ className = "", mobile = false }) => (
     <div className={`flex flex-col gap-3 ${className}`}>
       <span className='uppercase'>Contact</span>
       <a
         href="mailto:inozemtsevco@gmail.com"
         className='text-[var(--color-gray)] text-link'
       >
-        inozemtsevco@gmail.com
+        {mobile ? "Email" : "inozemtsevco@gmail.com"}
       </a>
     </div>
   );
@@ -39,12 +39,12 @@ const Footer = ({ onCookieSettings }) => {
   const LogoAndCopyright = ({ mobile = false, onCookieSettings }) => (
     mobile ? (
       <div className="grid grid-cols-2 gap-8 mt-[80px] justify-between items-end">
-        <div className="flex justify-start">
+        <div className="flex flex-col gap-2 items-start justify-start">
           <Logo />
+          <p>©2025</p>
         </div>
         <div className="flex justify-between">
           <CookieSettingsButton onCookieSettings={onCookieSettings} />
-          <p className="text-end">©2025</p>
         </div>
       </div>
     ) : (
@@ -90,7 +90,6 @@ const Footer = ({ onCookieSettings }) => {
             <h3 className='uppercase'>{t('h1')}</h3>
             <div className="flex flex-col items-end gap-3">
               <MenuSection />
-              <CookieSettingsButton onCookieSettings={onCookieSettings} />
             </div>
           </div>
 
@@ -98,6 +97,9 @@ const Footer = ({ onCookieSettings }) => {
             <LogoAndCopyright />
             <ContactSection className="col-span-3 lg:col-span-2 gap-2" />
             <ContactLinks />
+            <div className="col-span-2 text-end">
+              <CookieSettingsButton onCookieSettings={onCookieSettings} />
+            </div>
           </div>
         </div>
       </div>
