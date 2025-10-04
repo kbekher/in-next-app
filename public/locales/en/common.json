@@ -16,6 +16,7 @@
     "join": "Join"
   },
   "cookie-settings": {
+    "btn": "Cookie Settings",
     "p": "We use cookies to enhance your experience, remember your language preferences, and analyze site traffic with Google Analytics. You can accept all cookies, manage your preferences, or accept only necessary cookies.",
     "accept-all": "Accept All",
     "save-all": "Save Preferences",
@@ -67,35 +68,33 @@
     "p": "Here I share the tools I use, along with a brief look at my skills, style, and approach to design.",
     "graphic": {
       "title": "Graphic Design",
-      "p": "Developing scalable, cohesive visual elements that maintain a consistent and polished brand identity across various platforms and projects."
+      "p": "My design is the silence of form: pure structures, minimal color, and the rhythm of typography — turning visual language into a tool for storytelling."
     },
     "ux": {
-      "title": "UX Design",
-      "p": "Creating user experiences through research, user testing, and innovative design solutions."
+      "title": "UX/UI Design",
+      "p": "I design interfaces like spaces: minimal in form, guided by logic and movement, with accents that lead the user as naturally as architecture does."
     },
     "systems": {
       "title": "Design Systems",
-      "p": "Creating scalable, cohesive components that ensure consistent and efficient design across platforms and projects."
+      "p": "For me, a design system is more than just a set of components — it’s the logic and structure that create a cohesive brand across every level."
     },
     "illustration": {
       "title": "Illustration",
-      "p": "Creative illustrations that enhance storytelling, add visual interest, and align with brand identity."
+      "p": "I create visual stories: minimal forms, carefully placed accents, and the rhythm of composition turn each illustration into a complete narrative."
     },
     "photography": {
-      "title": "Prototyping",
-      "p": "Building interactive prototypes to test ideas, gather feedback, and refine designs before final implementation."
+      "title": "Photography",
+      "p": "Architecture captured on film, where light, lines, and space turn each frame into a quiet story of form and rhythm."
     },
     "typography": {
-      "title": "UI Design",
-      "p": "Designing visually appealing and intuitive interfaces that provide seamless interaction and elevate user engagement."
+      "title": "Typography",
+      "p": "I work with typography like the architecture of text: clean lines and well-proportioned forms that shape a visual language."
     }
   },
   "about": {
     "title": "About",
-    "p1": "Hi there! I'm Ivan, a UX/UI designer, graphic designer, and illustrator with extensive experience in creating unique and effective visual solutions. I specialize in making brands and products stand out by designing user-friendly interfaces that are both intuitive and eye-catching.",
-    "p2": "I started my career in graphic design, crafting attractive logos and corporate identities for various companies. Over time, I shifted my focus to UX/UI design, where I design interfaces that are not only easy to use but also visually appealing. I'm also passionate about illustration, which allows me to express my creativity and inspiration through visual art.",
-    "p3": "My goal is to not just complete projects, but to inspire my clients and users alike with each design I create.",
-    "p4": "Graphic Designer, UX/UI Designer",
+    "p1": "I’m a graphic designer and UI/UX specialist creating branding, identity, and digital design that blends aesthetics with strategy. I work with a variety of brands, helping them build a compelling image and strengthen their competitiveness through high-quality design and strategic solutions.",
+    "p4": "UX/UI, Graphic Designer",
     "p5": "Dortmund, Germany"
   }
 }

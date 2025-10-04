@@ -16,6 +16,7 @@
     "join": "Join"
   },
   "cookie-settings": {
+    "btn": "Cookie-Einstellungen",
     "p": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern, Ihre Spracheinstellungen zu speichern und die Nutzung unserer Website mit Google Analytics zu analysieren. Sie können alle Cookies akzeptieren, Ihre Einstellungen verwalten oder nur unbedingt erforderliche Cookies akzeptieren. ",
     "manage-preferences": "Einstellungen verwalten",
     "accept-all": "Alle akzeptieren",
@@ -44,59 +45,57 @@
     },
     "andere-lab": {
       "title": "andere lab",
-      "p": "Es hat seine Wurzeln im Grafikdesign und in der Identität und begann als persönlicher Raum – frei von Vorgaben und Erwartungen –, um Ideen durch die Form zu erkunden. Im Laufe der Zeit entwickelte es sich zu einem methodischen Labor für die Gestaltung visueller Systeme: minimalistisch, strukturiert und leise ausdrucksstark."
+      "p": "Verwurzelt im Grafikdesign und in der Markenidentität begann es als persönlicher Raum – frei von Vorgaben und Erwartungen – um Ideen durch Form zu erkunden. Im Laufe der Zeit entwickelte es sich zu einem methodischen Labor für die Gestaltung visueller Systeme: minimalistisch, strukturiert und dezent ausdrucksstark."
     },
     "photo-gallery": {
       "title": "Virtual Gallery of a Film Photographer",
-      "p": "Ich habe ein neues Erscheinungsbild für die virtuelle Galerie eines Filmfotografen entworfen, um sie mit einem modernen und leicht verständlichen Layout benutzerfreundlicher zu gestalten. Wir haben farbenfrohe Bilder hinzugefügt und es fur die Benutzer einfach angenehmer zu machen, Workouts und andere Fitnessstudio-Dienstleistungen zu finden."
+      "p": "Als wir uns daran machten, diese Website zu erstellen, war das Ziel klar: nicht nur atemberaubende Fotografie zu präsentieren, sondern einen digitalen Raum zu schaffen, der sich anfühlt, als würde man in die Welt des Fotografen eintreten."
     },
     "raum-studio": {
-      "title": "RAUM STUDIO / R.S. / Architectural bureau",
-      "p": "Ich habe ein neues Erscheinungsbild für RAUM STUDIO entworfen, um sie mit einem modernen und leicht verständlichen Layout benutzerfreundlicher zu gestalten. Wir haben farbenfrohe Bilder hinzugefügt und es fur die Benutzer einfach angenehmer zu machen, Workouts und andere Fitnessstudio-Dienstleistungen zu finden."
+      "title": "RAUM STUDIO / R.S. / Architekturbüro",
+      "p": "Für das in Berlin ansässige Architekturbüro RAUM STUDIO haben wir eine neue Premium-Markenidentität entwickelt – eine, die die Werte des Studios direkt vermittelt und seine Zielgruppe anspricht."
     },
     "xtrafit": {
-      "title": "XTRAFIT Gym",
-      "p": "Ich habe einen neuen Look für die Xtrafit Gym-App entworfen, um sie mit einem modernen und leicht verständlichen Layout benutzerfreundlicher zu gestalten. Wir haben farbenfrohe Bilder hinzugefügt und es fur die Benutzer einfach angenehmer zu machen, Workouts und andere Fitnessstudio-Dienstleistungen zu finden."
+      "title": "XTRAFIT Fitnessstudio",
+      "p": "In diesem Projekt habe ich das Redesign der Xtrafit-Mobile-App umgesetzt, die Nutzern dabei hilft, ihre Gesundheit und Fitnessziele zu verbessern. Ziel des Redesigns war es, die Benutzererfahrung und das visuelle Design zu optimieren, um die App intuitiver, benutzerfreundlicher und ästhetisch ansprechender zu gestalten."
     },
     "ace-and-tate": {
       "title": "Ace & Tate",
-      "p": "Mit den neuesten Trends im Design und der Benutzeroberfläche im Blick, verwandelt unser Webdesign die Online-Präsenz von Ace and Tate in eine Inspirationsquelle und einen Ort des Komforts für Besucher."
+      "p": "Die Website von Ace and Tate wurde mit einem frischen Design überarbeitet und benutzerfreundliche Funktionen für Web und Mobile integriert. Der Fokus lag auf Klarheit und einfacher Bedienung, während die Markenidentität erhalten blieb. Die optimierte Benutzeroberfläche verbessert das Browsing-Erlebnis."
     }
   },
   "skills": {
     "title": "Meine Lieblings-Tools",
-    "p": "Hier teile ich Informationen über die Tools, die ich verwende, und gebe einen kurzen Überblick über meine Fähigkeiten, meinen Stil und meinen Ansatz im Bereich Design.",
+    "p": "Hier teile ich die Werkzeuge, die ich benutze, zusammen mit einem kurzen Einblick in meine Fähigkeiten, meinen Stil und meinen Ansatz im Design.",
     "graphic": {
       "title": "Grafikdesign",
-      "p": "Entwicklung skalierbarer, zusammenhängender visueller Elemente, die verschiedene Plattformen und Projekte unterstützen."
+      "p": "Mein Design ist die Stille der Form: reine Strukturen, minimale Farben und der Rhythmus der Typografie – die visuelle Sprache wird so zu einem Werkzeug des Geschichtenerzählens."
     },
     "ux": {
-      "title": "UX Design",
-      "p": "Schaffen von Benutzererlebnissen durch Forschung, Benutzertests und innovative Designlösungen."
+      "title": "UX/UI Design",
+      "p": "Ich gestalte Interfaces wie Räume: minimal in der Form, geleitet von Logik und Bewegung, mit Akzenten, die den Nutzer so selbstverständlich führen wie die Architektur."
     },
     "systems": {
       "title": "Designsysteme",
-      "p": "Erstellen skalierbarer, zusammenhängender Komponenten, die ein konsistentes und effizientes Design ermöglichen."
+      "p": "Für mich ist ein Designsystem mehr als nur eine Sammlung von Komponenten – es ist die Logik und Struktur, die eine kohärente Marke auf allen Ebenen schafft."
     },
     "illustration": {
       "title": "Illustration",
-      "p": "Kreative Illustrationen, die das Geschichtenerzählen verbessern."
+      "p": "Ich erschaffe visuelle Geschichten: minimale Formen, sorgfältig gesetzte Akzente und der Rhythmus der Komposition verwandeln jede Illustration in eine vollständige Erzählung."
     },
     "photography": {
-      "title": "Prototyping",
+      "title": "Fotografie",
       "p": "Erstellen interaktiver Prototypen, um Ideen zu testen, Feedback zu sammeln."
     },
     "typography": {
-      "title": "UI Design",
-      "p": "Entwerfen optisch ansprechender und intuitiver Benutzeroberflächen."
+      "title": "Typografie",
+      "p": "Ich arbeite mit Typografie wie mit der Architektur von Texten: klare Linien und wohlproportierte Formen, die eine visuelle Sprache gestalten."
     }
   },
   "about": {
     "title": "Über mich",
-    "p1": "Hallo! Ich bin Ivan, ein UX/UI-Designer, Grafikdesigner und Illustrator mit umfassender Erfahrung in der Erstellung einzigartiger und effektiver visueller Lösungen. Ich bin darauf spezialisiert, Marken und Produkte hervorzuheben, indem ich benutzerfreundliche Oberflächen entwerfe, die sowohl intuitiv als auch auffällig sind.",
-    "p2": "Ich begann meine Karriere im Grafikdesign und entwarf attraktive Logos und Corporate Identities für verschiedene Unternehmen. Im Laufe der Zeit verlagerte sich mein Schwerpunkt auf UX/UI-Design, wo ich Oberflächen entwerfe, die nicht nur einfach zu verwenden, sondern auch optisch ansprechend sind. Ich illustriere auch leidenschaftlich gern, was es mir ermöglicht, meine Kreativität und Inspiration durch visuelle Kunst auszudrücken.",
-    "p3": "Mein Ziel ist es nicht nur, Projekte abzuschließen, sondern meine Kunden und Benutzer mit jedem Design, das ich erstelle, gleichermaßen zu inspirieren.",
-    "p4": "Grafikdesigner, UX/UI Designer",
+    "p1": "Ich bin Grafikdesigner und UI/UX-Spezialist und erstelle Branding, Markenidentität und digitales Design, das Ästhetik mit Strategie verbindet. Ich arbeite mit verschiedenen Marken zusammen, helfe ihnen, ein überzeugendes Image aufzubauen, und steigere ihre Wettbewerbsfähigkeit durch hochwertiges Design und strategische Lösungen.",
+    "p4": "UX/UI, Grafikdesigner",
     "p5": "Dortmund, Deutschland"
   }
 }

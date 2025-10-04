@@ -176,7 +176,7 @@ const Menu = ({ isOpen, onClose }) => {
                           target='_blank'
                           rel='noreferrer'
                           title={`Ivan's ${name}`}
-                          className='text-[var(--color-gray)] text-link'
+                          className='text-[var(--color-gray)] text-link mt-1'
                         >
                           {name}
                         </a>

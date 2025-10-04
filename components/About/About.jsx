@@ -25,21 +25,19 @@ const About = () => {
           />
         </div>
 
-        {/* Content */}
-        <div className='space-y-4 lg:space-y-[40px] lg:col-span-8 lg:col-start-1 lg:row-start-1'>
-          {/* Title */}
-          <h2 className='text-[16px] font-medium'>
-            {t("about.title")}
-          </h2>
+        {/* Title */}
+        <h2 className='text-[16px] font-medium lg:col-span-3 lg:col-start-1 lg:row-start-1'>
+          {t("about.title")}
+        </h2>
 
-          <div className='text-[var(--color-gray)] space-y-4 lg:space-y-0 lg:grid lg:grid-cols-8'>
+        {/* Content */}
+        <div className='space-y-4 lg:space-y-[40px] lg:col-span-4 lg:col-start-4 lg:row-start-1'>
+
+
+          <div className='text-[var(--color-gray)] space-y-4 lg:flex lg:flex-col'>
 
             {/* Description paragraphs */}
-            <div className='space-y-4 lg:col-span-4 lg:col-start-1'>
-              <p>{t("about.p1")}</p>
-              <p>{t("about.p2")}</p>
-              <p>{t("about.p3")}</p>
-            </div>
+            <p>{t("about.p1")}</p>
 
             <div className='space-y-4 lg:col-span-4 lg:col-start-6 lg:col-span-2'>
               {/* Name and Title */}

@@ -22,8 +22,8 @@ const mediaLinks = [
   { name: 'Behance', href: 'https://www.behance.net/ivaninozemcev' },
   { name: 'Dribbble', href: 'https://dribbble.com/Bluntcath23' },
   { name: 'Linkedin', href: 'https://www.linkedin.com/in/inozemtsevco/' },
-  { name: 'Youtube', href: 'https://www.youtube.com/@anderelab' },
-  { name: 'Threads', href: 'https://www.threads.net/@inozemtsevco' }
+  { name: 'Threads', href: 'https://www.threads.net/@inozemtsevco' },
+  { name: 'Youtube', href: 'https://www.youtube.com/@anderelab' }
 ];
 
 const projects = [

@@ -62,7 +62,7 @@ const Footer = ({ onCookieSettings }) => {
       onClick={onCookieSettings}
       className="text-[var(--color-gray)] text-link w-max"
     >
-      Cookie Settings
+      {t('cookie-settings.btn')}
     </button>
   );
 
