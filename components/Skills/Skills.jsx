@@ -27,7 +27,7 @@ const ToolCard = ({ tool, size = "mobile" }) => {
 // Reusable Skill Component
 const SkillCard = ({ skill, t, layout = "mobile", index = 0, totalSkills = 0 }) => {
   const getDesktopClasses = () => {
-    const isFirstOrLast = index === 0 || index === totalSkills - 1;
+    const isFirstOrLast = index === 0 || index === 1;
     const colSpan = isFirstOrLast ? 'col-span-4' : 'col-span-2';
     const paddingTop = index !== 0 ? 'pt-14' : 'pt-4 justify-center';
     return `${colSpan} ${paddingTop}`;
@@ -99,7 +99,7 @@ const Skills = () => {
             <SkillCard 
               key={skill.name} 
               skill={skill} 
-              t={t} 
+              t={t}
               layout="mobile" 
             />
           ))}
