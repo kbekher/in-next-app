@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Preloader from '@/components/Preloader/Preloader';
 import CookieConsent from '@/components/CookieConsent/CookieConsent';
 import CookieBanner from '@/components/CookieConsent/CookieBanner';
+import { CookieProvider } from '@/context/CookieContext';
 
 const MyApp = ({ Component, pageProps }) => {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -35,7 +36,7 @@ const MyApp = ({ Component, pageProps }) => {
   };
 
   return (
-    <>
+    <CookieProvider>
       <Head>
         {/* Essential Meta Tags */}
         <meta charSet="utf-8" />
@@ -86,7 +87,7 @@ const MyApp = ({ Component, pageProps }) => {
           />
         </>
       )}
-    </>
+    </CookieProvider>
   );
 }
 

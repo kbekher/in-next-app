@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { debounce } from 'lodash';
-import { useCookiePreferences } from '@/hooks/useCookiePreferences';
+import { useCookiePreferences } from '@/context/CookieContext';
 
 const LangToggle = () => {
   const router = useRouter();

@@ -3,7 +3,7 @@ import photoshop from "/images/photoshop.svg";
 import illustrator from "/images/illustrator.svg";
 import procreate from "/images/procreate.svg";
 
-const DOMAIN = 'https://d282ut73jdj7fd.cloudfront.net';
+const DOMAIN = `https://${process.env.NEXT_PUBLIC_CDN_DOMAIN}`;
 
 const navLinks = [
   {

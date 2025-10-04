@@ -3,9 +3,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useCookiePreferences } from '@/context/CookieContext';
 
 const CookieBanner = ({ onManagePreferences, showBanner }) => {
   const { t } = useTranslation('common');
+  const { acceptAll } = useCookiePreferences();
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -36,41 +38,9 @@ const CookieBanner = ({ onManagePreferences, showBanner }) => {
     }
   }, [showBanner]);
 
-  const acceptAll = () => {
-    const allAccepted = {
-      necessary: true,
-      functional: true,
-      analytics: true
-    };
-
-    localStorage.setItem('cookiePreferences', JSON.stringify(allAccepted));
-    localStorage.setItem('cookieConsentGiven', 'true');
-    localStorage.setItem('functionalCookiesEnabled', 'true');
-
-    // Load Google Analytics
-    loadGoogleAnalytics();
-
+  const handleAcceptAll = () => {
+    acceptAll();
     setIsVisible(false);
-  };
-
-  const loadGoogleAnalytics = () => {
-    if (typeof window !== 'undefined' && !window.gtag) {
-      const script1 = document.createElement('script');
-      script1.async = true;
-      script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-8E5C965PHX';
-      script1.id = 'ga-script-1'; // Add ID for easy removal
-      document.head.appendChild(script1);
-
-      const script2 = document.createElement('script');
-      script2.id = 'ga-script-2'; // Add ID for easy removal
-      script2.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-8E5C965PHX');
-      `;
-      document.head.appendChild(script2);
-    }
   };
 
   const handleManagePreferences = () => {
@@ -99,7 +69,7 @@ const CookieBanner = ({ onManagePreferences, showBanner }) => {
               {t('cookie-settings.manage-preferences')}
             </button>
             <button
-              onClick={acceptAll}
+              onClick={handleAcceptAll}
               className="flex-1 md:flex-none px-3 md:px-2 py-2 md:py-1 md:h-max bg-[var(--color-white)] text-[var(--color-black)] hover:bg-gray-200 transition-colors"
             >
               {t('cookie-settings.accept-all')}

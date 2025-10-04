@@ -1,5 +1,8 @@
 const { i18n } = require('./next-i18next.config.js')
 
+// Get CDN domain from environment variables
+const cdnDomain = process.env.NEXT_PUBLIC_CDN_DOMAIN;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   i18n,
@@ -11,7 +14,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'd282ut73jdj7fd.cloudfront.net',
+        hostname: cdnDomain,
         port: '',
         pathname: '/**',
       },

@@ -3,123 +3,52 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useCookiePreferences } from '@/context/CookieContext';
 
 const CookieConsent = ({ isOpen, onClose, onCancel }) => {
   const { t } = useTranslation('common');
+  const { 
+    preferences: savedPreferences, 
+    updatePreferences, 
+    acceptAll,
+  } = useCookiePreferences();
 
-  const [preferences, setPreferences] = useState({
-    necessary: true, // Always required
+  // Local state for the modal (separate from saved preferences)
+  const [localPreferences, setLocalPreferences] = useState({
+    necessary: true,
     functional: false,
     analytics: false
   });
 
-  // Load saved preferences on mount
+  // Sync local preferences with saved ones when modal opens
   useEffect(() => {
-    const savedPreferences = localStorage.getItem('cookiePreferences');
-    if (savedPreferences) {
-      setPreferences(JSON.parse(savedPreferences));
+    if (isOpen) {
+      setLocalPreferences(savedPreferences);
     }
-  }, []);
+  }, [isOpen, savedPreferences]);
 
   const handleToggle = (type) => {
     if (type === 'necessary') return; // Can't disable necessary cookies
 
-    setPreferences(prev => ({
+    setLocalPreferences(prev => ({
       ...prev,
       [type]: !prev[type]
     }));
   };
 
   const savePreferences = () => {
-    // Save to localStorage
-    localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
-    localStorage.setItem('cookieConsentGiven', 'true');
-
-    // Enable language preference storage if functional cookies are enabled
-    if (preferences.functional) {
-      localStorage.setItem('functionalCookiesEnabled', 'true');
-    } else {
-      localStorage.removeItem('functionalCookiesEnabled');
-      localStorage.removeItem('language'); // Remove saved language if functional disabled
-    }
-
-    // Handle Google Analytics based on analytics preference
-    if (preferences.analytics) {
-      loadGoogleAnalytics();
-    } else {
-      // Remove GA scripts and disable tracking when analytics is disabled
-      removeGoogleAnalytics();
-    }
-
+    // Save local preferences to localStorage and handle GA
+    updatePreferences(localPreferences);
     onClose();
   };
 
-  const acceptAll = () => {
-    const allAccepted = {
-      necessary: true,
-      functional: true,
-      analytics: true
-    };
-
-    setPreferences(allAccepted);
-    localStorage.setItem('cookiePreferences', JSON.stringify(allAccepted));
-    localStorage.setItem('cookieConsentGiven', 'true');
-    localStorage.setItem('functionalCookiesEnabled', 'true');
-
-    loadGoogleAnalytics();
+  const handleAcceptAll = () => {
+    acceptAll();
     onClose();
-  };
-
-  const loadGoogleAnalytics = () => {
-    // Add Google Analytics script
-    if (typeof window !== 'undefined' && !window.gtag) {
-      const script1 = document.createElement('script');
-      script1.async = true;
-      script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-8E5C965PHX';
-      script1.id = 'ga-script-1'; // Add ID for easy removal
-      document.head.appendChild(script1);
-
-      const script2 = document.createElement('script');
-      script2.id = 'ga-script-2'; // Add ID for easy removal
-      script2.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-8E5C965PHX');
-      `;
-      document.head.appendChild(script2);
-    }
-  };
-
-  const removeGoogleAnalytics = () => {
-    if (typeof window !== 'undefined') {
-      // Remove GA scripts
-      const script1 = document.getElementById('ga-script-1');
-      const script2 = document.getElementById('ga-script-2');
-      
-      if (script1) {
-        document.head.removeChild(script1);
-      }
-      if (script2) {
-        document.head.removeChild(script2);
-      }
-
-      // Disable GA tracking by setting the disable flag
-      window['ga-disable-G-8E5C965PHX'] = true;
-
-      // Clear dataLayer instead of deleting it
-      if (window.dataLayer) {
-        window.dataLayer.length = 0; // Clear the array
-      }
-
-      // Override gtag function to do nothing instead of deleting it
-      if (window.gtag) {
-        window.gtag = null;
-      }
-    }
   };
 
   if (!isOpen) return null;
+
 
   return (
     <AnimatePresence>
@@ -151,7 +80,7 @@ const CookieConsent = ({ isOpen, onClose, onCancel }) => {
               <div className="relative">
                 <input
                   type="checkbox"
-                  checked={preferences.necessary}
+                  checked={localPreferences.necessary}
                   disabled
                   className="sr-only"
                 />
@@ -170,12 +99,12 @@ const CookieConsent = ({ isOpen, onClose, onCancel }) => {
               <div className="relative">
                 <input
                   type="checkbox"
-                  checked={preferences.functional}
+                  checked={localPreferences.functional}
                   onChange={() => handleToggle('functional')}
                   className="sr-only"
                 />
                 <div
-                  className={`w-10 h-5 rounded-full flex items-center px-1 cursor-pointer transition-colors ${preferences.functional ? 'bg-blue-500 justify-end' : 'bg-gray-600 justify-start'
+                  className={`w-10 h-5 rounded-full flex items-center px-1 cursor-pointer transition-colors ${localPreferences.functional ? 'bg-blue-500 justify-end' : 'bg-gray-600 justify-start'
                     }`}
                   onClick={() => handleToggle('functional')}
                 >
@@ -193,12 +122,12 @@ const CookieConsent = ({ isOpen, onClose, onCancel }) => {
               <div className="relative">
                 <input
                   type="checkbox"
-                  checked={preferences.analytics}
+                  checked={localPreferences.analytics}
                   onChange={() => handleToggle('analytics')}
                   className="sr-only"
                 />
                 <div
-                  className={`w-10 h-5 rounded-full flex items-center px-1 cursor-pointer transition-colors ${preferences.analytics ? 'bg-blue-500 justify-end' : 'bg-gray-600 justify-start'
+                  className={`w-10 h-5 rounded-full flex items-center px-1 cursor-pointer transition-colors ${localPreferences.analytics ? 'bg-blue-500 justify-end' : 'bg-gray-600 justify-start'
                     }`}
                   onClick={() => handleToggle('analytics')}
                 >
@@ -229,7 +158,7 @@ const CookieConsent = ({ isOpen, onClose, onCancel }) => {
                 {t('cookie-settings.cancel')}
               </button>
               <button
-                onClick={acceptAll}
+                onClick={handleAcceptAll}
                 className="flex-1 md:flex-none px-3 md:px-2 py-2 md:py-1 bg-[var(--color-white)] text-[var(--color-black)] hover:bg-gray-200 transition-colors"
               >
                 {t('cookie-settings.accept-all')}
