@@ -29,7 +29,7 @@ const Project = ({ project, index }) => {
                 sizes={assetsUrls.length === 1 ? "100vw" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 60vw"}
                 className='w-full h-auto object-cover'
                 loader={imageLoader}
-                priority={name === 'andere-lab'}
+                priority={index === 0}
               />
             </div>
           ))}

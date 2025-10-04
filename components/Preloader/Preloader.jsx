@@ -45,12 +45,26 @@ const Preloader = ({ onComplete }) => {
 
     // Preload critical images and resources
     const preloadResources = async () => {
+      // Determine optimal image size based on viewport and device pixel ratio
+      const getOptimalImageSize = () => {
+        const width = window.innerWidth;
+        const devicePixelRatio = window.devicePixelRatio || 1;
+        const effectiveWidth = width * devicePixelRatio;
+        
+        // Choose size based on effective width (considering high-DPI displays)
+        if (effectiveWidth <= 640) return '640';
+        if (effectiveWidth <= 828) return '828';
+        if (effectiveWidth <= 1080) return '1080';
+        return '1200';
+      };
+
+      const imageSize = getOptimalImageSize();
+      
       const criticalImages = [
-        `${DOMAIN}/hero.jpg`, // About section hero image
         `${DOMAIN}/preloader.gif`, // Preloader itself
-        // Add project images that are above the fold
-        `${DOMAIN}/projects/andere-lab-1-1200.jpg`,
-        `${DOMAIN}/projects/andere-lab-3-1200.jpg`,
+        // Add project images that are above the fold - only load the size we need
+        `${DOMAIN}/projects/andere-lab-1-${imageSize}.jpg`,
+        `${DOMAIN}/projects/andere-lab-2-${imageSize}.jpg`,
       ];
 
       const allImages = [...criticalImages];
