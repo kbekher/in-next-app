@@ -25,8 +25,13 @@ const MyApp = ({ Component, pageProps }) => {
   };
 
   const handleCancelCookieConsent = () => {
-    setShowCookieConsent(false);  // Hide consent modal
-    setShowCookieBanner(true);    // Show banner again
+    setShowCookieConsent(false);  // Always hide consent modal
+    
+    // Only show banner again if no consent has been given yet
+    const consentGiven = localStorage.getItem('cookieConsentGiven');
+    if (!consentGiven) {
+      setShowCookieBanner(true);    // Show banner again only if no consent exists
+    }
   };
 
   return (

@@ -97,7 +97,7 @@ const Footer = ({ onCookieSettings }) => {
             <LogoAndCopyright />
             <ContactSection className="col-span-3 lg:col-span-2 gap-2" />
             <ContactLinks />
-            <div className="col-span-2 text-end">
+            <div className="col-span-2 col-end-[-1] text-end">
               <CookieSettingsButton onCookieSettings={onCookieSettings} />
             </div>
           </div>
