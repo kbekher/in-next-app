@@ -72,7 +72,7 @@ const CookieConsent = ({ isOpen, onClose, onCancel }) => {
     if (typeof window !== 'undefined' && !window.gtag) {
       const script1 = document.createElement('script');
       script1.async = true;
-      script1.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID'; // Replace with your GA ID
+      script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-8E5C965PHX';
       document.head.appendChild(script1);
 
       const script2 = document.createElement('script');
@@ -80,7 +80,7 @@ const CookieConsent = ({ isOpen, onClose, onCancel }) => {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID'); // Replace with your GA ID
+        gtag('config', 'G-8E5C965PHX');
       `;
       document.head.appendChild(script2);
     }
