@@ -43,8 +43,8 @@ const MyApp = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* SEO Meta Tags */}
-        <title>Ivan Inozemtsev | UX/UI & Graphic Designer - Creating Inspiring Web Solutions</title>
-        <meta name='description' content='UX/UI & Graphic Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences.' />
+        <title>Ivan Inozemtsev | UX/UI & Graphic Designer</title>
+        <meta name='description' content='Crafting visual identities and digital experiences.' />
         <meta name="keywords" content="UX/UI design, Installations, Artworks, Ivan Inozemtsev, graphic design, art, illustration, ukrainian artist, artist, designer, artist and designer, colour, art, german artist, artist, designer, germany"></meta>
         
         {/* Robots Meta Tags - Explicitly allow indexing */}
@@ -52,15 +52,21 @@ const MyApp = ({ Component, pageProps }) => {
         <meta name="googlebot" content="index, follow" />
         
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="Ivan Inozemtsev | UX/UI & Graphic Designer - Creating Inspiring Web Solutions" />
-        <meta property="og:description" content="UX/UI & Graphic Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences." />
+        <meta property="og:title" content="Ivan Inozemtsev | UX/UI & Graphic Designer" />
+        <meta property="og:description" content="Crafting visual identities and digital experiences." />
         <meta property="og:url" content="https://www.inozemtsevco.com/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://d282ut73jdj7fd.cloudfront.net/preview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Ivan Inozemtsev UX/UI & Graphic Designer Portfolio" />
         
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ivan Inozemtsev | UX/UI & Graphic Designer - Creating Inspiring Web Solutions" />
-        <meta name="twitter:description" content="UX/UI & Graphic Designer Ivan Inozemtsev creates web and graphic designs that bring ideas to life, blending creativity with seamless user experiences." />
+        <meta name="twitter:title" content="Ivan Inozemtsev | UX/UI & Graphic Designer" />
+        <meta name="twitter:description" content="Crafting visual identities and digital experiences." />
+        <meta name="twitter:image" content="https://d282ut73jdj7fd.cloudfront.net/preview.png" />
+        <meta name="twitter:image:alt" content="Ivan Inozemtsev UX/UI & Graphic Designer Portfolio" />
         
         {/* Favicons */}
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />

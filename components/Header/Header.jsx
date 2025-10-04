@@ -18,8 +18,8 @@ const Header = ({ onMenuToggle }) => {
 
         {/* Center - Title and Location (cols 4-9) */}
         <div className='md:col-start-8 md:col-span-3 flex flex-col'>
-          <span className='uppercase'>UX/UI, Graphic Designer</span>
-          <span className='uppercase text-[var(--color-gray)]'>Dortmund, Germany</span>
+          <span className='uppercase'>{t("about.p4")}</span>
+          <span className='uppercase text-[var(--color-gray)]'>{t("about.p5")}</span>
         </div>
 
         {/* Right - Language and Menu (cols 10-12) */}

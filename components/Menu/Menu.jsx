@@ -73,8 +73,8 @@ const Menu = ({ isOpen, onClose }) => {
 
                 {/* Center - Title and Location (cols 8-9) */}
                 <div className='md:col-start-8 md:col-span-3 flex flex-col'>
-                  <span className='uppercase text-[var(--color-white)]'>UX/UI, Graphic Designer</span>
-                  <span className='uppercase text-[var(--color-gray)]'>Dortmund, Germany</span>
+                  <span className='uppercase text-[var(--color-white)]'>{t("about.p4")}</span>
+                  <span className='uppercase text-[var(--color-gray)]'>{t("about.p5")}</span>
                 </div>
 
                 {/* Right - Language and Menu (cols 11-12) */}
