@@ -74,7 +74,7 @@ const Footer = ({ onCookieSettings }) => {
         <div className="grid grid-cols-2 gap-8">
           <MenuSection />
           <div className='flex flex-col gap-3'>
-            <ContactSection />
+            <ContactSection mobile />
             <div className='flex flex-col gap-3 text-[var(--color-gray)]'>
               <ContactLinks />
             </div>
