@@ -33,7 +33,7 @@ const SkillCard = ({ skill, t, layout = "mobile", index = 0, totalSkills = 0 }) 
     return `${colSpan} ${paddingTop}`;
   };
 
-  const baseClasses = "bg-[var(--color-gray-tile)] p-4 flex flex-col space-y-2";
+  const baseClasses = "skill-card bg-[var(--color-gray-tile)] p-4 flex flex-col space-y-2";
   const mobileClasses = "px-[68px] py-[40px]";
   const desktopClasses = `${getDesktopClasses()} justify-baseline`;
   

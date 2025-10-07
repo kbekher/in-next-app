@@ -310,3 +310,9 @@ body.menu-open {
     display: none;
   }
 }
+@media screen and (min-width: 2100px) { 
+  .skill-card {
+    justify-content: center;
+    padding: 16px;
+  }
+}
