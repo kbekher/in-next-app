@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect } from 'react';
+import { GA_ID } from '@/constants';
 
 const CookieContext = createContext();
 
@@ -21,7 +22,7 @@ export const CookieProvider = ({ children }) => {
     if (savedPreferences) {
       const parsedPreferences = JSON.parse(savedPreferences);
       setPreferences(parsedPreferences);
-      
+
       // If analytics was previously enabled, load GA automatically on page refresh
       if (parsedPreferences.analytics) {
         // Add a small delay to ensure DOM is ready
@@ -38,13 +39,6 @@ export const CookieProvider = ({ children }) => {
 
   const loadGoogleAnalytics = () => {
     if (typeof window !== 'undefined' && !window.gtag) {
-      const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-
-      if (!GA_ID) {
-        console.warn('Google Analytics ID not configured. Set NEXT_PUBLIC_GA_ID in your environment variables.');
-        return;
-      }
-
       // Check if scripts already exist to avoid duplicates
       if (document.getElementById('ga-script-1') || document.getElementById('ga-script-2')) {
         return;
@@ -87,10 +81,7 @@ export const CookieProvider = ({ children }) => {
       }
 
       // Disable GA tracking by setting the disable flag
-      const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-      if (GA_ID) {
-        window[`ga-disable-${GA_ID}`] = true;
-      }
+      window[`ga-disable-${GA_ID}`] = true;
 
       // Clear dataLayer instead of deleting it
       if (window.dataLayer) {

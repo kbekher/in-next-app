@@ -4,6 +4,7 @@ import illustrator from "/images/illustrator.svg";
 import procreate from "/images/procreate.svg";
 
 const DOMAIN = 'https://d282ut73jdj7fd.cloudfront.net';
+const GA_ID = 'G-8RK07K6J66';
 
 const navLinks = [
   {
@@ -84,4 +85,4 @@ const skillsAndTools = [
   { name: "typography" },
 ];
 
-export { DOMAIN, navLinks, mediaLinks, projects, logos, skillsAndTools };
+export { DOMAIN, GA_ID, navLinks, mediaLinks, projects, logos, skillsAndTools };
