@@ -1,16 +1,43 @@
 import { appWithTranslation } from 'next-i18next';
 import Head from 'next/head';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Preloader from '@/components/Preloader/Preloader';
 import CookieConsent from '@/components/CookieConsent/CookieConsent';
 import CookieBanner from '@/components/CookieConsent/CookieBanner';
 import { CookieProvider } from '@/context/CookieContext';
 
 const MyApp = ({ Component, pageProps }) => {
+  const router = useRouter();
   const [showPreloader, setShowPreloader] = useState(true);
   const [showCookieConsent, setShowCookieConsent] = useState(false);
   const [showCookieBanner, setShowCookieBanner] = useState(null);
+
+  // Initialize language preference from localStorage on app load
+  useEffect(() => {
+    const initializeLanguage = () => {
+      if (typeof window !== 'undefined') {
+        const savedLanguage = localStorage.getItem('language');
+        const functionalCookiesEnabled = localStorage.getItem('functionalCookiesEnabled');
+        
+        // Only redirect if functional cookies are enabled and we have a saved language
+        if (functionalCookiesEnabled === 'true' && savedLanguage && router.locale !== savedLanguage) {
+          const { pathname, asPath, query } = router;
+          const hashIndex = asPath.indexOf('#');
+          const basePath = hashIndex !== -1 ? asPath.substring(0, hashIndex) : asPath;
+          const newUrl = `/${savedLanguage}${basePath.replace(`/${router.locale}`, '')}`;
+          
+          router.push({ pathname, query }, newUrl, { locale: savedLanguage });
+        }
+      }
+    };
+
+    // Only initialize language after router is ready
+    if (router.isReady) {
+      initializeLanguage();
+    }
+  }, [router.isReady]);
 
   const handlePreloaderComplete = () => {
     setShowPreloader(false);

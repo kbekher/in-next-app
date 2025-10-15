@@ -24,7 +24,10 @@ export const CookieProvider = ({ children }) => {
       
       // If analytics was previously enabled, load GA automatically on page refresh
       if (parsedPreferences.analytics) {
-        loadGoogleAnalytics();
+        // Add a small delay to ensure DOM is ready
+        setTimeout(() => {
+          loadGoogleAnalytics();
+        }, 100);
       }
     }
 
@@ -42,19 +45,29 @@ export const CookieProvider = ({ children }) => {
         return;
       }
 
+      // Check if scripts already exist to avoid duplicates
+      if (document.getElementById('ga-script-1') || document.getElementById('ga-script-2')) {
+        return;
+      }
+
       const script1 = document.createElement('script');
       script1.async = true;
       script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-      script1.id = 'ga-script-1'; // Add ID for easy removal
+      script1.id = 'ga-script-1';
+      script1.onload = () => {
+        // Ensure gtag is available before configuring
+        if (window.gtag) {
+          window.gtag('js', new Date());
+          window.gtag('config', GA_ID);
+        }
+      };
       document.head.appendChild(script1);
 
       const script2 = document.createElement('script');
-      script2.id = 'ga-script-2'; // Add ID for easy removal
+      script2.id = 'ga-script-2';
       script2.innerHTML = `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${GA_ID}');
       `;
       document.head.appendChild(script2);
     }
