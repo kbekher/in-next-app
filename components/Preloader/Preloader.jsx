@@ -170,11 +170,6 @@ const Preloader = ({ onComplete }) => {
                   transition={{ type: "tween", ease: "easeOut", duration: 0.3 }}
                 />
               </div>
-              
-              {/* Progress percentage */}
-              <p className="text-gray-400 text-xs mt-2">
-                {Math.round(loadingProgress)}%
-              </p>
             </div>
           </motion.div>
         </motion.div>
