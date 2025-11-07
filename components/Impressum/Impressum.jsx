@@ -12,7 +12,7 @@ const Impressum = ({ isOpen, onClose }) => {
       <br />
       Am Ludwigsbau 8
       <br />
-      85942 Unna, Deutschland
+      59425 Unna, Deutschland
       <br />
       <br />
       <a href="mailto:inozemtsevco@gmail.com">Email:inozemtsevco@gmail.com</a>
