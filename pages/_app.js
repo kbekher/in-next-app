@@ -6,6 +6,8 @@ import { useRouter } from 'next/router';
 import Preloader from '@/components/Preloader/Preloader';
 import CookieConsent from '@/components/CookieConsent/CookieConsent';
 import CookieBanner from '@/components/CookieConsent/CookieBanner';
+import Impressum from '@/components/Impressum/Impressum';
+import Datenschutzerklaerung from '@/components/Datenschutzerklaerung/Datenschutzerklaerung';
 import { CookieProvider } from '@/context/CookieContext';
 
 const MyApp = ({ Component, pageProps }) => {
@@ -13,6 +15,8 @@ const MyApp = ({ Component, pageProps }) => {
   const [showPreloader, setShowPreloader] = useState(true);
   const [showCookieConsent, setShowCookieConsent] = useState(false);
   const [showCookieBanner, setShowCookieBanner] = useState(null);
+  const [showImpressum, setShowImpressum] = useState(false);
+  const [showDatenschutzerklaerung, setShowDatenschutzerklaerung] = useState(false);
 
   // Initialize language preference from localStorage on app load
   useEffect(() => {
@@ -60,6 +64,22 @@ const MyApp = ({ Component, pageProps }) => {
     if (!consentGiven) {
       setShowCookieBanner(true);    // Show banner again only if no consent exists
     }
+  };
+
+  const handleOpenImpressum = () => {
+    setShowImpressum(true);
+  };
+
+  const handleCloseImpressum = () => {
+    setShowImpressum(false);
+  };
+
+  const handleOpenDatenschutzerklaerung = () => {
+    setShowDatenschutzerklaerung(true);
+  };
+
+  const handleCloseDatenschutzerklaerung = () => {
+    setShowDatenschutzerklaerung(false);
   };
 
   return (
@@ -111,7 +131,12 @@ const MyApp = ({ Component, pageProps }) => {
       
       {!showPreloader && (
         <>
-          <Component {...pageProps} onCookieSettings={handleManagePreferences} />
+          <Component 
+            {...pageProps} 
+            onCookieSettings={handleManagePreferences}
+            onImpressum={handleOpenImpressum}
+            onDatenschutzerklaerung={handleOpenDatenschutzerklaerung}
+          />
           <CookieBanner 
             onManagePreferences={handleManagePreferences}
             showBanner={showCookieBanner}
@@ -120,6 +145,14 @@ const MyApp = ({ Component, pageProps }) => {
             isOpen={showCookieConsent} 
             onClose={handleCloseCookieConsent}
             onCancel={handleCancelCookieConsent}
+          />
+          <Impressum 
+            isOpen={showImpressum}
+            onClose={handleCloseImpressum}
+          />
+          <Datenschutzerklaerung 
+            isOpen={showDatenschutzerklaerung}
+            onClose={handleCloseDatenschutzerklaerung}
           />
         </>
       )}

@@ -16,7 +16,7 @@ import NavbarMobile from '@/components/Navbar/NavbarMobile';
 import Projects from '@/components/Projects/Projects';
 import ProjectCursor from '@/components/ProjectCursor/ProjectCursor';
 
-const Homepage = ({ onCookieSettings }) => {
+const Homepage = ({ onCookieSettings, onImpressum, onDatenschutzerklaerung }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -51,7 +51,11 @@ const Homepage = ({ onCookieSettings }) => {
           </motion.div>
         </main>
 
-        <Footer onCookieSettings={onCookieSettings} />
+        <Footer 
+          onCookieSettings={onCookieSettings}
+          onImpressum={onImpressum}
+          onDatenschutzerklaerung={onDatenschutzerklaerung}
+        />
       </div>
       
       {/* Menu rendered outside main content for proper positioning */}
