@@ -70,7 +70,7 @@ const projects = [
   }
 ]
 
-const logos = ["db", "another", "kb", "douglas", "andere-lab", "henning-co", "mate-academy", "projector", "raum", "allclinical"];
+const logos = ["another", "kb", "douglas", "andere-lab", "henning-co", "mate-academy", "projector", "raum", "allclinical"];
 
 const skillsAndTools = [
   { name: "Figma", icon: figma },
